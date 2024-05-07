@@ -1,0 +1,77 @@
+{
+  "GUID": "f4ccdd",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": 45.7502823,
+    "posY": 1.53688288,
+    "posZ": -9.750023,
+    "rotX": 0.0168768223,
+    "rotY": 179.996643,
+    "rotZ": 180.07988,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Conquest Mission Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    4900,
+    4901,
+    4902,
+    4903,
+    4904,
+    4905,
+    4906,
+    4907,
+    4908,
+    4909,
+    4910,
+    4911,
+    4912,
+    4913,
+    4914,
+    4915,
+    4916,
+    4917,
+    4918,
+    4919,
+    4920
+  ],
+  "CustomDeck": {
+    "49": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361506353/CB59E63A2D4364F87FB2570E1E1F8496EC7760AB/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767149053/A451C30FEFEA0996AA34E7D7704E4CDA1C37B2A8/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}
