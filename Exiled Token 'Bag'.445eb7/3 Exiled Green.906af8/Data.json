@@ -1,0 +1,67 @@
+{
+  "GUID": "906af8",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": 39.0,
+    "posY": 1.71407008,
+    "posZ": -18.0,
+    "rotX": 0.0168736484,
+    "rotY": 179.998276,
+    "rotZ": 0.07987646,
+    "scaleX": 0.89,
+    "scaleY": 1.0,
+    "scaleZ": 0.89
+  },
+  "Nickname": "3 Exiled Green",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767107964/DED49A5ADE1DF528A02DE81E7726FE282AE679B1/",
+    "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767108215/B1AE5FBE00D4ABD0323776DB002ABA87A398874D/",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": true,
+      "Stretch": true
+    }
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.15,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

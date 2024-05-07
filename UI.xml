@@ -1,0 +1,74 @@
+<Defaults>
+</Defaults>
+
+<Panel 
+    id="setupWindow"
+    color="#FFFFFFCC"
+    width="600"
+    height="600">
+
+    <Image 
+        image="The_Warp_Boxart"
+        preserveAspect="true"/>
+
+    <VerticalLayout
+        childForceExpandWidth="false"
+        childForceExpandHeight="false"
+        childAlignment="MiddleLeft"
+        width="550"
+        spacing="10">
+
+        <Text
+            alignment="MiddleLeft"
+            fontStyle="Bold"
+            preferredWidth="300"
+            preferredHeight="50"
+            color="#FFFFFF"
+            shadow="#262626"
+            fontSize="30">Pre-game Setup</Text>
+
+        <Dropdown
+            id="playerCountSelection"
+            onValueChanged="PlayerCountSelected"
+            preferredWidth="100"
+            preferredHeight="40">
+            <Option>2 players</Option>
+            <Option>3 players</Option>
+            <Option selected="true">4 players</Option>
+            <Option>5 players</Option>
+            <Option>6 players</Option>
+        </Dropdown>
+
+        <Toggle
+            id="alternativeMapToggle"
+            textShadow="#262626"
+            onValueChanged="AlternativeMapToggled"
+            textColor="#FFFFFF">Alternative map setup (side B)</Toggle>
+        <Toggle
+            id="advancedPioneeringToggle"
+            textShadow="#262626"
+            onValueChanged="AdvancedPioneeringToggled"
+            textColor="#FFFFFF">Advanced pioneering cards</Toggle>            
+        <Toggle
+            id="expansionRacesToggle"
+            textShadow="#262626"    
+            onValueChanged="ExpansionRacesToggled"
+            textColor="#FFFFFF">Alien Pack expansion races</Toggle>
+
+        <Button 
+            id="startButton"
+            preferredWidth="100"
+            preferredHeight="40"
+            onClick="StartClicked">Start game</Button>
+     </VerticalLayout> 
+
+     <Panel
+        width="200"
+        height="20"
+        rectAlignment="LowerCenter">
+        <Text 
+            color="#FFFFFF"
+            shadow="#262626">Mod created by: Freich</Text>
+     </Panel>
+ </Panel>
+

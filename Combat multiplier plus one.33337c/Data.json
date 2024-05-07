@@ -1,0 +1,54 @@
+{
+  "GUID": "33337c",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": -53.25006,
+    "posY": 1.55419981,
+    "posZ": -5.24999952,
+    "rotX": 0.0168829318,
+    "rotY": 179.989822,
+    "rotZ": 0.0798750147,
+    "scaleX": 0.93,
+    "scaleY": 1.0,
+    "scaleZ": 0.93
+  },
+  "Nickname": "Combat multiplier plus one",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362061192/543956805DC473C0CB27A9D277B17F3CDCAAF7BB/",
+    "ImageSecondaryURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362059554/6D2E1AF555342DD8F43B4FCF4DC7B16097C8846B/",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": true,
+      "Stretch": true
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "GUID": "e98136",
+  "Name": "Custom_Model_Bag",
+  "Transform": {
+    "posX": 39.00005,
+    "posY": 1.42457509,
+    "posZ": -4.49999762,
+    "rotX": 359.983124,
+    "rotY": -0.000409992965,
+    "rotZ": 359.920135,
+    "scaleX": 1.3,
+    "scaleY": 1.3,
+    "scaleZ": 1.3
+  },
+  "Nickname": "Ability Token 'Bag'",
+  "Description": "10 unique abilities",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "MaterialIndex": -1,
+  "MeshIndex": -1,
+  "CustomMesh": {
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2500136812466739348/F895D136E9E0AF664E3B88E25FBEE49F6E8A5DBC/",
+    "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/2500136812466767863/9227D2193A9F28666C764C4ADDF54FB45D5E209B/",
+    "NormalURL": "",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 3,
+    "TypeIndex": 6,
+    "CustomShader": {
+      "SpecularColor": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "SpecularIntensity": 0.0,
+      "SpecularSharpness": 2.0,
+      "FresnelStrength": 0.0
+    },
+    "CastShadows": true
+  },
+  "Bag": {
+    "Order": 0
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

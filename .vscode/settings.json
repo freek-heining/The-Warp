@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "startClick",
+        "onload",
+        "log"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-global"
+    ]
+}

@@ -1,0 +1,62 @@
+{
+  "GUID": "4b6ff9",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": 45.75043,
+    "posY": 1.462022,
+    "posZ": -18.7505684,
+    "rotX": 0.0169061683,
+    "rotY": 179.9762,
+    "rotZ": 180.079865,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Pioneering Mission Optional Deck",
+  "Description": "For advanced setup",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    5200,
+    5201,
+    5202,
+    5203,
+    5204,
+    5205
+  ],
+  "CustomDeck": {
+    "52": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361397164/14D70E085735DC74C0F570F0A6B4171CF9AC450F/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361293680/FB3F011BE51BFC943D2B4127DD40CFA42693C5E4/",
+      "NumWidth": 3,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

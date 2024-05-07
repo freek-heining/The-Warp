@@ -1,0 +1,77 @@
+{
+  "GUID": "500df9",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 13.4999685,
+    "posY": 1.56200182,
+    "posZ": 6.000007,
+    "rotX": 0.0168710146,
+    "rotY": 179.999985,
+    "rotZ": 0.07987413,
+    "scaleX": 2.3,
+    "scaleY": 1.0,
+    "scaleZ": 2.3
+  },
+  "Nickname": "Connect Zone (A side)",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508015499664032185/48F2EACC42BC419A5549D21552E822C14B5B39BD/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.195091709,
+      "MergeDistancePixels": 5.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": -0.00749622146,
+        "y": 0.09854476,
+        "z": -1.92140615
+      }
+    },
+    {
+      "Position": {
+        "x": -0.500101,
+        "y": 0.0977691337,
+        "z": -1.228251
+      }
+    },
+    {
+      "Position": {
+        "x": -0.002598623,
+        "y": 0.0979487,
+        "z": 0.563161135
+      }
+    }
+  ]
+}

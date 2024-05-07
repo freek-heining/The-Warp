@@ -1,0 +1,77 @@
+{
+  "GUID": "935e48",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": 45.7505,
+    "posY": 1.53953278,
+    "posZ": -0.7500933,
+    "rotX": 0.0168604963,
+    "rotY": 180.011078,
+    "rotZ": 180.07988,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Progress Mission Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    4800,
+    4801,
+    4802,
+    4803,
+    4804,
+    4805,
+    4806,
+    4807,
+    4808,
+    4809,
+    4810,
+    4811,
+    4812,
+    4813,
+    4814,
+    4815,
+    4816,
+    4817,
+    4818,
+    4819,
+    4820
+  ],
+  "CustomDeck": {
+    "48": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361508213/4BB2C8353AB06F457569C4F6BDCA854A08D2F85C/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361226563/8D3F3B5CAE1A31D194AE2EC8AA1B4BEF1C0DD93C/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

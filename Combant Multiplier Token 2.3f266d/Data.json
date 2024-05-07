@@ -1,0 +1,54 @@
+{
+  "GUID": "3f266d",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": 17.0799046,
+    "posY": 1.44905758,
+    "posZ": -29.3423786,
+    "rotX": 0.0168657042,
+    "rotY": 180.000717,
+    "rotZ": 0.07987862,
+    "scaleX": 1.0,
+    "scaleY": 1.0,
+    "scaleZ": 1.0
+  },
+  "Nickname": "Combant Multiplier Token 2",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767102951/E716BBBD509FB1050ADF2270C4DD1200FE676EE4/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 2,
+      "Thickness": 0.1,
+      "Stackable": true,
+      "Stretch": true
+    }
+  }
+}

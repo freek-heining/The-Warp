@@ -1,0 +1,54 @@
+{
+  "GUID": "bd3843",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": 36.38854,
+    "posY": 1.42084169,
+    "posZ": -33.7500572,
+    "rotX": 0.0168780554,
+    "rotY": 179.995117,
+    "rotZ": 0.07987477,
+    "scaleX": 3.5,
+    "scaleY": 1.0,
+    "scaleZ": 3.5
+  },
+  "Nickname": "Player Screen (black)",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/5848561406503914576/955D4D692FAE625BAC3A9F634DAF8EEF9132D4A2/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": false,
+      "Stretch": true
+    }
+  }
+}

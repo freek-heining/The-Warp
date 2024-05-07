@@ -1,0 +1,77 @@
+{
+  "GUID": "5771e2",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": 45.750412,
+    "posY": 1.53820777,
+    "posZ": -5.2500124,
+    "rotX": 0.0168875754,
+    "rotY": 179.9901,
+    "rotZ": 180.079865,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Prosperity Mission Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    4700,
+    4701,
+    4702,
+    4703,
+    4704,
+    4705,
+    4706,
+    4707,
+    4708,
+    4709,
+    4710,
+    4711,
+    4712,
+    4713,
+    4714,
+    4715,
+    4716,
+    4717,
+    4718,
+    4719,
+    4720
+  ],
+  "CustomDeck": {
+    "47": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361512147/71509EB7923887BCAA86D54A92A75E1BB820F2E4/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361511728/3286C7E070A13B5120EF110BE5F57AE63D9EA416/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "GUID": "bf0ee3",
+  "Name": "Custom_Model",
+  "Transform": {
+    "posX": -1.8509928,
+    "posY": 3.64253688,
+    "posZ": -22.851469,
+    "rotX": 0.000139861964,
+    "rotY": 0.000481530064,
+    "rotZ": 3.16735823E-05,
+    "scaleX": 1.3,
+    "scaleY": 1.3,
+    "scaleZ": 1.3
+  },
+  "Nickname": "Energy Cube",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.0,
+    "g": 0.2705877,
+    "b": 1.0,
+    "a": 0.9822691
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomMesh": {
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
+    "DiffuseURL": "",
+    "NormalURL": "",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 0,
+    "TypeIndex": 0,
+    "CastShadows": true
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 2.0,
+    "Drag": 3.0,
+    "AngularDrag": 3.0,
+    "UseGravity": true
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "GUID": "a788a6",
+  "Name": "CardCustom",
+  "Transform": {
+    "posX": 57.7511749,
+    "posY": 1.40731466,
+    "posZ": -24.75032,
+    "rotX": 0.0168613158,
+    "rotY": 180.007172,
+    "rotZ": 0.07987845,
+    "scaleX": 1.61,
+    "scaleY": 1.0,
+    "scaleZ": 1.61
+  },
+  "Nickname": "Endgame Card",
+  "Description": "Double Sided: use the back for 5/6 players",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 5700,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "57": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2500136812469147835/1AC6956C50C8EEFEB23CC6F43B050BFCB65D53CE/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2500136812469148296/BFBF352239EA759CBDEE0E3B84D198DCD4E417F7/",
+      "NumWidth": 1,
+      "NumHeight": 1,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.6646646,
+        "y": 0.211795539,
+        "z": 0.8167762
+      },
+      "Rotation": {
+        "x": 0.00660055038,
+        "y": 179.915024,
+        "z": 0.08488113
+      }
+    },
+    {
+      "Position": {
+        "x": -0.007527718,
+        "y": 0.207037762,
+        "z": 0.839774966
+      },
+      "Rotation": {
+        "x": -1.78377431E-05,
+        "y": 179.9797,
+        "z": -0.00016182031
+      }
+    },
+    {
+      "Position": {
+        "x": -0.6870594,
+        "y": 0.212977052,
+        "z": 0.8392728
+      },
+      "Rotation": {
+        "x": -7.251794E-05,
+        "y": 179.979736,
+        "z": -0.000161817341
+      }
+    },
+    {
+      "Position": {
+        "x": -0.5345775,
+        "y": -0.205946386,
+        "z": 0.82755816
+      },
+      "Rotation": {
+        "x": 8.950415E-05,
+        "y": 180.016556,
+        "z": 179.999725
+      }
+    },
+    {
+      "Position": {
+        "x": 0.530627966,
+        "y": -0.2122807,
+        "z": 0.8391848
+      },
+      "Rotation": {
+        "x": 8.95423946E-05,
+        "y": 180.016541,
+        "z": 179.999832
+      }
+    }
+  ]
+}
