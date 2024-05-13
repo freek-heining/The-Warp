@@ -2,15 +2,15 @@
   "GUID": "a76613",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 39.7500153,
-    "posY": 1.74550748,
-    "posZ": 0.750028551,
-    "rotX": 0.00578784058,
-    "rotY": 180.007553,
-    "rotZ": 0.09004098,
-    "scaleX": 0.93,
+    "posX": -46.5,
+    "posY": 1.8362515,
+    "posZ": 6.0,
+    "rotX": 0.07988152,
+    "rotY": 90.002655,
+    "rotZ": 359.983124,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Die values +1",
   "Description": "",

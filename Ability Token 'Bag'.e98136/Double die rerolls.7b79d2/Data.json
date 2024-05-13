@@ -2,15 +2,15 @@
   "GUID": "7b79d2",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 37.5,
-    "posY": 1.7244271,
-    "posZ": -5.99998474,
-    "rotX": 0.378330439,
-    "rotY": 179.996033,
-    "rotZ": 359.7176,
-    "scaleX": 0.93,
+    "posX": -47.2500267,
+    "posY": 1.84812379,
+    "posZ": -2.25000167,
+    "rotX": 0.08060956,
+    "rotY": 90.01026,
+    "rotZ": 359.983,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Double die rerolls",
   "Description": "",

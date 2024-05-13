@@ -2,15 +2,15 @@
   "GUID": "d4e022",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 36.75,
-    "posY": 1.73283243,
-    "posZ": -8.25,
-    "rotX": 0.0168694984,
-    "rotY": 179.999634,
-    "rotZ": 0.07987703,
-    "scaleX": 0.93,
+    "posX": -47.250042,
+    "posY": 1.84764862,
+    "posZ": -2.24999619,
+    "rotX": 0.07997928,
+    "rotY": 90.00021,
+    "rotZ": 359.983032,
+    "scaleX": 0.952965,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.952965
   },
   "Nickname": "Die reroll",
   "Description": "",

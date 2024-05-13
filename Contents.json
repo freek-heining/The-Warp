@@ -1,15 +1,15 @@
 [
   {
-    "path": "./HandTrigger.832b57"
+    "path": "./Green hand zone.832b57"
   },
   {
-    "path": "./HandTrigger.3feb12"
+    "path": "./Red hand zone.3feb12"
   },
   {
-    "path": "./HandTrigger.7261c8"
+    "path": "./Orange hand zone.7261c8"
   },
   {
-    "path": "./HandTrigger.07898a"
+    "path": "./Blue hand zone.07898a"
   },
   {
     "path": "./Custom_Assetbundle.afc863"
@@ -81,31 +81,13 @@
     "path": "./Worm Hole Token.9aecf3"
   },
   {
-    "path": "./3 MP.4e1084"
+    "path": "./Purple hand zone.783920"
   },
   {
-    "path": "./5 MP.4ffc70"
-  },
-  {
-    "path": "./1 MP.b76446"
-  },
-  {
-    "path": "./HandTrigger.783920"
-  },
-  {
-    "path": "./HandTrigger.cc2c47"
-  },
-  {
-    "path": "./Marker  Cube.a7a3d2"
-  },
-  {
-    "path": "./Gold Token.755962"
+    "path": "./Black-brown hand zone.cc2c47"
   },
   {
     "path": "./Gold Token Spawner.1c662d"
-  },
-  {
-    "path": "./Player Screen (purple).6e090d"
   },
   {
     "path": "./Marker  Cube.3ea160"
@@ -135,19 +117,7 @@
     "path": "./Marker  Cube.56c145"
   },
   {
-    "path": "./Player Screen (green).f64a61"
-  },
-  {
-    "path": "./Player Screen (red).bc27f8"
-  },
-  {
     "path": "./Player Screen (black).bd3843"
-  },
-  {
-    "path": "./Player Screen (blue).0d0efb"
-  },
-  {
-    "path": "./Player Screen (orange).ec5807"
   },
   {
     "path": "./Player Board (orange).a14be3"
@@ -178,9 +148,6 @@
   },
   {
     "path": "./Laser Cannon.c43e4c"
-  },
-  {
-    "path": "./Energy Cube.bf0ee3"
   },
   {
     "path": "./Mine.ef68cb"
@@ -259,12 +226,6 @@
   },
   {
     "path": "./Connect Zone (A side).500df9"
-  },
-  {
-    "path": "./Central Zone (A side).9b6946"
-  },
-  {
-    "path": "./Player Zone (A side).dea9dd"
   },
   {
     "path": "./Supply Board (red).f7dc7d"
@@ -1026,22 +987,142 @@
     "path": "./Exiled Modifier +1 - -1 Spawner.a11309"
   },
   {
-    "path": "./Multiplier Token 1 - 2.46d7bc"
+    "path": "./Endgame Card.a788a6"
   },
   {
-    "path": "./Multiplier Token 1 - 2.4019de"
+    "path": "./Marker Cube Spawner.c06eb3"
   },
   {
-    "path": "./Multiplier Token 3 - 4.775241"
+    "path": "./Energy Cube Spawner.1761d6"
   },
   {
-    "path": "./Multiplier Token 3 - 4.37c285"
+    "path": "./Alien race placement zone.3d9c76"
   },
   {
-    "path": "./Exiled Modifier +1 - -1.cf78de"
+    "path": "./Alien race placement zone.656ba9"
   },
   {
-    "path": "./Exiled Modifier +1 - -1.3a5542"
+    "path": "./Alien race placement zone.7dfdb7"
+  },
+  {
+    "path": "./Alien race placement zone.41881e"
+  },
+  {
+    "path": "./Alien race placement zone.c207c2"
+  },
+  {
+    "path": "./Alien race placement zone.ea4eae"
+  },
+  {
+    "path": "./Alien race placement zone.57d762"
+  },
+  {
+    "path": "./Alien race placement zone.e1e3cd"
+  },
+  {
+    "path": "./Alien race placement zone.4c4584"
+  },
+  {
+    "path": "./Alien race placement zone.c20bac"
+  },
+  {
+    "path": "./Alien race placement zone.ac7bde"
+  },
+  {
+    "path": "./Alien race placement zone.395d2b"
+  },
+  {
+    "path": "./Custom_Token.70bc1a"
+  },
+  {
+    "path": "./Custom_Token.b19cd4"
+  },
+  {
+    "path": "./Archive start deck.ac5ebb"
+  },
+  {
+    "path": "./Player Screen (black).f5d81b"
+  },
+  {
+    "path": "./Mission placement zone.743ef0"
+  },
+  {
+    "path": "./Mission placement zone.529334"
+  },
+  {
+    "path": "./Mission placement zone.a01105"
+  },
+  {
+    "path": "./Mission placement zone.2a3ed7"
+  },
+  {
+    "path": "./Mission placement zone.770d1f"
+  },
+  {
+    "path": "./Mission placement zone.ee3bd8"
+  },
+  {
+    "path": "./Mission placement zone.1decb4"
+  },
+  {
+    "path": "./Mission placement zone.0dc042"
+  },
+  {
+    "path": "./Mission placement zone.f04256"
+  },
+  {
+    "path": "./Mission placement zone.83ab9a"
+  },
+  {
+    "path": "./Mission placement zone.d6524d"
+  },
+  {
+    "path": "./Archive placement zone.cbd643"
+  },
+  {
+    "path": "./Archive placement zone.5fc440"
+  },
+  {
+    "path": "./Archive placement zone.6aa2c1"
+  },
+  {
+    "path": "./Archive placement zone.b2570f"
+  },
+  {
+    "path": "./Archive placement zone.e4369c"
+  },
+  {
+    "path": "./Gold Token Spawner.0b18bb"
+  },
+  {
+    "path": "./Energy Cube Spawner.98a3fe"
+  },
+  {
+    "path": "./Marker Cube Spawner.fbedb2"
+  },
+  {
+    "path": "./Multiplier Token 1 - 2 Spawner.e26038"
+  },
+  {
+    "path": "./Multiplier Token 3 - 4 Spawner.3a9384"
+  },
+  {
+    "path": "./Exiled Modifier +1 - -1 Spawner.0eccb5"
+  },
+  {
+    "path": "./Player Zone (A side).dea9dd"
+  },
+  {
+    "path": "./Central Zone (A side).9b6946"
+  },
+  {
+    "path": "./3 MP.054747"
+  },
+  {
+    "path": "./1 MP.84848d"
+  },
+  {
+    "path": "./5 MP.1e6e02"
   },
   {
     "path": "./Exiled Token 'Bag'.445eb7"
@@ -1050,12 +1131,27 @@
     "path": "./Ability Token 'Bag'.e98136"
   },
   {
-    "path": "./Endgame Card.a788a6"
+    "path": "./Point counter.e52211"
   },
   {
-    "path": "./Marker Cube Spawner.c06eb3"
+    "path": "./Point counter.8ab395"
   },
   {
-    "path": "./Energy Cube Spawner.1761d6"
+    "path": "./Point counter.3c616b"
+  },
+  {
+    "path": "./Point counter.36ab66"
+  },
+  {
+    "path": "./Point counter.798559"
+  },
+  {
+    "path": "./Point counter.0c7920"
+  },
+  {
+    "path": "./Alien Race draft counterclockwise.9c0322"
+  },
+  {
+    "path": "./Alien Race draft clockwise.6c556f"
   }
 ]

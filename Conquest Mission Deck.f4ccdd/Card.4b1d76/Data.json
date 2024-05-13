@@ -2,15 +2,15 @@
   "GUID": "4b1d76",
   "Name": "Card",
   "Transform": {
-    "posX": 17.7338772,
-    "posY": 1.569399,
-    "posZ": -31.9665661,
-    "rotX": 0.016871145,
-    "rotY": 180.001968,
-    "rotZ": 180.07988,
-    "scaleX": 1.0,
+    "posX": 50.8708649,
+    "posY": 1.54388142,
+    "posZ": -5.85625839,
+    "rotX": 359.913727,
+    "rotY": 269.996552,
+    "rotZ": 0.0374630056,
+    "scaleX": 1.15,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.15
   },
   "Nickname": "",
   "Description": "",
@@ -37,7 +37,19 @@
   "Sticky": true,
   "Tooltip": true,
   "GridProjection": false,
+  "HideWhenFaceDown": true,
   "Hands": true,
   "CardID": 4905,
-  "SidewaysCard": false
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "49": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361506353/CB59E63A2D4364F87FB2570E1E1F8496EC7760AB/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767149053/A451C30FEFEA0996AA34E7D7704E4CDA1C37B2A8/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
 }

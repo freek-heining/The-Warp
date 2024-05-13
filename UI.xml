@@ -57,6 +57,7 @@
 
         <Button 
             id="startButton"
+            tooltip="Only the host can start the game. Wait until every player joined the game before starting!"
             preferredWidth="100"
             preferredHeight="40"
             onClick="StartClicked">Start game</Button>

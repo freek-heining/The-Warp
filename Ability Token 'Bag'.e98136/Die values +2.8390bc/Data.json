@@ -2,15 +2,15 @@
   "GUID": "8390bc",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 36.75,
-    "posY": 1.73062384,
-    "posZ": -15.75,
-    "rotX": 0.01687177,
-    "rotY": 179.997955,
-    "rotZ": 0.07987764,
-    "scaleX": 0.93,
+    "posX": -47.25,
+    "posY": 1.83619356,
+    "posZ": 2.25,
+    "rotX": 0.079880476,
+    "rotY": 90.00075,
+    "rotZ": 359.983124,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Die values +2",
   "Description": "",

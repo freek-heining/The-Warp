@@ -1,0 +1,105 @@
+{
+  "GUID": "70bc1a",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": -51.0001,
+    "posY": 1.59995878,
+    "posZ": -9.0,
+    "rotX": 0.0798821747,
+    "rotY": 90.0214844,
+    "rotZ": 359.983154,
+    "scaleX": 2.7,
+    "scaleY": 1.0,
+    "scaleZ": 2.7
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.745098054
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2504641605467514627/3C3263EC135581AACC036F54911480C874914E2D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 5.725868E-05,
+        "y": 0.051884532,
+        "z": -0.151841983
+      },
+      "Rotation": {
+        "x": 2.044446E-08,
+        "y": 359.978729,
+        "z": 2.337869E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7263317,
+        "y": 0.0497458279,
+        "z": 1.18953955
+      },
+      "Rotation": {
+        "x": 0.00345144118,
+        "y": 359.978516,
+        "z": 0.00317182927
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7260286,
+        "y": 0.0506643876,
+        "z": 0.383731633
+      },
+      "Rotation": {
+        "x": 0.000975839444,
+        "y": 359.978546,
+        "z": 0.000139175958
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7257289,
+        "y": 0.0502032563,
+        "z": -0.412756532
+      },
+      "Rotation": {
+        "x": 0.000387198845,
+        "y": 359.978577,
+        "z": 8.450789E-05
+      }
+    }
+  ]
+}

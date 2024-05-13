@@ -2,15 +2,15 @@
   "GUID": "500df9",
   "Name": "Custom_Token",
   "Transform": {
-    "posX": 13.4999685,
-    "posY": 1.56200182,
-    "posZ": 6.000007,
-    "rotX": 0.0168710146,
-    "rotY": 179.999985,
-    "rotZ": 0.07987413,
-    "scaleX": 2.3,
+    "posX": 29.2499733,
+    "posY": 1.53717363,
+    "posZ": -3.74999452,
+    "rotX": 359.97464,
+    "rotY": 210.023849,
+    "rotZ": 0.07760208,
+    "scaleX": 2.367,
     "scaleY": 1.0,
-    "scaleZ": 2.3
+    "scaleZ": 2.37
   },
   "Nickname": "Connect Zone (A side)",
   "Description": "",

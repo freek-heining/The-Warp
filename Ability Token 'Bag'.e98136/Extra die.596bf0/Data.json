@@ -2,15 +2,15 @@
   "GUID": "596bf0",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 38.249958,
-    "posY": 1.72757936,
-    "posZ": -3.74996138,
-    "rotX": 0.009998323,
-    "rotY": 180.000046,
-    "rotZ": 0.07375245,
-    "scaleX": 0.93,
+    "posX": -47.25,
+    "posY": 1.83310163,
+    "posZ": -8.25,
+    "rotX": 0.07988479,
+    "rotY": 90.0101,
+    "rotZ": 359.983124,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Extra die",
   "Description": "",

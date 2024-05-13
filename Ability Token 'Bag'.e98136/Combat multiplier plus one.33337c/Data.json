@@ -2,15 +2,15 @@
   "GUID": "33337c",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 33.75,
-    "posY": 1.78299212,
-    "posZ": -2.25,
-    "rotX": 0.0168723576,
-    "rotY": 179.998672,
-    "rotZ": 0.0798775554,
-    "scaleX": 0.93,
+    "posX": -47.25,
+    "posY": 1.83840179,
+    "posZ": 9.75,
+    "rotX": 0.0798810944,
+    "rotY": 90.01345,
+    "rotZ": 359.983154,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Combat multiplier plus one",
   "Description": "",

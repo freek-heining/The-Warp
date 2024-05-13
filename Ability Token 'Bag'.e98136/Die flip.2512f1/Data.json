@@ -2,15 +2,15 @@
   "GUID": "2512f1",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 39.7500267,
-    "posY": 1.72549534,
-    "posZ": -5.24997234,
-    "rotX": 0.023428278,
-    "rotY": 180.000977,
-    "rotZ": 0.0887219,
-    "scaleX": 0.93,
+    "posX": -46.5,
+    "posY": 1.83846045,
+    "posZ": 13.5,
+    "rotX": 0.07988935,
+    "rotY": 90.0253143,
+    "rotZ": 359.983154,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "Die flip",
   "Description": "",

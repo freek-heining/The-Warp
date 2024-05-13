@@ -2,15 +2,15 @@
   "GUID": "acb93b",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 31.5,
-    "posY": 1.74302232,
-    "posZ": 1.5,
-    "rotX": 0.0168717373,
-    "rotY": 179.999527,
-    "rotZ": 0.07987817,
-    "scaleX": 0.93,
+    "posX": -47.25,
+    "posY": 1.8317759,
+    "posZ": -12.75,
+    "rotX": 0.07987594,
+    "rotY": 89.98232,
+    "rotZ": 359.9831,
+    "scaleX": 0.95,
     "scaleY": 1.0,
-    "scaleZ": 0.93
+    "scaleZ": 0.95
   },
   "Nickname": "2 defensive combat cards",
   "Description": "",

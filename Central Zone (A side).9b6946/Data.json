@@ -2,15 +2,15 @@
   "GUID": "9b6946",
   "Name": "Custom_Token",
   "Transform": {
-    "posX": 0.0,
-    "posY": 1.56,
-    "posZ": 0.0,
-    "rotX": 0.0,
-    "rotY": 0.0,
-    "rotZ": 0.0,
-    "scaleX": 4.46,
+    "posX": 15.0001574,
+    "posY": 1.55935729,
+    "posZ": -1.98557973E-05,
+    "rotX": 359.945465,
+    "rotY": 330.000641,
+    "rotZ": 359.93927,
+    "scaleX": 4.59498024,
     "scaleY": 1.0,
-    "scaleZ": 4.46
+    "scaleZ": 4.59498024
   },
   "Nickname": "Central Zone (A side)",
   "Description": "Can you defeat the Warp guardian at the center?",

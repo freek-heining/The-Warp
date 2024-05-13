@@ -2,15 +2,15 @@
   "GUID": "bd3843",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 36.38854,
-    "posY": 1.42084169,
-    "posZ": -33.7500572,
-    "rotX": 0.0168780554,
-    "rotY": 179.995117,
-    "rotZ": 0.07987477,
-    "scaleX": 3.5,
+    "posX": -75.0000458,
+    "posY": 1.58606756,
+    "posZ": 1.06976986E-05,
+    "rotX": 0.0798761249,
+    "rotY": 89.99676,
+    "rotZ": 359.983124,
+    "scaleX": 5.0,
     "scaleY": 1.0,
-    "scaleZ": 3.5
+    "scaleZ": 5.0
   },
   "Nickname": "Player Screen (black)",
   "Description": "",

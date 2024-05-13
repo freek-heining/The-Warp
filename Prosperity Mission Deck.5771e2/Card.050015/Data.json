@@ -2,15 +2,15 @@
   "GUID": "050015",
   "Name": "Card",
   "Transform": {
-    "posX": 17.217083,
-    "posY": 1.7124896,
-    "posZ": -27.048996,
-    "rotX": 0.01025047,
-    "rotY": 180.000015,
-    "rotZ": 180.08699,
-    "scaleX": 1.0,
+    "posX": 51.00045,
+    "posY": 1.665126,
+    "posZ": 9.000064,
+    "rotX": 359.9198,
+    "rotY": 270.000031,
+    "rotZ": 180.017441,
+    "scaleX": 1.15,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.15
   },
   "Nickname": "",
   "Description": "",
