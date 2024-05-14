@@ -2,12 +2,12 @@
   "GUID": "ab888e",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 75.36039,
-    "posY": 1.48597741,
-    "posZ": 41.27031,
-    "rotX": 0.100669295,
-    "rotY": 90.02328,
-    "rotZ": 0.0134267872,
+    "posX": 75.36046,
+    "posY": 1.4875046,
+    "posZ": 41.2701263,
+    "rotX": 0.084182106,
+    "rotY": 90.02124,
+    "rotZ": 359.9848,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3

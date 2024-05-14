@@ -2,12 +2,12 @@
   "GUID": "6532c4",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": -54.8160744,
-    "posY": 1.86453009,
-    "posZ": -2.26294684,
-    "rotX": 0.08365701,
-    "rotY": 90.00022,
-    "rotZ": 359.987061,
+    "posX": -54.3306351,
+    "posY": 1.9651897,
+    "posZ": -2.17092919,
+    "rotX": 359.9201,
+    "rotY": 90.00006,
+    "rotZ": 179.952164,
     "scaleX": 0.95,
     "scaleY": 1.0,
     "scaleZ": 0.95
@@ -25,6 +25,9 @@
     "g": 1.0,
     "b": 1.0
   },
+  "Tags": [
+    "exile_closed"
+  ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,
   "Locked": false,

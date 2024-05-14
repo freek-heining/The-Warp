@@ -48,12 +48,6 @@
     "path": "./Reward Deck.ff7833"
   },
   {
-    "path": "./Pioneering Mission Deck.3f46df"
-  },
-  {
-    "path": "./Pioneering Mission Optional Deck.4b6ff9"
-  },
-  {
     "path": "./Conquest Mission Deck.f4ccdd"
   },
   {
@@ -1153,5 +1147,17 @@
   },
   {
     "path": "./Alien Race draft clockwise.6c556f"
+  },
+  {
+    "path": "./Advanced Pioneering Mission deck.c7f175"
+  },
+  {
+    "path": "./Mission placement zone.a73c21"
+  },
+  {
+    "path": "./Archive placement zone.1be9a4"
+  },
+  {
+    "path": "./Pioneering Mission deck.9aa665"
   }
 ]

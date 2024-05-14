@@ -1,0 +1,50 @@
+{
+  "GUID": "954c65",
+  "Name": "Card",
+  "Transform": {
+    "posX": 55.49998,
+    "posY": 1.81744313,
+    "posZ": 12.00003,
+    "rotX": 359.920135,
+    "rotY": 270.006226,
+    "rotZ": 180.016861,
+    "scaleX": 2.3,
+    "scaleY": 1.0,
+    "scaleZ": 2.3
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "Hands": true,
+  "CardID": 6059,
+  "SidewaysCard": false,
+  "CustomUIAssets": [
+    {
+      "Type": 0,
+      "Name": "Warp_Background",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2504640969828813907/9E61FE58AA6A3B9981AA04FA3DCB7B3DF836C45B/"
+    }
+  ]
+}

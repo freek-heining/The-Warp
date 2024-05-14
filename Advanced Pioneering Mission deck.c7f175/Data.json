@@ -1,0 +1,62 @@
+{
+  "GUID": "c7f175",
+  "Name": "Deck",
+  "Transform": {
+    "posX": 73.50107,
+    "posY": 1.422672,
+    "posZ": -21.000145,
+    "rotX": 359.9201,
+    "rotY": 270.024048,
+    "rotZ": 180.01683,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Advanced Pioneering Mission deck",
+  "Description": "Used with advanced mission setup:\nReplace the Expansion and Empire Mission cards by the Ascension and King of Average cards. Also take the Hoarder, Omnipotent, Concealed and Display of Power cards, shuffl e them and randomly place 3 of them open next to the other Pioneering cards.",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    5203,
+    5202,
+    5204,
+    5200,
+    5201,
+    5205
+  ],
+  "CustomDeck": {
+    "52": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361397164/14D70E085735DC74C0F570F0A6B4171CF9AC450F/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361293680/FB3F011BE51BFC943D2B4127DD40CFA42693C5E4/",
+      "NumWidth": 3,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}
