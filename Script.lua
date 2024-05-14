@@ -1,4 +1,4 @@
-local playerCount = 4
+local playerCount
 
 local playerZoneGUID = "dea9dd"
 local connectZoneGUID = "500df9"
@@ -29,7 +29,7 @@ local availablePlayerColors = {
     [6] = "Brown"
 }
 
--- position, rotation
+-- 1-6 players (position, rotation)
 local playerZonePositions = {
     [1] = { {16.48, 1.55, -15.19}, {0.02, 180.05, 0.08} },
     [2] = { {2.57, 1.58, -8.86}, {359.94, 240.05, 0.05} },
@@ -39,6 +39,7 @@ local playerZonePositions = {
     [6] = { {28.91, 1.54, -6.31}, {0.08, 119.98, 0.03} },
 }
 
+-- 2-5 players (position, rotation)
 local connectZonePositions = {
     [2] = { {0.37, 1.58, -0.02}, {359.92, 270.21, 0.02} },
     [3] = { {7.69, 1.57, 12.65}, {359.95, 330.04, 359.94} },
@@ -47,12 +48,14 @@ local connectZonePositions = {
 }
 
 --#region StartScreenOptions
+playerCount = 4
 local alternativeSetup = false
 local advancedPioneering = false
 local expansionRaces = false
 
 function PlayerCountSelected(player, option, playerCountSelection)
-    playerCount = option:sub(1, 1)
+    local playerCountString = option:sub(1, 1)
+    playerCount = tonumber(playerCountString)
     log("Player count: " .. playerCount)
 end
 
@@ -222,7 +225,6 @@ function DealMissionCards()
 
     -- Conquest mission
     conquestDeckObject.shuffle()
-    print(conquestDeckObject)
     conquestDeckObject.takeObject({
         position = {x = 62.25, y = 1.67, z = 9.75},
         callback_function = function(spawnedObject)
@@ -361,5 +363,12 @@ function CreateBoard()
         local clone = playerZoneObject.clone()
         clone.setPositionSmooth(playerZonePositions[i][1], false, false)
         clone.setRotationSmooth(playerZonePositions[i][2], false, false)
+    end
+
+    if playerCount < 6 then
+        local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+    
+        connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
+        connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
     end
 end
