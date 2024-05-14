@@ -1,6 +1,7 @@
-local playerCount = 0
+local playerCount = 4
 
 local playerZoneGUID = "dea9dd"
+local connectZoneGUID = "500df9"
 
 local alienDeckGUID = "e6fef2"
 local advancedAlienDeckGUID = "5be236"
@@ -28,21 +29,21 @@ local availablePlayerColors = {
     [6] = "Brown"
 }
 
+-- position, rotation
 local playerZonePositions = {
-    [1] = {position = {16.48, 1.55, -15.19}, rotation = {0.02, 180.05, 0.08}},
-    [2] = {position = {2.57, 1.58, -8.86},  rotation = {359.94, 240.05, 0.05}},
-    [3] = {position = {1.11, 1.58, 6.34}, rotation = {359.92, 299.97, 359.97}},
-    [4] = {position = {13.51, 1.57, 15.25}, rotation = {359.98, 359.81, 359.92}},
-    [5] = {position = {27.43, 1.55, 8.91}, rotation = {0.06, 60.38, 359.95}},
-    [6] = {position = {28.91, 1.54, -6.31}, rotation = {0.08, 119.98, 0.03}},
+    [1] = { {16.48, 1.55, -15.19}, {0.02, 180.05, 0.08} },
+    [2] = { {2.57, 1.58, -8.86}, {359.94, 240.05, 0.05} },
+    [3] = { {1.11, 1.58, 6.34}, {359.92, 299.97, 359.97} },
+    [4] = { {13.51, 1.57, 15.25}, {359.98, 359.81, 359.92} },
+    [5] = { {27.43, 1.55, 8.91}, {0.06, 60.38, 359.95} },
+    [6] = { {28.91, 1.54, -6.31}, {0.08, 119.98, 0.03} },
 }
 
 local connectZonePositions = {
-
-    [2] = {position = {0.37, 1.58, -0.02}, rotation = {359.92, 270.21, 0.02}},
-    [3] = {position = {7.69, 1.57, 12.65}, rotation = {359.95, 330.04, 359.94}},
-    [4] = {position = {22.28, 1.55, 12.64}, rotation = {0.02, 29.89, 359.93}},
-    [5] = {position = {29.60, 1.54, 0.04}, rotation = {0.08, 90.08, 359.98}},
+    [2] = { {0.37, 1.58, -0.02}, {359.92, 270.21, 0.02} },
+    [3] = { {7.69, 1.57, 12.65}, {359.95, 330.04, 359.94} },
+    [4] = { {22.28, 1.55, 12.64}, {0.02, 29.89, 359.93} },
+    [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} },
 }
 
 --#region StartScreenOptions
@@ -79,6 +80,7 @@ function StartClicked(player)
         DetermineStartingPlayer()
         DealArchiveCards()
         DealMissionCards()
+        CreateBoard()
     else
         broadcastToAll("Only the host can start the game!", "Red")
     end
@@ -86,7 +88,7 @@ end
 --#endregion
 
 function onload()
-    UI.hide("setupWindow") --temporary!
+    --UI.hide("setupWindow") --temporary!
 end
 
 function SetPlayers()
@@ -253,9 +255,7 @@ function DealMissionCards()
         })
 
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
-            print(cardTable)
             for _, cardTag in ipairs(cardTable.tags) do
-                print(cardTag)
                 if cardTag == "ascension" then
                     advancedPioneeringDeckObject.takeObject({
                         index = cardTable.index,
@@ -300,9 +300,7 @@ function DealMissionCards()
         })
 
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
-            print(cardTable)
             for _, cardTag in ipairs(cardTable.tags) do
-                print(cardTag)
                 if cardTag == "king" then
                     advancedPioneeringDeckObject.takeObject({
                         index = cardTable.index,
@@ -353,5 +351,15 @@ function DealMissionCards()
         destroyObject(getObjectFromGUID("83ab9a"))
         destroyObject(getObjectFromGUID("a73c21"))
         destroyObject(getObjectFromGUID("d6524d"))
+    end
+end
+
+function CreateBoard()
+    local playerZoneObject = getObjectFromGUID(playerZoneGUID)
+
+    for i = 2, playerCount, 1 do
+        local clone = playerZoneObject.clone()
+        clone.setPositionSmooth(playerZonePositions[i][1], false, false)
+        clone.setRotationSmooth(playerZonePositions[i][2], false, false)
     end
 end
