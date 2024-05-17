@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp v2.51",
-  "EpochTime": 1715958490,
-  "Date": "5/17/2024 5:08:10 PM",
+  "SaveName": "The Warp v2.53",
+  "EpochTime": 1715964195,
+  "Date": "5/17/2024 6:43:15 PM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
@@ -175,7 +175,7 @@
     "ThickLines": false,
     "Snapping": false,
     "Offset": false,
-    "BothSnapping": false,
+    "BothSnapping": true,
     "xSize": 1.5,
     "ySize": 1.5,
     "PosOffset": {
@@ -280,12 +280,12 @@
         "normalized": "portal"
       },
       {
-        "displayed": "energy",
-        "normalized": "energy"
+        "displayed": "",
+        "normalized": ""
       },
       {
-        "displayed": "gold",
-        "normalized": "gold"
+        "displayed": "",
+        "normalized": ""
       }
     ]
   },
@@ -721,7 +721,7 @@
         "z": -32.2500229
       },
       "Rotation": {
-        "x": 0.01686714,
+        "x": 0.0168671422,
         "y": 180.002136,
         "z": 0.07987543
       }
@@ -733,7 +733,7 @@
         "z": -32.25001
       },
       "Rotation": {
-        "x": 0.0168707483,
+        "x": 0.01687075,
         "y": 179.999878,
         "z": 0.0798748359
       }
@@ -745,7 +745,7 @@
         "z": -32.2500229
       },
       "Rotation": {
-        "x": 0.016871307,
+        "x": 0.0168713089,
         "y": 179.99968,
         "z": 0.0798767954
       }
@@ -757,7 +757,7 @@
         "z": -32.2500076
       },
       "Rotation": {
-        "x": 0.0168704055,
+        "x": 0.0168704074,
         "y": 179.999924,
         "z": 0.07987572
       }
@@ -769,7 +769,7 @@
         "z": -32.2500038
       },
       "Rotation": {
-        "x": 0.0168735832,
+        "x": 0.0168735851,
         "y": 179.999954,
         "z": 0.0798798054
       }

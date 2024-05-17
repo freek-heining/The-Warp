@@ -1,7 +1,7 @@
 
 local abilityTokenBagGUID = "e98136"
 
--- Fixed colors in player order
+-- Fixed colors in clockwise order
 local availablePlayerColors = {
     [1] = "Red",
     [2] = "Green",
@@ -29,8 +29,29 @@ local connectZonePositions = {
     [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} },
 }
 
+-- 1-6 players (position, rotation)
+local energyZonePositions = {
+    [1] = {31.70, 1.53, -40.84},
+    [2] = {-11.80, 1.59, -40.85},
+    [3] = {-45.20, 1.66, 40.84},
+    [4] = {-1.70, 1.60, 40.84},
+    [5] = {41.80, 1.54, 40.84},
+    [6] = {75.20, 1.46, -40.85}
+}
+
+-- 1-6 players (position, rotation)
+local goldZonePositions = {
+    [1] = {26.32, 1.58, -40.81},
+    [2] = {-17.18, 1.64, -40.81},
+    [3] = {-39.82, 1.70, 40.81},
+    [4] = {3.68, 1.64, 40.81},
+    [5] = {47.18, 1.58, 40.81},
+    [6] = {69.82, 1.52, -40.81},
+}
+
 --#region StartScreenOptions
 local playerCount = 0
+local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc.
 local alternativeSetup = false
 local advancedPioneering = false
 local expansionRaces = false
@@ -52,9 +73,9 @@ end
 --#endregion
 
 function onload()
-    log("Inside onLoad()")
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     UI.setAttribute("setupWindow", "active", false)
+--end
 end
 
 function MoveHandZones(operation, moveValue)
@@ -118,15 +139,19 @@ function StartClicked(player)
         
         Wait.time(function ()
             DealArchiveCards()
-        end, 2)
+        end, 2.5)
         
         Wait.time(function ()
             DealMissionCards()
-        end, 3)
+        end, 4)
         
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
-        end, 4)
+        end, 5.5)
+
+        Wait.time(function ()
+            startLuaCoroutine(Global, "DealResourcesCoroutine")
+        end, 10)
     end
 end
 
@@ -146,29 +171,31 @@ function SetPlayerColors()
     end
 end
 
+-- Sets starting player and color/turn order
 function DetermineStartingPlayer()
-    local startPlayer = math.random(playerCount)
-    local startPlayerColor = availablePlayerColors[startPlayer]
+    StartPlayerNumber = math.random(playerCount) -- Integer from 1 - playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
+    local startPlayerColor = availablePlayerColors[StartPlayerNumber] -- Fixed color matching player numbers/seats
+    
     broadcastToAll("[" .. startPlayerColor .. "] is the starting player!", startPlayerColor)
+    
+    local colorIndex = StartPlayerNumber -- Start with color/number of starting player, then continue clockwise from there 
 
-    TurnOrderColorArray = {} -- Stores the player order/colors for Turns.order, dealing archive cards and resources
-    local colorIndex = startPlayer -- Start with color/number of 1st player, then continue clockwise from there 
- 
-    for i = 1, playerCount do
-        TurnOrderColorArray[i] = availablePlayerColors[colorIndex]
+    for i = 1, playerCount do -- Fills the array with colors in player order for this game
+        TurnOrderTable[i] = availablePlayerColors[colorIndex]
+        
         colorIndex = colorIndex + 1
 
-        if  colorIndex > playerCount then -- If last color/player was reached, reset to use remaining from beginning of table
+        if  colorIndex > playerCount then -- If last color was reached, reset to use remaining colors from beginning of table
             colorIndex = 1
         end
     end
 
-    log("TurnOrderColorArray:")
-    log(TurnOrderColorArray)
+    log("TurnOrderTable:")
+    log(TurnOrderTable)
 
     Turns.enable = true
     Turns.type = 2
-    Turns.order = TurnOrderColorArray
+    Turns.order = TurnOrderTable
     Turns.turn_color = startPlayerColor
 end
 
@@ -272,12 +299,130 @@ function DealArchiveCards()
     -- Deals 4 archive cards to players 1-3, and 5 cards to players 4-6 (if any)
     for i = 1, playerCount do
         if i < 4 then
-            archiveDeckObject.deal(4, TurnOrderColorArray[i])
+            archiveDeckObject.deal(4, TurnOrderTable[i])
         else    
-            archiveDeckObject.deal(5, TurnOrderColorArray[i])
+            archiveDeckObject.deal(5, TurnOrderTable[i])
         end
-        
     end
+end
+
+-- Deals gold/energy to players according to table in manual:
+-- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
+function DealResourcesCoroutine()
+    local energySpawnerGUID = "98a3fe"
+    local goldSpawnerGUID = "0b18bb"
+
+    local energySpawnerObject = getObjectFromGUID(energySpawnerGUID)
+    local goldSpawnerObject = getObjectFromGUID(goldSpawnerGUID)
+
+    local playerIndex = StartPlayerNumber -- Start with number of starting player, then continue clockwise from there 
+
+    for i = 1, playerCount do
+        -- Player 1
+        if i == 1 then
+            for _ = 1, 4 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 4 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 2
+        elseif i == 2 then
+            for _ = 1, 5 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 4 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 3 & 4
+        elseif i == 3 or i ==4 then
+            for _ = 1, 5 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 5 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 5
+        elseif i == 5 then
+            for _ = 1, 6 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 5 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 6
+        elseif i == 6 then
+            for _ = 1, 6 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 6 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerIndex]
+                })
+                for _ = 1, 20 do
+                    coroutine.yield(0)
+                end
+            end
+        end
+
+        playerIndex = playerIndex + 1
+
+        if  playerIndex > playerCount then -- If last player number was reached, reset to use remaining numbers from beginning of table
+            playerIndex = 1
+        end
+
+        -- Wait X frames
+        for _ = 1, 100 do
+            coroutine.yield(0)
+        end
+    end
+
+    return 1
 end
 
 function DealMissionCards()
