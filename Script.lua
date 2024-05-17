@@ -1,4 +1,4 @@
-local rewardDeckGUID = "ff7833"
+
 local abilityTokenBagGUID = "e98136"
 
 -- Fixed colors in player order
@@ -53,7 +53,7 @@ end
 
 function onload()
     log("Inside onLoad()")
-    MoveHandZones("+", 300) -- Move away temporary
+    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     --UI.setAttribute("setupWindow", "active", false)
 end
 
@@ -91,7 +91,7 @@ function StartClicked(player)
         UI.setAttribute("startButton", "interactable", true)
     end, 2)
 
-    SetPlayerCount()
+    SetPlayerCount() -- Sets player count according to the current amount of ingame player
 
     if not player.host then
         broadcastToAll("Only the host can start the game!", "Red")
@@ -101,13 +101,16 @@ function StartClicked(player)
         print("Starting the game with " .. playerCount .. " players!")
 
         UI.setAttribute("setupWindow", "active", false)
-        --UI.hide("setupWindow")
-
-        SetPlayerColors()
         
-        MoveHandZones("-", 300) -- Restored to orignal position
+        local rewardDeckGUID = "ff7833"
+        local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
+        rewardDeckObject.shuffle()
 
-        DetermineStartingPlayer()
+        SetPlayerColors() -- Assigns colors/seats to players automatically (in order of joining the game)
+        
+        MoveHandZones("-", 300) -- Restores hand zones to orignal positions
+
+        DetermineStartingPlayer() -- 
 
         Wait.time(function ()
             DealAliens()
@@ -148,23 +151,21 @@ function DetermineStartingPlayer()
     local startPlayerColor = availablePlayerColors[startPlayer]
     broadcastToAll("[" .. startPlayerColor .. "] is the starting player!", startPlayerColor)
 
-    local turnOrderArray = {}
-    local turnOrderIndex = 1
-    local colorIndex = startPlayer
+    TurnOrderColorArray = {} -- Stores the player order/colors for Turns.order, dealing archive cards and resources
+    local colorIndex = startPlayer -- Start with color/number of 1st player, then continue clockwise from there 
  
-    for i = turnOrderIndex, 6 do
-        turnOrderArray[turnOrderIndex] = availablePlayerColors[colorIndex]
-        turnOrderIndex = turnOrderIndex + 1
+    for i = 1, playerCount do
+        TurnOrderColorArray[i] = availablePlayerColors[colorIndex]
         colorIndex = colorIndex + 1
 
-        if  colorIndex > 6 then
+        if  colorIndex > playerCount then -- If last color/player was reached, reset to use remaining from beginning of table
             colorIndex = 1
         end
     end
 
     Turns.enable = true
     Turns.type = 2
-    Turns.order = turnOrderArray
+    Turns.order = TurnOrderColorArray
     Turns.turn_color = startPlayerColor
 end
 
@@ -264,6 +265,16 @@ function DealArchiveCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
+
+    -- Deals 4 archive cards to players 1-3, and 5 cards to players 4-6 (if any)
+    for i = 1, playerCount do
+        if i < 4 then
+            archiveDeckObject.deal(4, TurnOrderColorArray[i])
+        else    
+            archiveDeckObject.deal(5, TurnOrderColorArray[i])
+        end
+        
+    end
 end
 
 function DealMissionCards()
