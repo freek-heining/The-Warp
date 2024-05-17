@@ -55,10 +55,10 @@ function onload()
     log("Inside onLoad()")
     MoveHandZones("+", 300) -- Move away temporary
     --UI.setAttribute("setupWindow", "active", false)
-    --UI.hide("setupWindow") --temporary!
 end
 
 function MoveHandZones(operation, moveValue)
+    print("Moving hands with: " .. operation .. moveValue)
     local operations = {
         ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
         ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
@@ -160,8 +160,6 @@ function DetermineStartingPlayer()
         if  colorIndex > 6 then
             colorIndex = 1
         end
-
-        print(turnOrderArray[i])
     end
 
     Turns.enable = true
@@ -232,7 +230,7 @@ function DealArchiveCards()
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
     -- Deal 1 start card to each seated player
-    startCardDeckObject.deal(1) 
+    startCardDeckObject.deal(1)
     startCardDeckObject.destruct()
 
     -- Deals 4 archive cards open to table left to right
@@ -454,7 +452,7 @@ function CreateBoardCoroutine()
         clone.interactable = false
         
         local count = 0
-        while count < 120 do
+        while count < 100 do
             count = count + 1
             coroutine.yield(0) -- Wait X frames between placing boards
         end
@@ -498,12 +496,11 @@ function DealExileTokens()
             elseif snapPointTable.tags[1] == "exile_closed" then
                 local localPos = snapPointTable.position
                 local worldPos = object.positionToWorld(localPos)
+                local localRot = exiledTokenBagObject.getRotation()
                             
                 exiledTokenBagObject.takeObject({
-                    position = { worldPos.x, worldPos.y, worldPos.z },
-                    callback_function = function(spawnedObject)
-                        Wait.frames(function() spawnedObject.flip() end)
-                    end
+                    position = { worldPos.x, worldPos.y+0.2, worldPos.z },
+                    rotation = { localRot.x, localRot.y, localRot.z+180 }, -- Optional, defaults to the container's rotation.
                 })
             end
         end

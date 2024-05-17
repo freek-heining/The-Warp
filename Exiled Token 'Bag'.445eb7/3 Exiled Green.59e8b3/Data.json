@@ -2,12 +2,12 @@
   "GUID": "59e8b3",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": -64.5,
-    "posY": 1.855104,
-    "posZ": -36.0,
-    "rotX": 0.07988567,
-    "rotY": 90.0004044,
-    "rotZ": 359.983124,
+    "posX": -57.71062,
+    "posY": 2.5095706,
+    "posZ": -8.502776,
+    "rotX": 2.59105468,
+    "rotY": 90.39976,
+    "rotZ": 16.9795,
     "scaleX": 0.95,
     "scaleY": 1.0,
     "scaleZ": 0.95
