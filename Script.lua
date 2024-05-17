@@ -163,6 +163,9 @@ function DetermineStartingPlayer()
         end
     end
 
+    log("TurnOrderColorArray:")
+    log(TurnOrderColorArray)
+
     Turns.enable = true
     Turns.type = 2
     Turns.order = TurnOrderColorArray
