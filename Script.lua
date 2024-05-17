@@ -53,8 +53,8 @@ end
 
 function onload()
     log("Inside onLoad()")
-    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
-    --UI.setAttribute("setupWindow", "active", false)
+    --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+    UI.setAttribute("setupWindow", "active", false)
 end
 
 function MoveHandZones(operation, moveValue)
