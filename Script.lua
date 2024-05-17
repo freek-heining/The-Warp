@@ -1,25 +1,7 @@
-local playerCount
-
-local playerZoneGUID = "dea9dd"
-local connectZoneGUID = "500df9"
-
-local alienDeckGUID = "e6fef2"
-local advancedAlienDeckGUID = "5be236"
-local guardianDeckGUID = "21cccc"
-local advancedGuardianDeckGUID = "440784"
-
-local archiveDeckGUID = "6b2a67"
-local startCardDeckGUID = "ac5ebb"
 local rewardDeckGUID = "ff7833"
-local progressDeckGUID = "935e48"
-local ProsperityDeckGUID = "5771e2"
-local conquestDeckGUID = "f4ccdd"
-local pioneeringDeckGUID = "9aa665"
-local advancedPioneeringDeckGUID = "c7f175"
-
-local exiledTokenBagGUID = "445eb7"
 local abilityTokenBagGUID = "e98136"
 
+-- Fixed colors in player order
 local availablePlayerColors = {
     [1] = "Red",
     [2] = "Green",
@@ -48,16 +30,10 @@ local connectZonePositions = {
 }
 
 --#region StartScreenOptions
-playerCount = 4
+local playerCount = 0
 local alternativeSetup = false
 local advancedPioneering = false
 local expansionRaces = false
-
-function PlayerCountSelected(player, option, playerCountSelection)
-    local playerCountString = option:sub(1, 1)
-    playerCount = tonumber(playerCountString)
-    log("Player count: " .. playerCount)
-end
 
 function AlternativeMapToggled(player, isOn)
     alternativeSetup = isOn;
@@ -73,36 +49,133 @@ function ExpansionRacesToggled(player, isOn)
     expansionRaces = isOn;
     log("expansionRaces: " .. expansionRaces)
 end
-
-function StartClicked(player)
-    if  player.host then
-        log('Start game!')
-        UI.hide("setupWindow")
-        SetPlayers()
-        DealAliens()
-        DetermineStartingPlayer()
-        DealArchiveCards()
-        DealMissionCards()
-        CreateBoard()
-    else
-        broadcastToAll("Only the host can start the game!", "Red")
-    end
-end
 --#endregion
 
 function onload()
+    log("Inside onLoad()")
+    MoveHandZones("+", 300) -- Move away temporary
+    --UI.setAttribute("setupWindow", "active", false)
     --UI.hide("setupWindow") --temporary!
 end
 
-function SetPlayers()
+function MoveHandZones(operation, moveValue)
+    local operations = {
+        ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
+        ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
+    }
+
+    local RedHandZone = getObjectFromGUID("3feb12")
+    local GreenHandZone = getObjectFromGUID("832b57")
+    local PurpleHandZone = getObjectFromGUID("783920")
+    local BlueHandZone = getObjectFromGUID("07898a")
+    local OrangeHandZone = getObjectFromGUID("7261c8")
+    local BrownHandZone = getObjectFromGUID("cc2c47")
+    
+    local redPos = RedHandZone.getPosition()
+    RedHandZone.setPosition({operations[operation](redPos.x, moveValue), operations[operation](redPos.y, moveValue), operations[operation](redPos.z, moveValue)})
+    local greenPos = GreenHandZone.getPosition()
+    GreenHandZone.setPosition({operations[operation](greenPos.x, moveValue), operations[operation](greenPos.y, moveValue), operations[operation](greenPos.z, moveValue)})
+    local purplePos = PurpleHandZone.getPosition()
+    PurpleHandZone.setPosition({operations[operation](purplePos.x, moveValue), operations[operation](purplePos.y, moveValue), operations[operation](purplePos.z, moveValue)})
+    local bluePos = BlueHandZone.getPosition()
+    BlueHandZone.setPosition({operations[operation](bluePos.x, moveValue), operations[operation](bluePos.y, moveValue), operations[operation](bluePos.z, moveValue)})
+    local orangePos = OrangeHandZone.getPosition()
+    OrangeHandZone.setPosition({operations[operation](orangePos.x, moveValue), operations[operation](orangePos.y, moveValue), operations[operation](orangePos.z, moveValue)})
+    local brownPos = BrownHandZone.getPosition()
+    BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
+end
+
+function StartClicked(player)
+    UI.setAttribute("startButton", "interactable", false) -- Prevents button spam
+    Wait.time(function ()
+        UI.setAttribute("startButton", "interactable", true)
+    end, 2)
+
+    SetPlayerCount()
+
+    if not player.host then
+        broadcastToAll("Only the host can start the game!", "Red")
+    elseif playerCount < 2 then
+        broadcastToAll("Need 2 players minimum to start!", "Red")
+    else
+        print("Starting the game with " .. playerCount .. " players!")
+
+        UI.setAttribute("setupWindow", "active", false)
+        --UI.hide("setupWindow")
+
+        SetPlayerColors()
+        
+        MoveHandZones("-", 300) -- Restored to orignal position
+
+        DetermineStartingPlayer()
+
+        Wait.time(function ()
+            DealAliens()
+        end, 1)
+        
+        Wait.time(function ()
+            DealArchiveCards()
+        end, 2)
+        
+        Wait.time(function ()
+            DealMissionCards()
+        end, 3)
+        
+        Wait.time(function ()
+            startLuaCoroutine(Global, "CreateBoardCoroutine")
+        end, 4)
+    end
+end
+
+function SetPlayerCount()
+    playerCount = 0
+
+    for _, _ in ipairs(Player.getPlayers()) do
+        playerCount = playerCount + 1
+    end
+
+    log("playerCount = " .. playerCount)
+end
+
+function SetPlayerColors()
     for i, player in ipairs(Player.getPlayers()) do
         player.changeColor(availablePlayerColors[i]);
-        --playerCount = playerCount + 1 -- Enable later and remove dropdown
     end
-    print("Starting the game with " .. playerCount .. " players!")
+end
+
+function DetermineStartingPlayer()
+    local startPlayer = math.random(playerCount)
+    local startPlayerColor = availablePlayerColors[startPlayer]
+    broadcastToAll("[" .. startPlayerColor .. "] is the starting player!", startPlayerColor)
+
+    local turnOrderArray = {}
+    local turnOrderIndex = 1
+    local colorIndex = startPlayer
+ 
+    for i = turnOrderIndex, 6 do
+        turnOrderArray[turnOrderIndex] = availablePlayerColors[colorIndex]
+        turnOrderIndex = turnOrderIndex + 1
+        colorIndex = colorIndex + 1
+
+        if  colorIndex > 6 then
+            colorIndex = 1
+        end
+
+        print(turnOrderArray[i])
+    end
+
+    Turns.enable = true
+    Turns.type = 2
+    Turns.order = turnOrderArray
+    Turns.turn_color = startPlayerColor
 end
 
 function DealAliens()
+    local alienDeckGUID = "e6fef2"
+    local advancedAlienDeckGUID = "5be236"
+    local guardianDeckGUID = "21cccc"
+    local advancedGuardianDeckGUID = "440784"
+
     local alienDeckObject
     local guardianDeckObject
 
@@ -151,12 +224,10 @@ function DealAliens()
     end
 end
 
-function DetermineStartingPlayer()
-    local startPlayer = math.random(playerCount)
-    broadcastToAll(availablePlayerColors[startPlayer] .. " is the starting player!", availablePlayerColors[startPlayer])
-end
-
 function DealArchiveCards()
+    local archiveDeckGUID = "6b2a67"
+    local startCardDeckGUID = "ac5ebb"
+
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
@@ -198,6 +269,12 @@ function DealArchiveCards()
 end
 
 function DealMissionCards()
+    local progressDeckGUID = "935e48"
+    local ProsperityDeckGUID = "5771e2"
+    local conquestDeckGUID = "f4ccdd"
+    local pioneeringDeckGUID = "9aa665"
+    local advancedPioneeringDeckGUID = "c7f175"
+
     local progressDeckObject = getObjectFromGUID(progressDeckGUID)
     local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
     local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
@@ -356,19 +433,79 @@ function DealMissionCards()
     end
 end
 
-function CreateBoard()
+function CreateBoardCoroutine()
+    local playerZoneGUID = "dea9dd"
+    local connectZoneGUID = "500df9"
+    local centralZoneGUID = "9b6946"
+
     local playerZoneObject = getObjectFromGUID(playerZoneGUID)
+    
+    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
+    
+    playerZoneObject.interactable = false
+    centralZoneObject.interactable = false
+    connectZoneObject.interactable = false
 
     for i = 2, playerCount, 1 do
         local clone = playerZoneObject.clone()
         clone.setPositionSmooth(playerZonePositions[i][1], false, false)
         clone.setRotationSmooth(playerZonePositions[i][2], false, false)
+        clone.interactable = false
+        
+        local count = 0
+        while count < 120 do
+            count = count + 1
+            coroutine.yield(0) -- Wait X frames between placing boards
+        end
     end
 
     if playerCount < 6 then
-        local connectZoneObject = getObjectFromGUID(connectZoneGUID)
-    
         connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
         connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
+    else
+        connectZoneObject.destruct()
+    end
+
+    -- Wait 2 seconds before dealing exile tokens
+    Wait.time(function ()
+        DealExileTokens()
+    end, 2)
+
+    return 1
+end
+
+function DealExileTokens()
+    local boardScriptingZoneGUID = "8a89e0"
+    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
+    
+    local exiledTokenBagGUID = "445eb7"
+    local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
+    
+    exiledTokenBagObject.shuffle()
+    
+    local objectsInZone = boardScriptingZoneObject.getObjects()
+
+    for _, object in ipairs(objectsInZone) do
+        for _, snapPointTable in pairs(object.getSnapPoints()) do
+            if snapPointTable.tags[1] == "exile_open" then
+                local localPos = snapPointTable.position
+                local worldPos = object.positionToWorld(localPos)
+
+                exiledTokenBagObject.takeObject({
+                    position = { worldPos.x, worldPos.y, worldPos.z }
+                })
+            elseif snapPointTable.tags[1] == "exile_closed" then
+                local localPos = snapPointTable.position
+                local worldPos = object.positionToWorld(localPos)
+                            
+                exiledTokenBagObject.takeObject({
+                    position = { worldPos.x, worldPos.y, worldPos.z },
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+            end
+        end
     end
 end
