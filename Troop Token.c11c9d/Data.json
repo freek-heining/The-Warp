@@ -2,11 +2,11 @@
   "GUID": "c11c9d",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 63.75015,
-    "posY": 1.40811467,
-    "posZ": 30.7501316,
+    "posX": 63.750164,
+    "posY": 1.40811491,
+    "posZ": 30.7501411,
     "rotX": 359.983,
-    "rotY": 359.994049,
+    "rotY": 359.993683,
     "rotZ": 359.919952,
     "scaleX": 0.21,
     "scaleY": 0.21,
@@ -23,7 +23,7 @@
   "ColorDiffuse": {
     "r": 0.979577363,
     "g": 0.6524219,
-    "b": 0.126159638
+    "b": 0.126159519
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,

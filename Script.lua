@@ -73,7 +73,7 @@ end
 --#endregion
 
 function onload()
-    --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     UI.setAttribute("setupWindow", "active", false)
 --end
 end
@@ -595,6 +595,9 @@ function CreateBoardCoroutine()
     local connectZoneGUID = "500df9"
     local centralZoneGUID = "9b6946"
 
+    local portalGUID = "9aecf3"
+    local portalObject = getObjectFromGUID(portalGUID)
+
     local playerZoneObject = getObjectFromGUID(playerZoneGUID)
     
     local connectZoneObject = getObjectFromGUID(connectZoneGUID)
@@ -617,9 +620,12 @@ function CreateBoardCoroutine()
         end
     end
 
-    if playerCount < 6 then
+    if playerCount < 6 then -- Connect Zone and portal are only needed for 2-5 players
         connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
         connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
+        
+        portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
+        portalObject.interactable = false
     else
         connectZoneObject.destruct()
     end
