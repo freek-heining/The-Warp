@@ -27,18 +27,6 @@
             shadow="#262626"
             fontSize="30">Pre-game Setup</Text>
 
-        <Dropdown
-            id="playerCountSelection"
-            onValueChanged="PlayerCountSelected"
-            preferredWidth="100"
-            preferredHeight="40">
-            <Option>2 players</Option>
-            <Option>3 players</Option>
-            <Option selected="true">4 players</Option>
-            <Option>5 players</Option>
-            <Option>6 players</Option>
-        </Dropdown>
-
         <Toggle
             id="alternativeMapToggle"
             textShadow="#262626"
@@ -48,12 +36,21 @@
             id="advancedPioneeringToggle"
             textShadow="#262626"
             onValueChanged="AdvancedPioneeringToggled"
-            textColor="#FFFFFF">Advanced pioneering cards</Toggle>            
+            textColor="#FFFFFF">Advanced Pioneering cards</Toggle>            
         <Toggle
             id="expansionRacesToggle"
             textShadow="#262626"    
             onValueChanged="ExpansionRacesToggled"
             textColor="#FFFFFF">Alien Pack expansion races</Toggle>
+
+        <Text
+            alignment="MiddleLeft"
+            fontStyle="Bold"
+            preferredWidth="200"
+            preferredHeight="50"
+            color="#FFFFFF"
+            shadow="#262626"
+            fontSize="12">This mod will assign player colors and determine the starting player automatically, after pressing start</Text>
 
         <Button 
             id="startButton"
