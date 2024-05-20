@@ -50,16 +50,16 @@
             preferredHeight="90"
             color="#FFFFFF"
             shadow="#262626"
-            fontSize="12">This mod will assign player colors and determine the starting player automatically, after pressing start. 
+            fontSize="12">This mod for 2-6 players will assign player colors and determine the starting player automatically. 
             
-            Wait until every player joined the lobby before starting</Text>
+            Wait until every player joined the lobby before pressing start.</Text>
             
         <Button 
             id="startButton"
             tooltip="Only the host can start the game. Wait until every player joined the game before starting!"
             preferredWidth="100"
             preferredHeight="40"
-            onClick="StartClicked">Start game</Button>
+            onClick="StartClicked">Start</Button>
      </VerticalLayout> 
 
      <Panel
@@ -71,4 +71,3 @@
             shadow="#262626">Mod created by: Freich</Text>
      </Panel>
  </Panel>
-

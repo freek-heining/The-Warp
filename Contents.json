@@ -1110,15 +1110,6 @@
     "path": "./Central Zone (A side).9b6946"
   },
   {
-    "path": "./3 MP.054747"
-  },
-  {
-    "path": "./1 MP.84848d"
-  },
-  {
-    "path": "./5 MP.1e6e02"
-  },
-  {
     "path": "./Exiled Token 'Bag'.445eb7"
   },
   {
@@ -1143,12 +1134,6 @@
     "path": "./Point counter.0c7920"
   },
   {
-    "path": "./Alien Race draft counterclockwise.9c0322"
-  },
-  {
-    "path": "./Alien Race draft clockwise.6c556f"
-  },
-  {
     "path": "./Advanced Pioneering Mission deck.c7f175"
   },
   {
@@ -1165,5 +1150,26 @@
   },
   {
     "path": "./Pioneering Scripting Zone.f54485"
+  },
+  {
+    "path": "./Mission Point Token (3).2d3cd7"
+  },
+  {
+    "path": "./Mission Point Token (5).dc8ac6"
+  },
+  {
+    "path": "./Mission Point Token (1).296406"
+  },
+  {
+    "path": "./Draft Zone Clockwise.e407b4"
+  },
+  {
+    "path": "./Draft Zone CounterClockwise.2968a3"
+  },
+  {
+    "path": "./CW Scriping Zone.1c6165"
+  },
+  {
+    "path": "./CCW Scriping Zone.025a21"
   }
 ]

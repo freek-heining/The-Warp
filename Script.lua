@@ -46,11 +46,31 @@ local goldZonePositions = {
     [5] = {47.18, 1.58, 40.81},
     [6] = {69.82, 1.52, -40.81},
 }
+
+local draftZonePositionsCW = {
+    [1] = {-73.50, 15.61, 25.50},
+    [2] = {-73.50, 15.62, 36.00},
+    [3] = {-73.50, 15.62, 46.50},
+    [4] = {-73.50, 15.62, 57.00},
+    [5] = {-60.00, 15.59, 25.50},
+    [6] = {-60.00, 15.60, 36.00},
+    [7] = {-60.00, 15.60, 46.50},
+    [8] = {-60.00, 15.60, 57.00}
+}
+
+local draftZonePositionsCCW = {
+    [1] = {-73.50, 15.61, -57.00},
+    [2] = {-73.50, 15.62, -46.50},
+    [3] = {-73.50, 15.62, -36.00},
+    [4] = {-73.50, 15.62, -25.50},
+    [5] = {-60.00, 15.59, -57.00},
+    [6] = {-60.00, 15.60, -46.50},
+    [7] = {-60.00, 15.60, -36.00},
+    [8] = {-60.00, 15.60, -25.50}
+}
 --#endregion
 
 --#region StartScreenOptions
-local playerCount = 0
-local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc.
 local alternativeSetup = false
 local advancedPioneering = false
 local expansionRaces = false
@@ -71,10 +91,14 @@ function ExpansionRacesToggled(player, isOn)
 end
 --#endregion
 
+local playerCount = 0
+local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc.
+
 function onload()
     SetInteractableFalse()
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     --UI.setAttribute("setupWindow", "active", false)
+    --DealMissionCards()
 end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
@@ -115,6 +139,13 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     advancedAlienDeckObject.interactable = false
     guardianDeckObject.interactable = false
     advancedGuardianDeckObject.interactable = false
+
+    local draftZoneClockwiseGUID = "e407b4"
+    local draftZoneCounterClockwiseGUID = "2968a3"
+    local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
+    local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
+    draftZoneClockwiseObject.interactable = false
+    draftZoneCounterClockwiseObject.interactable = false
 
     local archiveDeckGUID = "6b2a67"
     local startCardDeckGUID = "ac5ebb"
@@ -176,16 +207,10 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     alienShadowBrownLObject.interactable = false
     alienShadowBrownRObject.interactable = false
 
-    local alienCCShadowGUID = "9c0322"
-    local alienCWShadowGUID = "6c556f"
     local guardianShadowGUID = "70bc1a"
     local exiledShadowGUID = "b19cd4"
-    local alienCCShadowObject = getObjectFromGUID(alienCCShadowGUID)
-    local alienCWShadowObject = getObjectFromGUID(alienCWShadowGUID)
     local guardianShadowObject = getObjectFromGUID(guardianShadowGUID)
     local exiledShadowObject = getObjectFromGUID(exiledShadowGUID)
-    alienCCShadowObject.interactable = false
-    alienCWShadowObject.interactable = false
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
 
@@ -308,7 +333,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         DetermineStartingPlayer() -- 
 
         Wait.time(function ()
-            DealAliens()
+            startLuaCoroutine(Global, "DealAliensCoroutine")
         end, 1)
         
         Wait.time(function ()
@@ -316,7 +341,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         end, 2.5)
         
         Wait.time(function ()
-            DealMissionCards()
+            SetMissionCards()
         end, 4)
         
         Wait.time(function ()
@@ -326,6 +351,8 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         Wait.time(function ()
             startLuaCoroutine(Global, "DealResourcesCoroutine")
         end, 10)
+
+        
     end
 end
 
@@ -339,7 +366,7 @@ function SetPlayerCount()
     log("playerCount = " .. playerCount)
 end
 
-function SetPlayerColors()
+function SetPlayerColors() -- Sets player colors according to fixed positions in table
     for i, player in ipairs(Player.getPlayers()) do
         player.changeColor(availablePlayerColors[i]);
     end
@@ -372,7 +399,17 @@ function DetermineStartingPlayer() -- Sets starting player and color/turn order
     Turns.turn_color = startPlayerColor
 end
 
-function DealAliens()
+function DealAliensCoroutine()
+    local draftZoneClockwiseGUID = "e407b4"
+    local draftZoneCounterClockwiseGUID = "2968a3"
+    local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
+    local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
+
+    local scriptingZoneClockwiseGUID = "1c6165"
+    local scriptingZoneCounterClockwiseGUID = "025a21"
+    local scriptingZoneClockwiseObject = getObjectFromGUID(scriptingZoneClockwiseGUID)
+    local scriptingZoneCounterClockwiseObject = getObjectFromGUID(scriptingZoneCounterClockwiseGUID)
+
     local alienDeckGUID = "e6fef2"
     local advancedAlienDeckGUID = "5be236"
     local guardianDeckGUID = "21cccc"
@@ -415,18 +452,110 @@ function DealAliens()
         end
     })
 
-    -- Draft piles. Amount = (player count + 2) / 2
-    for i = 1, playerCount + 1, 1 do
+    -- Create 2 random alien race piles. Card amount per pile = player count + 1
+    for i = 1, playerCount + 1 do
         -- Counterclockwise alien pile
         alienPlayDeckObject.takeObject({
-            position = {x = -38.66, y = 1.67, z = -20.25}
+            position = draftZonePositionsCCW[i],
+            callback_function = function(spawnedObject)
+                spawnedObject.locked = true
+                --counterClockwisePileTable[i] = spawnedObject
+                spawnedObject.createButton({
+                    click_function = "DraftZoneCounterClockwiseClicked",
+                    width = 700,
+                    height = 270,
+                    position = {0,0,1.8},
+                    color = TurnOrderTable[playerCount],
+                    label = "Choose",
+                    font_size = 130,
+                    font_color = "White",
+                    tooltip = "Press to choose this Alien race & pass turn to the player on your right"
+                })
+            end
         })
+
         -- Clockwise alien pile
         alienPlayDeckObject.takeObject({
-            position = {x = -38.66, y = 1.67, z = 20.25}
+            position = draftZonePositionsCW[i],
+            callback_function = function(spawnedObject)
+                spawnedObject.locked = true
+                --clockwisePileTable[i] = spawnedObject
+                spawnedObject.createButton({
+                    click_function = "DraftZoneClockwiseClicked",
+                    width = 700,
+                    height = 270,
+                    position = {0,0,1.8},
+                    color = TurnOrderTable[1],
+                    label = "Choose",
+                    font_size = 130,
+                    font_color = "White",
+                    tooltip = "Press to choose this Alien race & pass turn to the player on your left"
+                })
+            end
         })
     end
-    alienPlayDeckObject.destruct()
+
+    for _ = 1, 250 do
+        coroutine.yield(0)
+    end
+    
+    local clockwiseCounter = 1
+    local counterClockwiseCounter = playerCount
+
+    broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose alien from right pile", TurnOrderTable[clockwiseCounter])
+    broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose alien from left pile", TurnOrderTable[counterClockwiseCounter])
+
+    function DraftZoneCounterClockwiseClicked(obj, color)
+        log(obj)
+        log(color)
+
+        -- --obj.removeButton(0)
+
+        -- local cardObjects = scriptingZoneCounterClockwiseObject.getObjects()
+        -- log(cardObjects)
+
+        -- for _, card in ipairs(cardObjects) do
+        --     card.editButton({index=0, color=TurnOrderTable[counterClockwiseCounter]})
+        -- end
+
+        -- obj.deal(1, TurnOrderTable[counterClockwiseCounter])
+        -- counterClockwiseCounter = counterClockwiseCounter - 1
+        
+    end
+
+    function DraftZoneClockwiseClicked(obj, color)
+        if color == TurnOrderTable[clockwiseCounter] then
+            obj.removeButton(0)
+            obj.deal(1, TurnOrderTable[clockwiseCounter])
+
+            clockwiseCounter = clockwiseCounter + 1
+            
+            local cardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+            log(cardObjects)
+            log(clockwiseCounter)
+
+            for _, object in ipairs(cardObjects) do
+                if clockwiseCounter > playerCount and object.type == "Card" then -- When last card of pile is drafted, 1 remains for guardian draft. Remove button.
+                    object.editButton({
+                        index = 0,
+                        label = "Guardian",
+                        click_function = "GuardianClockwiseClicked",
+                        tooltip = "Choose this alien to become the Warp Guardian!"
+                    })
+                elseif object.type == "Card" then
+                    object.editButton({index=0, color=TurnOrderTable[clockwiseCounter]}) -- Change button color to next player in line's color
+                end
+            end
+        else
+            print("Not your turn to pick from this pile!")
+        end
+    end
+
+    function GuardianClockwiseClicked()
+        print("testt")
+    end
+
+    return 1
 end
 
 function DealArchiveCards()
@@ -602,7 +731,7 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
     return 1
 end
 
-function DealMissionCards()
+function SetMissionCards()
     local progressDeckGUID = "935e48"
     local ProsperityDeckGUID = "5771e2"
     local conquestDeckGUID = "f4ccdd"
@@ -783,6 +912,24 @@ function DealMissionCards()
     end
 end
 
+function DealMissionCards()
+    local progressDeckGUID = "935e48"
+    local ProsperityDeckGUID = "5771e2"
+    local conquestDeckGUID = "f4ccdd"
+
+    local progressDeckObject = getObjectFromGUID(progressDeckGUID)
+    local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
+    local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
+
+    print("inside dealmission")
+
+
+
+    function DealMissionsClicked(obj, color, alt_click)
+        print("inside testClick")
+    end
+end
+
 function CreateBoardCoroutine()
     local portalGUID = "9aecf3"
     local portalObject = getObjectFromGUID(portalGUID)
@@ -813,6 +960,7 @@ function CreateBoardCoroutine()
         portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
     else
         connectZoneObject.destruct()
+        portalObject.destruct()
     end
 
     -- Wait 2 seconds before dealing exile tokens

@@ -2,12 +2,12 @@
   "GUID": "8f5e16",
   "Name": "Card",
   "Transform": {
-    "posX": 0.104795255,
-    "posY": 2.50787663,
-    "posZ": -20.3578129,
-    "rotX": -5.008956E-06,
-    "rotY": 180.0,
-    "rotZ": 180.0,
+    "posX": -63.7506371,
+    "posY": 1.95005453,
+    "posZ": 12.7501287,
+    "rotX": 0.07987395,
+    "rotY": 89.99257,
+    "rotZ": 359.983124,
     "scaleX": 3.2,
     "scaleY": 1.0,
     "scaleZ": 3.2
@@ -37,6 +37,7 @@
   "Sticky": true,
   "Tooltip": true,
   "GridProjection": false,
+  "HideWhenFaceDown": false,
   "Hands": true,
   "CardID": 4322,
   "SidewaysCard": false
