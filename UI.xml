@@ -47,11 +47,13 @@
             alignment="MiddleLeft"
             fontStyle="Bold"
             preferredWidth="200"
-            preferredHeight="50"
+            preferredHeight="90"
             color="#FFFFFF"
             shadow="#262626"
-            fontSize="12">This mod will assign player colors and determine the starting player automatically, after pressing start</Text>
-
+            fontSize="12">This mod will assign player colors and determine the starting player automatically, after pressing start. 
+            
+            Wait until every player joined the lobby before starting</Text>
+            
         <Button 
             id="startButton"
             tooltip="Only the host can start the game. Wait until every player joined the game before starting!"

@@ -7,7 +7,7 @@
     "posZ": 19.5000114,
     "rotX": 359.9201,
     "rotY": 270.0202,
-    "rotZ": 0.0168445632,
+    "rotZ": 0.0168444943,
     "scaleX": 2.299935,
     "scaleY": 1.0,
     "scaleZ": 2.299935
@@ -27,7 +27,7 @@
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
-  "Locked": false,
+  "Locked": true,
   "Grid": true,
   "Snap": true,
   "IgnoreFoW": false,

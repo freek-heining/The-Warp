@@ -2,12 +2,12 @@
   "GUID": "bfb475",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -1.84781766,
+    "posX": -1.84781623,
     "posY": 1.569807,
     "posZ": -44.60852,
     "rotX": 359.923828,
-    "rotY": 269.994873,
-    "rotZ": 0.01866601,
+    "rotY": 269.995,
+    "rotZ": 0.01866462,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3

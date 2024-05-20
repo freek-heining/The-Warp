@@ -2,12 +2,12 @@
   "GUID": "b6024e",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 28.808918,
+    "posX": 28.80892,
     "posY": 1.55440235,
-    "posZ": 47.8087158,
-    "rotX": 0.08406179,
-    "rotY": 90.00062,
-    "rotZ": 359.9847,
+    "posZ": 47.8087234,
+    "rotX": 0.0841076151,
+    "rotY": 90.00052,
+    "rotZ": 359.984772,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3

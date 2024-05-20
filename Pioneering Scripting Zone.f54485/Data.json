@@ -1,0 +1,43 @@
+{
+  "GUID": "f54485",
+  "Name": "ScriptingTrigger",
+  "Transform": {
+    "posX": 75.750145,
+    "posY": 3.92719245,
+    "posZ": -21.051384,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0,
+    "scaleX": 8.522228,
+    "scaleY": 5.1,
+    "scaleZ": 5.533249
+  },
+  "Nickname": "Pioneering Scripting Zone",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.509803951
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false
+}

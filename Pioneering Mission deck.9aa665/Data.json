@@ -3,7 +3,7 @@
   "Name": "Deck",
   "Transform": {
     "posX": 78.00041,
-    "posY": 1.41639936,
+    "posY": 1.4163996,
     "posZ": -21.0002041,
     "rotX": 359.920135,
     "rotY": 270.0002,
@@ -27,7 +27,7 @@
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
-  "Locked": false,
+  "Locked": true,
   "Grid": true,
   "Snap": true,
   "IgnoreFoW": false,

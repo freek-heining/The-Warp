@@ -1,8 +1,6 @@
-
-local abilityTokenBagGUID = "e98136"
-
+--#region DataTables
 -- Fixed colors in clockwise order
-local availablePlayerColors = {
+local availablePlayerColors = { -- Fixed colors in clockwise order
     [1] = "Red",
     [2] = "Green",
     [3] = "Purple",
@@ -48,6 +46,7 @@ local goldZonePositions = {
     [5] = {47.18, 1.58, 40.81},
     [6] = {69.82, 1.52, -40.81},
 }
+--#endregion
 
 --#region StartScreenOptions
 local playerCount = 0
@@ -73,9 +72,179 @@ end
 --#endregion
 
 function onload()
-    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
-    UI.setAttribute("setupWindow", "active", false)
---end
+    SetInteractableFalse()
+    --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+    --UI.setAttribute("setupWindow", "active", false)
+end
+
+function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
+    local abilityTokenBagGUID = "e98136"
+    local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
+    abilityTokenBagObject.interactable = false
+
+    local exiledTokenBagGUID = "445eb7"
+    local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
+    exiledTokenBagObject.interactable = false
+
+    local boardScriptingZoneGUID = "8a89e0"
+    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
+    boardScriptingZoneObject.interactable = false
+
+    local playerZoneGUID = "dea9dd"
+    local connectZoneGUID = "500df9"
+    local centralZoneGUID = "9b6946"
+    local portalGUID = "9aecf3"
+    local playerZoneObject = getObjectFromGUID(playerZoneGUID)
+    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
+    local portalObject = getObjectFromGUID(portalGUID)
+    playerZoneObject.interactable = false
+    centralZoneObject.interactable = false
+    connectZoneObject.interactable = false
+    portalObject.interactable = false
+
+    local alienDeckGUID = "e6fef2"
+    local advancedAlienDeckGUID = "5be236"
+    local guardianDeckGUID = "21cccc"
+    local advancedGuardianDeckGUID = "440784"
+    local alienDeckObject = getObjectFromGUID(alienDeckGUID)
+    local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
+    local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
+    local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+    alienDeckObject.interactable = false
+    advancedAlienDeckObject.interactable = false
+    guardianDeckObject.interactable = false
+    advancedGuardianDeckObject.interactable = false
+
+    local archiveDeckGUID = "6b2a67"
+    local startCardDeckGUID = "ac5ebb"
+    local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
+    local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
+    startCardDeckObject.interactable = false
+    archiveDeckObject.interactable = false
+
+    local progressDeckGUID = "935e48"
+    local ProsperityDeckGUID = "5771e2"
+    local conquestDeckGUID = "f4ccdd"
+    local pioneeringDeckGUID = "9aa665"
+    local advancedPioneeringDeckGUID = "c7f175"
+    local progressDeckObject = getObjectFromGUID(progressDeckGUID)
+    local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
+    local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
+    local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
+    local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
+    progressDeckObject.interactable = false
+    conquestDeckObject.interactable = false
+    ProsperityDeckObject.interactable = false
+    pioneeringDeckObject.interactable = false
+    advancedPioneeringDeckObject.interactable = false
+
+    local alienShadowRedLGUID = "3d9c76"
+    local alienShadowRedRGUID = "656ba9"
+    local alienShadowGreenLGUID = "c207c2"
+    local alienShadowGreenRGUID = "ea4eae"
+    local alienShadowPurpleLGUID = "57d762"
+    local alienShadowPurpleRGUID = "e1e3cd"
+    local alienShadowBlueLGUID = "4c4584"
+    local alienShadowBlueRGUID = "c20bac"
+    local alienShadowOrangeLGUID = "ac7bde"
+    local alienShadowOrangeRGUID = "395d2b"
+    local alienShadowBrownLGUID = "7dfdb7"
+    local alienShadowBrownRGUID = "41881e"
+    local alienShadowRedLObject = getObjectFromGUID(alienShadowRedLGUID)
+    local alienShadowRedRObject = getObjectFromGUID(alienShadowRedRGUID)
+    local alienShadowGreenLObject = getObjectFromGUID(alienShadowGreenLGUID)
+    local alienShadowGreenRObject = getObjectFromGUID(alienShadowGreenRGUID)
+    local alienShadowPurpleLObject = getObjectFromGUID(alienShadowPurpleLGUID)
+    local alienShadowPurpleRObject = getObjectFromGUID(alienShadowPurpleRGUID)
+    local alienShadowBlueLObject = getObjectFromGUID(alienShadowBlueLGUID)
+    local alienShadowBlueRObject = getObjectFromGUID(alienShadowBlueRGUID)
+    local alienShadowOrangeLObject = getObjectFromGUID(alienShadowOrangeLGUID)
+    local alienShadowOrangeRObject = getObjectFromGUID(alienShadowOrangeRGUID)
+    local alienShadowBrownLObject = getObjectFromGUID(alienShadowBrownLGUID)
+    local alienShadowBrownRObject = getObjectFromGUID(alienShadowBrownRGUID)
+    alienShadowRedLObject.interactable = false
+    alienShadowRedRObject.interactable = false
+    alienShadowGreenLObject.interactable = false
+    alienShadowGreenRObject.interactable = false
+    alienShadowPurpleLObject.interactable = false
+    alienShadowPurpleRObject.interactable = false
+    alienShadowBlueLObject.interactable = false
+    alienShadowBlueRObject.interactable = false
+    alienShadowOrangeLObject.interactable = false
+    alienShadowOrangeRObject.interactable = false
+    alienShadowBrownLObject.interactable = false
+    alienShadowBrownRObject.interactable = false
+
+    local alienCCShadowGUID = "9c0322"
+    local alienCWShadowGUID = "6c556f"
+    local guardianShadowGUID = "70bc1a"
+    local exiledShadowGUID = "b19cd4"
+    local alienCCShadowObject = getObjectFromGUID(alienCCShadowGUID)
+    local alienCWShadowObject = getObjectFromGUID(alienCWShadowGUID)
+    local guardianShadowObject = getObjectFromGUID(guardianShadowGUID)
+    local exiledShadowObject = getObjectFromGUID(exiledShadowGUID)
+    alienCCShadowObject.interactable = false
+    alienCWShadowObject.interactable = false
+    guardianShadowObject.interactable = false
+    exiledShadowObject.interactable = false
+
+    local archiveDiscardShadowGUID = "1be9a4"
+    local archiveShadow1GUID = "cbd643"
+    local archiveShadow2GUID = "5fc440"
+    local archiveShadow3GUID = "6aa2c1"
+    local archiveShadow4GUID = "b2570f"
+    local archiveShadow5GUID = "e4369c"
+    local archiveDiscardShadowObject = getObjectFromGUID(archiveDiscardShadowGUID)
+    local archiveShadow1Object = getObjectFromGUID(archiveShadow1GUID)
+    local archiveShadow2Object = getObjectFromGUID(archiveShadow2GUID)
+    local archiveShadow3Object = getObjectFromGUID(archiveShadow3GUID)
+    local archiveShadow4Object = getObjectFromGUID(archiveShadow4GUID)
+    local archiveShadow5Object = getObjectFromGUID(archiveShadow5GUID)
+    archiveDiscardShadowObject.interactable = false
+    archiveShadow1Object.interactable = false
+    archiveShadow2Object.interactable = false
+    archiveShadow3Object.interactable = false
+    archiveShadow4Object.interactable = false
+    archiveShadow5Object.interactable = false
+
+    local progressShadowGUID = "f04256"
+    local prosperityShadowGUID = "0dc042"
+    local conquestShadowGUID = "1decb4"
+    local progressShadowObject = getObjectFromGUID(progressShadowGUID)
+    local prosperityShadowObject = getObjectFromGUID(prosperityShadowGUID)
+    local conquestShadowObject = getObjectFromGUID(conquestShadowGUID)
+    progressShadowObject.interactable = false
+    prosperityShadowObject.interactable = false
+    conquestShadowObject.interactable = false
+
+    local missionShadow1GUID = "743ef0"
+    local missionShadow2GUID = "529334"
+    local missionShadow3GUID = "a01105"
+    local missionShadow4GUID = "2a3ed7"
+    local missionShadow5GUID = "770d1f"
+    local missionShadow6GUID = "ee3bd8"
+    local missionShadow7GUID = "83ab9a"
+    local missionShadow8GUID = "a73c21"
+    local missionShadow9GUID = "d6524d"
+    local missionShadow1Object = getObjectFromGUID(missionShadow1GUID)
+    local missionShadow2Object = getObjectFromGUID(missionShadow2GUID)
+    local missionShadow3Object = getObjectFromGUID(missionShadow3GUID)
+    local missionShadow4Object = getObjectFromGUID(missionShadow4GUID)
+    local missionShadow5Object = getObjectFromGUID(missionShadow5GUID)
+    local missionShadow6Object = getObjectFromGUID(missionShadow6GUID)
+    local missionShadow7Object = getObjectFromGUID(missionShadow7GUID)
+    local missionShadow8Object = getObjectFromGUID(missionShadow8GUID)
+    local missionShadow9Object = getObjectFromGUID(missionShadow9GUID)
+    missionShadow1Object.interactable = false
+    missionShadow2Object.interactable = false
+    missionShadow3Object.interactable = false
+    missionShadow4Object.interactable = false
+    missionShadow5Object.interactable = false
+    missionShadow6Object.interactable = false
+    missionShadow7Object.interactable = false
+    missionShadow8Object.interactable = false
+    missionShadow9Object.interactable = false
 end
 
 function MoveHandZones(operation, moveValue)
@@ -106,7 +275,7 @@ function MoveHandZones(operation, moveValue)
     BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
 end
 
-function StartClicked(player)
+function StartClicked(player) -- Calls most setup functions and handles their timing/order
     UI.setAttribute("startButton", "interactable", false) -- Prevents button spam
     Wait.time(function ()
         UI.setAttribute("startButton", "interactable", true)
@@ -123,13 +292,18 @@ function StartClicked(player)
 
         UI.setAttribute("setupWindow", "active", false)
         
+        local abilityTokenBagGUID = "e98136"
+        local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
+        abilityTokenBagObject. interactable = true
+        abilityTokenBagObject.shuffle()
+
         local rewardDeckGUID = "ff7833"
         local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
         rewardDeckObject.shuffle()
 
         SetPlayerColors() -- Assigns colors/seats to players automatically (in order of joining the game)
         
-        MoveHandZones("-", 300) -- Restores hand zones to orignal positions
+        --MoveHandZones("-", 300) -- Restores hand zones to orignal positions
 
         DetermineStartingPlayer() -- 
 
@@ -171,8 +345,7 @@ function SetPlayerColors()
     end
 end
 
--- Sets starting player and color/turn order
-function DetermineStartingPlayer()
+function DetermineStartingPlayer() -- Sets starting player and color/turn order
     StartPlayerNumber = math.random(playerCount) -- Integer from 1 - playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
     local startPlayerColor = availablePlayerColors[StartPlayerNumber] -- Fixed color matching player numbers/seats
     
@@ -205,22 +378,29 @@ function DealAliens()
     local guardianDeckGUID = "21cccc"
     local advancedGuardianDeckGUID = "440784"
 
-    local alienDeckObject
-    local guardianDeckObject
+    local alienDeckObject = getObjectFromGUID(alienDeckGUID)
+    local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
+    local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
+    local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+
+    local alienPlayDeckObject
 
     if expansionRaces then
-        alienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
-        guardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+        alienPlayDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
+        advancedGuardianDeckObject.interactable = true
+        alienDeckObject.destruct()
+        guardianDeckObject.destruct()
     else
-        alienDeckObject = getObjectFromGUID(alienDeckGUID)
-        guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
+        alienPlayDeckObject = getObjectFromGUID(alienDeckGUID)
+        guardianDeckObject.interactable = true
+        advancedAlienDeckObject.destruct()
+        advancedGuardianDeckObject.destruct()
     end
     
-    alienDeckObject.shuffle()
-    guardianDeckObject.shuffle()
+    alienPlayDeckObject.shuffle()
 
     -- Left Exile
-    alienDeckObject.takeObject({
+    alienPlayDeckObject.takeObject({
         position = {x = -51.41, y = 1.67, z = 5.25},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end) -- Optional numberFrames, default = 1 frame
@@ -228,29 +408,25 @@ function DealAliens()
     })
     
     -- Right Exile
-    alienDeckObject.takeObject({
+    alienPlayDeckObject.takeObject({
         position = {x = -51.41, y = 1.67, z = 12.75},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
 
-    -- Warp Guardian
-    guardianDeckObject.takeObject({
-        position = {x = -51.41, y = 1.67, z = -9.00}
-    })
-
-    -- Draft piles
+    -- Draft piles. Amount = (player count + 2) / 2
     for i = 1, playerCount + 1, 1 do
         -- Counterclockwise alien pile
-        alienDeckObject.takeObject({
+        alienPlayDeckObject.takeObject({
             position = {x = -38.66, y = 1.67, z = -20.25}
         })
         -- Clockwise alien pile
-        alienDeckObject.takeObject({
+        alienPlayDeckObject.takeObject({
             position = {x = -38.66, y = 1.67, z = 20.25}
         })
     end
+    alienPlayDeckObject.destruct()
 end
 
 function DealArchiveCards()
@@ -304,11 +480,11 @@ function DealArchiveCards()
             archiveDeckObject.deal(5, TurnOrderTable[i])
         end
     end
+
+    archiveDeckObject.interactable = true
 end
 
--- Deals gold/energy to players according to table in manual:
--- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
-function DealResourcesCoroutine()
+function DealResourcesCoroutine() -- Deals gold/energy to players according to table in manual:
     local energySpawnerGUID = "98a3fe"
     local goldSpawnerGUID = "0b18bb"
 
@@ -317,6 +493,7 @@ function DealResourcesCoroutine()
 
     local playerIndex = StartPlayerNumber -- Start with number of starting player, then continue clockwise from there 
 
+    -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
     for i = 1, playerCount do
         -- Player 1
         if i == 1 then
@@ -416,8 +593,8 @@ function DealResourcesCoroutine()
             playerIndex = 1
         end
 
-        -- Wait X frames
-        for _ = 1, 100 do
+        -- Wait X frames between players
+        for _ = 1, 60 do
             coroutine.yield(0)
         end
     end
@@ -438,6 +615,9 @@ function DealMissionCards()
     local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
     local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
 
+    local pioneeringScriptingZoneGUID = "f54485"
+    local pioneeringScriptingZoneObject = getObjectFromGUID(pioneeringScriptingZoneGUID)
+
     -- Deal 3 mission cards open to table
     -- Progress mission
     progressDeckObject.shuffle()
@@ -447,6 +627,7 @@ function DealMissionCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
+    progressDeckObject.interactable = true
 
     -- Prosperity mission
     ProsperityDeckObject.shuffle()
@@ -456,6 +637,7 @@ function DealMissionCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
+    ProsperityDeckObject.interactable = true
 
     -- Conquest mission
     conquestDeckObject.shuffle()
@@ -465,24 +647,25 @@ function DealMissionCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
+    conquestDeckObject.interactable = true
 
-    -- Pioneering mission cards #1-6 (dealt from left to right, per row)
-    -- #1 (Overlord)
+    -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
+    -- #1 Overlord
     pioneeringDeckObject.takeObject({
         position = {x = 66.75, y = 1.67, z = 2.25},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    -- #2 (Infinite Riches)
+    -- #2 Infinite Riches
     pioneeringDeckObject.takeObject({
         position = {x = 66.75, y = 1.67, z = -3.75},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    -- #3 (Ascension OR Expansion)
-    if advancedPioneering then
+    -- #3 Ascension (advanced) OR Expansion
+    if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
             position = {x = 66.75, y = 1.67, z = -9.75},
             callback_function = function(spawnedObject)
@@ -504,7 +687,7 @@ function DealMissionCards()
                 end
             end
         end
-    else
+    else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
             position = {x = 66.75, y = 1.67, z = -9.75},
             callback_function = function(spawnedObject)
@@ -512,22 +695,22 @@ function DealMissionCards()
             end
         })
     end
-    -- #4 (Master Trader)
+    -- #4 Master Trader
     pioneeringDeckObject.takeObject({
         position = {x = 62.25, y = 1.67, z = 2.25},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    -- #5 (Civilization)
+    -- #5 Civilization)
     pioneeringDeckObject.takeObject({
         position = {x = 62.25, y = 1.67, z = -3.75},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    -- #6 (King of Average OR Empire)
-    if advancedPioneering then
+    -- #6 King of Average (advanced) OR Empire
+    if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
             position = {x = 62.25, y = 1.67, z = -9.75},
             callback_function = function(spawnedObject)
@@ -549,7 +732,7 @@ function DealMissionCards()
                 end
             end
         end
-    else
+    else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
             position = {x = 62.25, y = 1.67, z = -9.75},
             callback_function = function(spawnedObject)
@@ -582,8 +765,18 @@ function DealMissionCards()
                 Wait.frames(function() spawnedObject.flip() end)
             end
         })
+
+        Wait.time(function ()
+            -- Destroy remaining card(s)
+            local objects = pioneeringScriptingZoneObject.getObjects()
+            for _, object in pairs(objects) do
+                object.destruct()
+            end     
+        end, 1)
+
     else
-        -- Remove unused mission shadows
+        -- Destroy unused mission shadows and cards
+        advancedPioneeringDeckObject.destruct()
         destroyObject(getObjectFromGUID("83ab9a"))
         destroyObject(getObjectFromGUID("a73c21"))
         destroyObject(getObjectFromGUID("d6524d"))
@@ -591,22 +784,15 @@ function DealMissionCards()
 end
 
 function CreateBoardCoroutine()
-    local playerZoneGUID = "dea9dd"
-    local connectZoneGUID = "500df9"
-    local centralZoneGUID = "9b6946"
-
     local portalGUID = "9aecf3"
     local portalObject = getObjectFromGUID(portalGUID)
 
+    local playerZoneGUID = "dea9dd"
     local playerZoneObject = getObjectFromGUID(playerZoneGUID)
-    
-    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
-    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
-    
-    playerZoneObject.interactable = false
-    centralZoneObject.interactable = false
-    connectZoneObject.interactable = false
 
+    local connectZoneGUID = "500df9"
+    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+        
     for i = 2, playerCount, 1 do
         local clone = playerZoneObject.clone()
         clone.setPositionSmooth(playerZonePositions[i][1], false, false)
@@ -625,7 +811,6 @@ function CreateBoardCoroutine()
         connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
         
         portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
-        portalObject.interactable = false
     else
         connectZoneObject.destruct()
     end
@@ -644,7 +829,7 @@ function DealExileTokens()
     
     local exiledTokenBagGUID = "445eb7"
     local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
-    
+    exiledTokenBagObject.interactable = true
     exiledTokenBagObject.shuffle()
     
     local objectsInZone = boardScriptingZoneObject.getObjects()

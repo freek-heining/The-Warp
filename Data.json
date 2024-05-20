@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp v2.55",
-  "EpochTime": 1715980698,
-  "Date": "5/17/2024 11:18:18 PM",
+  "SaveName": "The Warp v2.58",
+  "EpochTime": 1716026410,
+  "Date": "5/18/2024 12:00:10 PM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
@@ -165,7 +165,7 @@
   },
   "Grid": {
     "Type": 0,
-    "Lines": true,
+    "Lines": false,
     "Color": {
       "r": 1.0,
       "g": 1.0,
@@ -175,7 +175,7 @@
     "ThickLines": false,
     "Snapping": false,
     "Offset": false,
-    "BothSnapping": true,
+    "BothSnapping": false,
     "xSize": 1.5,
     "ySize": 1.5,
     "PosOffset": {
@@ -299,54 +299,6 @@
     "PassTurns": true,
     "TurnColor": ""
   },
-  "CameraStates": [
-    null,
-    null,
-    {
-      "Position": {
-        "x": 0.523945034,
-        "y": -2.5,
-        "z": -12.5309258
-      },
-      "Rotation": {
-        "x": 62.1677933,
-        "y": 4.15449572,
-        "z": 0.0
-      },
-      "Distance": 84.9375,
-      "Zoomed": false,
-      "AbsolutePosition": {
-        "x": -2.34897447,
-        "y": 72.61182,
-        "z": -52.08268
-      }
-    },
-    {
-      "Position": {
-        "x": 0.523945034,
-        "y": -2.5,
-        "z": -12.5309258
-      },
-      "Rotation": {
-        "x": 62.1677933,
-        "y": 4.15449572,
-        "z": 0.0
-      },
-      "Distance": 84.9375,
-      "Zoomed": false,
-      "AbsolutePosition": {
-        "x": -2.34897447,
-        "y": 72.61182,
-        "z": -52.08268
-      }
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
   "DecalPallet": [],
   "CustomUIAssets": [
     {
@@ -721,7 +673,7 @@
         "z": -32.2500229
       },
       "Rotation": {
-        "x": 0.0168671459,
+        "x": 0.01686715,
         "y": 180.002136,
         "z": 0.07987543
       }
@@ -733,7 +685,7 @@
         "z": -32.25001
       },
       "Rotation": {
-        "x": 0.0168707538,
+        "x": 0.0168707576,
         "y": 179.999878,
         "z": 0.0798748359
       }
@@ -745,7 +697,7 @@
         "z": -32.2500229
       },
       "Rotation": {
-        "x": 0.0168713126,
+        "x": 0.0168713164,
         "y": 179.99968,
         "z": 0.0798767954
       }
@@ -757,7 +709,7 @@
         "z": -32.2500076
       },
       "Rotation": {
-        "x": 0.0168704111,
+        "x": 0.0168704148,
         "y": 179.999924,
         "z": 0.07987572
       }
@@ -769,7 +721,7 @@
         "z": -32.2500038
       },
       "Rotation": {
-        "x": 0.0168735888,
+        "x": 0.0168735925,
         "y": 179.999954,
         "z": 0.0798798054
       }
