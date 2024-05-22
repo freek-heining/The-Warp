@@ -105,10 +105,9 @@ local playerCount = 0
 local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
 
 function onload()
-    --SetInteractableFalse()
+    SetInteractableFalse()
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     --UI.setAttribute("setupWindow", "active", false)
-    --DealMissionCards()
 end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
@@ -224,6 +223,10 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
 
+    local rewardDeckGUID = "ff7833"
+    local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
+    rewardDeckObject.interactable = false
+
     local archiveDiscardShadowGUID = "1be9a4"
     local archiveShadow1GUID = "cbd643"
     local archiveShadow2GUID = "5fc440"
@@ -335,6 +338,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
 
         local rewardDeckGUID = "ff7833"
         local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
+        rewardDeckObject.interactable = true
         rewardDeckObject.shuffle()
 
         -- #2: Assign colors/seats to players automatically (in order of joining the game)
@@ -346,31 +350,31 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         end, 2)
 
         -- #4: Restore hand zones to orignal positions
-        --MoveHandZones("-", 300) 
-
-        -- #5: Deal Aliens for drafting
-        Wait.time(function ()
-            startLuaCoroutine(Global, "DealAliensCoroutine")
-        end, 6)
+        --MoveHandZones("-", 300)
         
-        -- #6: Deal Archive cards
+        -- #5: Deal Archive cards
         Wait.time(function ()
-            DealArchiveCards()
-        end, 8)
+            startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
+        end, 4)
         
-        -- #7: Deal Mission cards
+        -- #6: Deal Mission cards
         Wait.time(function ()
             SetMissionCards()
-        end, 10)
+        end, 6)
         
-        -- #8: Create the board
+        -- #7: Create the board
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
-        end, 12)
+        end, 8)
 
-        -- #9: Deal starting resources
+        -- #8: Deal starting resources
         Wait.time(function ()
             startLuaCoroutine(Global, "DealResourcesCoroutine")
+        end, 12)
+
+        -- #9: Deal Aliens for drafting
+        Wait.time(function ()
+            startLuaCoroutine(Global, "DealAliensCoroutine")
         end, 16)
     end
 end
@@ -436,9 +440,11 @@ function DealAliensCoroutine()
     local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
     local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
 
+    -- Bring in the 2 plateaus
     draftZoneClockwiseObject.setPositionSmooth({-65.25, 15.00, 41.25}, false, false)
     draftZoneCounterClockwiseObject.setPositionSmooth({-65.25, 15.00, -41.25}, false, false)
 
+    -- Wait for draft zones to complete moving
     for _ = 1, 250 do
         coroutine.yield(0)
     end
@@ -557,9 +563,6 @@ function DealAliensCoroutine()
                 end
             end
             
-            log("clockwiseCounter" .. clockwiseCounter)
-            log("counterClockwiseCounter" .. counterClockwiseCounter)
-
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
                 broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
             elseif counterClockwiseCounter >= 1 then
@@ -600,9 +603,6 @@ function DealAliensCoroutine()
                 end
             end
 
-            log("clockwiseCounter" .. clockwiseCounter)
-            log("counterClockwiseCounter" .. counterClockwiseCounter)
-
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
                 broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
             elseif clockwiseCounter <= playerCount then
@@ -622,6 +622,7 @@ function DealAliensCoroutine()
                 local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
                 local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
     
+                -- Destroy all remaining objects from the draft
                 for _, object in ipairs(rightCardObjects) do
                     object.destruct()
                 end
@@ -629,6 +630,11 @@ function DealAliensCoroutine()
                     object.destruct()
                 end                
             end, 2)
+
+        -- When drafting is done, deal 6 mission cards to each player
+        Wait.time(function ()
+            startLuaCoroutine(Global, "DealMissionCardsCoroutine")
+        end, 2)
 
         elseif color == TurnOrderTable[playerCount] then   
             print("Wait for the other draft pile to complete!")
@@ -640,7 +646,7 @@ function DealAliensCoroutine()
     return 1
 end
 
-function DealArchiveCards()
+function DealArchiveCardsCoroutine()
     local archiveDeckGUID = "6b2a67"
     local startCardDeckGUID = "ac5ebb"
 
@@ -650,6 +656,10 @@ function DealArchiveCards()
     -- Deal 1 start card to each seated player
     startCardDeckObject.deal(1)
     startCardDeckObject.destruct()
+
+    for _ = 1, 100 do
+        coroutine.yield(0)
+    end
 
     -- Deals 4 archive cards open to table left to right
     archiveDeckObject.shuffle()
@@ -683,16 +693,28 @@ function DealArchiveCards()
         end
     })
 
+    for _ = 1, 100 do
+        coroutine.yield(0)
+    end
+
     -- Deals 4 archive cards to players 1-3, and 5 cards to players 4-6 (if any)
     for i = 1, playerCount do
         if i < 4 then
             archiveDeckObject.deal(4, TurnOrderTable[i])
+            for _ = 1, 100 do
+                coroutine.yield(0)
+            end
         else    
             archiveDeckObject.deal(5, TurnOrderTable[i])
+            for _ = 1, 100 do
+                coroutine.yield(0)
+            end
         end
     end
 
     archiveDeckObject.interactable = true
+
+    return 1
 end
 
 function DealResourcesCoroutine() -- Deals gold/energy to players according to table in manual
@@ -994,7 +1016,7 @@ function SetMissionCards()
     end
 end
 
-function DealMissionCards()
+function DealMissionCardsCoroutine()
     local progressDeckGUID = "935e48"
     local ProsperityDeckGUID = "5771e2"
     local conquestDeckGUID = "f4ccdd"
@@ -1003,13 +1025,21 @@ function DealMissionCards()
     local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
     local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
 
-    print("inside dealmission")
-
-
-
-    function DealMissionsClicked(obj, color, alt_click)
-        print("inside testClick")
+    for _, color in pairs(TurnOrderTable) do
+        progressDeckObject.deal(2, color)
+        for _ = 1, 60 do
+            coroutine.yield(0)
+        end
+        ProsperityDeckObject.deal(2, color)
+        for _ = 1, 60 do
+            coroutine.yield(0)
+        end
+        conquestDeckObject.deal(2, color)
     end
+
+    broadcastToAll("Keep 1 mission of each color, and place the others back facedown on their repective draw pile. Shuffle afterwards", text_color)
+
+    return 1
 end
 
 function CreateBoardCoroutine()
@@ -1045,7 +1075,7 @@ function CreateBoardCoroutine()
         portalObject.destruct()
     end
 
-    -- Wait 3 seconds before dealing exile tokens
+    -- Wait 3 seconds before dealing exile tokens, so every part of the board is completely done
     Wait.time(function ()
         DealExileTokens()
     end, 3)

@@ -15,7 +15,8 @@
         childForceExpandWidth="false"
         childForceExpandHeight="false"
         childAlignment="MiddleLeft"
-        width="630"
+        width="640"
+        padding="0 0 60 0"
         spacing="10">
 
         <Text
@@ -24,33 +25,36 @@
             preferredWidth="300"
             preferredHeight="50"
             color="#FFFFFF"
-            shadow="#262626"
-            fontSize="30">Pre-game Setup</Text>
+            shadow="#141414"
+            fontSize="31">Pre-game Setup</Text>
 
         <Toggle
             id="alternativeMapToggle"
-            textShadow="#262626"
+            textShadow="#141414"
+            fontSize="16"
             onValueChanged="AlternativeMapToggled"
             textColor="#FFFFFF">Alternative map setup (side B)</Toggle>
         <Toggle
             id="advancedPioneeringToggle"
-            textShadow="#262626"
+            textShadow="#141414"
+            fontSize="16"
             onValueChanged="AdvancedPioneeringToggled"
             textColor="#FFFFFF">Advanced Pioneering cards</Toggle>            
         <Toggle
             id="expansionRacesToggle"
-            textShadow="#262626"    
+            textShadow="#141414"    
+            fontSize="16"
             onValueChanged="ExpansionRacesToggled"
-            textColor="#FFFFFF">Alien Pack expansion races</Toggle>
+            textColor="#FFFFFF">Expansion races</Toggle>
 
         <Text
             alignment="MiddleLeft"
             fontStyle="Bold"
-            preferredWidth="200"
-            preferredHeight="130"
+            preferredWidth="180"
+            preferredHeight="200"
             color="#FFFFFF"
-            shadow="#262626"
-            fontSize="12">This mod for 2-6 players will assign player colors and determine the starting player automatically. 
+            shadow="#141414"
+            fontSize="13">This mod for 2-6 players will assign player colors and determine the starting player automatically. 
             
             It's advised for the host to disable the permission 'Change Color' in options.
             
@@ -58,6 +62,9 @@
             
         <Button 
             id="startButton"
+            fontStyle="Bold"
+            fontSize="16"
+            textColor="#09266E"
             tooltip="Only the host can start the game. Wait until every player joined the game before starting!"
             preferredWidth="100"
             preferredHeight="40"
@@ -70,6 +77,8 @@
         rectAlignment="LowerCenter">
         <Text 
             color="#FFFFFF"
-            shadow="#262626">Mod created by: Freich</Text>
+            fontSize="14"
+            fontStyle="Bold"
+            shadow="#141414">Mod created by: Freich</Text>
      </Panel>
  </Panel>

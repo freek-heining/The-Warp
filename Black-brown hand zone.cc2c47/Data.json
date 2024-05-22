@@ -2,15 +2,15 @@
   "GUID": "cc2c47",
   "Name": "HandTrigger",
   "Transform": {
-    "posX": 58.51049,
+    "posX": 58.51,
     "posY": 5.0,
-    "posZ": -54.0,
+    "posZ": -58.0,
     "rotX": 0.0,
     "rotY": 0.0,
     "rotZ": 0.0,
-    "scaleX": 12.0,
+    "scaleX": 35.0,
     "scaleY": 7.0,
-    "scaleZ": 4.0
+    "scaleZ": 10.0
   },
   "Nickname": "Black/brown hand zone",
   "Description": "",

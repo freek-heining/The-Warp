@@ -3,11 +3,11 @@
   "Name": "Custom_Model",
   "Transform": {
     "posX": 69.74997,
-    "posY": 1.39938819,
-    "posZ": 33.7502022,
+    "posY": 1.399388,
+    "posZ": 33.750206,
     "rotX": 359.9201,
-    "rotY": 270.0029,
-    "rotZ": 0.0169650037,
+    "rotY": 270.0031,
+    "rotZ": 0.016967319,
     "scaleX": 0.19,
     "scaleY": 0.19,
     "scaleZ": 0.19
@@ -23,7 +23,7 @@
   "ColorDiffuse": {
     "r": 0.979577363,
     "g": 0.6524219,
-    "b": 0.126158386
+    "b": 0.126158327
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
