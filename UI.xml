@@ -4,8 +4,8 @@
 <Panel 
     id="setupWindow"
     color="#FFFFFFCC"
-    width="600"
-    height="600">
+    width="700"
+    height="700">
 
     <Image 
         image="The_Warp_Boxart"
@@ -15,7 +15,7 @@
         childForceExpandWidth="false"
         childForceExpandHeight="false"
         childAlignment="MiddleLeft"
-        width="550"
+        width="630"
         spacing="10">
 
         <Text
@@ -47,10 +47,12 @@
             alignment="MiddleLeft"
             fontStyle="Bold"
             preferredWidth="200"
-            preferredHeight="90"
+            preferredHeight="130"
             color="#FFFFFF"
             shadow="#262626"
             fontSize="12">This mod for 2-6 players will assign player colors and determine the starting player automatically. 
+            
+            It's advised for the host to disable the permission 'Change Color' in options.
             
             Wait until every player joined the lobby before pressing start.</Text>
             

@@ -1161,9 +1161,6 @@
     "path": "./Mission Point Token (1).296406"
   },
   {
-    "path": "./Draft Zone Clockwise.e407b4"
-  },
-  {
     "path": "./Draft Zone CounterClockwise.2968a3"
   },
   {
@@ -1171,5 +1168,8 @@
   },
   {
     "path": "./CCW Scriping Zone.025a21"
+  },
+  {
+    "path": "./Draft Zone Clockwise.1a436f"
   }
 ]

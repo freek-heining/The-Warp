@@ -27,7 +27,7 @@ local connectZonePositions = {
     [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} },
 }
 
--- 1-6 players (position, rotation)
+-- Players 1-6 (position, rotation)
 local energyZonePositions = {
     [1] = {31.70, 1.53, -40.84},
     [2] = {-11.80, 1.59, -40.85},
@@ -37,7 +37,7 @@ local energyZonePositions = {
     [6] = {75.20, 1.46, -40.85}
 }
 
--- 1-6 players (position, rotation)
+-- Players 1-6 (position, rotation)
 local goldZonePositions = {
     [1] = {26.32, 1.58, -40.81},
     [2] = {-17.18, 1.64, -40.81},
@@ -48,25 +48,35 @@ local goldZonePositions = {
 }
 
 local draftZonePositionsCW = {
-    [1] = {-73.50, 15.61, 25.50},
-    [2] = {-73.50, 15.62, 36.00},
-    [3] = {-73.50, 15.62, 46.50},
-    [4] = {-73.50, 15.62, 57.00},
-    [5] = {-60.00, 15.59, 25.50},
-    [6] = {-60.00, 15.60, 36.00},
-    [7] = {-60.00, 15.60, 46.50},
-    [8] = {-60.00, 15.60, 57.00}
+    [1] = {-73.41, 15.61, 25.54},
+    [2] = {-73.42, 15.62, 36.04},
+    [3] = {-73.42, 15.62, 46.54},
+    [4] = {-73.42, 15.62, 57.04},
+    [5] = {-59.66, 15.59, 25.54},
+    [6] = {-59.66, 15.60, 36.04},
+    [7] = {-59.66, 15.60, 46.54},
+    [8] = {-59.66, 15.60, 57.04}
 }
 
 local draftZonePositionsCCW = {
-    [1] = {-73.50, 15.61, -57.00},
-    [2] = {-73.50, 15.62, -46.50},
-    [3] = {-73.50, 15.62, -36.00},
-    [4] = {-73.50, 15.62, -25.50},
-    [5] = {-60.00, 15.59, -57.00},
-    [6] = {-60.00, 15.60, -46.50},
-    [7] = {-60.00, 15.60, -36.00},
-    [8] = {-60.00, 15.60, -25.50}
+    [1] = {-73.41, 15.61, -56.96},
+    [2] = {-73.41, 15.62, -46.46},
+    [3] = {-73.41, 15.62, -35.96},
+    [4] = {-73.41, 15.62, -25.46},
+    [5] = {-59.66, 15.59, -56.96},
+    [6] = {-59.66, 15.60, -46.46},
+    [7] = {-59.66, 15.60, -35.96},
+    [8] = {-59.66, 15.60, -25.46}
+}
+
+-- Left and right spot
+local alienRacePlayerZones = {
+    Red = { {21.75, 1.56, -32.25}, {30.75, 1.54, -32.25} },
+    Green = { {-21.75, 1.62, -32.25}, {-12.75, 1.60, -32.25} },
+    Purple = { {-35.25, 1.65, 32.25}, {-44.25, 1.67, 32.25} },
+    Blue = { {8.25, 1.59, 32.25}, {-0.75, 1.61, 32.25} },
+    Orange = { {51.75, 1.53, 32.25}, {42.75, 1.55, 32.25} },
+    Brown = { {65.25, 1.49, -32.25}, {74.25, 1.48, -32.25} }
 }
 --#endregion
 
@@ -92,10 +102,10 @@ end
 --#endregion
 
 local playerCount = 0
-local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc.
+local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
 
 function onload()
-    SetInteractableFalse()
+    --SetInteractableFalse()
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     --UI.setAttribute("setupWindow", "active", false)
     --DealMissionCards()
@@ -140,7 +150,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     guardianDeckObject.interactable = false
     advancedGuardianDeckObject.interactable = false
 
-    local draftZoneClockwiseGUID = "e407b4"
+    local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
     local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
     local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
@@ -306,7 +316,8 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         UI.setAttribute("startButton", "interactable", true)
     end, 2)
 
-    SetPlayerCount() -- Sets player count according to the current amount of ingame player
+    -- #1: Set player count according to the current amount of ingame players
+    SetPlayerCount()
 
     if not player.host then
         broadcastToAll("Only the host can start the game!", "Red")
@@ -315,7 +326,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     else
         print("Starting the game with " .. playerCount .. " players!")
 
-        UI.setAttribute("setupWindow", "active", false)
+        UI.setAttribute("setupWindow", "active", false) -- Hide the UI
         
         local abilityTokenBagGUID = "e98136"
         local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
@@ -326,33 +337,41 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
         rewardDeckObject.shuffle()
 
-        SetPlayerColors() -- Assigns colors/seats to players automatically (in order of joining the game)
-        
-        --MoveHandZones("-", 300) -- Restores hand zones to orignal positions
+        -- #2: Assign colors/seats to players automatically (in order of joining the game)
+        SetPlayerColors()
 
-        DetermineStartingPlayer() -- 
+        -- #3: Determine starting player and fix color/turn order
+        Wait.time(function ()
+            DetermineStartingPlayer() -- 
+        end, 2)
 
+        -- #4: Restore hand zones to orignal positions
+        --MoveHandZones("-", 300) 
+
+        -- #5: Deal Aliens for drafting
         Wait.time(function ()
             startLuaCoroutine(Global, "DealAliensCoroutine")
-        end, 1)
+        end, 6)
         
+        -- #6: Deal Archive cards
         Wait.time(function ()
             DealArchiveCards()
-        end, 2.5)
+        end, 8)
         
+        -- #7: Deal Mission cards
         Wait.time(function ()
             SetMissionCards()
-        end, 4)
+        end, 10)
         
+        -- #8: Create the board
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
-        end, 5.5)
+        end, 12)
 
+        -- #9: Deal starting resources
         Wait.time(function ()
             startLuaCoroutine(Global, "DealResourcesCoroutine")
-        end, 10)
-
-        
+        end, 16)
     end
 end
 
@@ -372,11 +391,11 @@ function SetPlayerColors() -- Sets player colors according to fixed positions in
     end
 end
 
-function DetermineStartingPlayer() -- Sets starting player and color/turn order
+function DetermineStartingPlayer() -- Determines starting player and color/turn order
     StartPlayerNumber = math.random(playerCount) -- Integer from 1 - playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
     local startPlayerColor = availablePlayerColors[StartPlayerNumber] -- Fixed color matching player numbers/seats
     
-    broadcastToAll("[" .. startPlayerColor .. "] is the starting player!", startPlayerColor)
+    broadcastToAll("-" .. startPlayerColor .. "- is the starting player!", startPlayerColor)
     
     local colorIndex = StartPlayerNumber -- Start with color/number of starting player, then continue clockwise from there 
 
@@ -390,9 +409,6 @@ function DetermineStartingPlayer() -- Sets starting player and color/turn order
         end
     end
 
-    log("TurnOrderTable:")
-    log(TurnOrderTable)
-
     Turns.enable = true
     Turns.type = 2
     Turns.order = TurnOrderTable
@@ -400,7 +416,7 @@ function DetermineStartingPlayer() -- Sets starting player and color/turn order
 end
 
 function DealAliensCoroutine()
-    local draftZoneClockwiseGUID = "e407b4"
+    local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
     local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
     local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
@@ -419,6 +435,13 @@ function DealAliensCoroutine()
     local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
     local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
     local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+
+    draftZoneClockwiseObject.setPositionSmooth({-65.25, 15.00, 41.25}, false, false)
+    draftZoneCounterClockwiseObject.setPositionSmooth({-65.25, 15.00, -41.25}, false, false)
+
+    for _ = 1, 250 do
+        coroutine.yield(0)
+    end
 
     local alienPlayDeckObject
 
@@ -459,15 +482,14 @@ function DealAliensCoroutine()
             position = draftZonePositionsCCW[i],
             callback_function = function(spawnedObject)
                 spawnedObject.locked = true
-                --counterClockwisePileTable[i] = spawnedObject
                 spawnedObject.createButton({
                     click_function = "DraftZoneCounterClockwiseClicked",
-                    width = 700,
-                    height = 270,
-                    position = {0,0,1.8},
+                    width = 800,
+                    height = 300,
+                    position = {0,0,1.9},
                     color = TurnOrderTable[playerCount],
                     label = "Choose",
-                    font_size = 130,
+                    font_size = 140,
                     font_color = "White",
                     tooltip = "Press to choose this Alien race & pass turn to the player on your right"
                 })
@@ -479,17 +501,16 @@ function DealAliensCoroutine()
             position = draftZonePositionsCW[i],
             callback_function = function(spawnedObject)
                 spawnedObject.locked = true
-                --clockwisePileTable[i] = spawnedObject
                 spawnedObject.createButton({
                     click_function = "DraftZoneClockwiseClicked",
-                    width = 700,
-                    height = 270,
-                    position = {0,0,1.8},
+                    width = 800,
+                    height = 300,
+                    position = {0,0,1.9},
                     color = TurnOrderTable[1],
                     label = "Choose",
-                    font_size = 130,
+                    font_size = 140,
                     font_color = "White",
-                    tooltip = "Press to choose this Alien race & pass turn to the player on your left"
+                    tooltip = "Press to choose this Alien Race & pass turn to the player on your left"
                 })
             end
         })
@@ -499,60 +520,121 @@ function DealAliensCoroutine()
         coroutine.yield(0)
     end
     
-    local clockwiseCounter = 1
-    local counterClockwiseCounter = playerCount
+    local clockwiseCounter = 1 -- Keeps track of right pile active player
+    local counterClockwiseCounter = playerCount -- Keeps track of left pile active player
 
-    broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose alien from right pile", TurnOrderTable[clockwiseCounter])
-    broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose alien from left pile", TurnOrderTable[counterClockwiseCounter])
+    broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the RIGHT pile", TurnOrderTable[clockwiseCounter])
+    broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the LEFT pile", TurnOrderTable[counterClockwiseCounter])
 
-    function DraftZoneCounterClockwiseClicked(obj, color)
-        log(obj)
-        log(color)
-
-        -- --obj.removeButton(0)
-
-        -- local cardObjects = scriptingZoneCounterClockwiseObject.getObjects()
-        -- log(cardObjects)
-
-        -- for _, card in ipairs(cardObjects) do
-        --     card.editButton({index=0, color=TurnOrderTable[counterClockwiseCounter]})
-        -- end
-
-        -- obj.deal(1, TurnOrderTable[counterClockwiseCounter])
-        -- counterClockwiseCounter = counterClockwiseCounter - 1
-        
-    end
-
-    function DraftZoneClockwiseClicked(obj, color)
-        if color == TurnOrderTable[clockwiseCounter] then
+    function DraftZoneCounterClockwiseClicked(obj, color) -- Left draft pile
+        if color == TurnOrderTable[counterClockwiseCounter] then
             obj.removeButton(0)
-            obj.deal(1, TurnOrderTable[clockwiseCounter])
-
-            clockwiseCounter = clockwiseCounter + 1
+            obj.locked = false
+            obj.setPositionSmooth(alienRacePlayerZones[TurnOrderTable[counterClockwiseCounter]][1], false, false)
             
-            local cardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
-            log(cardObjects)
-            log(clockwiseCounter)
+            if color == "Brown" or color == "Red" or color == "Green" then
+                obj.setRotationSmooth({0, 180, 0}, false, false)
+            else
+                obj.setRotationSmooth({0, 0, 0}, false, false)
+            end
+
+            counterClockwiseCounter = counterClockwiseCounter - 1 -- Counting down = counterclockwise
+
+            local cardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
 
             for _, object in ipairs(cardObjects) do
-                if clockwiseCounter > playerCount and object.type == "Card" then -- When last card of pile is drafted, 1 remains for guardian draft. Remove button.
+                if counterClockwiseCounter < 1 and object.type == "Card" then -- When 2nd last card of pile is drafted, 1 remains for guardian draft.
                     object.editButton({
                         index = 0,
-                        label = "Guardian",
-                        click_function = "GuardianClockwiseClicked",
-                        tooltip = "Choose this alien to become the Warp Guardian!"
+                        label = "Warp Guardian",
+                        click_function = "GuardianClicked",
+                        tooltip = "Choose this Alien Race to become the Warp Guardian!",
+                        width = 1100,
+                        color = TurnOrderTable[playerCount] -- Reset button color to last player in order
                     })
-                elseif object.type == "Card" then
-                    object.editButton({index=0, color=TurnOrderTable[clockwiseCounter]}) -- Change button color to next player in line's color
+                elseif object.type == "Card" then -- Change all buttons color to next player in line's color
+                    object.editButton({index=0, color=TurnOrderTable[counterClockwiseCounter]}) 
                 end
+            end
+            
+            log("clockwiseCounter" .. clockwiseCounter)
+            log("counterClockwiseCounter" .. counterClockwiseCounter)
+
+            if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
+                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
+            elseif counterClockwiseCounter >= 1 then
+                broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the -left- pile", TurnOrderTable[counterClockwiseCounter])
             end
         else
             print("Not your turn to pick from this pile!")
         end
     end
 
-    function GuardianClockwiseClicked()
-        print("testt")
+    function DraftZoneClockwiseClicked(obj, color) -- Right draft pile
+        if color == TurnOrderTable[clockwiseCounter] then
+            obj.removeButton(0)
+            obj.locked = false
+            obj.setPositionSmooth(alienRacePlayerZones[TurnOrderTable[clockwiseCounter]][2], false, false)
+
+            if color == "Brown" or color == "Red" or color == "Green" then
+                obj.setRotationSmooth({0, 180, 0}, false, false)
+            else
+                obj.setRotationSmooth({0, 0, 0}, false, false)
+            end
+
+            clockwiseCounter = clockwiseCounter + 1 -- Counting up = clockwise
+            
+            local cardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+
+            for _, object in ipairs(cardObjects) do
+                if clockwiseCounter > playerCount and object.type == "Card" then -- When 2nd last card of pile is drafted, 1 remains for guardian draft.
+                    object.editButton({
+                        index = 0,
+                        label = "Warp Guardian",
+                        click_function = "GuardianClicked",
+                        tooltip = "Choose this Alien Race to become the Warp Guardian!",
+                        width = 1100
+                    })
+                elseif object.type == "Card" then -- Change all buttons color to next player in line's color
+                    object.editButton({index=0, color=TurnOrderTable[clockwiseCounter]})
+                end
+            end
+
+            log("clockwiseCounter" .. clockwiseCounter)
+            log("counterClockwiseCounter" .. counterClockwiseCounter)
+
+            if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
+                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
+            elseif clockwiseCounter <= playerCount then
+                broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the -right- pile", TurnOrderTable[clockwiseCounter])
+            end
+        else
+            print("Not your turn to pick from this pile!")
+        end
+    end
+
+    function GuardianClicked(obj, color)
+        if color == TurnOrderTable[playerCount] and clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
+            obj.removeButton(0)
+            obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
+
+            Wait.time(function ()
+                local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+                local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+    
+                for _, object in ipairs(rightCardObjects) do
+                    object.destruct()
+                end
+                for _, object in ipairs(leftCardObjects) do
+                    object.destruct()
+                end                
+            end, 2)
+
+        elseif color == TurnOrderTable[playerCount] then   
+            print("Wait for the other draft pile to complete!")
+        else
+            print("You cannot choose the Warp Guardian!")
+        end
     end
 
     return 1
@@ -613,7 +695,7 @@ function DealArchiveCards()
     archiveDeckObject.interactable = true
 end
 
-function DealResourcesCoroutine() -- Deals gold/energy to players according to table in manual:
+function DealResourcesCoroutine() -- Deals gold/energy to players according to table in manual
     local energySpawnerGUID = "98a3fe"
     local goldSpawnerGUID = "0b18bb"
 
@@ -963,10 +1045,10 @@ function CreateBoardCoroutine()
         portalObject.destruct()
     end
 
-    -- Wait 2 seconds before dealing exile tokens
+    -- Wait 3 seconds before dealing exile tokens
     Wait.time(function ()
         DealExileTokens()
-    end, 2)
+    end, 3)
 
     return 1
 end
