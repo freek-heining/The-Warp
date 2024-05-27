@@ -1,0 +1,216 @@
+<!-- Attack -->
+<GridLayout
+    cellSize = "350 50"
+    width = "1700"
+    height = "100"
+    position = "0 0 -70"
+    rotation = "0 0 90"
+    spacing = "100 10"
+    offsetXY = "900 0">
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Troops: </Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Multiplier:</Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Extra Dice:</Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Ready</Text>
+
+    <Text
+        id = "troopCountAttackText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">1</Text>
+
+    <Text
+        id = "multiplierAttackText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">1</Text>
+
+    <Text
+        id = "extraDiceAttackText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">0</Text>
+        
+    <Button 
+        id="attackButton"
+        fontStyle="Bold"
+        fontSize="40"
+        textColor="#09266E"
+        preferredWidth="2000"
+        preferredHeight="1000"
+        onClick="AttackClicked">Set Attack</Button>
+
+    <Slider 
+        id = "troopCountAttack"
+        onValueChanged = "TroopCountAttackChange"
+        minValue="1" 
+        maxValue="3" 
+        value="1"
+        wholeNumbers = "true"/>
+
+    <Slider 
+        id = "multiplierAttack"
+        onValueChanged = "MultiplierAttackChange"
+        minValue="1" 
+        maxValue="4" 
+        value="1"
+        wholeNumbers = "true"/>
+
+    <Slider 
+        id = "extraDiceAttack"
+        onValueChanged = "ExtraDiceAttackChange"
+        minValue="0" 
+        maxValue="4" 
+        value="0"
+        wholeNumbers = "true"/>
+
+
+</GridLayout> 
+
+<!-- Defend -->
+<GridLayout
+    cellSize = "350 50"
+    width = "1700"
+    height = "100"
+    position = "0 0 -70"
+    rotation = "0 0 -90"
+    spacing = "100 10"
+    offsetXY = "-900 0">
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Troops: </Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Multiplier:</Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Extra Dice:</Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">Ready</Text>
+
+    <Text
+        id = "troopCountDefendText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">1</Text>
+
+    <Text
+        id = "multiplierDefendText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">1</Text>
+
+    <Text
+        id = "extraDiceDefendText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="44">0</Text>
+
+    <Button 
+        id="defendButton"
+        fontStyle="Bold"
+        fontSize="40"
+        textColor="#09266E"
+        preferredWidth="2000"
+        preferredHeight="1000"
+        onClick="DefendClicked">Set Defend</Button>
+
+    <Slider 
+        id = "troopCountDefend"
+        onValueChanged = "TroopCountDefendChange"
+        minValue="1" 
+        maxValue="3" 
+        value="1"
+        wholeNumbers = "true"/>
+
+    <Slider 
+        id = "multiplierDefend"
+        onValueChanged = "MultiplierDefendChange"
+        minValue="1" 
+        maxValue="4" 
+        value="1"
+        wholeNumbers = "true"/>
+
+    <Slider 
+        id = "extraDiceDefend"
+        onValueChanged = "ExtraDiceDefendChange"
+        minValue="0" 
+        maxValue="4" 
+        value="0"
+        wholeNumbers = "true"/>
+</GridLayout> 
+
+<!-- Results -->
+<GridLayout
+    cellSize = "500 200"
+    width = "1100"
+    height = "100"
+    position = "0 900 -70"
+    rotation = "0 0 180"
+    spacing = "100 0"
+    offsetXY = "0 0">
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="60">Attack Combat Power:</Text>
+
+    <Text
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="60">Defense Combat Power:</Text>
+
+    <Text
+        id = "attackResultText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="60">00</Text>
+
+    <Text
+        id = "defendResultText"
+        fontStyle="Bold"
+        color="#FFFFFF"
+        shadow="#141414"
+        fontSize="60">00</Text>
+</GridLayout> 

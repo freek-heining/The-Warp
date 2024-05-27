@@ -936,40 +936,40 @@
     "path": "./Player Board (blue).7ef26f"
   },
   {
-    "path": "./Attack Dice.e42c23"
+    "path": "./Attack Die.e42c23"
   },
   {
-    "path": "./Defence Dice.dced0b"
+    "path": "./Defense Die.dced0b"
   },
   {
-    "path": "./Attack Dice.ae7b17"
+    "path": "./Attack Die.ae7b17"
   },
   {
-    "path": "./Attack Dice.53f46a"
+    "path": "./Attack Die.53f46a"
   },
   {
-    "path": "./Attack Dice.659e77"
+    "path": "./Attack Die.659e77"
   },
   {
-    "path": "./Attack Dice.96287d"
+    "path": "./Attack Die.96287d"
   },
   {
-    "path": "./Attack Dice.e33d9a"
+    "path": "./Attack Die.e33d9a"
   },
   {
-    "path": "./Defence Dice.371303"
+    "path": "./Defense Die.371303"
   },
   {
-    "path": "./Defence Dice.a37a5d"
+    "path": "./Defense Die.a37a5d"
   },
   {
-    "path": "./Defence Dice.fb7612"
+    "path": "./Defense Die.fb7612"
   },
   {
-    "path": "./Defence Dice.2c2beb"
+    "path": "./Defense Die.2c2beb"
   },
   {
-    "path": "./Defence Dice.3c7042"
+    "path": "./Defense Die.3c7042"
   },
   {
     "path": "./Multiplier Token 1 - 2 Spawner.60c47f"
@@ -1171,5 +1171,29 @@
   },
   {
     "path": "./Draft Zone Clockwise.1a436f"
+  },
+  {
+    "path": "./Battle Zone.6e4f39"
+  },
+  {
+    "path": "./Defence Dice.36a807"
+  },
+  {
+    "path": "./Defence Dice.f3d7cc"
+  },
+  {
+    "path": "./Defence Dice.336fdf"
+  },
+  {
+    "path": "./Defence Dice.719782"
+  },
+  {
+    "path": "./Defence Dice.0d50fa"
+  },
+  {
+    "path": "./Defence Dice.43e9cc"
+  },
+  {
+    "path": "./Battle Scripting Zone.b6dd48"
   }
 ]

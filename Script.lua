@@ -107,7 +107,7 @@ local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order
 function onload()
     SetInteractableFalse()
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
-    --UI.setAttribute("setupWindow", "active", false)
+    UI.setAttribute("setupWindow", "active", false)
 end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
@@ -122,6 +122,9 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local boardScriptingZoneGUID = "8a89e0"
     local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
     boardScriptingZoneObject.interactable = false
+
+    local battleZoneGUID = "6e4f39"
+    local battleZoneObject = getObjectFromGUID(battleZoneGUID)
 
     local playerZoneGUID = "dea9dd"
     local connectZoneGUID = "500df9"
