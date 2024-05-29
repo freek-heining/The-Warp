@@ -2,15 +2,15 @@
   "GUID": "6e4f39",
   "Name": "Custom_Board",
   "Transform": {
-    "posX": -28.5000572,
-    "posY": 1.56326556,
-    "posZ": 1.60317941E-05,
-    "rotX": 0.07987352,
-    "rotY": 90.00336,
-    "rotZ": 359.983124,
-    "scaleX": 1.0,
+    "posX": -33.0005,
+    "posY": 1.56953537,
+    "posZ": -0.008329385,
+    "rotX": 0.07986084,
+    "rotY": 90.01486,
+    "rotZ": 359.983154,
+    "scaleX": 1.1,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.1
   },
   "Nickname": "Battle Zone",
   "Description": "",
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.107246839,
-    "g": 0.107246839,
-    "b": 0.107246839
+    "r": 0.107246555,
+    "g": 0.107246555,
+    "b": 0.107246555
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,9 +40,9 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomImage": {
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2483250775202596397/5D2034171B1522876A443FA40173BE094D52694B/",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2483250866893645752/CFE3EE087C8902FEFC255EA4CD4C5052227D267A/",
     "ImageSecondaryURL": "",
     "ImageScalar": 1.0,
-    "WidthScale": 1.78438663
+    "WidthScale": 1.0
   }
 }

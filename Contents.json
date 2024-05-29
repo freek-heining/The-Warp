@@ -936,42 +936,6 @@
     "path": "./Player Board (blue).7ef26f"
   },
   {
-    "path": "./Attack Die.e42c23"
-  },
-  {
-    "path": "./Defense Die.dced0b"
-  },
-  {
-    "path": "./Attack Die.ae7b17"
-  },
-  {
-    "path": "./Attack Die.53f46a"
-  },
-  {
-    "path": "./Attack Die.659e77"
-  },
-  {
-    "path": "./Attack Die.96287d"
-  },
-  {
-    "path": "./Attack Die.e33d9a"
-  },
-  {
-    "path": "./Defense Die.371303"
-  },
-  {
-    "path": "./Defense Die.a37a5d"
-  },
-  {
-    "path": "./Defense Die.fb7612"
-  },
-  {
-    "path": "./Defense Die.2c2beb"
-  },
-  {
-    "path": "./Defense Die.3c7042"
-  },
-  {
     "path": "./Multiplier Token 1 - 2 Spawner.60c47f"
   },
   {
@@ -1173,27 +1137,18 @@
     "path": "./Draft Zone Clockwise.1a436f"
   },
   {
+    "path": "./Attacker Scripting Zone.b6dd48"
+  },
+  {
+    "path": "./Defender Scripting Zone.52ba59"
+  },
+  {
     "path": "./Battle Zone.6e4f39"
   },
   {
-    "path": "./Defence Dice.36a807"
+    "path": "./Combat Card Attack placement zone.0e582a"
   },
   {
-    "path": "./Defence Dice.f3d7cc"
-  },
-  {
-    "path": "./Defence Dice.336fdf"
-  },
-  {
-    "path": "./Defence Dice.719782"
-  },
-  {
-    "path": "./Defence Dice.0d50fa"
-  },
-  {
-    "path": "./Defence Dice.43e9cc"
-  },
-  {
-    "path": "./Battle Scripting Zone.b6dd48"
+    "path": "./Combat Card Defense placement zone.a9bb10"
   }
 ]

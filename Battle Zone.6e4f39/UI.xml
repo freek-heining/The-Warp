@@ -1,216 +1,160 @@
 <!-- Attack -->
-<GridLayout
-    cellSize = "350 50"
-    width = "1700"
-    height = "100"
-    position = "0 0 -70"
-    rotation = "0 0 90"
-    spacing = "100 10"
-    offsetXY = "900 0">
+<TableLayout
+    useGlobalCellPadding="false"
+    width="1800"
+    height="300"
+    cellBackgroundColor="rgba(1,1,1,1)"
+    position="0 0 0"
+    rotation="0 0 90"
+    offsetXY="1080 0">
 
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Troops: </Text>
+    <Row>
+        <Cell>
+            <Image preserveAspect="true" image="Troop_Icon"/>
+            <Text id="troopCountAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Terrashift_Icon"/>
+            <Text id="multiplierAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Extra_Die_Icon"/>
+            <Text id="extraDiceAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Die_Value_Icon"/>
+            <Text id="dieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Multiply_Die_Icon"/>
+            <Text id="multiplyDieAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>     
+        <Cell>
+            <Text id="maximumDieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
+        </Cell>                   
+        <Cell>
+            <Image preserveAspect="true" image="Checkmark_Icon"/>
+        </Cell>
+    </Row>
 
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Multiplier:</Text>
-
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Extra Dice:</Text>
-
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Ready</Text>
-
-    <Text
-        id = "troopCountAttackText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">1</Text>
-
-    <Text
-        id = "multiplierAttackText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">1</Text>
-
-    <Text
-        id = "extraDiceAttackText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">0</Text>
-        
-    <Button 
-        id="attackButton"
-        fontStyle="Bold"
-        fontSize="40"
-        textColor="#09266E"
-        preferredWidth="2000"
-        preferredHeight="1000"
-        onClick="AttackClicked">Set Attack</Button>
-
-    <Slider 
-        id = "troopCountAttack"
-        onValueChanged = "TroopCountAttackChange"
-        minValue="1" 
-        maxValue="3" 
-        value="1"
-        wholeNumbers = "true"/>
-
-    <Slider 
-        id = "multiplierAttack"
-        onValueChanged = "MultiplierAttackChange"
-        minValue="1" 
-        maxValue="4" 
-        value="1"
-        wholeNumbers = "true"/>
-
-    <Slider 
-        id = "extraDiceAttack"
-        onValueChanged = "ExtraDiceAttackChange"
-        minValue="0" 
-        maxValue="4" 
-        value="0"
-        wholeNumbers = "true"/>
-
-
-</GridLayout> 
+    <Row>
+        <Cell padding="10 10 40 40">
+            <Slider id="troopCountAttackSlider" onValueChanged="TroopCountAttackChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="multiplierAttackSlider" onValueChanged="MultiplierAttackChange" minValue="1" maxValue="6" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="extraDiceAttackSlider" onValueChanged="ExtraDiceAttackChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="dieValueAttackSlider" onValueChanged="DieValueAttackChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="multiplyDieAttackSlider" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="0 0 0 0">
+            <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="70" toggleHeight="70"/>
+        </Cell>               
+        <Cell padding="10 10 10 10">
+            <Button id="attackButton" fontStyle="Bold" fontSize="50" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
+        </Cell>
+    </Row>
+</TableLayout> 
 
 <!-- Defend -->
-<GridLayout
-    cellSize = "350 50"
-    width = "1700"
-    height = "100"
-    position = "0 0 -70"
-    rotation = "0 0 -90"
-    spacing = "100 10"
-    offsetXY = "-900 0">
+<TableLayout
+    useGlobalCellPadding="false"
+    width="1800"
+    height="300"
+    cellBackgroundColor="rgba(1,1,1,1)"
+    position="0 0 0"
+    rotation="0 0 -90"
+    offsetXY="-1080 0">
 
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Troops: </Text>
+    <Row>
+        <Cell>
+            <Image preserveAspect="true" image="Troop_Icon"/>
+            <Text id="troopCountDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Terrashift_Icon"/>
+            <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Extra_Die_Icon"/>
+            <Text id="extraDiceDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Die_Value_Icon"/>
+            <Text id="dieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Multiply_Die_Icon"/>
+            <Text id="multiplyDieDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell> 
+        <Cell>
+            <Text id="maximumDieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
+        </Cell>                 
+        <Cell>
+            <Image preserveAspect="true" image="Checkmark_Icon"/>
+        </Cell>
+    </Row>
 
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Multiplier:</Text>
+    <Row>
+        <Cell padding="10 10 40 40">
+            <Slider id="troopCountDefenseSlider" onValueChanged="TroopCountDefenseChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="6" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="ExtraDiceDefenseSlider" onValueChanged="ExtraDiceDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="10 10 40 40">
+            <Slider id="dieValueDefenseSlider" onValueChanged="DieValueDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="10 10 40 40">
+            <Slider id="multiplyDieDefenseSlider" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="0 0 0 0">
+            <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="70" toggleHeight="70"/>
+        </Cell>                   
+        <Cell padding="10 10 10 10">
+            <Button id="defenseButton" interactable="false" fontStyle="Bold" fontSize="50" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
+        </Cell>
+    </Row>
+</TableLayout> 
 
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Extra Dice:</Text>
-
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">Ready</Text>
-
-    <Text
-        id = "troopCountDefendText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">1</Text>
-
-    <Text
-        id = "multiplierDefendText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">1</Text>
-
-    <Text
-        id = "extraDiceDefendText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="44">0</Text>
-
-    <Button 
-        id="defendButton"
-        fontStyle="Bold"
-        fontSize="40"
-        textColor="#09266E"
-        preferredWidth="2000"
-        preferredHeight="1000"
-        onClick="DefendClicked">Set Defend</Button>
-
-    <Slider 
-        id = "troopCountDefend"
-        onValueChanged = "TroopCountDefendChange"
-        minValue="1" 
-        maxValue="3" 
-        value="1"
-        wholeNumbers = "true"/>
-
-    <Slider 
-        id = "multiplierDefend"
-        onValueChanged = "MultiplierDefendChange"
-        minValue="1" 
-        maxValue="4" 
-        value="1"
-        wholeNumbers = "true"/>
-
-    <Slider 
-        id = "extraDiceDefend"
-        onValueChanged = "ExtraDiceDefendChange"
-        minValue="0" 
-        maxValue="4" 
-        value="0"
-        wholeNumbers = "true"/>
-</GridLayout> 
-
-<!-- Results -->
-<GridLayout
-    cellSize = "500 200"
-    width = "1100"
-    height = "100"
-    position = "0 900 -70"
-    rotation = "0 0 180"
-    spacing = "100 0"
-    offsetXY = "0 0">
-
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="60">Attack Combat Power:</Text>
-
-    <Text
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="60">Defense Combat Power:</Text>
-
-    <Text
-        id = "attackResultText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="60">00</Text>
-
-    <Text
-        id = "defendResultText"
-        fontStyle="Bold"
-        color="#FFFFFF"
-        shadow="#141414"
-        fontSize="60">00</Text>
-</GridLayout> 
+<TableLayout
+    cellPadding="10 10 10 10"
+    width="1400"
+    height="400"
+    position="0 1130 0"
+    rotation="0 0 180">
+    <!-- Row 1 -->
+    <Row>
+        <Cell>
+            <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Attack Combat Power:</Text>
+        </Cell>
+        <Cell>
+            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" onClick="BattleButtonClicked">Battle!</Button>
+        </Cell>
+        <Cell>
+            <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Defense Combat Power:</Text>
+        </Cell>
+    </Row>
+    <!-- Row 2 -->
+    <Row>
+        <Cell>
+            <Text id="attackResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
+        </Cell>
+        <Cell>
+            <Text id="battleResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Result</Text>
+        </Cell>
+        <Cell>
+            <Text id="defenseResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
+        </Cell>
+    </Row>
+</TableLayout>
+ 

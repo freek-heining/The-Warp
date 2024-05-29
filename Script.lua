@@ -125,6 +125,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
 
     local battleZoneGUID = "6e4f39"
     local battleZoneObject = getObjectFromGUID(battleZoneGUID)
+    battleZoneObject.interactable = false
 
     local playerZoneGUID = "dea9dd"
     local connectZoneGUID = "500df9"
@@ -225,6 +226,13 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local exiledShadowObject = getObjectFromGUID(exiledShadowGUID)
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
+
+    local combatCardAttackShadowGUID = "0e582a"
+    local combatCardDefenseShadowGUID = "a9bb10"
+    local combatCardAttackShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
+    local combatCardDefenseShadowObject = getObjectFromGUID(combatCardDefenseShadowGUID)
+    combatCardAttackShadowObject.interactable = false
+    combatCardDefenseShadowObject.interactable = false
 
     local rewardDeckGUID = "ff7833"
     local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)

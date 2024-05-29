@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp v2.73",
-  "EpochTime": 1716397517,
-  "Date": "5/22/2024 7:05:17 PM",
+  "SaveName": "The Warp v2.77",
+  "EpochTime": 1716891930,
+  "Date": "5/28/2024 12:25:30 PM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
@@ -297,7 +297,7 @@
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": ""
+    "TurnColor": "Blue"
   },
   "DecalPallet": [],
   "CustomUIAssets": [
@@ -305,6 +305,31 @@
       "Type": 0,
       "Name": "The_Warp_Boxart",
       "URL": "http://cloud-3.steamusercontent.com/ugc/2504640969832814381/2AC6DA82F299E2676D7B016CFA823CD10B6625C3/"
+    },
+    {
+      "Type": 0,
+      "Name": "Troop_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891249391/EEADA792DBB513CCA04AFABB434F418438169C72/"
+    },
+    {
+      "Type": 0,
+      "Name": "Terrashift_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891248915/2279B5DFFB01065D477E6838917C9328FCAE02EB/"
+    },
+    {
+      "Type": 0,
+      "Name": "Die_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891248374/82960F71E9C08508F550E31200552082858128AC/"
+    },
+    {
+      "Type": 0,
+      "Name": "Attack_Dice_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866894006842/DE912D7E24ED842B68CE5111368275B98F158346/"
+    },
+    {
+      "Type": 0,
+      "Name": "Defense_Dice_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866894007870/05467001593D0F5347DBBBAE121B829D883EC0C9/"
     }
   ],
   "VectorLines": [
@@ -642,7 +667,7 @@
         "z": -32.2500229
       },
       "Rotation": {
-        "x": 0.01686719,
+        "x": 0.0168672036,
         "y": 180.002136,
         "z": 0.07987543
       }
@@ -654,7 +679,7 @@
         "z": -32.25001
       },
       "Rotation": {
-        "x": 0.0168707985,
+        "x": 0.0168708116,
         "y": 179.999878,
         "z": 0.0798748359
       }
@@ -678,7 +703,7 @@
         "z": -32.2500076
       },
       "Rotation": {
-        "x": 0.0168704558,
+        "x": 0.0168704689,
         "y": 179.999924,
         "z": 0.07987572
       }
