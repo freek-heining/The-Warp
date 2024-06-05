@@ -3,7 +3,7 @@
     useGlobalCellPadding="false"
     width="1820"
     height="300"
-    cellBackgroundColor="rgba(1,1,1,1)"
+    cellBackgroundColor = ""
     position="0 0 0"
     rotation="0 0 90"
     offsetXY="1080 0">
@@ -63,8 +63,8 @@
         <Cell padding="0 0 0 0">
             <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="70" toggleHeight="70"/>
         </Cell>               
-        <Cell padding="10 10 10 10">
-            <Button id="attackButton" fontStyle="Bold" fontSize="50" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
+        <Cell padding="0 0 20 20">
+            <Button id="attackButton" fontStyle="Bold" fontSize="44" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
         </Cell>
     </Row>
 </TableLayout> 
@@ -74,7 +74,7 @@
     useGlobalCellPadding="false"
     width="1820"
     height="300"
-    cellBackgroundColor="rgba(1,1,1,1)"
+    cellBackgroundColor = ""
     position="0 0 0"
     rotation="0 0 -90"
     offsetXY="-1080 0">
@@ -85,7 +85,7 @@
             <Image preserveAspect="true" image="Troop_Icon"/>
             <Text id="troopCountDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
-        <Cell>
+        <Cell padding="0 0 0 0">
             <Image preserveAspect="true" image="Terrashift_Icon"/>
             <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
@@ -134,8 +134,8 @@
         <Cell padding="0 0 0 0">
             <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="70" toggleHeight="70"/>
         </Cell>                   
-        <Cell padding="10 10 10 10">
-            <Button id="defenseButton" fontStyle="Bold" fontSize="50" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
+        <Cell padding="0 0 20 20">
+            <Button id="defenseButton" fontStyle="Bold" fontSize="44" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
         </Cell>
     </Row>
 </TableLayout> 
@@ -143,6 +143,7 @@
 <!-- Battle Section -->
 <TableLayout
     cellPadding="10 10 10 10"
+    cellBackgroundColor = ""
     width="1400"
     height="400"
     position="0 1130 0"
@@ -152,22 +153,20 @@
         <Cell>
             <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Attack Combat Power:</Text>
         </Cell>
-        <Cell>
-            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" interactable="false" onClick="BattleButtonClicked">Battle!</Button>
-        </Cell>
+        <Cell/>
         <Cell>
             <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Defense Combat Power:</Text>
         </Cell>
     </Row>
     <!-- Row 2 -->
     <Row>
-        <Cell>
+        <Cell id="attackResultCell" dontUseTableCellBackground="true">
             <Text id="attackResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
         </Cell>
         <Cell>
-            <Text id="battleResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Result</Text>
+            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" interactable="false" onClick="BattleButtonClicked">Battle!</Button>
         </Cell>
-        <Cell>
+        <Cell id="defenseResultCell" dontUseTableCellBackground="true">
             <Text id="defenseResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
         </Cell>
     </Row>

@@ -309,27 +309,32 @@
     {
       "Type": 0,
       "Name": "Troop_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891249391/EEADA792DBB513CCA04AFABB434F418438169C72/"
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934498952/EEADA792DBB513CCA04AFABB434F418438169C72/"
     },
     {
       "Type": 0,
       "Name": "Terrashift_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891248915/2279B5DFFB01065D477E6838917C9328FCAE02EB/"
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934497909/2279B5DFFB01065D477E6838917C9328FCAE02EB/"
     },
     {
       "Type": 0,
-      "Name": "Die_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866891248374/82960F71E9C08508F550E31200552082858128AC/"
+      "Name": "Checkmark_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934506406/E09C8A78BEBEEE9441BAD37BD20EEF6C1FDACD0F/"
     },
     {
       "Type": 0,
-      "Name": "Attack_Dice_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866894006842/DE912D7E24ED842B68CE5111368275B98F158346/"
+      "Name": "Die_Value_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935074488/CD1398779F66EBB05F9DA4CCB52CDB232E0B8FC5/"
     },
     {
       "Type": 0,
-      "Name": "Defense_Dice_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2483250866894007870/05467001593D0F5347DBBBAE121B829D883EC0C9/"
+      "Name": "Extra_Die_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935075465/82960F71E9C08508F550E31200552082858128AC/"
+    },
+    {
+      "Type": 0,
+      "Name": "Multiply_Die_Icon",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935276543/55D26322389BD3109A828CCC658D5FC316E5E2F9/"
     }
   ],
   "VectorLines": [
