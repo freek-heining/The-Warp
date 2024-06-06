@@ -1,6 +1,6 @@
 --#region DataTables
 -- Fixed colors in clockwise order
-local availablePlayerColors = { -- Fixed colors in clockwise order
+local availablePlayerColors = {
     [1] = "Red",
     [2] = "Green",
     [3] = "Purple",
@@ -107,7 +107,7 @@ local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order
 function onload()
     SetInteractableFalse()
     --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
-    UI.setAttribute("setupWindow", "active", false)
+    --UI.setAttribute("setupWindow", "active", false)
 end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
@@ -1053,21 +1053,24 @@ function DealMissionCardsCoroutine()
     return 1
 end
 
+local playerZoneObjects = {}
 function CreateBoardCoroutine()
     local portalGUID = "9aecf3"
     local portalObject = getObjectFromGUID(portalGUID)
 
     local playerZoneGUID = "dea9dd"
     local playerZoneObject = getObjectFromGUID(playerZoneGUID)
+    table.insert(playerZoneObjects, playerZoneObject)
 
     local connectZoneGUID = "500df9"
     local connectZoneObject = getObjectFromGUID(connectZoneGUID)
-        
+
     for i = 2, playerCount, 1 do
-        local clone = playerZoneObject.clone()
-        clone.setPositionSmooth(playerZonePositions[i][1], false, false)
-        clone.setRotationSmooth(playerZonePositions[i][2], false, false)
-        clone.interactable = false
+        local playerZone = playerZoneObject.clone()
+        table.insert(playerZoneObjects, playerZone)
+        playerZone.setPositionSmooth(playerZonePositions[i][1], false, false)
+        playerZone.setRotationSmooth(playerZonePositions[i][2], false, false)
+        playerZone.interactable = false
         
         local count = 0
         while count < 100 do
@@ -1086,10 +1089,143 @@ function CreateBoardCoroutine()
         portalObject.destruct()
     end
 
+    -- Wait 3 seconds before dealing player tokens, so every part of the board is completely done
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
+    end, 3)
+
     -- Wait 3 seconds before dealing exile tokens, so every part of the board is completely done
     Wait.time(function ()
         DealExileTokens()
-    end, 3)
+    end, 6)
+
+    return 1
+end
+
+function DealPlayerTokensCoroutine()
+    -- All local positions relative to player zone
+    local troopTokenLocations = {
+        [1] = vector(-1.18 , 0.116 , 1.035),
+        [2] = vector(-0.003 , 0.108 , 0.672),
+        [3] = vector(-0.177 , 0.108 , 0.786),
+        [4] = vector(-0.209 , 0.108 , 1.004)
+    }
+    -- Order: Mine, Trade, Command, Plant (Like in scripting zone right to left)
+    local buildingLocations = {
+        [1] = vector(-0.048 , 0.105 , 1.247),
+        [2] = vector(0.2 , 0.120 , 1.003),
+        [3] = vector(0.655 , 0.120 , 0.791),
+        [4] = vector(0.591 , 0.105 , 1.298)
+    }
+
+    -- Combination of the above 2 tables. 8 locations Total
+    local playerTokenLocations = {
+        [1] = vector(-1.18 , 0.116 , 1.035),
+        [2] = vector(-0.003 , 0.108 , 0.672),
+        [3] = vector(-0.177 , 0.108 , 0.786),
+        [4] = vector(-0.209 , 0.108 , 1.004),
+        [5] = vector(-0.048 , 0.105 , 1.247),
+        [6] = vector(0.2 , 0.120 , 1.003),
+        [7] = vector(0.655 , 0.120 , 0.791),
+        [8] = vector(0.591 , 0.105 , 1.298)
+    }
+
+    -- All starting miniatures per color in order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
+    -- Nested tables for different player numbers!
+    local playerTokenObjects = {}
+
+    local function insertRotateToTable(objects)
+        local trimmedTable = {}
+        local j = 1
+
+        -- Remove nameless/useless catched objects and rotate & order the rest
+        for i, object in ipairs(objects) do
+            if object.getName() == "" then 
+                table.remove(objects, i)
+            elseif object == nil then
+                table.remove(objects, i)
+            elseif object.getName() == "Troop Token"  then
+                object.rotate({x=0, y=60, z=0})
+                trimmedTable[j] = object
+                j = j + 1
+            elseif object.getName() == "Mine"  then
+                object.rotate({x=0, y=60, z=0})
+                trimmedTable[5] = object
+            elseif object.getName() == "Trade Post"  then
+                object.rotate({x=0, y=-30, z=0})
+                trimmedTable[6] = object
+            elseif object.getName() == "Command Center"  then
+                object.rotate({x=0, y=-30, z=0})
+                trimmedTable[7] = object
+            elseif object.getName() == "Power Plant"  then
+                object.rotate({x=0, y=-90, z=0})
+                trimmedTable[8] = object
+            end
+        end
+        
+        table.insert(playerTokenObjects, trimmedTable)
+    end
+
+    -- #1 Red
+    local redScriptingZoneGUID = "be23c6"
+    local redScriptingZoneObject = getObjectFromGUID(redScriptingZoneGUID)
+    local redTokenObjects = redScriptingZoneObject.getObjects()
+    insertRotateToTable(redTokenObjects)
+
+    -- #2 Green
+    local greenScriptingZoneGUID = "c88802"
+    local greenScriptingZoneObject = getObjectFromGUID(greenScriptingZoneGUID)
+    local greenTokenObjects = greenScriptingZoneObject.getObjects()
+    insertRotateToTable(greenTokenObjects)
+
+    -- #3 Purple
+    local purpleScriptingZoneGUID = "cd4ab7"
+    local purpleScriptingZoneObject = getObjectFromGUID(purpleScriptingZoneGUID)
+    local purpleTokenObjects = purpleScriptingZoneObject.getObjects()
+    insertRotateToTable(purpleTokenObjects)
+
+    -- #4 Blue
+    local blueScriptingZoneGUID = "df35ef"
+    local blueScriptingZoneObject = getObjectFromGUID(blueScriptingZoneGUID)
+    local blueTokenObjects = blueScriptingZoneObject.getObjects()
+    insertRotateToTable(blueTokenObjects)
+
+    -- #5 Orange
+    local orangeScriptingZoneGUID = "535afd"
+    local orangeScriptingZoneObject = getObjectFromGUID(orangeScriptingZoneGUID)
+    local orangeTokenObjects = orangeScriptingZoneObject.getObjects()
+    insertRotateToTable(orangeTokenObjects)
+
+    -- #6 Black
+    local blackScriptingZoneGUID = "baed0b"
+    local blackScriptingZoneObject = getObjectFromGUID(blackScriptingZoneGUID)
+    local blackTokenObjects = blackScriptingZoneObject.getObjects()
+    insertRotateToTable(blackTokenObjects)
+
+    for _ = 1, 100, 1 do
+        coroutine.yield(0)
+    end
+
+    -- For each player, move and rotate tokens into positions. (+60 degrees for each following player)
+    for i = 1, playerCount do
+        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #4 is already good so skip
+            if i == 2 or i == 5 then
+                object.rotate({x=0, y=60, z=0})
+            elseif i == 3 or i == 6 then
+                object.rotate({x=0, y=-60, z=0})
+            end
+
+            for _ = 1, 10, 1 do
+                coroutine.yield(0)
+            end
+
+            object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocations[j]), false, false) -- Set 8 tokens j on current player i's player zone
+        end
+        
+        for _ = 1, 200, 1 do
+            coroutine.yield(0)
+        end
+    end
 
     return 1
 end

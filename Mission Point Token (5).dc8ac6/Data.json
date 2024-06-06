@@ -2,12 +2,12 @@
   "GUID": "dc8ac6",
   "Name": "Custom_Tile_Stack",
   "Transform": {
-    "posX": -46.50012,
-    "posY": 1.89147806,
+    "posX": -46.5001259,
+    "posY": 1.89147782,
     "posZ": -16.49996,
-    "rotX": 0.07988874,
-    "rotY": 89.9993057,
-    "rotZ": 179.983139,
+    "rotX": 0.0798933357,
+    "rotY": 89.99898,
+    "rotZ": 179.983154,
     "scaleX": 0.95,
     "scaleY": 1.0,
     "scaleZ": 0.95

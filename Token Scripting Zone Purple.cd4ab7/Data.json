@@ -1,0 +1,43 @@
+{
+  "GUID": "cd4ab7",
+  "Name": "ScriptingTrigger",
+  "Transform": {
+    "posX": -19.13434,
+    "posY": 3.0,
+    "posZ": 27.58,
+    "rotX": 0.0,
+    "rotY": 3.187271E-05,
+    "rotZ": 0.0,
+    "scaleX": 18.3917046,
+    "scaleY": 3.0,
+    "scaleZ": 2.59
+  },
+  "Nickname": "Token Scripting Zone Purple",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.509803951
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false
+}
