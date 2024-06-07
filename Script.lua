@@ -659,7 +659,7 @@ function DealAliensCoroutine()
             end, 3)
 
             Wait.time(function ()
-                local guardianGUID
+                local guardianGUID = nil
                 -- Look for corresponding guardian in the guardian deck, to place over the chosen alien guardian card
                 for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
                     if  guardianCard.name == chosenGuardianName then
@@ -668,15 +668,17 @@ function DealAliensCoroutine()
                 end
             
                 -- Take corresponding guardian from deck to place over the chosen alien card
-                guardianPlayDeckObject.takeObject({
-                    guid = guardianGUID,
-                    position = {-51.41, 1.80, -9.00},
-                    callback_function = function(chosenGuardian)
-                        Wait.time(function ()
-                            chosenGuardian.setLock(true)
-                        end, 1.5)
-                    end
-                })
+                if guardianGUID then
+                    guardianPlayDeckObject.takeObject({
+                        guid = guardianGUID,
+                        position = {-51.41, 1.80, -9.00},
+                        callback_function = function(chosenGuardian)
+                            Wait.time(function ()
+                                chosenGuardian.setLock(true)
+                            end, 1.5)
+                        end
+                    })
+                end
 
                 broadcastToAll("Don't forget to put tokens on the Exiled Races and Warp Guardian")
                 
@@ -706,8 +708,10 @@ function DealArchiveCardsCoroutine()
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
-    -- Deal 1 start card to each seated player
-    startCardDeckObject.deal(1)
+    -- Deal 1 start card to each player
+    for i = 1, playerCount do
+        startCardDeckObject.deal(1, TurnOrderTable[i])
+    end
     startCardDeckObject.destruct()
 
     for _ = 1, 100 do
@@ -1369,3 +1373,71 @@ function onPlayerAction(player, action, targets)
         broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`")
     end
 end
+
+
+
+--#region Secret demo stuff, don't look!
+local counter  = 0
+function DemoClicked(player)
+    if player.host then
+        counter = counter + 1
+    end
+    if counter == 10 then
+        broadcastToAll("Demo mode unlocked!")
+        UI.setAttribute("setupWindow", "active", false) -- Hide the normal UI
+        UI.setAttribute("demoWindow", "active", true) -- Show the demo UI
+        playerCount = 4
+    end
+end
+
+function PlayerCountSelected(player, option, id)
+    local optionValue = string.sub(option, 1, 1)
+    local number = tonumber(optionValue)
+    if number then
+        playerCount = number
+    end
+end
+
+function DemoStartClicked()
+    UI.setAttribute("demoWindow", "active", false) -- Hide the UI
+    
+    broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
+    
+    -- #1: Shuffle ability bag and reward deck
+    local abilityTokenBagGUID = "e98136"
+    local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
+    abilityTokenBagObject. interactable = true
+    abilityTokenBagObject.shuffle()
+
+    local rewardDeckGUID = "ff7833"
+    local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
+    rewardDeckObject.interactable = true
+    rewardDeckObject.shuffle()
+
+    -- #2: Assign colors/seats to players automatically (in order of joining the game)
+    SetPlayerColors()
+
+    -- #3: Determine starting player and fix color/turn order
+    Wait.time(function ()
+        DetermineStartingPlayer()
+    end, 2.5)
+
+    -- #4: Restore hand zones to orignal positions
+    MoveHandZones("-", 300)
+    
+    -- #5: Deal Archive cards
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
+    end, 5)
+    
+    -- #6: Deal Mission cards
+    Wait.time(function ()
+        SetMissionCards()
+    end, 7)
+    
+    -- #7: Create the board
+    Wait.time(function ()
+        startLuaCoroutine(Global, "CreateBoardCoroutine")
+    end, 9)
+end
+--#endregion
