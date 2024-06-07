@@ -106,7 +106,7 @@ local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order
 
 function onload()
     SetInteractableFalse()
-    --MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     --UI.setAttribute("setupWindow", "active", false)
 end
 
@@ -297,7 +297,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
 end
 
 function MoveHandZones(operation, moveValue)
-    print("Moving hands with: " .. operation .. moveValue)
+    -- Stores the moving away and back to original operations
     local operations = {
         ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
         ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
@@ -324,7 +324,7 @@ function MoveHandZones(operation, moveValue)
     BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
 end
 
-function StartClicked(player) -- Calls most setup functions and handles their timing/order
+function StartClicked(player) -- Calls most setup functions and handles their timing/order. A lot of functions are 'chained' in other functions. See comments
     UI.setAttribute("startButton", "interactable", false) -- Prevents button spam
     Wait.time(function ()
         UI.setAttribute("startButton", "interactable", true)
@@ -338,9 +338,9 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     elseif playerCount < 2 then
         broadcastToAll("Need 2 players minimum to start!", "Red")
     else
-        print("Starting the game with " .. playerCount .. " players!")
-
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
+        
+        broadcastToAll("Starting the game with " .. playerCount .. " players!. Please wait while everything is being set up")
         
         -- #1: Shuffle ability bag and reward deck
         local abilityTokenBagGUID = "e98136"
@@ -358,36 +358,26 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
 
         -- #3: Determine starting player and fix color/turn order
         Wait.time(function ()
-            DetermineStartingPlayer() -- 
-        end, 2)
+            DetermineStartingPlayer()
+        end, 3)
 
         -- #4: Restore hand zones to orignal positions
-        --MoveHandZones("-", 300)
+        MoveHandZones("-", 300)
         
         -- #5: Deal Archive cards
         Wait.time(function ()
             startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
-        end, 4)
+        end, 5)
         
         -- #6: Deal Mission cards
         Wait.time(function ()
             SetMissionCards()
-        end, 6)
+        end, 7)
         
         -- #7: Create the board
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
-        end, 8)
-
-        -- #8: Deal starting resources
-        Wait.time(function ()
-            startLuaCoroutine(Global, "DealResourcesCoroutine")
-        end, 12)
-
-        -- #9: Deal Aliens for drafting
-        Wait.time(function ()
-            startLuaCoroutine(Global, "DealAliensCoroutine")
-        end, 16)
+        end, 9)
     end
 end
 
@@ -481,7 +471,8 @@ function DealAliensCoroutine()
     alienPlayDeckObject.takeObject({
         position = {x = -51.41, y = 1.67, z = 5.25},
         callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end) -- Optional numberFrames, default = 1 frame
+            Wait.time(function() spawnedObject.flip() end, 1)
+            Wait.time(function() spawnedObject.setLock(true) end, 3)
         end
     })
     
@@ -489,7 +480,8 @@ function DealAliensCoroutine()
     alienPlayDeckObject.takeObject({
         position = {x = -51.41, y = 1.67, z = 12.75},
         callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
+            Wait.time(function() spawnedObject.flip() end, 1)
+            Wait.time(function() spawnedObject.setLock(true) end, 3)
         end
     })
 
@@ -626,11 +618,14 @@ function DealAliensCoroutine()
     end
 
     function GuardianClicked(obj, color)
+        -- Only when 1 alien left on both sides can we choose the warp guardian
         if color == TurnOrderTable[playerCount] and clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
             obj.removeButton(0)
             obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
 
             Wait.time(function ()
+                obj.setLock(true)
+
                 local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
                 local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
     
@@ -641,14 +636,14 @@ function DealAliensCoroutine()
                 for _, object in ipairs(leftCardObjects) do
                     object.destruct()
                 end                
-            end, 2)
+            end, 3)
 
-        -- When drafting is done, deal 6 mission cards to each player
-        Wait.time(function ()
-            startLuaCoroutine(Global, "DealMissionCardsCoroutine")
-        end, 2)
+            -- When drafting is done, deal 6 mission cards to each player
+            Wait.time(function ()
+                startLuaCoroutine(Global, "DealMissionCardsCoroutine")
+            end, 3)
 
-        elseif color == TurnOrderTable[playerCount] then   
+        elseif color == TurnOrderTable[playerCount] then
             print("Wait for the other draft pile to complete!")
         else
             print("You cannot choose the Warp Guardian!")
@@ -716,7 +711,7 @@ function DealArchiveCardsCoroutine()
             for _ = 1, 100 do
                 coroutine.yield(0)
             end
-        else    
+        else
             archiveDeckObject.deal(5, TurnOrderTable[i])
             for _ = 1, 100 do
                 coroutine.yield(0)
@@ -729,14 +724,15 @@ function DealArchiveCardsCoroutine()
     return 1
 end
 
-function DealResourcesCoroutine() -- Deals gold/energy to players according to table in manual
+-- Deals starting gold/energy to players according to table in manual. Also calls DealAliensCoroutine() when finished
+function DealResourcesCoroutine() 
     local energySpawnerGUID = "98a3fe"
     local goldSpawnerGUID = "0b18bb"
 
     local energySpawnerObject = getObjectFromGUID(energySpawnerGUID)
     local goldSpawnerObject = getObjectFromGUID(goldSpawnerGUID)
 
-    local playerIndex = StartPlayerNumber -- Start with number of starting player, then continue clockwise from there 
+    local playerColorIndex = StartPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
 
     -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
     for i = 1, playerCount do
@@ -744,17 +740,17 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
         if i == 1 then
             for _ = 1, 4 do
                 goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerIndex]
+                    position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
             for _ = 1, 4 do
                 energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerIndex]
+                    position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
@@ -762,17 +758,17 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
         elseif i == 2 then
             for _ = 1, 5 do
                 goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerIndex]
+                    position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
             for _ = 1, 4 do
                 energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerIndex]
+                    position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
@@ -780,17 +776,17 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
         elseif i == 3 or i ==4 then
             for _ = 1, 5 do
                 goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerIndex]
+                    position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
             for _ = 1, 5 do
                 energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerIndex]
+                    position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
@@ -798,17 +794,17 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
         elseif i == 5 then
             for _ = 1, 6 do
                 goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerIndex]
+                    position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
             for _ = 1, 5 do
                 energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerIndex]
+                    position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
@@ -816,26 +812,27 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
         elseif i == 6 then
             for _ = 1, 6 do
                 goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerIndex]
+                    position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
             for _ = 1, 6 do
                 energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerIndex]
+                    position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 20 do
+                for _ = 1, 10 do
                     coroutine.yield(0)
                 end
             end
         end
 
-        playerIndex = playerIndex + 1
+        playerColorIndex = playerColorIndex + 1
 
-        if  playerIndex > playerCount then -- If last player number was reached, reset to use remaining numbers from beginning of table
-            playerIndex = 1
+        -- If last player number/color on current game board is reached, reset to use remaining numbers/colors from beginning of game board
+        if  playerColorIndex > playerCount then
+            playerColorIndex = 1
         end
 
         -- Wait X frames between players
@@ -843,6 +840,11 @@ function DealResourcesCoroutine() -- Deals gold/energy to players according to t
             coroutine.yield(0)
         end
     end
+
+    -- Finally, deal Aliens for drafting
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealAliensCoroutine")
+    end, 1)
 
     return 1
 end
@@ -879,7 +881,7 @@ function SetMissionCards()
     ProsperityDeckObject.takeObject({
         position = {x = 62.25, y = 1.67, z = 15.75},
         callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
+            Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
         end
     })
     ProsperityDeckObject.interactable = true
@@ -917,7 +919,7 @@ function SetMissionCards()
                 Wait.frames(function() spawnedObject.destruct() end)
             end
         })
-
+        -- Get the advanced card
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
             for _, cardTag in ipairs(cardTable.tags) do
                 if cardTag == "ascension" then
@@ -962,7 +964,7 @@ function SetMissionCards()
                 Wait.frames(function() spawnedObject.destruct() end)
             end
         })
-
+        -- Get the advanced card
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
             for _, cardTag in ipairs(cardTable.tags) do
                 if cardTag == "king" then
@@ -1054,8 +1056,10 @@ function DealMissionCardsCoroutine()
     return 1
 end
 
--- Used in DealPlayerTokensCoroutine
+-- Used in DealPlayerTokensCoroutine()
 local playerZoneObjects = {}
+
+-- Create game board dynamically. Also calls DealExileTokens() and DealPlayerTokensCoroutine() when finished
 function CreateBoardCoroutine()
     local portalGUID = "9aecf3"
     local portalObject = getObjectFromGUID(portalGUID)
@@ -1091,19 +1095,20 @@ function CreateBoardCoroutine()
         portalObject.destruct()
     end
 
-    -- Player starting tokens: Wait 3 seconds before dealing player tokens, so every part of the board is completely done
+    -- Deal Exile Tokens: Wait x seconds before dealing exile tokens, so every part of the board is completely done
+    Wait.time(function ()
+        DealExileTokens()
+    end, 1)
+
+    -- Deal player starting tokens: Wait x seconds before dealing player tokens, so every part of the board is completely done
     Wait.time(function ()
         startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
     end, 3)
 
-    -- Exile Tokens: Wait 6 seconds before dealing exile tokens, so every part of the board is completely done and player tokens are dealt
-    Wait.time(function ()
-        DealExileTokens()
-    end, 6)
-
     return 1
 end
 
+-- Deals all starting tokens to players. Also calls DealResourcesCoroutine() when finished
 function DealPlayerTokensCoroutine()
     -- All local positions relative to player zone
     local troopTokenLocations = {
@@ -1204,7 +1209,7 @@ function DealPlayerTokensCoroutine()
     local blackTokenObjects = blackScriptingZoneObject.getObjects()
     insertRotateToTable(blackTokenObjects)
 
-    for _ = 1, 100, 1 do
+    for _ = 1, 80, 1 do
         coroutine.yield(0)
     end
 
@@ -1224,14 +1229,22 @@ function DealPlayerTokensCoroutine()
             object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocations[j]), false, false) -- Set 8 tokens j on current player i's player zone
         end
         
-        for _ = 1, 200, 1 do
+        for _ = 1, 100, 1 do
             coroutine.yield(0)
         end
     end
 
+
+
+    -- When done deal starting resources
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealResourcesCoroutine")
+    end, 1)
+
     return 1
 end
 
+-- Deals open & closed Exile Tokens to the game board
 function DealExileTokens()
     local boardScriptingZoneGUID = "8a89e0"
     local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
@@ -1276,7 +1289,7 @@ function DealExileTokens()
     end, 1)
 end
 
--- All exile tokens on board
+-- All exile tokens on board. Used in checkIfExileToken()
 local exileTokensTable = {}
 
 function CollectExileTokens()
