@@ -330,7 +330,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         UI.setAttribute("startButton", "interactable", true)
     end, 2)
 
-    -- #1: Set player count according to the current amount of ingame players
+    -- Set player count according to the current amount of ingame players
     SetPlayerCount()
 
     if not player.host then
@@ -342,6 +342,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
 
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
         
+        -- #1: Shuffle ability bag and reward deck
         local abilityTokenBagGUID = "e98136"
         local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
         abilityTokenBagObject. interactable = true
@@ -1053,6 +1054,7 @@ function DealMissionCardsCoroutine()
     return 1
 end
 
+-- Used in DealPlayerTokensCoroutine
 local playerZoneObjects = {}
 function CreateBoardCoroutine()
     local portalGUID = "9aecf3"
@@ -1089,12 +1091,12 @@ function CreateBoardCoroutine()
         portalObject.destruct()
     end
 
-    -- Wait 3 seconds before dealing player tokens, so every part of the board is completely done
+    -- Player starting tokens: Wait 3 seconds before dealing player tokens, so every part of the board is completely done
     Wait.time(function ()
         startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
     end, 3)
 
-    -- Wait 3 seconds before dealing exile tokens, so every part of the board is completely done
+    -- Exile Tokens: Wait 6 seconds before dealing exile tokens, so every part of the board is completely done and player tokens are dealt
     Wait.time(function ()
         DealExileTokens()
     end, 6)
@@ -1242,6 +1244,7 @@ function DealExileTokens()
     local objectsInZone = boardScriptingZoneObject.getObjects()
 
     for _, object in ipairs(objectsInZone) do
+        -- Loop all snapppoint boardScriptingZoneObject and place random exile tokens
         for _, snapPointTable in pairs(object.getSnapPoints()) do
             if snapPointTable.tags[1] == "exile_open" then
                 local localPos = snapPointTable.position
@@ -1250,6 +1253,7 @@ function DealExileTokens()
                 exiledTokenBagObject.takeObject({
                     position = { worldPos.x, worldPos.y, worldPos.z }
                 })
+            -- Rotate 180 degrees on z when exile closed
             elseif snapPointTable.tags[1] == "exile_closed" then
                 local localPos = snapPointTable.position
                 local worldPos = object.positionToWorld(localPos)
@@ -1258,8 +1262,50 @@ function DealExileTokens()
                 exiledTokenBagObject.takeObject({
                     position = { worldPos.x, worldPos.y+0.2, worldPos.z },
                     rotation = { localRot.x, localRot.y, localRot.z+180 }, -- Optional, defaults to the container's rotation.
+                    callback_function = function(takenObject)
+                        takenObject.tooltip = false -- Turn off tooltip when face down
+                    end
                 })
             end
         end
+    end
+
+    -- Collect all tokens after 1 second
+    Wait.time(function ()
+        CollectExileTokens()
+    end, 1)
+end
+
+-- All exile tokens on board
+local exileTokensTable = {}
+
+function CollectExileTokens()
+    local boardScriptingZoneGUID = "8a89e0"
+    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
+
+    -- Iterate through object occupying the zone
+    for _, occupyingObject in ipairs(boardScriptingZoneObject.getObjects(true)) do
+        if occupyingObject.type == "Tile" then
+            table.insert(exileTokensTable, occupyingObject)
+        end
+    end
+end
+
+local function checkIfExileToken(flippedObject)
+    for _, exileToken in ipairs(exileTokensTable) do
+        if exileToken == flippedObject then
+            print("Match!")
+            return true
+        end
+    end
+end
+
+function onPlayerAction(player, action, targets)
+    local flippedObject = targets[1]
+
+    -- Only act when an exile token on game board is being flipped
+    if action == Player.Action.FlipOver and checkIfExileToken(flippedObject) then
+        flippedObject.tooltip = true
+        broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`")
     end
 end
