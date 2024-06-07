@@ -2,12 +2,12 @@
   "GUID": "2bf3d2",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 72.75063,
-    "posY": 1.38835907,
-    "posZ": 27.7502537,
-    "rotX": 0.016903108,
-    "rotY": 179.997421,
-    "rotZ": 0.07990428,
+    "posX": 72.75065,
+    "posY": 1.38835955,
+    "posZ": 27.7502575,
+    "rotX": 0.01685193,
+    "rotY": 179.99736,
+    "rotZ": 0.0799622,
     "scaleX": 0.46,
     "scaleY": 0.46,
     "scaleZ": 0.46
@@ -23,7 +23,7 @@
   "ColorDiffuse": {
     "r": 0.979577363,
     "g": 0.6524219,
-    "b": 0.126157492
+    "b": 0.126157433
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,

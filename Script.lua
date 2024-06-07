@@ -359,7 +359,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         -- #3: Determine starting player and fix color/turn order
         Wait.time(function ()
             DetermineStartingPlayer()
-        end, 3)
+        end, 2.5)
 
         -- #4: Restore hand zones to orignal positions
         MoveHandZones("-", 300)
@@ -381,14 +381,14 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     end
 end
 
+-- Sets player count each time when start is pressed
 function SetPlayerCount()
     playerCount = 0
 
     for _, _ in ipairs(Player.getPlayers()) do
         playerCount = playerCount + 1
     end
-
-    log("playerCount = " .. playerCount)
+    log("playerCount: " .. playerCount)
 end
 
 function SetPlayerColors() -- Sets player colors according to fixed positions in table
@@ -468,6 +468,10 @@ function DealAliensCoroutine()
     end
     
     alienPlayDeckObject.shuffle()
+
+    for _ = 1, 50 do
+        coroutine.yield(0)
+    end
 
     -- Left Exile
     alienPlayDeckObject.takeObject({
@@ -550,6 +554,11 @@ function DealAliensCoroutine()
                 obj.setRotationSmooth({0, 0, 0}, false, false)
             end
 
+            -- Lock cards after 3 seconds
+            Wait.time(function ()
+                obj.setLock(true)
+            end, 3)
+
             counterClockwiseCounter = counterClockwiseCounter - 1 -- Counting down = counterclockwise
 
             local cardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
@@ -590,6 +599,11 @@ function DealAliensCoroutine()
             else
                 obj.setRotationSmooth({0, 0, 0}, false, false)
             end
+
+            -- Lock cards after 3 seconds
+            Wait.time(function ()
+                obj.setLock(true)
+            end, 3)
 
             clockwiseCounter = clockwiseCounter + 1 -- Counting up = clockwise
             
@@ -649,8 +663,6 @@ function DealAliensCoroutine()
                 -- Look for corresponding guardian in the guardian deck, to place over the chosen alien guardian card
                 for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
                     if  guardianCard.name == chosenGuardianName then
-                        print("Found guardian!")
-                        print(guardianCard.name)
                         guardianGUID = guardianCard.guid
                     end
                 end
@@ -658,14 +670,19 @@ function DealAliensCoroutine()
                 -- Take corresponding guardian from deck to place over the chosen alien card
                 guardianPlayDeckObject.takeObject({
                     guid = guardianGUID,
-                    position = {-51.41, 1.66, -9.00},
+                    position = {-51.41, 1.80, -9.00},
                     callback_function = function(chosenGuardian)
                         Wait.time(function ()
                             chosenGuardian.setLock(true)
                         end, 1.5)
                     end
                 })
-            end, 2)
+
+                broadcastToAll("Don't forget to put tokens on the Exiled Races and Warp Guardian")
+                
+                alienPlayDeckObject.interactable = true
+                guardianDeckObject.interactable = true
+            end, 1.5)
 
             -- When drafting is done, deal 6 mission cards to each player
             Wait.time(function ()
@@ -771,7 +788,7 @@ function DealResourcesCoroutine()
                 goldSpawnerObject.takeObject({
                     position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -779,7 +796,7 @@ function DealResourcesCoroutine()
                 energySpawnerObject.takeObject({
                     position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -789,7 +806,7 @@ function DealResourcesCoroutine()
                 goldSpawnerObject.takeObject({
                     position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -797,7 +814,7 @@ function DealResourcesCoroutine()
                 energySpawnerObject.takeObject({
                     position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -807,7 +824,7 @@ function DealResourcesCoroutine()
                 goldSpawnerObject.takeObject({
                     position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -815,7 +832,7 @@ function DealResourcesCoroutine()
                 energySpawnerObject.takeObject({
                     position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -825,7 +842,7 @@ function DealResourcesCoroutine()
                 goldSpawnerObject.takeObject({
                     position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -833,7 +850,7 @@ function DealResourcesCoroutine()
                 energySpawnerObject.takeObject({
                     position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -843,7 +860,7 @@ function DealResourcesCoroutine()
                 goldSpawnerObject.takeObject({
                     position = goldZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -851,7 +868,7 @@ function DealResourcesCoroutine()
                 energySpawnerObject.takeObject({
                     position = energyZonePositions[playerColorIndex]
                 })
-                for _ = 1, 10 do
+                for _ = 1, 15 do
                     coroutine.yield(0)
                 end
             end
@@ -903,7 +920,6 @@ function SetMissionCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    progressDeckObject.interactable = true
 
     -- Prosperity mission
     ProsperityDeckObject.shuffle()
@@ -913,7 +929,6 @@ function SetMissionCards()
             Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
         end
     })
-    ProsperityDeckObject.interactable = true
 
     -- Conquest mission
     conquestDeckObject.shuffle()
@@ -923,7 +938,6 @@ function SetMissionCards()
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
-    conquestDeckObject.interactable = true
 
     -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
     -- #1 Overlord
@@ -1080,7 +1094,11 @@ function DealMissionCardsCoroutine()
         conquestDeckObject.deal(2, color)
     end
 
-    broadcastToAll("Keep 1 mission of each color, and place the others back facedown on their repective draw pile. Shuffle afterwards", text_color)
+    broadcastToAll("Keep 1 mission of each color, and place the others back facedown on their repective draw pile. Shuffle afterwards.")
+
+    ProsperityDeckObject.interactable = true
+    progressDeckObject.interactable = true
+    conquestDeckObject.interactable = true
 
     return 1
 end
@@ -1242,16 +1260,16 @@ function DealPlayerTokensCoroutine()
         coroutine.yield(0)
     end
 
-    -- For each player, move and rotate tokens into positions. (+60 degrees for each following player)
+    -- For each player, move and rotate tokens into positions. (+60 or -60 degrees for each following player)
     for i = 1, playerCount do
-        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #4 is already good so skip
+        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #1 & #4 are already good so skip
             if i == 2 or i == 5 then
                 object.rotate({x=0, y=60, z=0})
             elseif i == 3 or i == 6 then
                 object.rotate({x=0, y=-60, z=0})
             end
 
-            for _ = 1, 10, 1 do
+            for _ = 1, 15 do
                 coroutine.yield(0)
             end
 

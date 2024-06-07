@@ -1,9 +1,42 @@
 [
   {
+    "path": "./Skolok Miners.76114b"
+  },
+  {
     "path": "./Zeto Archivists.450e9b"
   },
   {
+    "path": "./Ralan Engineers.65e50f"
+  },
+  {
+    "path": "./Ecton Cultists.2bb911"
+  },
+  {
+    "path": "./Nurec Designers.c0af03"
+  },
+  {
+    "path": "./Morlar Raiders.506890"
+  },
+  {
+    "path": "./Tavma Morphlings.9dfc06"
+  },
+  {
+    "path": "./Volut Smugglers.87ac44"
+  },
+  {
+    "path": "./Darja Shadows.c33210"
+  },
+  {
+    "path": "./Luron Droids.9a9017"
+  },
+  {
     "path": "./Xe'lo Traders.5bfbca"
+  },
+  {
+    "path": "./Dura Scavengers.f362f5"
+  },
+  {
+    "path": "./Silna Officials.ccd3b8"
   },
   {
     "path": "./Xotan Timebenders.6b04bb"
@@ -12,39 +45,6 @@
     "path": "./Sol'ca Mercenaries.a5b7e5"
   },
   {
-    "path": "./Darja Shadows.c33210"
-  },
-  {
-    "path": "./Morlar Raiders.506890"
-  },
-  {
-    "path": "./Skolok Miners.76114b"
-  },
-  {
-    "path": "./Nurec Designers.c0af03"
-  },
-  {
-    "path": "./Tavma Morphlings.9dfc06"
-  },
-  {
-    "path": "./Luron Droids.9a9017"
-  },
-  {
-    "path": "./Ecton Cultists.2bb911"
-  },
-  {
     "path": "./Xurdun Slavers.f93742"
-  },
-  {
-    "path": "./Dura Scavengers.f362f5"
-  },
-  {
-    "path": "./Volut Smugglers.87ac44"
-  },
-  {
-    "path": "./Ralan Engineers.65e50f"
-  },
-  {
-    "path": "./Silna Officials.ccd3b8"
   }
 ]
