@@ -340,7 +340,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     else
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
         
-        broadcastToAll("Starting the game with " .. playerCount .. " players!. Please wait while everything is being set up")
+        broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
         
         -- #1: Shuffle ability bag and reward deck
         local abilityTokenBagGUID = "e98136"
@@ -451,16 +451,18 @@ function DealAliensCoroutine()
         coroutine.yield(0)
     end
 
+    -- Fill these with the base deck or advanced decks. (Easier then using the above objects)
     local alienPlayDeckObject
+    local guardianPlayDeckObject
 
-    if expansionRaces then
-        alienPlayDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
-        advancedGuardianDeckObject.interactable = true
+    if expansionRaces then -- If using the expansion (6) and kickstarter (2) races (24 total)
+        alienPlayDeckObject = advancedAlienDeckObject
+        guardianPlayDeckObject = advancedGuardianDeckObject
         alienDeckObject.destruct()
         guardianDeckObject.destruct()
-    else
-        alienPlayDeckObject = getObjectFromGUID(alienDeckGUID)
-        guardianDeckObject.interactable = true
+    else -- Use only the base game races (16 total)
+        alienPlayDeckObject = alienDeckObject
+        guardianPlayDeckObject = guardianDeckObject
         advancedAlienDeckObject.destruct()
         advancedGuardianDeckObject.destruct()
     end
@@ -617,12 +619,16 @@ function DealAliensCoroutine()
         end
     end
 
+    -- Only when 1 alien left on both sides can we choose the warp guardian
     function GuardianClicked(obj, color)
-        -- Only when 1 alien left on both sides can we choose the warp guardian
         if color == TurnOrderTable[playerCount] and clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
+            local chosenGuardianName = obj.getName()
+            broadcastToAll("'" .. chosenGuardianName .. "' is chosen to be the Warp Guardian")
+
             obj.removeButton(0)
             obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
 
+            -- Destroy remaining cards
             Wait.time(function ()
                 obj.setLock(true)
 
@@ -637,6 +643,29 @@ function DealAliensCoroutine()
                     object.destruct()
                 end                
             end, 3)
+
+            Wait.time(function ()
+                local guardianGUID
+                -- Look for corresponding guardian in the guardian deck, to place over the chosen alien guardian card
+                for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
+                    if  guardianCard.name == chosenGuardianName then
+                        print("Found guardian!")
+                        print(guardianCard.name)
+                        guardianGUID = guardianCard.guid
+                    end
+                end
+            
+                -- Take corresponding guardian from deck to place over the chosen alien card
+                guardianPlayDeckObject.takeObject({
+                    guid = guardianGUID,
+                    position = {-51.41, 1.66, -9.00},
+                    callback_function = function(chosenGuardian)
+                        Wait.time(function ()
+                            chosenGuardian.setLock(true)
+                        end, 1.5)
+                    end
+                })
+            end, 2)
 
             -- When drafting is done, deal 6 mission cards to each player
             Wait.time(function ()

@@ -235,7 +235,6 @@ function DefenseButtonClicked(player, value, id)
 
     -- Spawn 1-9 dice
     local totalDice = troopCountDefense + extraDiceDefense
-    print(totalDice)
     -- Hard cap to 9
     if totalDice > 9 then
         totalDice = 9
@@ -393,7 +392,6 @@ function CalculateBattleResults(attackDice, defenseDice)
 
     -- Gets all dice object values and add to value arrays
     local function getDiceValues(diceObjects, valuesArray, extraDieValue, noMaximumDieValue)
-        print("Values:")
         for _, dice in ipairs(diceObjects) do
             local diceValue = dice.getValue()
 
@@ -407,8 +405,6 @@ function CalculateBattleResults(attackDice, defenseDice)
 
             -- Store final die values in array
             table.insert(valuesArray, diceValue)
-
-            print(diceValue)
         end
     end
     getDiceValues(attackDice, attackValuesArray, extraDieValueAttack, NoMaximumDieValueAttack)
