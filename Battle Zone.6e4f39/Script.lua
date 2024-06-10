@@ -18,6 +18,7 @@ local multiplyDieDefense = 0.0
 local NoMaximumDieValueAttack = false
 local NoMaximumDieValueDefense = false
 
+-- Globals used in calculations
 local attackSet = false
 local defenseSet = false
 local diceRolled = false
@@ -501,10 +502,15 @@ function CalculateBattleResults(attackDice, defenseDice)
 end
 
 -- Recalculate on die flip (combat card ability)
+
+-- Id returned from Wait.time()
 local waitId
 local rolTriggered -- Prevents message spam
 local flipTriggered -- Prevents message spam
+
+-- In hotseat mode, this fires twice!
 function onPlayerAction(player, action, targets)
+    -- Stop if a calculate is starting already 
     if waitId then
         Wait.stop(waitId)
         waitId = nil
@@ -521,10 +527,13 @@ function onPlayerAction(player, action, targets)
     if action == Player.Action.FlipOver and targets[1].type == "Dice" and diceRolled then
         local flippedDie = targets[1]
         broadcastToAll(player.color .. " player flipped a die with value '" .. flippedDie.getValue() .. "'. Recalculating result...")
+
         -- Wait to prevent multiple calculates. Reset process when flip again
         waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 2.5)
-    elseif action == Player.Action.FlipOver and targets[1].type == "Dice" and not flipTriggered and not diceRolled  then
+    -- When flipping before dice are rolled:
+    elseif action == Player.Action.FlipOver and targets[1].type == "Dice" and not flipTriggered then
         broadcastToAll(player.color .. " player flipped a die. Please wait till after rolling...")
+
         flipTriggered = true
         Wait.time(function() flipTriggered = false end, 2)
     end

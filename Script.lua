@@ -101,28 +101,71 @@ function ExpansionRacesToggled(player, isOn)
 end
 --#endregion
 
-local playerCount = 0
+local playerCount = 0 -- Important variable. Used in lots of functions
 local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
+local initialLoad = true
 
-function onload()
-    SetInteractableFalse()
-    MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
-    --UI.setAttribute("setupWindow", "active", false)
+function onload(state)
+    log("playerCount: " .. playerCount)
+    log("initialLoad: " .. tostring(initialLoad))
+
+    -- JSON decode our saved state
+    local state = JSON.decode(state)
+
+    if state then
+        log("playerCount from save: " .. state.variables.playerCount)
+        playerCount = state.variables.playerCount
+
+        log("initialLoad from save: " .. tostring(state.variables.initialLoad))
+        initialLoad = state.variables.initialLoad
+
+        TurnOrderTable = state.variables.turnOrderTable
+        log(TurnOrderTable)
+    
+        UI.setAttribute("setupWindow", "active", false)
+    end
+
+    UI.setAttribute("setupWindow", "active", false)
+    --SetInteractableFalse()
+
+    if initialLoad then
+        MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+    else
+        UI.setAttribute("setupWindow", "active", false)
+    end
+end
+
+-- Save crucial data in case of reloading or rewinding
+function onSave()
+    local state = {
+        variables = {
+            playerCount = playerCount,
+            initialLoad = false,
+            turnOrderTable = TurnOrderTable
+        }
+    }
+    return JSON.encode(state)
 end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
     local abilityTokenBagGUID = "e98136"
-    local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
-    abilityTokenBagObject.interactable = false
+    if initialLoad then
+        local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
+        abilityTokenBagObject.interactable = false
+    end
 
     local exiledTokenBagGUID = "445eb7"
-    local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
-    exiledTokenBagObject.interactable = false
-
+    if initialLoad then
+        local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
+        exiledTokenBagObject.interactable = false
+    end
+    
     local boardScriptingZoneGUID = "8a89e0"
-    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
-    boardScriptingZoneObject.interactable = false
-
+    if initialLoad then
+        local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
+        boardScriptingZoneObject.interactable = false
+    end
+    
     local battleZoneGUID = "6e4f39"
     local battleZoneObject = getObjectFromGUID(battleZoneGUID)
     battleZoneObject.interactable = false
@@ -131,57 +174,67 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local connectZoneGUID = "500df9"
     local centralZoneGUID = "9b6946"
     local portalGUID = "9aecf3"
-    local playerZoneObject = getObjectFromGUID(playerZoneGUID)
-    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
-    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
-    local portalObject = getObjectFromGUID(portalGUID)
-    playerZoneObject.interactable = false
-    centralZoneObject.interactable = false
-    connectZoneObject.interactable = false
-    portalObject.interactable = false
+    if initialLoad then
+        local playerZoneObject = getObjectFromGUID(playerZoneGUID)
+        local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+        local centralZoneObject = getObjectFromGUID(centralZoneGUID)
+        local portalObject = getObjectFromGUID(portalGUID)
+        playerZoneObject.interactable = false
+        centralZoneObject.interactable = false
+        connectZoneObject.interactable = false
+        portalObject.interactable = false
+    end
 
     local alienDeckGUID = "e6fef2"
     local advancedAlienDeckGUID = "5be236"
     local guardianDeckGUID = "21cccc"
     local advancedGuardianDeckGUID = "440784"
-    local alienDeckObject = getObjectFromGUID(alienDeckGUID)
-    local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
-    local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
-    local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
-    alienDeckObject.interactable = false
-    advancedAlienDeckObject.interactable = false
-    guardianDeckObject.interactable = false
-    advancedGuardianDeckObject.interactable = false
+    if initialLoad then
+        local alienDeckObject = getObjectFromGUID(alienDeckGUID)
+        local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
+        local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
+        local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+        alienDeckObject.interactable = false
+        advancedAlienDeckObject.interactable = false
+        guardianDeckObject.interactable = false
+        advancedGuardianDeckObject.interactable = false
+    end
 
     local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
-    local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
-    local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
-    draftZoneClockwiseObject.interactable = false
-    draftZoneCounterClockwiseObject.interactable = false
+    if initialLoad then
+        local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
+        local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
+        draftZoneClockwiseObject.interactable = false
+        draftZoneCounterClockwiseObject.interactable = false
+    end
 
     local archiveDeckGUID = "6b2a67"
     local startCardDeckGUID = "ac5ebb"
-    local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
-    local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
-    startCardDeckObject.interactable = false
-    archiveDeckObject.interactable = false
+    if initialLoad then
+        local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
+        local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
+        startCardDeckObject.interactable = false
+        archiveDeckObject.interactable = false
+    end
 
     local progressDeckGUID = "935e48"
     local ProsperityDeckGUID = "5771e2"
     local conquestDeckGUID = "f4ccdd"
     local pioneeringDeckGUID = "9aa665"
     local advancedPioneeringDeckGUID = "c7f175"
-    local progressDeckObject = getObjectFromGUID(progressDeckGUID)
-    local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
-    local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
-    local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
-    local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
-    progressDeckObject.interactable = false
-    conquestDeckObject.interactable = false
-    ProsperityDeckObject.interactable = false
-    pioneeringDeckObject.interactable = false
-    advancedPioneeringDeckObject.interactable = false
+    if initialLoad then
+        local progressDeckObject = getObjectFromGUID(progressDeckGUID)
+        local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
+        local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
+        local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
+        local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
+        progressDeckObject.interactable = false
+        conquestDeckObject.interactable = false
+        ProsperityDeckObject.interactable = false
+        pioneeringDeckObject.interactable = false
+        advancedPioneeringDeckObject.interactable = false
+    end
 
     local alienShadowRedLGUID = "3d9c76"
     local alienShadowRedRGUID = "656ba9"
@@ -273,27 +326,31 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local missionShadow4GUID = "2a3ed7"
     local missionShadow5GUID = "770d1f"
     local missionShadow6GUID = "ee3bd8"
-    local missionShadow7GUID = "83ab9a"
-    local missionShadow8GUID = "a73c21"
-    local missionShadow9GUID = "d6524d"
     local missionShadow1Object = getObjectFromGUID(missionShadow1GUID)
     local missionShadow2Object = getObjectFromGUID(missionShadow2GUID)
     local missionShadow3Object = getObjectFromGUID(missionShadow3GUID)
     local missionShadow4Object = getObjectFromGUID(missionShadow4GUID)
     local missionShadow5Object = getObjectFromGUID(missionShadow5GUID)
     local missionShadow6Object = getObjectFromGUID(missionShadow6GUID)
-    local missionShadow7Object = getObjectFromGUID(missionShadow7GUID)
-    local missionShadow8Object = getObjectFromGUID(missionShadow8GUID)
-    local missionShadow9Object = getObjectFromGUID(missionShadow9GUID)
     missionShadow1Object.interactable = false
     missionShadow2Object.interactable = false
     missionShadow3Object.interactable = false
     missionShadow4Object.interactable = false
     missionShadow5Object.interactable = false
     missionShadow6Object.interactable = false
-    missionShadow7Object.interactable = false
-    missionShadow8Object.interactable = false
-    missionShadow9Object.interactable = false
+
+    if initialLoad then
+    -- Advanced Pioneering shadows
+        local missionShadow7GUID = "83ab9a"
+        local missionShadow8GUID = "a73c21"
+        local missionShadow9GUID = "d6524d"
+        local missionShadow7Object = getObjectFromGUID(missionShadow7GUID)
+        local missionShadow8Object = getObjectFromGUID(missionShadow8GUID)
+        local missionShadow9Object = getObjectFromGUID(missionShadow9GUID)
+        missionShadow7Object.interactable = false
+        missionShadow8Object.interactable = false
+        missionShadow9Object.interactable = false
+    end
 end
 
 function MoveHandZones(operation, moveValue)
@@ -367,17 +424,17 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         -- #5: Deal Archive cards
         Wait.time(function ()
             startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
-        end, 5)
+        end, 4)
         
         -- #6: Deal Mission cards
         Wait.time(function ()
             SetMissionCards()
-        end, 7)
+        end, 9)
         
         -- #7: Create the board
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
-        end, 9)
+        end, 12)
     end
 end
 
@@ -539,8 +596,8 @@ function DealAliensCoroutine()
     local clockwiseCounter = 1 -- Keeps track of right pile active player
     local counterClockwiseCounter = playerCount -- Keeps track of left pile active player
 
-    broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the RIGHT pile", TurnOrderTable[clockwiseCounter])
-    broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the LEFT pile", TurnOrderTable[counterClockwiseCounter])
+    broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the 'Clockwise' pile.", TurnOrderTable[clockwiseCounter])
+    broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the 'Counterclockwise' pile.", TurnOrderTable[counterClockwiseCounter])
 
     function DraftZoneCounterClockwiseClicked(obj, color) -- Left draft pile
         if color == TurnOrderTable[counterClockwiseCounter] then
@@ -579,9 +636,9 @@ function DealAliensCoroutine()
             end
             
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
-                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
+                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile.", TurnOrderTable[playerCount])
             elseif counterClockwiseCounter >= 1 then
-                broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the -left- pile", TurnOrderTable[counterClockwiseCounter])
+                broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the -left- pile.", TurnOrderTable[counterClockwiseCounter])
             end
         else
             print("Not your turn to pick from this pile!")
@@ -624,9 +681,9 @@ function DealAliensCoroutine()
             end
 
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
-                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile", TurnOrderTable[playerCount])
+                broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile.", TurnOrderTable[playerCount])
             elseif clockwiseCounter <= playerCount then
-                broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the -right- pile", TurnOrderTable[clockwiseCounter])
+                broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the -right- pile.", TurnOrderTable[clockwiseCounter])
             end
         else
             print("Not your turn to pick from this pile!")
@@ -637,7 +694,7 @@ function DealAliensCoroutine()
     function GuardianClicked(obj, color)
         if color == TurnOrderTable[playerCount] and clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
             local chosenGuardianName = obj.getName()
-            broadcastToAll("'" .. chosenGuardianName .. "' is chosen to be the Warp Guardian")
+            broadcastToAll("'" .. chosenGuardianName .. "' is chosen to be the Warp Guardian.")
 
             obj.removeButton(0)
             obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
@@ -646,8 +703,8 @@ function DealAliensCoroutine()
             Wait.time(function ()
                 obj.setLock(true)
 
-                local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
-                local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+                local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards
+                local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards
     
                 -- Destroy all remaining objects from the draft
                 for _, object in ipairs(rightCardObjects) do
@@ -655,7 +712,9 @@ function DealAliensCoroutine()
                 end
                 for _, object in ipairs(leftCardObjects) do
                     object.destruct()
-                end                
+                end
+
+                broadcastToAll("Don't forget to put tokens on the Exiled Races and Warp Guardian!")
             end, 3)
 
             Wait.time(function ()
@@ -679,8 +738,6 @@ function DealAliensCoroutine()
                         end
                     })
                 end
-
-                broadcastToAll("Don't forget to put tokens on the Exiled Races and Warp Guardian")
                 
                 alienPlayDeckObject.interactable = true
                 guardianDeckObject.interactable = true
@@ -784,6 +841,7 @@ function DealResourcesCoroutine()
 
     local playerColorIndex = StartPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
 
+    -- Gold/Energy amounts:
     -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
     for i = 1, playerCount do
         -- Player 1
@@ -1107,7 +1165,7 @@ function DealMissionCardsCoroutine()
     return 1
 end
 
--- Used in DealPlayerTokensCoroutine()
+-- Used in DealPlayerTokensCoroutine() and filled in CreateBoardCoroutine()
 local playerZoneObjects = {}
 
 -- Create game board dynamically. Also calls DealExileTokens() and DealPlayerTokensCoroutine() when finished
@@ -1129,10 +1187,9 @@ function CreateBoardCoroutine()
         playerZone.setRotationSmooth(playerZonePositions[i][2], false, false)
         playerZone.interactable = false
         
-        local count = 0
-        while count < 100 do
-            count = count + 1
-            coroutine.yield(0) -- Wait X frames between placing boards
+        -- Wait X frames between placing boards
+        for _ = 1, 110 do
+            coroutine.yield(0)
         end
     end
 
@@ -1149,12 +1206,12 @@ function CreateBoardCoroutine()
     -- Deal Exile Tokens: Wait x seconds before dealing exile tokens, so every part of the board is completely done
     Wait.time(function ()
         DealExileTokens()
-    end, 1)
+    end, 2)
 
     -- Deal player starting tokens: Wait x seconds before dealing player tokens, so every part of the board is completely done
     Wait.time(function ()
         startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
-    end, 3)
+    end, 4)
 
     return 1
 end
@@ -1198,7 +1255,7 @@ function DealPlayerTokensCoroutine()
 
         -- Remove nameless/useless catched objects and rotate & order the rest
         for i, object in ipairs(objects) do
-            if object.getName() == "" then 
+            if object.getName() == "" then
                 table.remove(objects, i)
             elseif object == nil then
                 table.remove(objects, i)
@@ -1220,8 +1277,12 @@ function DealPlayerTokensCoroutine()
                 trimmedTable[8] = object
             end
         end
-        
+
         table.insert(playerTokenObjects, trimmedTable)
+
+        for _ = 1, 10, 1 do
+            coroutine.yield(0)
+        end
     end
 
     -- #1 Red
@@ -1260,7 +1321,7 @@ function DealPlayerTokensCoroutine()
     local blackTokenObjects = blackScriptingZoneObject.getObjects()
     insertRotateToTable(blackTokenObjects)
 
-    for _ = 1, 80, 1 do
+    for _ = 1, 70, 1 do
         coroutine.yield(0)
     end
 
@@ -1273,24 +1334,28 @@ function DealPlayerTokensCoroutine()
                 object.rotate({x=0, y=-60, z=0})
             end
 
-            for _ = 1, 15 do
+            for _ = 1, 5 do
                 coroutine.yield(0)
             end
 
             object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocations[j]), false, false) -- Set 8 tokens j on current player i's player zone
+
+            -- Wait between tokens
+            for _ = 1, 15 do
+                coroutine.yield(0)
+            end
         end
         
-        for _ = 1, 100, 1 do
+        -- Wait between players
+        for _ = 1, 80, 1 do
             coroutine.yield(0)
         end
     end
 
-
-
     -- When done deal starting resources
     Wait.time(function ()
         startLuaCoroutine(Global, "DealResourcesCoroutine")
-    end, 1)
+    end, 0.5)
 
     return 1
 end
@@ -1340,7 +1405,7 @@ function DealExileTokens()
     end, 1)
 end
 
--- All exile tokens on board. Used in checkIfExileToken()
+-- All exile tokens on board. Filled in CollectExileTokens(). Used in checkIfExileToken()
 local exileTokensTable = {}
 
 function CollectExileTokens()
@@ -1358,23 +1423,21 @@ end
 local function checkIfExileToken(flippedObject)
     for _, exileToken in ipairs(exileTokensTable) do
         if exileToken == flippedObject then
-            print("Match!")
             return true
         end
     end
 end
 
+-- In hotseat mode, this fires twice!
 function onPlayerAction(player, action, targets)
     local flippedObject = targets[1]
 
-    -- Only act when an exile token on game board is being flipped
+    -- Only act when an exile token on game board is being flipped. Not newly drawn tokens etc.
     if action == Player.Action.FlipOver and checkIfExileToken(flippedObject) then
         flippedObject.tooltip = true
-        broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`")
+        broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`.")
     end
 end
-
-
 
 --#region Secret demo stuff, don't look!
 local counter  = 0
