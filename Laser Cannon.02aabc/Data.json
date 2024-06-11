@@ -2,12 +2,12 @@
   "GUID": "02aabc",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -10.5000772,
-    "posY": 1.49979329,
-    "posZ": 12.0000191,
+    "posX": -10.5000868,
+    "posY": 1.49979317,
+    "posZ": 12.00004,
     "rotX": 359.92,
-    "rotY": 270.000671,
-    "rotZ": 0.0168512817,
+    "rotY": 270.0007,
+    "rotZ": 0.016850045,
     "scaleX": 0.27,
     "scaleY": 0.27,
     "scaleZ": 0.27

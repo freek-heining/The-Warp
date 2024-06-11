@@ -2,12 +2,12 @@
   "GUID": "fbedb2",
   "Name": "Custom_Model_Infinite_Bag",
   "Transform": {
-    "posX": -15.75,
-    "posY": 1.5028038,
-    "posZ": -2.25000024,
-    "rotX": 0.0168887526,
-    "rotY": 180.0001,
-    "rotZ": 0.0799384,
+    "posX": -14.999999,
+    "posY": 1.50153756,
+    "posZ": -3.00000072,
+    "rotX": 0.0168905035,
+    "rotY": 180.000061,
+    "rotZ": 0.07993565,
     "scaleX": 4.29999876,
     "scaleY": 4.29999876,
     "scaleZ": 4.29999876

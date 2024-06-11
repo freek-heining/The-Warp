@@ -16,7 +16,17 @@ local playerZonePositions = {
     [3] = { {1.11, 1.58, 6.34}, {359.92, 299.97, 359.97} },
     [4] = { {13.51, 1.57, 15.25}, {359.98, 359.81, 359.92} },
     [5] = { {27.43, 1.55, 8.91}, {0.06, 60.38, 359.95} },
-    [6] = { {28.91, 1.54, -6.31}, {0.08, 119.98, 0.03} },
+    [6] = { {28.91, 1.54, -6.31}, {0.08, 119.98, 0.03} }
+}
+
+-- B sides/backside of boards
+local playerZonePositionsB = {
+    [1] = { {13.60, 1.56, -15.24}, {0.02, 179.89, 0.08} },
+    [2] = { {1.12, 1.58, -6.42}, {359.94, 239.81, 0.05} },
+    [3] = { {2.52, 1.58, 8.80}, {359.92, 299.93, 359.97} },
+    [4] = { {16.40, 1.56, 15.17}, {359.98, 359.92, 359.92} },
+    [5] = { {28.89, 1.54, 6.35}, {0.06, 59.86, 359.95} },
+    [6] = { {27.48, 1.54, -8.86}, {0.08, 119.88, 0.03} }
 }
 
 -- 2-5 players (position, rotation)
@@ -24,7 +34,14 @@ local connectZonePositions = {
     [2] = { {0.37, 1.58, -0.02}, {359.92, 270.21, 0.02} },
     [3] = { {7.69, 1.57, 12.65}, {359.95, 330.04, 359.94} },
     [4] = { {22.28, 1.55, 12.64}, {0.02, 29.89, 359.93} },
-    [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} },
+    [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} }
+}
+
+local connectZonePositionsB = {
+    [2] = { {3.29, 1.58, 4.98}, {359.92, 269.76, 0.02} },
+    [3] = { {13.51, 1.57, 12.58}, {359.95, 329.84, 359.94} },
+    [4] = { {25.19, 1.55, 7.63}, {0.02, 30.04, 359.92} },
+    [5] = { {26.73, 1.54, -5.03}, {0.08, 90.10, 359.98} }
 }
 
 -- Players 1-6 (position, rotation)
@@ -103,44 +120,47 @@ end
 
 local playerCount = 0 -- Important variable. Used in lots of functions
 local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
-local initialLoad = true
+local setupDone = false
 
 function onload(state)
     log("playerCount: " .. playerCount)
-    log("initialLoad: " .. tostring(initialLoad))
+    log("setupDone: " .. tostring(setupDone))
 
     -- JSON decode our saved state
-    local state = JSON.decode(state)
+    local decodedState = JSON.decode(state)
+    log(decodedState)
 
-    if state then
-        log("playerCount from save: " .. state.variables.playerCount)
-        playerCount = state.variables.playerCount
+    if decodedState then
+        playerCount = decodedState.variables.playerCount
 
-        log("initialLoad from save: " .. tostring(state.variables.initialLoad))
-        initialLoad = state.variables.initialLoad
+        setupDone = decodedState.variables.setupDone
+        if not setupDone then -- If nil somehow
+            setupDone = false
+        end
 
-        TurnOrderTable = state.variables.turnOrderTable
-        log(TurnOrderTable)
-    
-        UI.setAttribute("setupWindow", "active", false)
+        TurnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false)
-    --SetInteractableFalse()
+    --UI.setAttribute("setupWindow", "active", false)
 
-    if initialLoad then
+    -- Set lots of components to interactable = false initially
+    SetInteractableFalse()
+
+    if not setupDone then
         MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
     else
         UI.setAttribute("setupWindow", "active", false)
     end
+
+    log("setupDone after onLoad: " .. tostring(setupDone))
 end
 
--- Save crucial data in case of reloading or rewinding
+-- Save crucial data in case of reloading or rewinding. setupDone keeps track of game state
 function onSave()
     local state = {
         variables = {
             playerCount = playerCount,
-            initialLoad = false,
+            setupDone = setupDone,
             turnOrderTable = TurnOrderTable
         }
     }
@@ -149,19 +169,19 @@ end
 
 function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
     local abilityTokenBagGUID = "e98136"
-    if initialLoad then
+    if not setupDone then
         local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
         abilityTokenBagObject.interactable = false
     end
 
     local exiledTokenBagGUID = "445eb7"
-    if initialLoad then
+    if not setupDone then
         local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
         exiledTokenBagObject.interactable = false
     end
     
     local boardScriptingZoneGUID = "8a89e0"
-    if initialLoad then
+    if not setupDone then
         local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
         boardScriptingZoneObject.interactable = false
     end
@@ -170,18 +190,24 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local battleZoneObject = getObjectFromGUID(battleZoneGUID)
     battleZoneObject.interactable = false
 
-    local playerZoneGUID = "dea9dd"
-    local connectZoneGUID = "500df9"
+    local playerZoneAGUID = "dea9dd"
+    local playerZoneBGUID = "6006e1"
+    local connectZoneAGUID = "500df9"
+    local connectZoneBGUID = "cc1ce5"
     local centralZoneGUID = "9b6946"
     local portalGUID = "9aecf3"
-    if initialLoad then
-        local playerZoneObject = getObjectFromGUID(playerZoneGUID)
-        local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+    if not setupDone then
+        local playerZoneAObject = getObjectFromGUID(playerZoneAGUID)
+        local playerZoneBObject = getObjectFromGUID(playerZoneBGUID)
+        local connectZoneAObject = getObjectFromGUID(connectZoneAGUID)
+        local connectZoneBObject = getObjectFromGUID(connectZoneBGUID)
         local centralZoneObject = getObjectFromGUID(centralZoneGUID)
         local portalObject = getObjectFromGUID(portalGUID)
-        playerZoneObject.interactable = false
+        playerZoneAObject.interactable = false
+        playerZoneBObject.interactable = false
+        connectZoneAObject.interactable = false
+        connectZoneBObject.interactable = false
         centralZoneObject.interactable = false
-        connectZoneObject.interactable = false
         portalObject.interactable = false
     end
 
@@ -189,7 +215,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local advancedAlienDeckGUID = "5be236"
     local guardianDeckGUID = "21cccc"
     local advancedGuardianDeckGUID = "440784"
-    if initialLoad then
+    if not setupDone then
         local alienDeckObject = getObjectFromGUID(alienDeckGUID)
         local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
         local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
@@ -202,7 +228,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
 
     local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
-    if initialLoad then
+    if not setupDone then
         local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
         local draftZoneCounterClockwiseObject = getObjectFromGUID(draftZoneCounterClockwiseGUID)
         draftZoneClockwiseObject.interactable = false
@@ -211,7 +237,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
 
     local archiveDeckGUID = "6b2a67"
     local startCardDeckGUID = "ac5ebb"
-    if initialLoad then
+    if not setupDone then
         local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
         local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
         startCardDeckObject.interactable = false
@@ -223,7 +249,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local conquestDeckGUID = "f4ccdd"
     local pioneeringDeckGUID = "9aa665"
     local advancedPioneeringDeckGUID = "c7f175"
-    if initialLoad then
+    if not setupDone then
         local progressDeckObject = getObjectFromGUID(progressDeckGUID)
         local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
         local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
@@ -339,7 +365,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     missionShadow5Object.interactable = false
     missionShadow6Object.interactable = false
 
-    if initialLoad then
+    if not setupDone then
     -- Advanced Pioneering shadows
         local missionShadow7GUID = "83ab9a"
         local missionShadow8GUID = "a73c21"
@@ -396,7 +422,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         broadcastToAll("Need 2 players minimum to start!", "Red")
     else
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
-        
+
         broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
         
         -- #1: Shuffle ability bag and reward deck
@@ -478,6 +504,7 @@ function DetermineStartingPlayer() -- Determines starting player and color/turn 
     Turns.turn_color = startPlayerColor
 end
 
+-- Handles the alien/guardian drafting. Last function te be called in the setup chain. Sets setupDone = true at the end
 function DealAliensCoroutine()
     local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
@@ -754,6 +781,8 @@ function DealAliensCoroutine()
             print("You cannot choose the Warp Guardian!")
         end
     end
+
+    setupDone = true
 
     return 1
 end
@@ -1173,13 +1202,68 @@ function CreateBoardCoroutine()
     local portalGUID = "9aecf3"
     local portalObject = getObjectFromGUID(portalGUID)
 
-    local playerZoneGUID = "dea9dd"
-    local playerZoneObject = getObjectFromGUID(playerZoneGUID)
-    table.insert(playerZoneObjects, playerZoneObject)
+    local centralZoneGUID = "9b6946"
+    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
 
-    local connectZoneGUID = "500df9"
-    local connectZoneObject = getObjectFromGUID(connectZoneGUID)
+    local connectZoneAGUID = "500df9"
+    local connectZoneAObject = getObjectFromGUID(connectZoneAGUID)
 
+    local connectZoneBGUID = "cc1ce5"
+    local connectZoneBObject = getObjectFromGUID(connectZoneBGUID)
+
+    local playerZoneAGUID = "dea9dd"
+    local playerZoneAObject = getObjectFromGUID(playerZoneAGUID)
+    
+    local playerZoneBGUID = "6006e1"
+    local playerZoneBObject = getObjectFromGUID(playerZoneBGUID)
+
+    local playerZoneObject
+    local connectZoneObject
+
+    -- When using alternative B-side setup
+    local function swapBoards()
+        -- Swap all tables/positions for the B versions to be used
+        playerZonePositions = playerZonePositionsB
+        connectZonePositions = connectZonePositionsB
+
+        -- swap central zone manually
+        params = {
+            image = "http://cloud-3.steamusercontent.com/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
+            thickness = 0.2,
+            merge_distance = 5,
+            stackable = false,
+        }
+        centralZoneObject.setCustomObject(params)
+        centralZoneObject.reload()
+        centralZoneObject.interactable = false
+
+        -- Destroy A-side boards
+        connectZoneAObject.destruct()
+        playerZoneAObject.destruct()
+
+        -- Move B-side in position for cloning
+        playerZoneBObject.setPositionSmooth(playerZonePositions[1][1], false, false)
+        playerZoneBObject.setRotationSmooth(playerZonePositions[1][2], false, false)
+
+        -- Wait X frames after moving new board
+        for _ = 1, 130 do
+            coroutine.yield(0)
+        end
+    end
+
+    if alternativeSetup then
+        swapBoards()
+        playerZoneObject = playerZoneBObject
+        connectZoneObject = connectZoneBObject
+    else
+        playerZoneObject = playerZoneAObject
+        playerZoneBObject.destruct()
+        connectZoneObject = connectZoneAObject
+        connectZoneBObject.destruct()
+    end
+
+    table.insert(playerZoneObjects, playerZoneObject) -- Insert initial board
+    
     for i = 2, playerCount, 1 do
         local playerZone = playerZoneObject.clone()
         table.insert(playerZoneObjects, playerZone)
@@ -1197,7 +1281,11 @@ function CreateBoardCoroutine()
         connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
         connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
         
-        portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
+        if alternativeSetup then
+            portalObject.setPositionSmooth({16.36, 1.66, -9.80}, false, false)
+        else
+            portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
+        end
     else
         connectZoneObject.destruct()
         portalObject.destruct()
@@ -1218,23 +1306,9 @@ end
 
 -- Deals all starting tokens to players. Also calls DealResourcesCoroutine() when finished
 function DealPlayerTokensCoroutine()
-    -- All local positions relative to player zone
-    local troopTokenLocations = {
-        [1] = vector(-1.18 , 0.116 , 1.035),
-        [2] = vector(-0.003 , 0.108 , 0.672),
-        [3] = vector(-0.177 , 0.108 , 0.786),
-        [4] = vector(-0.209 , 0.108 , 1.004)
-    }
-    -- Order: Mine, Trade, Command, Plant (Like in scripting zone right to left)
-    local buildingLocations = {
-        [1] = vector(-0.048 , 0.105 , 1.247),
-        [2] = vector(0.2 , 0.120 , 1.003),
-        [3] = vector(0.655 , 0.120 , 0.791),
-        [4] = vector(0.591 , 0.105 , 1.298)
-    }
-
-    -- Combination of the above 2 tables. 8 locations Total
-    local playerTokenLocations = {
+    -- All local positions relative to player zone. (Needed to inverse coordinates on x-axis because 180 rotation of zone object)
+    -- Order: Troop x3, Troop right, Mine, Trade, Command, Plant (Like in scripting zone right to left)
+    local playerTokenLocationsA = {
         [1] = vector(-1.18 , 0.116 , 1.035),
         [2] = vector(-0.003 , 0.108 , 0.672),
         [3] = vector(-0.177 , 0.108 , 0.786),
@@ -1245,10 +1319,23 @@ function DealPlayerTokensCoroutine()
         [8] = vector(0.591 , 0.105 , 1.298)
     }
 
-    -- All starting miniatures per color in order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
+    -- Locations when using B-side
+    local playerTokenLocationsB = {
+        [1] = vector(-0.574 , 0.120 , 0.666),
+        [2] = vector(-0.746 , 0.120 , 0.784),
+        [3] = vector(-0.755 , 0.107 , 0.996),
+        [4] = vector(-1.753 , 0.111 , 1.039),
+        [5] = vector(-0.621 , 0.121 , 1.251),
+        [6] = vector(-0.373 , 0.106 , 1.007),
+        [7] = vector(0.082 , 0.106 , 0.795),
+        [8] = vector(0.018 , 0.106 , 1.302)
+    }
+
+    -- All starting miniatures, filtered per color in indexed order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
     -- Nested tables for different player numbers!
     local playerTokenObjects = {}
 
+    -- Filter and insert tokens in playerTokenObjects table 
     local function insertRotateToTable(objects)
         local trimmedTable = {}
         local j = 1
@@ -1338,7 +1425,11 @@ function DealPlayerTokensCoroutine()
                 coroutine.yield(0)
             end
 
-            object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocations[j]), false, false) -- Set 8 tokens j on current player i's player zone
+            if alternativeSetup then
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsB[j]), false, false) -- Set 8 tokens j on current player i's player zone
+            else
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsA[j]), false, false) -- Set 8 tokens j on current player i's player zone
+            end
 
             -- Wait between tokens
             for _ = 1, 15 do

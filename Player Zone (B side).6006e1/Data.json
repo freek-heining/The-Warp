@@ -1,0 +1,183 @@
+{
+  "GUID": "6006e1",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 2.24999881,
+    "posY": 1.57505977,
+    "posZ": -11.250001,
+    "rotX": 359.93927,
+    "rotY": 239.990784,
+    "rotZ": 0.05455898,
+    "scaleX": 4.98,
+    "scaleY": 1.0,
+    "scaleZ": 4.98
+  },
+  "Nickname": "Player Zone (B side)",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508016228644604802/284A8FBF13879FEC36FEB4B92A03A6BC6A36D2B5/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1999997,
+      "MergeDistancePixels": 5.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.7104169,
+        "y": 0.100433052,
+        "z": -1.328385
+      }
+    },
+    {
+      "Position": {
+        "x": 0.284267843,
+        "y": 0.09960775,
+        "z": -0.355093956
+      }
+    },
+    {
+      "Position": {
+        "x": 0.878124356,
+        "y": 0.100733362,
+        "z": 0.6576738
+      }
+    },
+    {
+      "Position": {
+        "x": -0.294174075,
+        "y": 0.0999911651,
+        "z": 0.641140342
+      }
+    },
+    {
+      "Position": {
+        "x": -0.8859591,
+        "y": 0.09980425,
+        "z": -0.3564651
+      }
+    },
+    {
+      "Position": {
+        "x": -0.293702215,
+        "y": 0.09978949,
+        "z": -1.39507258
+      }
+    },
+    {
+      "Position": {
+        "x": -1.46815407,
+        "y": 0.0995060652,
+        "z": 0.6438809
+      }
+    },
+    {
+      "Position": {
+        "x": 1.182037,
+        "y": 0.09999983,
+        "z": 1.07300174
+      },
+      "Tags": [
+        "exile_open"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.6436123,
+        "y": 0.0999999344,
+        "z": 0.0919367
+      },
+      "Tags": [
+        "exile_open"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.537244439,
+        "y": 0.09999991,
+        "z": 0.0487677567
+      },
+      "Tags": [
+        "exile_open"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.9206018,
+        "y": 0.09999988,
+        "z": -0.9077959
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.0921909139,
+        "y": 0.0999998748,
+        "z": -0.9131948
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.534525335,
+        "y": 0.09999986,
+        "z": -1.00687826
+      },
+      "Tags": [
+        "portal"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.3062855,
+        "y": 0.100502379,
+        "z": -0.3085646
+      },
+      "Tags": []
+    },
+    {
+      "Position": {
+        "x": 1.24231839,
+        "y": 0.100000679,
+        "z": 0.146798819
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    }
+  ]
+}
