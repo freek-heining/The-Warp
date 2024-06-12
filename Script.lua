@@ -120,7 +120,7 @@ end
 
 local playerCount = 0 -- Important variable. Used in lots of functions
 local TurnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
-local setupDone = false
+local setupDone = false -- Set to true at the end of setup (when alien drafting is finished)
 
 function onload(state)
     log("playerCount: " .. playerCount)
@@ -143,8 +143,8 @@ function onload(state)
 
     --UI.setAttribute("setupWindow", "active", false)
 
-    -- Set lots of components to interactable = false initially
-    SetInteractableFalse()
+    
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
         MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
@@ -379,34 +379,6 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     end
 end
 
-function MoveHandZones(operation, moveValue)
-    -- Stores the moving away and back to original operations
-    local operations = {
-        ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
-        ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
-    }
-
-    local RedHandZone = getObjectFromGUID("3feb12")
-    local GreenHandZone = getObjectFromGUID("832b57")
-    local PurpleHandZone = getObjectFromGUID("783920")
-    local BlueHandZone = getObjectFromGUID("07898a")
-    local OrangeHandZone = getObjectFromGUID("7261c8")
-    local BrownHandZone = getObjectFromGUID("cc2c47")
-    
-    local redPos = RedHandZone.getPosition()
-    RedHandZone.setPosition({operations[operation](redPos.x, moveValue), operations[operation](redPos.y, moveValue), operations[operation](redPos.z, moveValue)})
-    local greenPos = GreenHandZone.getPosition()
-    GreenHandZone.setPosition({operations[operation](greenPos.x, moveValue), operations[operation](greenPos.y, moveValue), operations[operation](greenPos.z, moveValue)})
-    local purplePos = PurpleHandZone.getPosition()
-    PurpleHandZone.setPosition({operations[operation](purplePos.x, moveValue), operations[operation](purplePos.y, moveValue), operations[operation](purplePos.z, moveValue)})
-    local bluePos = BlueHandZone.getPosition()
-    BlueHandZone.setPosition({operations[operation](bluePos.x, moveValue), operations[operation](bluePos.y, moveValue), operations[operation](bluePos.z, moveValue)})
-    local orangePos = OrangeHandZone.getPosition()
-    OrangeHandZone.setPosition({operations[operation](orangePos.x, moveValue), operations[operation](orangePos.y, moveValue), operations[operation](orangePos.z, moveValue)})
-    local brownPos = BrownHandZone.getPosition()
-    BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
-end
-
 function StartClicked(player) -- Calls most setup functions and handles their timing/order. A lot of functions are 'chained' in other functions. See comments
     UI.setAttribute("startButton", "interactable", false) -- Prevents button spam
     Wait.time(function ()
@@ -464,8 +436,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     end
 end
 
--- Sets player count each time when start is pressed
-function SetPlayerCount()
+function SetPlayerCount() -- Sets player count each time when start is pressed
     playerCount = 0
 
     for _, _ in ipairs(Player.getPlayers()) do
@@ -504,8 +475,710 @@ function DetermineStartingPlayer() -- Determines starting player and color/turn 
     Turns.turn_color = startPlayerColor
 end
 
--- Handles the alien/guardian drafting. Last function te be called in the setup chain. Sets setupDone = true at the end
-function DealAliensCoroutine()
+function MoveHandZones(operation, moveValue) -- Move the hand zones back and forth
+    -- Stores the moving away and back to original operations
+    local operations = {
+        ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
+        ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
+    }
+
+    local RedHandZone = getObjectFromGUID("3feb12")
+    local GreenHandZone = getObjectFromGUID("832b57")
+    local PurpleHandZone = getObjectFromGUID("783920")
+    local BlueHandZone = getObjectFromGUID("07898a")
+    local OrangeHandZone = getObjectFromGUID("7261c8")
+    local BrownHandZone = getObjectFromGUID("cc2c47")
+    
+    local redPos = RedHandZone.getPosition()
+    RedHandZone.setPosition({operations[operation](redPos.x, moveValue), operations[operation](redPos.y, moveValue), operations[operation](redPos.z, moveValue)})
+    local greenPos = GreenHandZone.getPosition()
+    GreenHandZone.setPosition({operations[operation](greenPos.x, moveValue), operations[operation](greenPos.y, moveValue), operations[operation](greenPos.z, moveValue)})
+    local purplePos = PurpleHandZone.getPosition()
+    PurpleHandZone.setPosition({operations[operation](purplePos.x, moveValue), operations[operation](purplePos.y, moveValue), operations[operation](purplePos.z, moveValue)})
+    local bluePos = BlueHandZone.getPosition()
+    BlueHandZone.setPosition({operations[operation](bluePos.x, moveValue), operations[operation](bluePos.y, moveValue), operations[operation](bluePos.z, moveValue)})
+    local orangePos = OrangeHandZone.getPosition()
+    OrangeHandZone.setPosition({operations[operation](orangePos.x, moveValue), operations[operation](orangePos.y, moveValue), operations[operation](orangePos.z, moveValue)})
+    local brownPos = BrownHandZone.getPosition()
+    BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
+end
+
+function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
+    local archiveDeckGUID = "6b2a67"
+    local startCardDeckGUID = "ac5ebb"
+
+    local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
+    local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
+
+    -- Deal 1 start card to each player
+    for i = 1, playerCount do
+        startCardDeckObject.deal(1, TurnOrderTable[i])
+    end
+    startCardDeckObject.destruct()
+
+    for _ = 1, 100 do
+        coroutine.yield(0)
+    end
+
+    -- Deals 4 archive cards open to table left to right
+    archiveDeckObject.shuffle()
+
+    -- #1
+    archiveDeckObject.takeObject({
+        position = {x = 55.5, y = 1.67, z = 6.00},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #2
+    archiveDeckObject.takeObject({
+        position = {x = 55.5, y = 1.67, z = 0.00},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #3
+    archiveDeckObject.takeObject({
+        position = {x = 55.5, y = 1.67, z = -6.00},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #4
+    archiveDeckObject.takeObject({
+        position = {x = 55.5, y = 1.67, z = -12.00},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+
+    for _ = 1, 100 do
+        coroutine.yield(0)
+    end
+
+    -- Deals 4 archive cards to players 1-3, and 5 cards to players 4-6 (if any)
+    for i = 1, playerCount do
+        if i < 4 then
+            archiveDeckObject.deal(4, TurnOrderTable[i])
+            for _ = 1, 100 do
+                coroutine.yield(0)
+            end
+        else
+            archiveDeckObject.deal(5, TurnOrderTable[i])
+            for _ = 1, 100 do
+                coroutine.yield(0)
+            end
+        end
+    end
+
+    archiveDeckObject.interactable = true
+
+    return 1
+end
+
+function SetMissionCards() -- Lay down 3 random missions and the default or advanced pioneering missions
+    local progressDeckGUID = "935e48"
+    local ProsperityDeckGUID = "5771e2"
+    local conquestDeckGUID = "f4ccdd"
+    local pioneeringDeckGUID = "9aa665"
+    local advancedPioneeringDeckGUID = "c7f175"
+
+    local progressDeckObject = getObjectFromGUID(progressDeckGUID)
+    local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
+    local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
+    local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
+    local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
+
+    local pioneeringScriptingZoneGUID = "f54485"
+    local pioneeringScriptingZoneObject = getObjectFromGUID(pioneeringScriptingZoneGUID)
+
+    -- Deal 3 mission cards open to table
+    -- Progress mission
+    progressDeckObject.shuffle()
+    progressDeckObject.takeObject({
+        position = {x = 62.25, y = 1.67, z = 21.75},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+
+    -- Prosperity mission
+    ProsperityDeckObject.shuffle()
+    ProsperityDeckObject.takeObject({
+        position = {x = 62.25, y = 1.67, z = 15.75},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
+        end
+    })
+
+    -- Conquest mission
+    conquestDeckObject.shuffle()
+    conquestDeckObject.takeObject({
+        position = {x = 62.25, y = 1.67, z = 9.75},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+
+    -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
+    -- #1 Overlord
+    pioneeringDeckObject.takeObject({
+        position = {x = 66.75, y = 1.67, z = 2.25},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #2 Infinite Riches
+    pioneeringDeckObject.takeObject({
+        position = {x = 66.75, y = 1.67, z = -3.75},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #3 Ascension (advanced) OR Expansion
+    if advancedPioneering then -- destroy the default card
+        pioneeringDeckObject.takeObject({
+            position = {x = 66.75, y = 1.67, z = -9.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.destruct() end)
+            end
+        })
+        -- Get the advanced card
+        for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
+            for _, cardTag in ipairs(cardTable.tags) do
+                if cardTag == "ascension" then
+                    advancedPioneeringDeckObject.takeObject({
+                        index = cardTable.index,
+                        position = {x = 66.75, y = 1.67, z = -9.75},
+                        callback_function = function(spawnedObject)
+                            Wait.frames(function() spawnedObject.flip() end)
+                        end
+                    })
+                    break
+                end
+            end
+        end
+    else -- If not using advancedPioneering
+        pioneeringDeckObject.takeObject({
+            position = {x = 66.75, y = 1.67, z = -9.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+    -- #4 Master Trader
+    pioneeringDeckObject.takeObject({
+        position = {x = 62.25, y = 1.67, z = 2.25},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #5 Civilization)
+    pioneeringDeckObject.takeObject({
+        position = {x = 62.25, y = 1.67, z = -3.75},
+        callback_function = function(spawnedObject)
+            Wait.frames(function() spawnedObject.flip() end)
+        end
+    })
+    -- #6 King of Average (advanced) OR Empire
+    if advancedPioneering then -- destroy the default card
+        pioneeringDeckObject.takeObject({
+            position = {x = 62.25, y = 1.67, z = -9.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.destruct() end)
+            end
+        })
+        -- Get the advanced card
+        for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
+            for _, cardTag in ipairs(cardTable.tags) do
+                if cardTag == "king" then
+                    advancedPioneeringDeckObject.takeObject({
+                        index = cardTable.index,
+                        position = {x = 62.25, y = 1.67, z = -9.75},
+                        callback_function = function(spawnedObject)
+                            Wait.frames(function() spawnedObject.flip() end)
+                        end
+                    })
+                    break
+                end
+            end
+        end
+    else -- If not using advancedPioneering
+        pioneeringDeckObject.takeObject({
+            position = {x = 62.25, y = 1.67, z = -9.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+
+    -- Advanced Pioneering random mission cards #7-9
+    if advancedPioneering then
+        advancedPioneeringDeckObject.shuffle()
+        -- #7
+        advancedPioneeringDeckObject.takeObject({
+            position = {x = 66.75, y = 1.67, z = -15.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+        -- #8
+        advancedPioneeringDeckObject.takeObject({
+            position = {x = 66.75, y = 1.67, z = -21.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+        -- #9
+        advancedPioneeringDeckObject.takeObject({
+            position = {x = 62.25, y = 1.67, z = -15.75},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+
+        Wait.time(function ()
+            -- Destroy remaining card(s)
+            local objects = pioneeringScriptingZoneObject.getObjects()
+            for _, object in pairs(objects) do
+                object.destruct()
+            end     
+        end, 1)
+
+    else
+        -- Destroy unused mission shadows and cards
+        advancedPioneeringDeckObject.destruct()
+        destroyObject(getObjectFromGUID("83ab9a"))
+        destroyObject(getObjectFromGUID("a73c21"))
+        destroyObject(getObjectFromGUID("d6524d"))
+    end
+end
+
+local playerZoneObjects = {} -- Stores all used player zones for DealPlayerTokensCoroutine(), filled in CreateBoardCoroutine() (Global var because we cannot pass parameters to a coroutine function).
+
+function CreateBoardCoroutine() -- Create game board dynamically. Also calls DealExileTokens() and DealPlayerTokensCoroutine() when finished
+    local portalGUID = "9aecf3"
+    local portalObject = getObjectFromGUID(portalGUID)
+
+    local centralZoneGUID = "9b6946"
+    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
+
+    local connectZoneAGUID = "500df9"
+    local connectZoneAObject = getObjectFromGUID(connectZoneAGUID)
+
+    local connectZoneBGUID = "cc1ce5"
+    local connectZoneBObject = getObjectFromGUID(connectZoneBGUID)
+
+    local playerZoneAGUID = "dea9dd"
+    local playerZoneAObject = getObjectFromGUID(playerZoneAGUID)
+    
+    local playerZoneBGUID = "6006e1"
+    local playerZoneBObject = getObjectFromGUID(playerZoneBGUID)
+
+    local playerZoneObject
+    local connectZoneObject
+
+    -- When using alternative B-side setup
+    local function swapBoards()
+        -- Swap all tables/positions for the B versions to be used
+        playerZonePositions = playerZonePositionsB
+        connectZonePositions = connectZonePositionsB
+
+        -- swap central zone manually
+        params = {
+            image = "http://cloud-3.steamusercontent.com/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
+            thickness = 0.2,
+            merge_distance = 5,
+            stackable = false,
+        }
+        centralZoneObject.setCustomObject(params)
+        centralZoneObject.reload()
+
+        -- Destroy A-side boards
+        connectZoneAObject.destruct()
+        playerZoneAObject.destruct()
+
+        -- Move B-side in position for cloning
+        playerZoneBObject.setPositionSmooth(playerZonePositions[1][1], false, false)
+        playerZoneBObject.setRotationSmooth(playerZonePositions[1][2], false, false)
+
+        -- Wait X frames after moving new board
+        for _ = 1, 130 do
+            coroutine.yield(0)
+        end
+
+        centralZoneObject.interactable = false
+    end
+
+    if alternativeSetup then
+        swapBoards()
+        playerZoneObject = playerZoneBObject
+        connectZoneObject = connectZoneBObject
+    else
+        playerZoneObject = playerZoneAObject
+        playerZoneBObject.destruct()
+        connectZoneObject = connectZoneAObject
+        connectZoneBObject.destruct()
+    end
+
+    table.insert(playerZoneObjects, playerZoneObject) -- Insert initial board
+    
+    for i = 2, playerCount, 1 do
+        local playerZone = playerZoneObject.clone()
+        table.insert(playerZoneObjects, playerZone)
+        playerZone.setPositionSmooth(playerZonePositions[i][1], false, false)
+        playerZone.setRotationSmooth(playerZonePositions[i][2], false, false)
+        playerZone.interactable = false
+        
+        -- Wait X frames between placing boards
+        for _ = 1, 110 do
+            coroutine.yield(0)
+        end
+    end
+
+    if playerCount < 6 then -- Connect Zone and portal are only needed for 2-5 players
+        connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
+        connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
+        
+        if alternativeSetup then
+            portalObject.setPositionSmooth({16.36, 1.66, -9.80}, false, false)
+        else
+            portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
+        end
+    else
+        connectZoneObject.destruct()
+        portalObject.destruct()
+    end
+
+    -- Deal Exile Tokens: Wait x seconds before dealing exile tokens, so every part of the board is completely done
+    Wait.time(function ()
+        DealExileTokens()
+    end, 2)
+
+    -- Deal player starting tokens: Wait x seconds before dealing player tokens, so every part of the board is completely done
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
+    end, 4)
+
+    return 1
+end
+
+function DealExileTokens() -- Deals open & closed Exile Tokens to the game board
+    local boardScriptingZoneGUID = "8a89e0"
+    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
+    
+    local exiledTokenBagGUID = "445eb7"
+    local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
+    exiledTokenBagObject.interactable = true
+    exiledTokenBagObject.shuffle()
+    
+    local objectsInZone = boardScriptingZoneObject.getObjects()
+
+    for _, object in ipairs(objectsInZone) do
+        -- Loop all snapppoint boardScriptingZoneObject and place random exile tokens
+        for _, snapPointTable in pairs(object.getSnapPoints()) do
+            if snapPointTable.tags[1] == "exile_open" then
+                local localPos = snapPointTable.position
+                local worldPos = object.positionToWorld(localPos)
+
+                exiledTokenBagObject.takeObject({
+                    position = { worldPos.x, worldPos.y, worldPos.z }
+                })
+            -- Rotate 180 degrees on z when exile closed
+            elseif snapPointTable.tags[1] == "exile_closed" then
+                local localPos = snapPointTable.position
+                local worldPos = object.positionToWorld(localPos)
+                local localRot = exiledTokenBagObject.getRotation()
+                            
+                exiledTokenBagObject.takeObject({
+                    position = { worldPos.x, worldPos.y+0.2, worldPos.z },
+                    rotation = { localRot.x, localRot.y, localRot.z+180 }, -- Optional, defaults to the container's rotation.
+                    callback_function = function(takenObject)
+                        takenObject.tooltip = false -- Turn off tooltip when face down
+                    end
+                })
+            end
+        end
+    end
+
+    -- Collect all tokens after 1 second
+    Wait.time(function ()
+        CollectExileTokens()
+    end, 1)
+end
+
+function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Also calls DealResourcesCoroutine() when finished
+    -- All local positions relative to player zone. (Needed to inverse coordinates on x-axis because 180 rotation of zone object)
+    -- Order: Troop x3, Troop right, Mine, Trade, Command, Plant (Like in scripting zone right to left)
+    local playerTokenLocationsA = {
+        [1] = vector(-1.18 , 0.116 , 1.035),
+        [2] = vector(-0.003 , 0.108 , 0.672),
+        [3] = vector(-0.177 , 0.108 , 0.786),
+        [4] = vector(-0.209 , 0.108 , 1.004),
+        [5] = vector(-0.048 , 0.105 , 1.247),
+        [6] = vector(0.2 , 0.120 , 1.003),
+        [7] = vector(0.655 , 0.120 , 0.791),
+        [8] = vector(0.591 , 0.105 , 1.298)
+    }
+
+    -- Locations when using B-side
+    local playerTokenLocationsB = {
+        [1] = vector(-0.574 , 0.120 , 0.666),
+        [2] = vector(-0.746 , 0.120 , 0.784),
+        [3] = vector(-0.755 , 0.107 , 0.996),
+        [4] = vector(-1.753 , 0.111 , 1.039),
+        [5] = vector(-0.621 , 0.121 , 1.251),
+        [6] = vector(-0.373 , 0.106 , 1.007),
+        [7] = vector(0.082 , 0.106 , 0.795),
+        [8] = vector(0.018 , 0.106 , 1.302)
+    }
+
+    -- All starting miniatures, filtered per color in indexed order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
+    -- Nested tables for different player numbers!
+    local playerTokenObjects = {}
+
+    -- Filter and insert tokens in playerTokenObjects table 
+    local function insertRotateToTable(objects)
+        local trimmedTable = {}
+        local j = 1
+
+        -- Remove nameless/useless catched objects and rotate & order the rest
+        for i, object in ipairs(objects) do
+            if object.getName() == "" then
+                table.remove(objects, i)
+            elseif object == nil then
+                table.remove(objects, i)
+            elseif object.getName() == "Troop Token"  then
+                object.rotate({x=0, y=60, z=0})
+                trimmedTable[j] = object
+                j = j + 1
+            elseif object.getName() == "Mine"  then
+                object.rotate({x=0, y=60, z=0})
+                trimmedTable[5] = object
+            elseif object.getName() == "Trade Post"  then
+                object.rotate({x=0, y=-30, z=0})
+                trimmedTable[6] = object
+            elseif object.getName() == "Command Center"  then
+                object.rotate({x=0, y=-30, z=0})
+                trimmedTable[7] = object
+            elseif object.getName() == "Power Plant"  then
+                object.rotate({x=0, y=-90, z=0})
+                trimmedTable[8] = object
+            end
+        end
+
+        table.insert(playerTokenObjects, trimmedTable)
+
+        for _ = 1, 10, 1 do
+            coroutine.yield(0)
+        end
+    end
+
+    -- #1 Red
+    local redScriptingZoneGUID = "be23c6"
+    local redScriptingZoneObject = getObjectFromGUID(redScriptingZoneGUID)
+    local redTokenObjects = redScriptingZoneObject.getObjects()
+    insertRotateToTable(redTokenObjects)
+
+    -- #2 Green
+    local greenScriptingZoneGUID = "c88802"
+    local greenScriptingZoneObject = getObjectFromGUID(greenScriptingZoneGUID)
+    local greenTokenObjects = greenScriptingZoneObject.getObjects()
+    insertRotateToTable(greenTokenObjects)
+
+    -- #3 Purple
+    local purpleScriptingZoneGUID = "cd4ab7"
+    local purpleScriptingZoneObject = getObjectFromGUID(purpleScriptingZoneGUID)
+    local purpleTokenObjects = purpleScriptingZoneObject.getObjects()
+    insertRotateToTable(purpleTokenObjects)
+
+    -- #4 Blue
+    local blueScriptingZoneGUID = "df35ef"
+    local blueScriptingZoneObject = getObjectFromGUID(blueScriptingZoneGUID)
+    local blueTokenObjects = blueScriptingZoneObject.getObjects()
+    insertRotateToTable(blueTokenObjects)
+
+    -- #5 Orange
+    local orangeScriptingZoneGUID = "535afd"
+    local orangeScriptingZoneObject = getObjectFromGUID(orangeScriptingZoneGUID)
+    local orangeTokenObjects = orangeScriptingZoneObject.getObjects()
+    insertRotateToTable(orangeTokenObjects)
+
+    -- #6 Black
+    local blackScriptingZoneGUID = "baed0b"
+    local blackScriptingZoneObject = getObjectFromGUID(blackScriptingZoneGUID)
+    local blackTokenObjects = blackScriptingZoneObject.getObjects()
+    insertRotateToTable(blackTokenObjects)
+
+    for _ = 1, 70, 1 do
+        coroutine.yield(0)
+    end
+
+    -- For each player, move and rotate tokens into positions. (+60 or -60 degrees for each following player)
+    for i = 1, playerCount do
+        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #1 & #4 are already good so skip
+            if i == 2 or i == 5 then
+                object.rotate({x=0, y=60, z=0})
+            elseif i == 3 or i == 6 then
+                object.rotate({x=0, y=-60, z=0})
+            end
+
+            for _ = 1, 5 do
+                coroutine.yield(0)
+            end
+
+            if alternativeSetup then
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsB[j]), false, false) -- Set 8 tokens j on current player i's player zone
+            else
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsA[j]), false, false) -- Set 8 tokens j on current player i's player zone
+            end
+
+            -- Wait between tokens
+            for _ = 1, 15 do
+                coroutine.yield(0)
+            end
+        end
+        
+        -- Wait between players
+        for _ = 1, 80, 1 do
+            coroutine.yield(0)
+        end
+    end
+
+    -- When done deal starting resources
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealResourcesCoroutine")
+    end, 0.5)
+
+    return 1
+end
+
+function DealResourcesCoroutine() -- Deals starting gold/energy to players according to table in manual. Also calls DealAliensCoroutine() when finished 
+    local energySpawnerGUID = "98a3fe"
+    local goldSpawnerGUID = "0b18bb"
+
+    local energySpawnerObject = getObjectFromGUID(energySpawnerGUID)
+    local goldSpawnerObject = getObjectFromGUID(goldSpawnerGUID)
+
+    local playerColorIndex = StartPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
+
+    -- Gold/Energy amounts:
+    -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
+    for i = 1, playerCount do
+        -- Player 1
+        if i == 1 then
+            for _ = 1, 4 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 4 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 2
+        elseif i == 2 then
+            for _ = 1, 5 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 4 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 3 & 4
+        elseif i == 3 or i ==4 then
+            for _ = 1, 5 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 5 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 5
+        elseif i == 5 then
+            for _ = 1, 6 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 5 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+        -- Player 6
+        elseif i == 6 then
+            for _ = 1, 6 do
+                goldSpawnerObject.takeObject({
+                    position = goldZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+            for _ = 1, 6 do
+                energySpawnerObject.takeObject({
+                    position = energyZonePositions[playerColorIndex]
+                })
+                for _ = 1, 15 do
+                    coroutine.yield(0)
+                end
+            end
+        end
+
+        playerColorIndex = playerColorIndex + 1
+
+        -- If last player number/color on current game board is reached, reset to use remaining numbers/colors from beginning of game board
+        if  playerColorIndex > playerCount then
+            playerColorIndex = 1
+        end
+
+        -- Wait X frames between players
+        for _ = 1, 60 do
+            coroutine.yield(0)
+        end
+    end
+
+    -- Finally, deal Aliens for drafting
+    Wait.time(function ()
+        startLuaCoroutine(Global, "DealAliensCoroutine")
+    end, 1)
+
+    return 1
+end
+
+function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also calls DealMissionCardsCoroutine() Sets setupDone = true at the end
     local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
     local draftZoneClockwiseObject = getObjectFromGUID(draftZoneClockwiseGUID)
@@ -787,384 +1460,7 @@ function DealAliensCoroutine()
     return 1
 end
 
-function DealArchiveCardsCoroutine()
-    local archiveDeckGUID = "6b2a67"
-    local startCardDeckGUID = "ac5ebb"
-
-    local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
-    local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
-
-    -- Deal 1 start card to each player
-    for i = 1, playerCount do
-        startCardDeckObject.deal(1, TurnOrderTable[i])
-    end
-    startCardDeckObject.destruct()
-
-    for _ = 1, 100 do
-        coroutine.yield(0)
-    end
-
-    -- Deals 4 archive cards open to table left to right
-    archiveDeckObject.shuffle()
-
-    -- #1
-    archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = 6.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #2
-    archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = 0.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #3
-    archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = -6.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #4
-    archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = -12.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-
-    for _ = 1, 100 do
-        coroutine.yield(0)
-    end
-
-    -- Deals 4 archive cards to players 1-3, and 5 cards to players 4-6 (if any)
-    for i = 1, playerCount do
-        if i < 4 then
-            archiveDeckObject.deal(4, TurnOrderTable[i])
-            for _ = 1, 100 do
-                coroutine.yield(0)
-            end
-        else
-            archiveDeckObject.deal(5, TurnOrderTable[i])
-            for _ = 1, 100 do
-                coroutine.yield(0)
-            end
-        end
-    end
-
-    archiveDeckObject.interactable = true
-
-    return 1
-end
-
--- Deals starting gold/energy to players according to table in manual. Also calls DealAliensCoroutine() when finished
-function DealResourcesCoroutine() 
-    local energySpawnerGUID = "98a3fe"
-    local goldSpawnerGUID = "0b18bb"
-
-    local energySpawnerObject = getObjectFromGUID(energySpawnerGUID)
-    local goldSpawnerObject = getObjectFromGUID(goldSpawnerGUID)
-
-    local playerColorIndex = StartPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
-
-    -- Gold/Energy amounts:
-    -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
-    for i = 1, playerCount do
-        -- Player 1
-        if i == 1 then
-            for _ = 1, 4 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 4 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-        -- Player 2
-        elseif i == 2 then
-            for _ = 1, 5 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 4 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-        -- Player 3 & 4
-        elseif i == 3 or i ==4 then
-            for _ = 1, 5 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 5 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-        -- Player 5
-        elseif i == 5 then
-            for _ = 1, 6 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 5 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-        -- Player 6
-        elseif i == 6 then
-            for _ = 1, 6 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 6 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-        end
-
-        playerColorIndex = playerColorIndex + 1
-
-        -- If last player number/color on current game board is reached, reset to use remaining numbers/colors from beginning of game board
-        if  playerColorIndex > playerCount then
-            playerColorIndex = 1
-        end
-
-        -- Wait X frames between players
-        for _ = 1, 60 do
-            coroutine.yield(0)
-        end
-    end
-
-    -- Finally, deal Aliens for drafting
-    Wait.time(function ()
-        startLuaCoroutine(Global, "DealAliensCoroutine")
-    end, 1)
-
-    return 1
-end
-
-function SetMissionCards()
-    local progressDeckGUID = "935e48"
-    local ProsperityDeckGUID = "5771e2"
-    local conquestDeckGUID = "f4ccdd"
-    local pioneeringDeckGUID = "9aa665"
-    local advancedPioneeringDeckGUID = "c7f175"
-
-    local progressDeckObject = getObjectFromGUID(progressDeckGUID)
-    local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
-    local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
-    local pioneeringDeckObject = getObjectFromGUID(pioneeringDeckGUID)
-    local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
-
-    local pioneeringScriptingZoneGUID = "f54485"
-    local pioneeringScriptingZoneObject = getObjectFromGUID(pioneeringScriptingZoneGUID)
-
-    -- Deal 3 mission cards open to table
-    -- Progress mission
-    progressDeckObject.shuffle()
-    progressDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 21.75},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-
-    -- Prosperity mission
-    ProsperityDeckObject.shuffle()
-    ProsperityDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 15.75},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
-        end
-    })
-
-    -- Conquest mission
-    conquestDeckObject.shuffle()
-    conquestDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 9.75},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-
-    -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
-    -- #1 Overlord
-    pioneeringDeckObject.takeObject({
-        position = {x = 66.75, y = 1.67, z = 2.25},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #2 Infinite Riches
-    pioneeringDeckObject.takeObject({
-        position = {x = 66.75, y = 1.67, z = -3.75},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #3 Ascension (advanced) OR Expansion
-    if advancedPioneering then -- destroy the default card
-        pioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -9.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.destruct() end)
-            end
-        })
-        -- Get the advanced card
-        for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
-            for _, cardTag in ipairs(cardTable.tags) do
-                if cardTag == "ascension" then
-                    advancedPioneeringDeckObject.takeObject({
-                        index = cardTable.index,
-                        position = {x = 66.75, y = 1.67, z = -9.75},
-                        callback_function = function(spawnedObject)
-                            Wait.frames(function() spawnedObject.flip() end)
-                        end
-                    })
-                    break
-                end
-            end
-        end
-    else -- If not using advancedPioneering
-        pioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -9.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
-    end
-    -- #4 Master Trader
-    pioneeringDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 2.25},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #5 Civilization)
-    pioneeringDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = -3.75},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
-    -- #6 King of Average (advanced) OR Empire
-    if advancedPioneering then -- destroy the default card
-        pioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -9.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.destruct() end)
-            end
-        })
-        -- Get the advanced card
-        for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
-            for _, cardTag in ipairs(cardTable.tags) do
-                if cardTag == "king" then
-                    advancedPioneeringDeckObject.takeObject({
-                        index = cardTable.index,
-                        position = {x = 62.25, y = 1.67, z = -9.75},
-                        callback_function = function(spawnedObject)
-                            Wait.frames(function() spawnedObject.flip() end)
-                        end
-                    })
-                    break
-                end
-            end
-        end
-    else -- If not using advancedPioneering
-        pioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -9.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
-    end
-
-    -- Advanced Pioneering random mission cards #7-9
-    if advancedPioneering then
-        advancedPioneeringDeckObject.shuffle()
-        -- #7
-        advancedPioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -15.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
-        -- #8
-        advancedPioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -21.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
-        -- #9
-        advancedPioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -15.75},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
-
-        Wait.time(function ()
-            -- Destroy remaining card(s)
-            local objects = pioneeringScriptingZoneObject.getObjects()
-            for _, object in pairs(objects) do
-                object.destruct()
-            end     
-        end, 1)
-
-    else
-        -- Destroy unused mission shadows and cards
-        advancedPioneeringDeckObject.destruct()
-        destroyObject(getObjectFromGUID("83ab9a"))
-        destroyObject(getObjectFromGUID("a73c21"))
-        destroyObject(getObjectFromGUID("d6524d"))
-    end
-end
-
-function DealMissionCardsCoroutine()
+function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the players to keep 1 of each. Last function te be called in the setup chain.
     local progressDeckGUID = "935e48"
     local ProsperityDeckGUID = "5771e2"
     local conquestDeckGUID = "f4ccdd"
@@ -1194,312 +1490,11 @@ function DealMissionCardsCoroutine()
     return 1
 end
 
--- Used in DealPlayerTokensCoroutine() and filled in CreateBoardCoroutine()
-local playerZoneObjects = {}
 
--- Create game board dynamically. Also calls DealExileTokens() and DealPlayerTokensCoroutine() when finished
-function CreateBoardCoroutine()
-    local portalGUID = "9aecf3"
-    local portalObject = getObjectFromGUID(portalGUID)
-
-    local centralZoneGUID = "9b6946"
-    local centralZoneObject = getObjectFromGUID(centralZoneGUID)
-
-    local connectZoneAGUID = "500df9"
-    local connectZoneAObject = getObjectFromGUID(connectZoneAGUID)
-
-    local connectZoneBGUID = "cc1ce5"
-    local connectZoneBObject = getObjectFromGUID(connectZoneBGUID)
-
-    local playerZoneAGUID = "dea9dd"
-    local playerZoneAObject = getObjectFromGUID(playerZoneAGUID)
-    
-    local playerZoneBGUID = "6006e1"
-    local playerZoneBObject = getObjectFromGUID(playerZoneBGUID)
-
-    local playerZoneObject
-    local connectZoneObject
-
-    -- When using alternative B-side setup
-    local function swapBoards()
-        -- Swap all tables/positions for the B versions to be used
-        playerZonePositions = playerZonePositionsB
-        connectZonePositions = connectZonePositionsB
-
-        -- swap central zone manually
-        params = {
-            image = "http://cloud-3.steamusercontent.com/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
-            thickness = 0.2,
-            merge_distance = 5,
-            stackable = false,
-        }
-        centralZoneObject.setCustomObject(params)
-        centralZoneObject.reload()
-        centralZoneObject.interactable = false
-
-        -- Destroy A-side boards
-        connectZoneAObject.destruct()
-        playerZoneAObject.destruct()
-
-        -- Move B-side in position for cloning
-        playerZoneBObject.setPositionSmooth(playerZonePositions[1][1], false, false)
-        playerZoneBObject.setRotationSmooth(playerZonePositions[1][2], false, false)
-
-        -- Wait X frames after moving new board
-        for _ = 1, 130 do
-            coroutine.yield(0)
-        end
-    end
-
-    if alternativeSetup then
-        swapBoards()
-        playerZoneObject = playerZoneBObject
-        connectZoneObject = connectZoneBObject
-    else
-        playerZoneObject = playerZoneAObject
-        playerZoneBObject.destruct()
-        connectZoneObject = connectZoneAObject
-        connectZoneBObject.destruct()
-    end
-
-    table.insert(playerZoneObjects, playerZoneObject) -- Insert initial board
-    
-    for i = 2, playerCount, 1 do
-        local playerZone = playerZoneObject.clone()
-        table.insert(playerZoneObjects, playerZone)
-        playerZone.setPositionSmooth(playerZonePositions[i][1], false, false)
-        playerZone.setRotationSmooth(playerZonePositions[i][2], false, false)
-        playerZone.interactable = false
-        
-        -- Wait X frames between placing boards
-        for _ = 1, 110 do
-            coroutine.yield(0)
-        end
-    end
-
-    if playerCount < 6 then -- Connect Zone and portal are only needed for 2-5 players
-        connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
-        connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
-        
-        if alternativeSetup then
-            portalObject.setPositionSmooth({16.36, 1.66, -9.80}, false, false)
-        else
-            portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
-        end
-    else
-        connectZoneObject.destruct()
-        portalObject.destruct()
-    end
-
-    -- Deal Exile Tokens: Wait x seconds before dealing exile tokens, so every part of the board is completely done
-    Wait.time(function ()
-        DealExileTokens()
-    end, 2)
-
-    -- Deal player starting tokens: Wait x seconds before dealing player tokens, so every part of the board is completely done
-    Wait.time(function ()
-        startLuaCoroutine(Global, "DealPlayerTokensCoroutine")
-    end, 4)
-
-    return 1
-end
-
--- Deals all starting tokens to players. Also calls DealResourcesCoroutine() when finished
-function DealPlayerTokensCoroutine()
-    -- All local positions relative to player zone. (Needed to inverse coordinates on x-axis because 180 rotation of zone object)
-    -- Order: Troop x3, Troop right, Mine, Trade, Command, Plant (Like in scripting zone right to left)
-    local playerTokenLocationsA = {
-        [1] = vector(-1.18 , 0.116 , 1.035),
-        [2] = vector(-0.003 , 0.108 , 0.672),
-        [3] = vector(-0.177 , 0.108 , 0.786),
-        [4] = vector(-0.209 , 0.108 , 1.004),
-        [5] = vector(-0.048 , 0.105 , 1.247),
-        [6] = vector(0.2 , 0.120 , 1.003),
-        [7] = vector(0.655 , 0.120 , 0.791),
-        [8] = vector(0.591 , 0.105 , 1.298)
-    }
-
-    -- Locations when using B-side
-    local playerTokenLocationsB = {
-        [1] = vector(-0.574 , 0.120 , 0.666),
-        [2] = vector(-0.746 , 0.120 , 0.784),
-        [3] = vector(-0.755 , 0.107 , 0.996),
-        [4] = vector(-1.753 , 0.111 , 1.039),
-        [5] = vector(-0.621 , 0.121 , 1.251),
-        [6] = vector(-0.373 , 0.106 , 1.007),
-        [7] = vector(0.082 , 0.106 , 0.795),
-        [8] = vector(0.018 , 0.106 , 1.302)
-    }
-
-    -- All starting miniatures, filtered per color in indexed order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
-    -- Nested tables for different player numbers!
-    local playerTokenObjects = {}
-
-    -- Filter and insert tokens in playerTokenObjects table 
-    local function insertRotateToTable(objects)
-        local trimmedTable = {}
-        local j = 1
-
-        -- Remove nameless/useless catched objects and rotate & order the rest
-        for i, object in ipairs(objects) do
-            if object.getName() == "" then
-                table.remove(objects, i)
-            elseif object == nil then
-                table.remove(objects, i)
-            elseif object.getName() == "Troop Token"  then
-                object.rotate({x=0, y=60, z=0})
-                trimmedTable[j] = object
-                j = j + 1
-            elseif object.getName() == "Mine"  then
-                object.rotate({x=0, y=60, z=0})
-                trimmedTable[5] = object
-            elseif object.getName() == "Trade Post"  then
-                object.rotate({x=0, y=-30, z=0})
-                trimmedTable[6] = object
-            elseif object.getName() == "Command Center"  then
-                object.rotate({x=0, y=-30, z=0})
-                trimmedTable[7] = object
-            elseif object.getName() == "Power Plant"  then
-                object.rotate({x=0, y=-90, z=0})
-                trimmedTable[8] = object
-            end
-        end
-
-        table.insert(playerTokenObjects, trimmedTable)
-
-        for _ = 1, 10, 1 do
-            coroutine.yield(0)
-        end
-    end
-
-    -- #1 Red
-    local redScriptingZoneGUID = "be23c6"
-    local redScriptingZoneObject = getObjectFromGUID(redScriptingZoneGUID)
-    local redTokenObjects = redScriptingZoneObject.getObjects()
-    insertRotateToTable(redTokenObjects)
-
-    -- #2 Green
-    local greenScriptingZoneGUID = "c88802"
-    local greenScriptingZoneObject = getObjectFromGUID(greenScriptingZoneGUID)
-    local greenTokenObjects = greenScriptingZoneObject.getObjects()
-    insertRotateToTable(greenTokenObjects)
-
-    -- #3 Purple
-    local purpleScriptingZoneGUID = "cd4ab7"
-    local purpleScriptingZoneObject = getObjectFromGUID(purpleScriptingZoneGUID)
-    local purpleTokenObjects = purpleScriptingZoneObject.getObjects()
-    insertRotateToTable(purpleTokenObjects)
-
-    -- #4 Blue
-    local blueScriptingZoneGUID = "df35ef"
-    local blueScriptingZoneObject = getObjectFromGUID(blueScriptingZoneGUID)
-    local blueTokenObjects = blueScriptingZoneObject.getObjects()
-    insertRotateToTable(blueTokenObjects)
-
-    -- #5 Orange
-    local orangeScriptingZoneGUID = "535afd"
-    local orangeScriptingZoneObject = getObjectFromGUID(orangeScriptingZoneGUID)
-    local orangeTokenObjects = orangeScriptingZoneObject.getObjects()
-    insertRotateToTable(orangeTokenObjects)
-
-    -- #6 Black
-    local blackScriptingZoneGUID = "baed0b"
-    local blackScriptingZoneObject = getObjectFromGUID(blackScriptingZoneGUID)
-    local blackTokenObjects = blackScriptingZoneObject.getObjects()
-    insertRotateToTable(blackTokenObjects)
-
-    for _ = 1, 70, 1 do
-        coroutine.yield(0)
-    end
-
-    -- For each player, move and rotate tokens into positions. (+60 or -60 degrees for each following player)
-    for i = 1, playerCount do
-        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #1 & #4 are already good so skip
-            if i == 2 or i == 5 then
-                object.rotate({x=0, y=60, z=0})
-            elseif i == 3 or i == 6 then
-                object.rotate({x=0, y=-60, z=0})
-            end
-
-            for _ = 1, 5 do
-                coroutine.yield(0)
-            end
-
-            if alternativeSetup then
-                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsB[j]), false, false) -- Set 8 tokens j on current player i's player zone
-            else
-                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsA[j]), false, false) -- Set 8 tokens j on current player i's player zone
-            end
-
-            -- Wait between tokens
-            for _ = 1, 15 do
-                coroutine.yield(0)
-            end
-        end
-        
-        -- Wait between players
-        for _ = 1, 80, 1 do
-            coroutine.yield(0)
-        end
-    end
-
-    -- When done deal starting resources
-    Wait.time(function ()
-        startLuaCoroutine(Global, "DealResourcesCoroutine")
-    end, 0.5)
-
-    return 1
-end
-
--- Deals open & closed Exile Tokens to the game board
-function DealExileTokens()
-    local boardScriptingZoneGUID = "8a89e0"
-    local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
-    
-    local exiledTokenBagGUID = "445eb7"
-    local exiledTokenBagObject = getObjectFromGUID(exiledTokenBagGUID)
-    exiledTokenBagObject.interactable = true
-    exiledTokenBagObject.shuffle()
-    
-    local objectsInZone = boardScriptingZoneObject.getObjects()
-
-    for _, object in ipairs(objectsInZone) do
-        -- Loop all snapppoint boardScriptingZoneObject and place random exile tokens
-        for _, snapPointTable in pairs(object.getSnapPoints()) do
-            if snapPointTable.tags[1] == "exile_open" then
-                local localPos = snapPointTable.position
-                local worldPos = object.positionToWorld(localPos)
-
-                exiledTokenBagObject.takeObject({
-                    position = { worldPos.x, worldPos.y, worldPos.z }
-                })
-            -- Rotate 180 degrees on z when exile closed
-            elseif snapPointTable.tags[1] == "exile_closed" then
-                local localPos = snapPointTable.position
-                local worldPos = object.positionToWorld(localPos)
-                local localRot = exiledTokenBagObject.getRotation()
-                            
-                exiledTokenBagObject.takeObject({
-                    position = { worldPos.x, worldPos.y+0.2, worldPos.z },
-                    rotation = { localRot.x, localRot.y, localRot.z+180 }, -- Optional, defaults to the container's rotation.
-                    callback_function = function(takenObject)
-                        takenObject.tooltip = false -- Turn off tooltip when face down
-                    end
-                })
-            end
-        end
-    end
-
-    -- Collect all tokens after 1 second
-    Wait.time(function ()
-        CollectExileTokens()
-    end, 1)
-end
-
--- All exile tokens on board. Filled in CollectExileTokens(). Used in checkIfExileToken()
+-- All exile tokens on board. Filled in CollectExileTokens(). Used in checkIfExileTokenOnBoard()
 local exileTokensTable = {}
 
-function CollectExileTokens()
+function CollectExileTokens() -- Gets all exile tokens on board and put in exileTokensTable. Called in DealExileTokens()
     local boardScriptingZoneGUID = "8a89e0"
     local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
 
@@ -1511,7 +1506,7 @@ function CollectExileTokens()
     end
 end
 
-local function checkIfExileToken(flippedObject)
+local function checkIfExileTokenOnBoard(flippedObject)
     for _, exileToken in ipairs(exileTokensTable) do
         if exileToken == flippedObject then
             return true
@@ -1524,11 +1519,12 @@ function onPlayerAction(player, action, targets)
     local flippedObject = targets[1]
 
     -- Only act when an exile token on game board is being flipped. Not newly drawn tokens etc.
-    if action == Player.Action.FlipOver and checkIfExileToken(flippedObject) then
+    if action == Player.Action.FlipOver and checkIfExileTokenOnBoard(flippedObject) then
         flippedObject.tooltip = true
         broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`.")
     end
 end
+
 
 --#region Secret demo stuff, don't look!
 local counter  = 0
@@ -1552,7 +1548,7 @@ function PlayerCountSelected(player, option, id)
     end
 end
 
-function DemoStartClicked()
+function DemoStartClicked() -- Same as normal but new UI and manual player count selection
     UI.setAttribute("demoWindow", "active", false) -- Hide the UI
     
     broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
@@ -1582,16 +1578,16 @@ function DemoStartClicked()
     -- #5: Deal Archive cards
     Wait.time(function ()
         startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
-    end, 5)
+    end, 4)
     
     -- #6: Deal Mission cards
     Wait.time(function ()
         SetMissionCards()
-    end, 7)
+    end, 9)
     
     -- #7: Create the board
     Wait.time(function ()
         startLuaCoroutine(Global, "CreateBoardCoroutine")
-    end, 9)
+    end, 12)
 end
 --#endregion
