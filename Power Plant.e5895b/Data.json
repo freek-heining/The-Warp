@@ -2,12 +2,12 @@
   "GUID": "e5895b",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -11.2501106,
+    "posX": -11.25011,
     "posY": 1.50110292,
     "posZ": 27.7503071,
-    "rotX": 0.01688186,
-    "rotY": 179.998352,
-    "rotZ": 0.07991225,
+    "rotX": 0.0168772042,
+    "rotY": 179.9983,
+    "rotZ": 0.07990542,
     "scaleX": 0.4,
     "scaleY": 0.4,
     "scaleZ": 0.4
