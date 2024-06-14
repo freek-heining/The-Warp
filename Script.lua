@@ -793,6 +793,8 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         }
         centralZoneObject.setCustomObject(params)
         centralZoneObject.reload()
+        centralZoneObject = getObjectFromGUID(centralZoneGUID)
+        centralZoneObject.interactable = false
 
         -- Destroy A-side boards
         connectZoneAObject.destruct()
@@ -806,8 +808,6 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         for _ = 1, 130 do
             coroutine.yield(0)
         end
-
-        centralZoneObject.interactable = false
     end
 
     if alternativeSetup then
@@ -1248,7 +1248,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
         end
     })
 
-    -- Create 2 random alien race piles. Card amount per pile = player count + 1
+    -- Create 2 random alien race piles with Classic UI buttons. Card amount per pile = player count + 1
     for i = 1, playerCount + 1 do
         -- Counterclockwise alien pile
         alienPlayDeckObject.takeObject({
@@ -1292,12 +1292,136 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     for _ = 1, 250 do
         coroutine.yield(0)
     end
-    
+
     local clockwiseCounter = 1 -- Keeps track of right pile active player
     local counterClockwiseCounter = playerCount -- Keeps track of left pile active player
 
     broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the 'Clockwise' pile.", TurnOrderTable[clockwiseCounter])
     broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the 'Counterclockwise' pile.", TurnOrderTable[counterClockwiseCounter])
+
+    function GrabMatchingGuardianCounterclockwiseCoroutine() -- Is fired twice because of clone card also being detected
+        local matchingGuardianGUID = nil
+        local remainingAlienPosition = nil
+        local remainingAlienName = nil
+
+        -- Wait first so last chosen card is settled at player
+        for _ = 1, 100 do
+            coroutine.yield(0)
+        end
+
+        local zoneObjects1 = scriptingZoneCounterClockwiseObject.getObjects()
+
+        -- Get data from the 1 remaining Alien Race
+        for _, object in ipairs(zoneObjects1) do
+            if object.type == "Card" then
+                remainingAlienPosition = object.getPosition()
+                remainingAlienName = object.getName()
+            end
+        end
+
+        -- Look for matching guardian in the guardian deck and save its GUID
+        if remainingAlienName then -- Nill check
+            for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
+                if  guardianCard.name == remainingAlienName then
+                    matchingGuardianGUID = guardianCard.guid
+                end
+            end
+        end
+
+        local function putBackCard(card)
+            guardianPlayDeckObject.setLock(false) -- putObject doesn't work on locked objects!
+            guardianPlayDeckObject.putObject(card)
+            guardianPlayDeckObject.setLock(true)
+        end
+
+        -- Take matching guardian from deck to clone and place near unchosen Alien card
+        if matchingGuardianGUID then -- Nill check
+            guardianPlayDeckObject.takeObject({
+                guid = matchingGuardianGUID,
+                callback_function = function(matchingGuardian)
+                    matchingGuardian.clone({ position = remainingAlienPosition })
+                    putBackCard(matchingGuardian)
+                end
+            })
+        end
+
+        -- Wait for cloned card to settle
+        for _ = 1, 300 do
+            coroutine.yield(0)
+        end
+
+        -- Lock cloned card
+        local zoneObjects2 = scriptingZoneCounterClockwiseObject.getObjects()
+        for _, object in ipairs(zoneObjects2) do
+            if object.type == "Card" then
+                object.setLock(true)
+            end
+        end
+
+        return 1
+    end
+
+    function GrabMatchingGuardianClockwiseCoroutine() -- Is fired twice because of clone card also being detected
+        local matchingGuardianGUID = nil
+        local remainingAlienPosition = nil
+        local remainingAlienName = nil
+
+        -- Wait first so last chosen card is settled at player
+        for _ = 1, 100 do
+            coroutine.yield(0)
+        end
+
+        local zoneObjects1 = scriptingZoneClockwiseObject.getObjects()
+
+        -- Get data from the 1 remaining Alien Race
+        for _, object in ipairs(zoneObjects1) do
+            if object.type == "Card" then -- Should only be 1 card total!
+                remainingAlienPosition = object.getPosition()
+                remainingAlienName = object.getName()
+            end
+        end
+
+        -- Look for matching guardian in the guardian deck and save its GUID
+        if remainingAlienName then -- Nill check
+            for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
+                if  guardianCard.name == remainingAlienName then
+                    matchingGuardianGUID = guardianCard.guid
+                end
+            end
+        end
+
+        local function putBackCard(card)
+            guardianPlayDeckObject.setLock(false) -- putObject doesn't work on locked objects!
+            guardianPlayDeckObject.putObject(card)
+            guardianPlayDeckObject.setLock(true)
+        end
+
+        -- Take matching guardian from deck to clone and place near unchosen Alien card
+        if matchingGuardianGUID then -- Nill check
+            guardianPlayDeckObject.takeObject({
+                guid = matchingGuardianGUID,
+                callback_function = function(matchingGuardian)
+                    matchingGuardian.clone({ position = remainingAlienPosition })
+                    putBackCard(matchingGuardian)
+                end
+            })
+        end
+
+        -- Wait for cloned card to settle
+        for _ = 1, 300 do
+            coroutine.yield(0)
+        end
+
+        -- Lock cloned card
+        local zoneObjects2 = scriptingZoneClockwiseObject.getObjects()
+        for _, object in ipairs(zoneObjects2) do
+            if object.type == "Card" then
+                object.setLock(true)
+            end
+        end
+
+        return 1
+    end
 
     function DraftZoneCounterClockwiseClicked(obj, color) -- Left draft pile
         if color == TurnOrderTable[counterClockwiseCounter] then
@@ -1318,11 +1442,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
 
             counterClockwiseCounter = counterClockwiseCounter - 1 -- Counting down = counterclockwise
 
-            local cardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+            local zoneObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining objects in scripting zone each cycle
 
-            for _, object in ipairs(cardObjects) do
-                if counterClockwiseCounter < 1 and object.type == "Card" then -- When 2nd last card of pile is drafted, 1 remains for guardian draft.
-                    object.editButton({
+            for _, object in ipairs(zoneObjects) do
+                if counterClockwiseCounter < 1 and object.type == "Card" then -- When 2nd last card of pile is drafted, 1 remains for guardian draft. 
+                    object.editButton({ -- Only affects the last remaining card, because we destroy the buttons on the others. There is still more then 1 object in zoneObjects table!
                         index = 0,
                         label = "Warp Guardian",
                         click_function = "GuardianClicked",
@@ -1330,6 +1454,9 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                         width = 1100,
                         color = TurnOrderTable[playerCount] -- Reset button color to last player in order
                     })
+
+                    startLuaCoroutine(Global, "GrabMatchingGuardianCounterclockwiseCoroutine")
+
                 elseif object.type == "Card" then -- Change all buttons color to next player in line's color
                     object.editButton({index=0, color=TurnOrderTable[counterClockwiseCounter]}) 
                 end
@@ -1338,7 +1465,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
                 broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile.", TurnOrderTable[playerCount])
             elseif counterClockwiseCounter >= 1 then
-                broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the -left- pile.", TurnOrderTable[counterClockwiseCounter])
+                broadcastToAll(TurnOrderTable[counterClockwiseCounter] .. ", choose an Alien Race from the 'Counterclockwise' pile.", TurnOrderTable[counterClockwiseCounter])
             end
         else
             print("Not your turn to pick from this pile!")
@@ -1364,9 +1491,9 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
 
             clockwiseCounter = clockwiseCounter + 1 -- Counting up = clockwise
             
-            local cardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
+            local zoneObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards each cycle
 
-            for _, object in ipairs(cardObjects) do
+            for _, object in ipairs(zoneObjects) do
                 if clockwiseCounter > playerCount and object.type == "Card" then -- When 2nd last card of pile is drafted, 1 remains for guardian draft.
                     object.editButton({
                         index = 0,
@@ -1375,6 +1502,9 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                         tooltip = "Choose this Alien Race to become the Warp Guardian!",
                         width = 1100
                     })
+
+                    startLuaCoroutine(Global, "GrabMatchingGuardianClockwiseCoroutine")
+
                 elseif object.type == "Card" then -- Change all buttons color to next player in line's color
                     object.editButton({index=0, color=TurnOrderTable[clockwiseCounter]})
                 end
@@ -1383,14 +1513,14 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
             if clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
                 broadcastToAll(TurnOrderTable[playerCount] .. ", choose the Warp Guardian from the left or right pile.", TurnOrderTable[playerCount])
             elseif clockwiseCounter <= playerCount then
-                broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the -right- pile.", TurnOrderTable[clockwiseCounter])
+                broadcastToAll(TurnOrderTable[clockwiseCounter] .. ", choose an Alien Race from the 'Clockwise' pile.", TurnOrderTable[clockwiseCounter])
             end
         else
             print("Not your turn to pick from this pile!")
         end
     end
 
-    -- Only when 1 alien left on both sides can we choose the warp guardian
+    -- Only when 1 alien left on both sides can we choose the warp guardian. Selecting one moves it to the guardian spot on table
     function GuardianClicked(obj, color)
         if color == TurnOrderTable[playerCount] and clockwiseCounter > playerCount and counterClockwiseCounter < 1 then
             local chosenGuardianName = obj.getName()
@@ -1399,9 +1529,9 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
             obj.removeButton(0)
             obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
 
-            -- Destroy remaining cards
+            -- Destroy remaining cards (after 3 seconds)
             Wait.time(function ()
-                obj.setLock(true)
+                obj.setLock(true) -- Lock chosen alien card 
 
                 local rightCardObjects = scriptingZoneClockwiseObject.getObjects() -- Grab all remaining cards
                 local leftCardObjects = scriptingZoneCounterClockwiseObject.getObjects() -- Grab all remaining cards
@@ -1417,9 +1547,9 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                 broadcastToAll("Don't forget to put tokens on the Exiled Races and Warp Guardian!")
             end, 3)
 
+            -- Look for corresponding guardian in the guardian deck, to place over the chosen alien guardian card (after 1,5 seconds)
             Wait.time(function ()
                 local guardianGUID = nil
-                -- Look for corresponding guardian in the guardian deck, to place over the chosen alien guardian card
                 for _, guardianCard in ipairs(guardianPlayDeckObject.getObjects()) do
                     if  guardianCard.name == chosenGuardianName then
                         guardianGUID = guardianCard.guid
@@ -1433,8 +1563,8 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                         position = {-51.41, 1.80, -9.00},
                         callback_function = function(chosenGuardian)
                             Wait.time(function ()
-                                chosenGuardian.setLock(true)
-                            end, 1.5)
+                                chosenGuardian.setLock(true) -- Lock guardian after 2 seconds
+                            end, 2)
                         end
                     })
                 end
@@ -1446,7 +1576,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
             -- When drafting is done, deal 6 mission cards to each player
             Wait.time(function ()
                 startLuaCoroutine(Global, "DealMissionCardsCoroutine")
-            end, 3)
+            end, 4)
 
         elseif color == TurnOrderTable[playerCount] then
             print("Wait for the other draft pile to complete!")
