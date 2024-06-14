@@ -1,0 +1,54 @@
+{
+  "GUID": "415c8a",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": -77.9930038,
+    "posY": 7.965599,
+    "posZ": 34.49966,
+    "rotX": 315.0,
+    "rotY": 90.0,
+    "rotZ": 359.983124,
+    "scaleX": 3.99999619,
+    "scaleY": 3.99999619,
+    "scaleZ": 3.99999619
+  },
+  "Nickname": "Game box",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2504640969832814381/2AC6DA82F299E2676D7B016CFA823CD10B6625C3/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.788939655,
+      "MergeDistancePixels": 15.0,
+      "StandUp": true,
+      "Stackable": false
+    }
+  }
+}

@@ -103,18 +103,31 @@ local advancedPioneering = false
 local expansionRaces = false
 
 function AlternativeMapToggled(player, isOn)
-    alternativeSetup = isOn;
-    log("alternativeSetup: " .. alternativeSetup)
+    -- Boolean value from UI Toggle is a string here!
+    if isOn == "False" then
+        alternativeSetup = false
+    elseif isOn == "True" then
+        alternativeSetup = true
+    end
+    log("alternativeSetup: " .. tostring(alternativeSetup))
 end
 
 function AdvancedPioneeringToggled(player, isOn)
-    advancedPioneering = isOn;
-    log("advancedPioneering: " .. advancedPioneering)
+    if isOn == "False" then
+        advancedPioneering = false
+    elseif isOn == "True" then
+        advancedPioneering = true
+    end
+    log("advancedPioneering: " .. tostring(advancedPioneering))
 end
 
 function ExpansionRacesToggled(player, isOn)
-    expansionRaces = isOn;
-    log("expansionRaces: " .. expansionRaces)
+    if isOn == "False" then
+        expansionRaces = false
+    elseif isOn == "True" then
+        expansionRaces = true
+    end
+    log("expansionRaces: " .. tostring(expansionRaces))
 end
 --#endregion
 
@@ -141,12 +154,12 @@ function onload(state)
         TurnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- Enabled when developing
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually
+        MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually. DISABLE when developing board!
     else
         UI.setAttribute("setupWindow", "active", false)
     end

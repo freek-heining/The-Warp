@@ -1,0 +1,80 @@
+{
+  "GUID": "16aac8",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": -65.25004,
+    "posY": 1.71799755,
+    "posZ": 30.7500076,
+    "rotX": 0.0798814148,
+    "rotY": 90.01698,
+    "rotZ": 359.983154,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Warp Guardian Advanced Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    4421,
+    4404,
+    4408,
+    4410,
+    4414,
+    4423,
+    4412,
+    4420,
+    4417,
+    4413,
+    4419,
+    4401,
+    4411,
+    4409,
+    4418,
+    4422,
+    4400,
+    4402,
+    4407,
+    4415,
+    4405,
+    4403,
+    4416,
+    4406
+  ],
+  "CustomDeck": {
+    "44": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767398821/05E6B67BE966D0B0E54A40A30E5B1124552175AA/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003351/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 7,
+      "NumHeight": 4,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

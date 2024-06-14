@@ -1,0 +1,72 @@
+{
+  "GUID": "0c51b4",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": -65.25005,
+    "posY": 1.67727661,
+    "posZ": 23.2500153,
+    "rotX": 0.0798783,
+    "rotY": 90.00606,
+    "rotZ": 359.983124,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Warp Guardian Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    4003,
+    4001,
+    4009,
+    4015,
+    4000,
+    4013,
+    4008,
+    4007,
+    4012,
+    4004,
+    4005,
+    4006,
+    4014,
+    4011,
+    4010,
+    4002
+  ],
+  "CustomDeck": {
+    "40": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003916/AA02614DCE7778010E66F30A0D7D6D0C97859EA9/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003351/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 6,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

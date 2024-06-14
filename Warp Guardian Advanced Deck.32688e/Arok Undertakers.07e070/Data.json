@@ -1,0 +1,55 @@
+{
+  "GUID": "07e070",
+  "Name": "Card",
+  "Transform": {
+    "posX": -64.7485352,
+    "posY": 1.71739018,
+    "posZ": -33.35429,
+    "rotX": -0.00271321274,
+    "rotY": 90.01308,
+    "rotZ": 359.763672,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Arok Undertakers",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 4423,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "44": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767398821/05E6B67BE966D0B0E54A40A30E5B1124552175AA/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003351/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 7,
+      "NumHeight": 4,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}
