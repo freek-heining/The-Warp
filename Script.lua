@@ -141,8 +141,7 @@ function onload(state)
         TurnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false)
-
+    --UI.setAttribute("setupWindow", "active", false) -- Enabled when developing
     
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
@@ -215,15 +214,18 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local advancedAlienDeckGUID = "5be236"
     local guardianDeckGUID = "21cccc"
     local advancedGuardianDeckGUID = "440784"
+    local tavmaTokenGUID = "57649f"
     if not setupDone then
         local alienDeckObject = getObjectFromGUID(alienDeckGUID)
         local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
         local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
         local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+        local tavmaTokenObject = getObjectFromGUID(tavmaTokenGUID)
         alienDeckObject.interactable = false
         advancedAlienDeckObject.interactable = false
         guardianDeckObject.interactable = false
         advancedGuardianDeckObject.interactable = false
+        tavmaTokenObject.interactable = false
     end
 
     local draftZoneClockwiseGUID = "1a436f"
@@ -1193,11 +1195,13 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     local advancedAlienDeckGUID = "5be236"
     local guardianDeckGUID = "21cccc"
     local advancedGuardianDeckGUID = "440784"
+    local tavmaTokenGUID = "57649f"
 
     local alienDeckObject = getObjectFromGUID(alienDeckGUID)
     local advancedAlienDeckObject = getObjectFromGUID(advancedAlienDeckGUID)
     local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
     local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
+    local tavmaTokenObject = getObjectFromGUID(tavmaTokenGUID)
 
     -- Bring in the 2 plateaus
     draftZoneClockwiseObject.setPositionSmooth({-65.25, 15.00, 41.25}, false, false)
@@ -1292,6 +1296,8 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     for _ = 1, 250 do
         coroutine.yield(0)
     end
+
+    local tavmaChosen = false -- Flag for Tava token, to know if to destroy it yes or no later
 
     local clockwiseCounter = 1 -- Keeps track of right pile active player
     local counterClockwiseCounter = playerCount -- Keeps track of left pile active player
@@ -1427,8 +1433,22 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
         if color == TurnOrderTable[counterClockwiseCounter] then
             obj.removeButton(0)
             obj.locked = false
-            obj.setPositionSmooth(alienRacePlayerZones[TurnOrderTable[counterClockwiseCounter]][1], false, false)
+            local targetLocation = alienRacePlayerZones[TurnOrderTable[counterClockwiseCounter]][1]
+            obj.setPositionSmooth(targetLocation, false, false)
             
+            -- If Tavma is chosen, move token with it
+            if obj.getName() == "Tavma Morphlings" then
+                tavmaChosen = true
+                local tokenLocation = Vector(targetLocation[1]+3, targetLocation[2], targetLocation[3])
+                tavmaTokenObject.interactable = true
+                if color == "Brown" or color == "Red" or color == "Green" then
+                    tavmaTokenObject.setRotationSmooth({0, 180, 0}, false, false)
+                else
+                    tavmaTokenObject.setRotationSmooth({0, 0, 0}, false, false)
+                end
+                tavmaTokenObject.setPositionSmooth(tokenLocation, false, false)
+            end
+
             if color == "Brown" or color == "Red" or color == "Green" then
                 obj.setRotationSmooth({0, 180, 0}, false, false)
             else
@@ -1476,7 +1496,21 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
         if color == TurnOrderTable[clockwiseCounter] then
             obj.removeButton(0)
             obj.locked = false
-            obj.setPositionSmooth(alienRacePlayerZones[TurnOrderTable[clockwiseCounter]][2], false, false)
+            local targetLocation = alienRacePlayerZones[TurnOrderTable[clockwiseCounter]][2]
+            obj.setPositionSmooth(targetLocation, false, false)
+
+            -- If Tavma is chosen, move token with it
+            if obj.getName() == "Tavma Morphlings" then
+                tavmaChosen = true
+                local tokenLocation = Vector(targetLocation[1]+3, targetLocation[2], targetLocation[3])
+                tavmaTokenObject.interactable = true
+                if color == "Brown" or color == "Red" or color == "Green" then
+                    tavmaTokenObject.setRotationSmooth({0, 180, 0}, false, false)
+                else
+                    tavmaTokenObject.setRotationSmooth({0, 0, 0}, false, false)
+                end
+                tavmaTokenObject.setPositionSmooth(tokenLocation, false, false)
+            end
 
             if color == "Brown" or color == "Red" or color == "Green" then
                 obj.setRotationSmooth({0, 180, 0}, false, false)
@@ -1569,8 +1603,14 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                     })
                 end
                 
-                alienPlayDeckObject.interactable = true
-                guardianDeckObject.interactable = true
+                -- Remove leftover decks
+                alienPlayDeckObject.destruct()
+                guardianPlayDeckObject.destruct()
+
+                -- Remove Tavma token if nobody chose it
+                if not tavmaChosen then
+                    tavmaTokenObject.destruct()
+                end
             end, 1.5)
 
             -- When drafting is done, deal 6 mission cards to each player
