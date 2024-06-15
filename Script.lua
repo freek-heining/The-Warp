@@ -1650,6 +1650,22 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                 startLuaCoroutine(Global, "DealMissionCardsCoroutine")
             end, 4)
 
+            -- Set demo decks interactable again after 1 second
+            Wait.time(function ()
+            local alienDemoDeckGUID = "77b52f"
+            local advancedAlienDemoDeckGUID = "edee87"
+            local guardianDemoDeckGUID = "0c51b4"
+            local advancedGuardianDemoDeckGUID = "16aac8"
+            local alienDemoDeckObject = getObjectFromGUID(alienDemoDeckGUID)
+            local advancedAlienDemoDeckObject = getObjectFromGUID(advancedAlienDemoDeckGUID)
+            local guardianDemoDeckObject = getObjectFromGUID(guardianDemoDeckGUID)
+            local advancedGuardianDemoDeckObject = getObjectFromGUID(advancedGuardianDemoDeckGUID)
+            alienDemoDeckObject.interactable = true
+            advancedAlienDemoDeckObject.interactable = true
+            guardianDemoDeckObject.interactable = true
+            advancedGuardianDemoDeckObject.interactable = true
+            end, 1)
+
         elseif color == TurnOrderTable[playerCount] then
             print("Wait for the other draft pile to complete!")
         else
@@ -1658,20 +1674,6 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     end
 
     setupDone = true
-
-    -- Set demo decks interactable again
-    local alienDemoDeckGUID = "77b52f"
-    local advancedAlienDemoDeckGUID = "edee87"
-    local guardianDemoDeckGUID = "0c51b4"
-    local advancedGuardianDemoDeckGUID = "16aac8"
-    local alienDemoDeckObject = getObjectFromGUID(alienDemoDeckGUID)
-    local advancedAlienDemoDeckObject = getObjectFromGUID(advancedAlienDemoDeckGUID)
-    local guardianDemoDeckObject = getObjectFromGUID(guardianDemoDeckGUID)
-    local advancedGuardianDemoDeckObject = getObjectFromGUID(advancedGuardianDemoDeckGUID)
-    alienDemoDeckObject.interactable = true
-    advancedAlienDemoDeckObject.interactable = true
-    guardianDemoDeckObject.interactable = true
-    advancedGuardianDemoDeckObject.interactable = true
 
     return 1
 end
