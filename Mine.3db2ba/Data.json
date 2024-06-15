@@ -2,11 +2,11 @@
   "GUID": "3db2ba",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 66.75051,
+    "posX": 66.75054,
     "posY": 1.40380251,
-    "posZ": 36.7503128,
+    "posZ": 36.7503281,
     "rotX": 359.983124,
-    "rotY": 359.9897,
+    "rotY": 359.989441,
     "rotZ": 359.9201,
     "scaleX": 0.28,
     "scaleY": 0.28,
@@ -22,8 +22,8 @@
   },
   "ColorDiffuse": {
     "r": 1.0,
-    "g": 0.5803921,
-    "b": 0.06666627
+    "g": 0.562454343,
+    "b": 0.038154304
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,

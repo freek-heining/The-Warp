@@ -120,7 +120,7 @@
     "path": "./FogOfWarTrigger.450fd4"
   },
   {
-    "path": "./Power Plant.573ec0"
+    "path": "./Energy Plant.573ec0"
   },
   {
     "path": "./Assault Ship.0a96ce"
@@ -147,7 +147,7 @@
     "path": "./Mine.ef68cb"
   },
   {
-    "path": "./Power Plant.5c3f38"
+    "path": "./Energy Plant.5c3f38"
   },
   {
     "path": "./Command Center.5700f1"
@@ -165,7 +165,7 @@
     "path": "./Command Center.80326a"
   },
   {
-    "path": "./Power Plant.6a9201"
+    "path": "./Energy Plant.6a9201"
   },
   {
     "path": "./Mine.f06289"
@@ -177,7 +177,7 @@
     "path": "./Command Center.5cb093"
   },
   {
-    "path": "./Power Plant.311171"
+    "path": "./Energy Plant.311171"
   },
   {
     "path": "./Troop Token.b4ff0c"
@@ -267,13 +267,13 @@
     "path": "./Mine.34d071"
   },
   {
-    "path": "./Power Plant.a5e066"
+    "path": "./Energy Plant.a5e066"
   },
   {
-    "path": "./Power Plant.96cc77"
+    "path": "./Energy Plant.96cc77"
   },
   {
-    "path": "./Power Plant.6d638e"
+    "path": "./Energy Plant.6d638e"
   },
   {
     "path": "./Troop Token.e02eda"
@@ -324,7 +324,7 @@
     "path": "./Troop Token.46861c"
   },
   {
-    "path": "./Power Plant.ee188e"
+    "path": "./Energy Plant.ee188e"
   },
   {
     "path": "./Troop Token.85fad1"
@@ -357,16 +357,16 @@
     "path": "./Command Center.945101"
   },
   {
-    "path": "./Power Plant.f16897"
+    "path": "./Energy Plant.f16897"
   },
   {
-    "path": "./Power Plant.cda233"
+    "path": "./Energy Plant.cda233"
   },
   {
-    "path": "./Power Plant.c30626"
+    "path": "./Energy Plant.c30626"
   },
   {
-    "path": "./Power Plant.68fd43"
+    "path": "./Energy Plant.68fd43"
   },
   {
     "path": "./Troop Token.a740cd"
@@ -447,13 +447,13 @@
     "path": "./Command Center.aabf11"
   },
   {
-    "path": "./Power Plant.e6db09"
+    "path": "./Energy Plant.e6db09"
   },
   {
-    "path": "./Power Plant.6b417d"
+    "path": "./Energy Plant.6b417d"
   },
   {
-    "path": "./Power Plant.241e8a"
+    "path": "./Energy Plant.241e8a"
   },
   {
     "path": "./Troop Token.314f30"
@@ -504,13 +504,13 @@
     "path": "./Trade Post.bccf0b"
   },
   {
-    "path": "./Power Plant.e5895b"
+    "path": "./Energy Plant.e5895b"
   },
   {
     "path": "./Troop Token.2656b0"
   },
   {
-    "path": "./Power Plant.ce6e85"
+    "path": "./Energy Plant.ce6e85"
   },
   {
     "path": "./Command Center.fe3b88"
@@ -564,10 +564,10 @@
     "path": "./Troop Token.a45b2f"
   },
   {
-    "path": "./Power Plant.5cefdd"
+    "path": "./Energy Plant.5cefdd"
   },
   {
-    "path": "./Power Plant.26339f"
+    "path": "./Energy Plant.26339f"
   },
   {
     "path": "./Command Center.bf8050"
@@ -597,10 +597,10 @@
     "path": "./Command Center.0cfe48"
   },
   {
-    "path": "./Power Plant.dbbccd"
+    "path": "./Energy Plant.dbbccd"
   },
   {
-    "path": "./Power Plant.988e6f"
+    "path": "./Energy Plant.988e6f"
   },
   {
     "path": "./Command Center.2bf3d2"
@@ -654,10 +654,10 @@
     "path": "./Troop Token.64e94e"
   },
   {
-    "path": "./Power Plant.a4955a"
+    "path": "./Energy Plant.a4955a"
   },
   {
-    "path": "./Power Plant.a59fe5"
+    "path": "./Energy Plant.a59fe5"
   },
   {
     "path": "./Command Center.0cdf7d"
@@ -1092,9 +1092,6 @@
     "path": "./Point counter.36ab66"
   },
   {
-    "path": "./Point counter.798559"
-  },
-  {
     "path": "./Point counter.0c7920"
   },
   {
@@ -1201,5 +1198,8 @@
   },
   {
     "path": "./Game box.415c8a"
+  },
+  {
+    "path": "./Point counter.ce2cc5"
   }
 ]

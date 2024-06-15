@@ -46,22 +46,22 @@ local connectZonePositionsB = {
 
 -- Players 1-6 (position, rotation)
 local energyZonePositions = {
-    [1] = {31.70, 1.53, -40.84},
-    [2] = {-11.80, 1.59, -40.85},
-    [3] = {-45.20, 1.66, 40.84},
-    [4] = {-1.70, 1.60, 40.84},
-    [5] = {41.80, 1.54, 40.84},
-    [6] = {75.20, 1.46, -40.85}
+    [1] = {30.85, 1.53, -40.81},
+    [2] = {-12.65, 1.59, -40.81},
+    [3] = {-44.27, 1.66, 40.81},
+    [4] = {-0.74, 1.60, 40.81},
+    [5] = {42.68, 1.54, 40.81},
+    [6] = {74.35, 1.46, -40.81}
 }
 
 -- Players 1-6 (position, rotation)
 local goldZonePositions = {
-    [1] = {26.32, 1.58, -40.81},
-    [2] = {-17.18, 1.64, -40.81},
-    [3] = {-39.82, 1.70, 40.81},
-    [4] = {3.68, 1.64, 40.81},
-    [5] = {47.18, 1.58, 40.81},
-    [6] = {69.82, 1.52, -40.81},
+    [1] = {25.47, 1.58, -40.81},
+    [2] = {-18.03, 1.64, -40.81},
+    [3] = {-38.87, 1.70, 40.81},
+    [4] = {4.61, 1.64, 40.81},
+    [5] = {48.13, 1.58, 40.81},
+    [6] = {68.97, 1.52, -40.81},
 }
 
 local draftZonePositionsCW = {
@@ -159,7 +159,7 @@ function onload(state)
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- Move away temporary so nobody selects color manually. DISABLE when developing board!
+        MoveHandZones("+", 300) -- DISABLE when developing board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -392,6 +392,10 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         missionShadow8Object.interactable = false
         missionShadow9Object.interactable = false
     end
+
+    local gameBoxGUID = "415c8a"
+    local gameBoxObject = getObjectFromGUID(gameBoxGUID)
+    gameBoxObject.interactable = false
 end
 
 function StartClicked(player) -- Calls most setup functions and handles their timing/order. A lot of functions are 'chained' in other functions. See comments
@@ -976,7 +980,7 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
             elseif object.getName() == "Command Center"  then
                 object.rotate({x=0, y=-30, z=0})
                 trimmedTable[7] = object
-            elseif object.getName() == "Power Plant"  then
+            elseif object.getName() == "Energy Plant"  then
                 object.rotate({x=0, y=-90, z=0})
                 trimmedTable[8] = object
             end
