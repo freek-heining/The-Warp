@@ -241,6 +241,21 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         tavmaTokenObject.interactable = false
     end
 
+    local alienDemoDeckGUID = "77b52f"
+    local advancedAlienDemoDeckGUID = "edee87"
+    local guardianDemoDeckGUID = "0c51b4"
+    local advancedGuardianDemoDeckGUID = "16aac8"
+    if not setupDone then
+        local alienDemoDeckObject = getObjectFromGUID(alienDemoDeckGUID)
+        local advancedAlienDemoDeckObject = getObjectFromGUID(advancedAlienDemoDeckGUID)
+        local guardianDemoDeckObject = getObjectFromGUID(guardianDemoDeckGUID)
+        local advancedGuardianDemoDeckObject = getObjectFromGUID(advancedGuardianDemoDeckGUID)
+        alienDemoDeckObject.interactable = false
+        advancedAlienDemoDeckObject.interactable = false
+        guardianDemoDeckObject.interactable = false
+        advancedGuardianDemoDeckObject.interactable = false
+    end
+
     local draftZoneClockwiseGUID = "1a436f"
     local draftZoneCounterClockwiseGUID = "2968a3"
     if not setupDone then
@@ -1644,6 +1659,20 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
 
     setupDone = true
 
+    -- Set demo decks interactable again
+    local alienDemoDeckGUID = "77b52f"
+    local advancedAlienDemoDeckGUID = "edee87"
+    local guardianDemoDeckGUID = "0c51b4"
+    local advancedGuardianDemoDeckGUID = "16aac8"
+    local alienDemoDeckObject = getObjectFromGUID(alienDemoDeckGUID)
+    local advancedAlienDemoDeckObject = getObjectFromGUID(advancedAlienDemoDeckGUID)
+    local guardianDemoDeckObject = getObjectFromGUID(guardianDemoDeckGUID)
+    local advancedGuardianDemoDeckObject = getObjectFromGUID(advancedGuardianDemoDeckGUID)
+    alienDemoDeckObject.interactable = true
+    advancedAlienDemoDeckObject.interactable = true
+    guardianDemoDeckObject.interactable = true
+    advancedGuardianDemoDeckObject.interactable = true
+
     return 1
 end
 
@@ -1708,7 +1737,7 @@ function onPlayerAction(player, action, targets)
     -- Only act when an exile token on game board is being flipped. Not newly drawn tokens etc.
     if action == Player.Action.FlipOver and checkIfExileTokenOnBoard(flippedObject) then
         flippedObject.tooltip = true
-        broadcastToAll(player.color .. " player flipped the exile token: " .. "`" .. flippedObject.getName() .. "`.")
+        broadcastToAll(player.color .. " player flipped the exile token: " .. "'" .. flippedObject.getName() .. "'.")
     end
 end
 
