@@ -45,19 +45,19 @@
             <Slider id="troopCountAttackSlider" onValueChanged="TroopCountAttackChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 4 + 2x +2 card = 8 -->
+            <!-- Max 4 + (2x +2 card) = 8 -->
             <Slider id="multiplierAttackSlider" onValueChanged="MultiplierAttackChange" minValue="1" maxValue="8" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 2x +2 card = 4 -->
+            <!-- Max (2x +2 card) = 4 -->
             <Slider id="extraDiceAttackSlider" onValueChanged="ExtraDiceAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 2x +3 card = 6 -->
-            <Slider id="extraDieValueAttackSlider" onValueChanged="ExtraDieValueAttackChange" minValue="0" maxValue="6" value="0" wholeNumbers="true"/>
+            <!-- Max (2x +3 card) + 1 sentry + 1 track bonus = 8 -->
+            <Slider id="extraDieValueAttackSlider" onValueChanged="ExtraDieValueAttackChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 2x +2 card = 4 -->
+            <!-- Max (2x +2 card) = 4 -->
             <Slider id="multiplyDieAttackSlider" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 0">
@@ -113,22 +113,22 @@
     <Row>
         <Cell padding="10 10 30 30">
             <!-- Max 4 on 1 area = 4 -->
-            <Slider id="troopCountDefenseSlider" onValueChanged="TroopCountDefenseChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
+            <Slider id="troopCountDefenseSlider" onValueChanged="TroopCountDefenseChange" minValue="0" maxValue="4" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 9 + 1 ability + 2 card = 12 -->
+            <!-- Max (9 guardian) + 1 ability + (1x +2 card) = 12 -->
             <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max 6 + 1 ability + 2 card = 9 -->
+            <!-- Max (6 guardian) + 1 ability + (1x +2 card) = 9 -->
             <Slider id="ExtraDiceDefenseSlider" onValueChanged="ExtraDiceDefenseChange" minValue="0" maxValue="9" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="10 10 30 30">
-            <!-- Max + 3 ability + 3 card = 6 -->
-            <Slider id="extraDieValueDefenseSlider" onValueChanged="ExtraDieValueDefenseChange" minValue="0" maxValue="6" value="0" wholeNumbers="true"/>
+            <!-- Max + 3 ability + (1x +3 card) + 1 sentry + 1 track bonus = 8 -->
+            <Slider id="extraDieValueDefenseSlider" onValueChanged="ExtraDieValueDefenseChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="10 10 30 30">
-            <!-- Max +2 card + 1 ability = 3 -->
+            <!-- Max (1x +2 card) + 1 ability = 3 -->
             <Slider id="multiplyDieDefenseSlider" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 0">

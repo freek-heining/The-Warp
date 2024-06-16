@@ -356,7 +356,7 @@ function BattleCoroutine()
             coroutine.yield(0)
         end
         -- Some extra waiting frames
-        for _ = 1, 150 do
+        for _ = 1, 170 do
             coroutine.yield(0)
         end
     end
@@ -501,7 +501,7 @@ function CalculateBattleResults(attackDice, defenseDice)
     end
 end
 
--- Recalculate on die flip (combat card ability)
+-- Recalculate on die flip or re-roll (combat card ability, track bonus)
 
 -- Id returned from Wait.time()
 local waitId
@@ -515,24 +515,34 @@ function onPlayerAction(player, action, targets)
         Wait.stop(waitId)
         waitId = nil
     end
-
-    if action == Player.Action.Randomize and targets[1].type == "Dice" and not rolTriggered then
-        local rolledDie = targets[1]
-        broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Please use the buttons only...")
-        rolTriggered = true
-        Wait.time(function() rolTriggered = false end, 2)
-    end
     
-    -- Only recalculate on die flip when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
+     -- Roll: Recalculate on die roll only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
+    if action == Player.Action.Randomize and targets[1].type == "Dice" and diceRolled then
+        local rolledDie = targets[1]
+        broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Recalculating result...")
+
+        -- Wait to prevent multiple calculates. Reset process when roll again (with Wait.stop)
+        waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 3)
+    -- Don't do anything when rolling manually before battle was started (attackDiceObjects & defenseDiceObjects are empty)
+    else
+        if action == Player.Action.Randomize and targets[1].type == "Dice" and not rolTriggered then
+            local rolledDie = targets[1]
+            broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Please wait till after battle results...")
+            rolTriggered = true
+            Wait.time(function() rolTriggered = false end, 2)
+        end
+    end
+
+    -- Flip: Recalculate on die flip only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
     if action == Player.Action.FlipOver and targets[1].type == "Dice" and diceRolled then
         local flippedDie = targets[1]
         broadcastToAll(player.color .. " player flipped a die with value '" .. flippedDie.getValue() .. "'. Recalculating result...")
 
-        -- Wait to prevent multiple calculates. Reset process when flip again
-        waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 2.5)
+        -- Wait to prevent multiple calculates. Reset process when flip again (with Wait.stop)
+        waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 3)
     -- When flipping before dice are rolled:
     elseif action == Player.Action.FlipOver and targets[1].type == "Dice" and not flipTriggered then
-        broadcastToAll(player.color .. " player flipped a die. Please wait till after rolling...")
+        broadcastToAll(player.color .. " player flipped a die. Please wait till after battle results...")
 
         flipTriggered = true
         Wait.time(function() flipTriggered = false end, 2)

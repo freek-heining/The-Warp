@@ -481,7 +481,7 @@ end
 
 function SetPlayerColors() -- Sets player colors according to fixed positions in table
     for i, player in ipairs(Player.getPlayers()) do
-        player.changeColor(availablePlayerColors[i]);
+        player.changeColor(availablePlayerColors[i])
     end
 end
 
@@ -504,7 +504,7 @@ function DetermineStartingPlayer() -- Determines starting player and color/turn 
     end
 
     Turns.enable = true
-    Turns.type = 2
+    Turns.type = 2 -- 2 = custom.
     Turns.order = TurnOrderTable
     Turns.turn_color = startPlayerColor
 end
@@ -1096,6 +1096,8 @@ function DealResourcesCoroutine() -- Deals starting gold/energy to players accor
 
     local playerColorIndex = StartPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
 
+    broadcastToAll("Almost done setting up...")
+
     -- Gold/Energy amounts:
     -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
     for i = 1, playerCount do
@@ -1234,6 +1236,8 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     local guardianDeckObject = getObjectFromGUID(guardianDeckGUID)
     local advancedGuardianDeckObject = getObjectFromGUID(advancedGuardianDeckGUID)
     local tavmaTokenObject = getObjectFromGUID(tavmaTokenGUID)
+
+    broadcastToAll("Time to draft our Alien Races...")
 
     -- Bring in the 2 plateaus
     draftZoneClockwiseObject.setPositionSmooth({-65.25, 15.00, 41.25}, false, false)
