@@ -28,11 +28,11 @@ local attackDicePositions = {
     [1] = vector(-39.00, 2.52, -6.75),
     [2] = vector(-33.00, 2.51, -6.75),
     [3] = vector(-27.00, 2.50, -6.75),
-    [4] = vector(-39.00, 2.52, -2.25),
-    [5] = vector(-33.00, 2.51, -2.25),
-    [6] = vector(-27.00, 2.50, -2.25),
-    [7] = vector(-36.00, 2.51, -4.50),
-    [8] = vector(-30.00, 2.51, -4.50)
+    [4] = vector(-39.00, 2.52, -2.55),
+    [5] = vector(-33.00, 2.51, -2.55),
+    [6] = vector(-27.00, 2.50, -2.55),
+    [7] = vector(-36.00, 2.51, -4.65),
+    [8] = vector(-30.00, 2.51, -4.65)
 }
 
 -- 9 black dice positions
@@ -40,12 +40,12 @@ local defenseDicePositions = {
     [1] = vector(-27.00, 2.51, 6.75),
     [2] = vector(-33.00, 2.51, 6.75),
     [3] = vector(-39.00, 2.52, 6.75), 
-    [4] = vector(-27.00, 2.50, 2.25),
-    [5] = vector(-33.00, 2.51, 2.25),
-    [6] = vector(-39.00, 2.52, 2.25),
-    [7] = vector(-30.00, 2.51, 4.50),
-    [8] = vector(-36.00, 2.52, 4.50),
-    [9] = vector(-30.00, 2.51, 0.00)
+    [4] = vector(-27.00, 2.50, 2.55),
+    [5] = vector(-33.00, 2.51, 2.55),
+    [6] = vector(-39.00, 2.52, 2.55),
+    [7] = vector(-30.00, 2.51, 4.65),
+    [8] = vector(-36.00, 2.52, 4.65),
+    [9] = vector(-33.00, 2.51, 4.65)
 }
 
 --#region Attack Side Change Events
@@ -386,7 +386,7 @@ function BattleCoroutine()
     return 1
 end
 
--- Calculate rolled dice
+-- Calculate rolled dice. Global, because called from BattleCoroutine()
 function CalculateBattleResults(attackDice, defenseDice)
     local attackValuesArray = {}
     local defenseValuesArray = {}
@@ -507,30 +507,57 @@ end
 local waitId
 local rolTriggered -- Prevents message spam
 local flipTriggered -- Prevents message spam
+local currentRollingDice = {}
 
--- In hotseat mode, this fires twice!
+-- Keeps track of current rerolled dice to prevent roll spam on single die
+local function checkDiceRolled(currentDie)
+    log("New Die")
+    log(currentDie)
+    
+    for i, die in ipairs(currentRollingDice) do
+        log(i)
+        log(die)
+        if die == currentDie then
+            return true
+        end
+    end
+
+    return false
+end
+
+-- Reacts to player interaction on battle board. (In hotseat mode, this event fires twice sometimes!)
 function onPlayerAction(player, action, targets)
-    -- Stop if a calculate is starting already 
+    -- Stop current scheduled calculate 
     if waitId then
         Wait.stop(waitId)
         waitId = nil
     end
-    
+
      -- Roll: Recalculate on die roll only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
     if action == Player.Action.Randomize and targets[1].type == "Dice" and diceRolled then
         local rolledDie = targets[1]
-        broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Recalculating result...")
+        
+        if currentRollingDice and checkDiceRolled(rolledDie) then
+            broadcastToAll("Don't roll a die more then once please", "Red")
+        else
+            broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Recalculating result...")
+            table.insert(currentRollingDice, rolledDie)
+            log("Added die:")
+            log(currentRollingDice)
+        end
 
         -- Wait to prevent multiple calculates. Reset process when roll again (with Wait.stop)
-        waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 3)
+        waitId = Wait.time(
+            function()
+                CalculateBattleResults(attackDiceObjects, defenseDiceObjects)
+            end, 3)
+    
     -- Don't do anything when rolling manually before battle was started (attackDiceObjects & defenseDiceObjects are empty)
-    else
-        if action == Player.Action.Randomize and targets[1].type == "Dice" and not rolTriggered then
-            local rolledDie = targets[1]
-            broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Please wait till after battle results...")
-            rolTriggered = true
-            Wait.time(function() rolTriggered = false end, 2)
-        end
+    elseif action == Player.Action.Randomize and targets[1].type == "Dice" and not rolTriggered then
+        broadcastToAll(player.color .. " rolled a die. Please wait till after battle results...")
+
+        rolTriggered = true
+        Wait.time(function() rolTriggered = false end, 2)
     end
 
     -- Flip: Recalculate on die flip only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
@@ -540,6 +567,7 @@ function onPlayerAction(player, action, targets)
 
         -- Wait to prevent multiple calculates. Reset process when flip again (with Wait.stop)
         waitId = Wait.time(function() CalculateBattleResults(attackDiceObjects, defenseDiceObjects) end, 3)
+    
     -- When flipping before dice are rolled:
     elseif action == Player.Action.FlipOver and targets[1].type == "Dice" and not flipTriggered then
         broadcastToAll(player.color .. " player flipped a die. Please wait till after battle results...")
