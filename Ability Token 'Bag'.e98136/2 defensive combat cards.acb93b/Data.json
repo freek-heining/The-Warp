@@ -2,12 +2,12 @@
   "GUID": "acb93b",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": -47.25,
-    "posY": 1.8317759,
-    "posZ": -12.75,
-    "rotX": 0.07987594,
-    "rotY": 89.98232,
-    "rotZ": 359.9831,
+    "posX": -51.45383,
+    "posY": 1.86046612,
+    "posZ": -2.32649136,
+    "rotX": 0.0798786,
+    "rotY": 89.9964,
+    "rotZ": 359.983124,
     "scaleX": 0.95,
     "scaleY": 1.0,
     "scaleZ": 0.95

@@ -1,18 +1,15 @@
 [
   {
-    "path": "./Double die rerolls.7b79d2"
+    "path": "./Combat multiplier plus one.33337c"
   },
   {
     "path": "./Die values +2.8390bc"
   },
   {
-    "path": "./Die values +1.a76613"
+    "path": "./2 defensive combat cards.acb93b"
   },
   {
-    "path": "./Combat multiplier plus one.33337c"
-  },
-  {
-    "path": "./Die flip.2512f1"
+    "path": "./Die reroll.d4e022"
   },
   {
     "path": "./Die multiplied by 2.77cadd"
@@ -21,12 +18,15 @@
     "path": "./Extra die.596bf0"
   },
   {
-    "path": "./2 defensive combat cards.acb93b"
+    "path": "./Die flip.2512f1"
+  },
+  {
+    "path": "./Double die rerolls.7b79d2"
+  },
+  {
+    "path": "./Die values +1.a76613"
   },
   {
     "path": "./Combat card cost increased.84a703"
-  },
-  {
-    "path": "./Die reroll.d4e022"
   }
 ]

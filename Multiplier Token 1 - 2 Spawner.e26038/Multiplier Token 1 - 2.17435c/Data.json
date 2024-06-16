@@ -2,12 +2,12 @@
   "GUID": "17435c",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 40.49998,
-    "posY": 1.74740708,
-    "posZ": 10.5000076,
-    "rotX": 0.00116748572,
-    "rotY": -0.00310080638,
-    "rotZ": -9.86291E-05,
+    "posX": -14.429738,
+    "posY": 1.82868636,
+    "posZ": 3.07581973,
+    "rotX": -4.09541826E-06,
+    "rotY": -0.000573736,
+    "rotZ": 5.526204E-06,
     "scaleX": 0.9,
     "scaleY": 1.0,
     "scaleZ": 0.9
@@ -25,6 +25,9 @@
     "g": 1.0,
     "b": 1.0
   },
+  "Tags": [
+    "multiplier"
+  ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,
   "Locked": false,
