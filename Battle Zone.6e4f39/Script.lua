@@ -511,12 +511,7 @@ local currentRollingDice = {}
 
 -- Keeps track of current rerolled dice to prevent roll spam on single die
 local function checkDiceRolled(currentDie)
-    log("New Die")
-    log(currentDie)
-    
-    for i, die in ipairs(currentRollingDice) do
-        log(i)
-        log(die)
+    for _, die in ipairs(currentRollingDice) do
         if die == currentDie then
             return true
         end
@@ -542,8 +537,6 @@ function onPlayerAction(player, action, targets)
         else
             broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Recalculating result...")
             table.insert(currentRollingDice, rolledDie)
-            log("Added die:")
-            log(currentRollingDice)
         end
 
         -- Wait to prevent multiple calculates. Reset process when roll again (with Wait.stop)
