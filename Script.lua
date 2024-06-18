@@ -154,12 +154,12 @@ function onload(state)
         TurnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        --MoveHandZones("+", 300) -- DISABLE when developing board! Move away temporary so nobody selects color manually. 
+        MoveHandZones("+", 300) -- DISABLE when developing board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -339,8 +339,8 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local combatCardAttack1ShadowGUID = "0e582a"
     local combatCardAttack2ShadowGUID = "d400a1"
     local combatCardDefenseShadowGUID = "a9bb10"
-    local combatCardAttack1ShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
-    local combatCardAttack2ShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
+    local combatCardAttack1ShadowObject = getObjectFromGUID(combatCardAttack1ShadowGUID)
+    local combatCardAttack2ShadowObject = getObjectFromGUID(combatCardAttack2ShadowGUID)
     local combatCardDefenseShadowObject = getObjectFromGUID(combatCardDefenseShadowGUID)
     combatCardAttack1ShadowObject.interactable = false
     combatCardAttack2ShadowObject.interactable = false
