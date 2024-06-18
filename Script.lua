@@ -1021,7 +1021,6 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
     local greenScriptingZoneGUID = "c88802"
     local greenScriptingZoneObject = getObjectFromGUID(greenScriptingZoneGUID)
     local greenTokenObjects = greenScriptingZoneObject.getObjects()
-    log("Green:")
     insertRotateToTable(greenTokenObjects)
 
     -- #3 Purple
