@@ -10,30 +10,30 @@
 
     <!-- Attack data -->
     <Row>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Troop_Icon"/>
             <Text id="troopCountAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Terrashift_Icon"/>
             <Text id="multiplierAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Extra_Die_Icon"/>
             <Text id="extraDiceAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Die_Value_Icon"/>
             <Text id="extraDieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Multiply_Die_Icon"/>
             <Text id="multiplyDieAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell>     
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Text id="maximumDieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
         </Cell>                   
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Checkmark_Icon"/>
         </Cell>
     </Row>
@@ -63,8 +63,8 @@
         <Cell padding="0 0 0 0">
             <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="70" toggleHeight="70"/>
         </Cell>               
-        <Cell padding="0 0 20 20">
-            <Button id="attackButton" fontStyle="Bold" fontSize="44" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
+        <Cell padding="10 10 20 20">
+            <Button id="attackButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
         </Cell>
     </Row>
 </TableLayout> 
@@ -81,7 +81,7 @@
 
     <!-- Defense data -->
     <Row>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Troop_Icon"/>
             <Text id="troopCountDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
@@ -89,22 +89,22 @@
             <Image preserveAspect="true" image="Terrashift_Icon"/>
             <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Extra_Die_Icon"/>
             <Text id="extraDiceDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Die_Value_Icon"/>
             <Text id="extraDieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell>
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Multiply_Die_Icon"/>
             <Text id="multiplyDieDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
         </Cell> 
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Text id="maximumDieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
         </Cell>                 
-        <Cell>
+        <Cell padding="10 10 0 0">
             <Image preserveAspect="true" image="Checkmark_Icon"/>
         </Cell>
     </Row>
@@ -134,8 +134,8 @@
         <Cell padding="0 0 0 0">
             <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="70" toggleHeight="70"/>
         </Cell>                   
-        <Cell padding="0 0 20 20">
-            <Button id="defenseButton" fontStyle="Bold" fontSize="44" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
+        <Cell padding="10 10 20 20">
+            <Button id="defenseButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
         </Cell>
     </Row>
 </TableLayout> 

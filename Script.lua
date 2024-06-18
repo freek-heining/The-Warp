@@ -154,12 +154,12 @@ function onload(state)
         TurnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- DISABLE when developing board! Move away temporary so nobody selects color manually. 
+        --MoveHandZones("+", 300) -- DISABLE when developing board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -336,11 +336,14 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
 
-    local combatCardAttackShadowGUID = "0e582a"
+    local combatCardAttack1ShadowGUID = "0e582a"
+    local combatCardAttack2ShadowGUID = "d400a1"
     local combatCardDefenseShadowGUID = "a9bb10"
-    local combatCardAttackShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
+    local combatCardAttack1ShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
+    local combatCardAttack2ShadowObject = getObjectFromGUID(combatCardAttackShadowGUID)
     local combatCardDefenseShadowObject = getObjectFromGUID(combatCardDefenseShadowGUID)
-    combatCardAttackShadowObject.interactable = false
+    combatCardAttack1ShadowObject.interactable = false
+    combatCardAttack2ShadowObject.interactable = false
     combatCardDefenseShadowObject.interactable = false
 
     local rewardDeckGUID = "ff7833"
