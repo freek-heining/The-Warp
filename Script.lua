@@ -977,14 +977,13 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
     -- Filter and insert tokens in playerTokenObjects table 
     local function insertRotateToTable(objects)
         local trimmedTable = {}
-        local j = 1
-
-        -- Remove nameless/useless catched objects and rotate & order the rest
-        for i, object in ipairs(objects) do
+        local j = 1 -- Counter for troop tokens 1-4
+        -- Ignore nameless/useless catched objects and rotate & order the rest
+        for _, object in ipairs(objects) do
             if object.getName() == "" then
-                table.remove(objects, i)
+                -- do nothing
             elseif object == nil then
-                table.remove(objects, i)
+                -- do nothing
             elseif object.getName() == "Troop Token"  then
                 object.rotate({x=0, y=60, z=0})
                 trimmedTable[j] = object
@@ -1021,6 +1020,7 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
     local greenScriptingZoneGUID = "c88802"
     local greenScriptingZoneObject = getObjectFromGUID(greenScriptingZoneGUID)
     local greenTokenObjects = greenScriptingZoneObject.getObjects()
+    log("Green:")
     insertRotateToTable(greenTokenObjects)
 
     -- #3 Purple
@@ -1053,7 +1053,7 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
 
     -- For each player, move and rotate tokens into positions. (+60 or -60 degrees for each following player)
     for i = 1, playerCount do
-        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens j for current player i. #1 & #4 are already good so skip
+        for j, object in ipairs(playerTokenObjects[i]) do -- Cycle through the 8 player tokens 'j', to rotate for current player 'i'. #1 & #4 are already good so skip
             if i == 2 or i == 5 then
                 object.rotate({x=0, y=60, z=0})
             elseif i == 3 or i == 6 then
@@ -1077,7 +1077,7 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
         end
         
         -- Wait between players
-        for _ = 1, 80, 1 do
+        for _ = 1, 70, 1 do
             coroutine.yield(0)
         end
     end
