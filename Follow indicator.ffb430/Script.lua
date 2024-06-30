@@ -9,12 +9,6 @@ local function reset()
 end
 
 function FollowButtonClicked(player, option, id)
-    print(option)
-    print(id)
-    print(following)
-    print(player.color)
-    print(Turns.turn_color)
-
     if following == true then
         following = false
         reset()
