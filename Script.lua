@@ -1719,15 +1719,14 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
     return 1
 end
 
-
 -- All exile tokens on board. Filled in CollectExileTokens(). Used in checkIfExileTokenOnBoard()
 local exileTokensTable = {}
 
-function CollectExileTokens() -- Gets all exile tokens on board and put in exileTokensTable. Called in DealExileTokens()
+-- Gets all exile tokens on board and put in exileTokensTable. Called in DealExileTokens()
+function CollectExileTokens() 
     local boardScriptingZoneGUID = "8a89e0"
     local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
 
-    -- Iterate through object occupying the zone
     for _, occupyingObject in ipairs(boardScriptingZoneObject.getObjects(true)) do
         if occupyingObject.type == "Tile" then
             table.insert(exileTokensTable, occupyingObject)
@@ -1743,7 +1742,7 @@ local function checkIfExileTokenOnBoard(flippedObject)
     end
 end
 
--- In hotseat mode, this fires twice!
+-- Exile token flip sets tooltip and notify
 function onPlayerAction(player, action, targets)
     local flippedObject = targets[1]
 
@@ -1754,6 +1753,109 @@ function onPlayerAction(player, action, targets)
     end
 end
 
+  
+local function setUi3(object)
+    local ui = {
+        {
+            tag="ToggleGroup",
+            attributes={
+                width="40",
+                height="150",
+                position="-95 2 -30",
+                allowSwitchOff=true,
+            },
+            children={
+                {
+                    tag="VerticalLayout",
+                    attributes={
+                        childAlignment="MiddleCenter",
+                        spacing="38",
+                    },
+                    children={
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                    }
+                }
+            }
+        }
+    }
+    object.UI.setXmlTable(ui)
+end
+
+local function setUi4(object)
+    local ui = {
+        {
+            tag="ToggleGroup",
+            attributes={
+                width="40",
+                height="150",
+                position="-95 28 -30",
+                allowSwitchOff=true,
+            },
+            children={
+                {
+                    tag="VerticalLayout",
+                    attributes={
+                        childAlignment="MiddleCenter",
+                        spacing="1",
+                    },
+                    children={
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                    }
+                }
+            }
+        }
+    }
+    object.UI.setXmlTable(ui)
+end
+
+-- Sets UI radio buttons at spawned combat cards (type 3 & type 4s)
+function onObjectSpawn(obj)
+    if obj.hasTag("combat_card_3") then
+        setUi3(obj)
+    elseif obj.hasTag("combat_card_4") then
+        setUi4(obj)
+    end
+end
 
 --#region Secret demo stuff, don't look!
 local counter  = 0

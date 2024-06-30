@@ -2,12 +2,12 @@
   "GUID": "dc9409",
   "Name": "Card",
   "Transform": {
-    "posX": 55.49998,
-    "posY": 1.81744313,
-    "posZ": 12.00003,
-    "rotX": 359.920135,
-    "rotY": 270.006226,
-    "rotZ": 180.016861,
+    "posX": 24.4895954,
+    "posY": 2.67529845,
+    "posZ": 16.9322834,
+    "rotX": 0.06624242,
+    "rotY": 270.029755,
+    "rotZ": 359.9797,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -25,6 +25,9 @@
     "g": 0.713235259,
     "b": 0.713235259
   },
+  "Tags": [
+    "combat_card_3"
+  ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,
   "Locked": false,
@@ -37,9 +40,21 @@
   "Sticky": true,
   "Tooltip": true,
   "GridProjection": false,
+  "HideWhenFaceDown": true,
   "Hands": true,
   "CardID": 6048,
   "SidewaysCard": false,
+  "CustomDeck": {
+    "60": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2504641605494588059/B625D93CC8316AA06BB9C8E7C6A88F1E4964C869/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071357273900/214BF231F5F603512510F25F222DB358AEC4A6B4/",
+      "NumWidth": 10,
+      "NumHeight": 7,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  },
   "CustomUIAssets": [
     {
       "Type": 0,
