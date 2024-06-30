@@ -156,12 +156,12 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -337,9 +337,9 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
 
-    local combatCardAttack1ShadowGUID = "0e582a"
-    local combatCardAttack2ShadowGUID = "d400a1"
-    local combatCardDefenseShadowGUID = "a9bb10"
+    local combatCardAttack1ShadowGUID = "ed677f"
+    local combatCardAttack2ShadowGUID = "68a8c0"
+    local combatCardDefenseShadowGUID = "ca7ee3"
     local combatCardAttack1ShadowObject = getObjectFromGUID(combatCardAttack1ShadowGUID)
     local combatCardAttack2ShadowObject = getObjectFromGUID(combatCardAttack2ShadowGUID)
     local combatCardDefenseShadowObject = getObjectFromGUID(combatCardDefenseShadowGUID)
@@ -411,6 +411,10 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         missionShadow8Object.interactable = false
         missionShadow9Object.interactable = false
     end
+
+    local rewardDiscardShadowGUID = "4d7fd7"
+    local rewardDiscardShadowObject = getObjectFromGUID(rewardDiscardShadowGUID)
+    rewardDiscardShadowObject.interactable = false
 
     local gameBoxGUID = "415c8a"
     local gameBoxObject = getObjectFromGUID(gameBoxGUID)

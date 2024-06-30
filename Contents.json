@@ -1143,12 +1143,6 @@
     "path": "./Battle Zone.6e4f39"
   },
   {
-    "path": "./Combat Card Attack placement zone.0e582a"
-  },
-  {
-    "path": "./Combat Card Defense placement zone.a9bb10"
-  },
-  {
     "path": "./Token Scripting Zone Red.be23c6"
   },
   {
@@ -1203,6 +1197,33 @@
     "path": "./Point counter.ce2cc5"
   },
   {
-    "path": "./Combat Card Attack placement zone.d400a1"
+    "path": "./Attack Combat Card.ed677f"
+  },
+  {
+    "path": "./Mission placement zone.4d7fd7"
+  },
+  {
+    "path": "./Attack Combat Card.68a8c0"
+  },
+  {
+    "path": "./Combat Card placement zone.ca7ee3"
+  },
+  {
+    "path": "./Follow indicator.ffb430"
+  },
+  {
+    "path": "./Follow indicator.1a066e"
+  },
+  {
+    "path": "./Follow indicator.82e677"
+  },
+  {
+    "path": "./Follow indicator.dc1846"
+  },
+  {
+    "path": "./Follow indicator.f7013f"
+  },
+  {
+    "path": "./Follow indicator.bdf00d"
   }
 ]

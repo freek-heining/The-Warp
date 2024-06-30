@@ -1,0 +1,11 @@
+<Button 
+    id="followButton" 
+    width="170"
+    height="170"
+    position="0 0 -51"
+    scale="0.25 0.25 0.25"
+    fontStyle="Bold" 
+    fontSize="45" 
+    color="clear"
+    textColor="black" 
+    onClick="FollowButtonClicked">Follow</Button>

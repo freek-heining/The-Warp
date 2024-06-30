@@ -3,14 +3,14 @@
   "Name": "FogOfWarTrigger",
   "Transform": {
     "posX": 3.14185429,
-    "posY": 3.46,
-    "posZ": 43.36803,
+    "posY": 2.7,
+    "posZ": 43.37,
     "rotX": 0.0,
     "rotY": 0.0,
     "rotZ": 0.0,
-    "scaleX": 20.0903263,
-    "scaleY": 4.0,
-    "scaleZ": 10.7360611
+    "scaleX": 20.09,
+    "scaleY": 2.48,
+    "scaleZ": 10.74
   },
   "Nickname": "",
   "Description": "",
@@ -24,7 +24,7 @@
     "r": 0.117999978,
     "g": 0.53,
     "b": 1.0,
-    "a": 0.75
+    "a": 0.6493157
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,

@@ -2,12 +2,12 @@
   "GUID": "eecdcf",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 66.7506943,
-    "posY": 1.40291893,
-    "posZ": 33.750042,
-    "rotX": 359.9831,
-    "rotY": -0.000143283192,
-    "rotZ": 359.920135,
+    "posX": 66.75076,
+    "posY": 1.4029187,
+    "posZ": 33.7500458,
+    "rotX": 359.983124,
+    "rotY": 4.67494137E-05,
+    "rotZ": 359.9201,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28

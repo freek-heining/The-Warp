@@ -2,12 +2,12 @@
   "GUID": "0b18bb",
   "Name": "Custom_Model_Infinite_Bag",
   "Transform": {
-    "posX": -14.999855,
-    "posY": 1.644074,
-    "posZ": -15.0000324,
-    "rotX": 0.0545861125,
-    "rotY": 150.000031,
-    "rotZ": 0.06078114,
+    "posX": -15.0006208,
+    "posY": 1.64407527,
+    "posZ": -14.99987,
+    "rotX": 0.0545924939,
+    "rotY": 150.000015,
+    "rotZ": 0.0607772321,
     "scaleX": 2.0,
     "scaleY": 2.0,
     "scaleZ": 2.0

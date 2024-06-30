@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp  v3.02",
-  "EpochTime": 1718723158,
-  "Date": "6/18/2024 5:05:58 PM",
+  "SaveName": "The Warp v3.06",
+  "EpochTime": 1719767603,
+  "Date": "6/30/2024 7:13:23 PM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
@@ -297,7 +297,7 @@
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": "Purple"
+    "TurnColor": "Red"
   },
   "DecalPallet": [],
   "CustomUIAssets": [
@@ -951,6 +951,54 @@
         "x": 359.920135,
         "y": 269.987457,
         "z": 0.0168871973
+      }
+    },
+    {
+      "Position": {
+        "x": -37.5000343,
+        "y": 1.5316689,
+        "z": -17.9999943
+      },
+      "Rotation": {
+        "x": 0.0168731511,
+        "y": 180.000122,
+        "z": 0.07987779
+      }
+    },
+    {
+      "Position": {
+        "x": -28.5000324,
+        "y": 1.51574779,
+        "z": -17.9999943
+      },
+      "Rotation": {
+        "x": 0.01685283,
+        "y": 180.012985,
+        "z": 0.07988167
+      }
+    },
+    {
+      "Position": {
+        "x": -33.0000343,
+        "y": 1.53271091,
+        "z": 18.0000076
+      },
+      "Rotation": {
+        "x": 359.983124,
+        "y": 2.83629033E-05,
+        "z": 359.920135
+      }
+    },
+    {
+      "Position": {
+        "x": 56.2499962,
+        "y": 1.39851177,
+        "z": -23.6019669
+      },
+      "Rotation": {
+        "x": 359.920135,
+        "y": 270.000916,
+        "z": 0.0168701988
       }
     }
   ]
