@@ -1753,6 +1753,46 @@ function onPlayerAction(player, action, targets)
     end
 end
 
+
+local function setUi2(object)
+    local ui = {
+        {
+            tag="ToggleGroup",
+            attributes={
+                width="40",
+                height="130",
+                position="-95 -30 -30",
+                allowSwitchOff=true,
+            },
+            children={
+                {
+                    tag="VerticalLayout",
+                    attributes={
+                        childAlignment="MiddleCenter",
+                        spacing="0",
+                    },
+                    children={
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                        {
+                            tag="Toggle",
+                            attributes={
+                                toggleWidth="25",
+                                toggleHeight="25",
+                            },
+                        },
+                    }
+                }
+            }
+        }
+    }
+    object.UI.setXmlTable(ui)
+end
   
 local function setUi3(object)
     local ui = {
@@ -1850,7 +1890,9 @@ end
 
 -- Sets UI radio buttons at spawned combat cards (type 3 & type 4s)
 function onObjectSpawn(obj)
-    if obj.hasTag("combat_card_3") then
+    if obj.hasTag("combat_card_2") then
+        setUi2(obj)
+    elseif obj.hasTag("combat_card_3") then
         setUi3(obj)
     elseif obj.hasTag("combat_card_4") then
         setUi4(obj)

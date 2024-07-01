@@ -2,12 +2,12 @@
   "GUID": "899ffa",
   "Name": "Card",
   "Transform": {
-    "posX": 24.8561382,
-    "posY": 2.340541,
-    "posZ": 16.747385,
-    "rotX": 359.86084,
-    "rotY": 273.349731,
-    "rotZ": 359.964447,
+    "posX": 55.155735,
+    "posY": 2.959446,
+    "posZ": 11.9855843,
+    "rotX": 0.0341528244,
+    "rotY": 269.7143,
+    "rotZ": 179.986725,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -26,7 +26,7 @@
     "b": 0.713235259
   },
   "Tags": [
-    "combat_card_3"
+    "combat_card_2"
   ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,

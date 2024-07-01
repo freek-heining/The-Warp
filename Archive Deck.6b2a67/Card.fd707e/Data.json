@@ -2,12 +2,12 @@
   "GUID": "fd707e",
   "Name": "Card",
   "Transform": {
-    "posX": 24.4728565,
-    "posY": 2.291147,
-    "posZ": 16.9056683,
-    "rotX": 359.855682,
-    "rotY": 261.9433,
-    "rotZ": 0.0173409432,
+    "posX": 55.0977249,
+    "posY": 2.98659229,
+    "posZ": 12.02332,
+    "rotX": 0.0340901837,
+    "rotY": 270.169556,
+    "rotZ": 179.987686,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -26,7 +26,7 @@
     "b": 0.713235259
   },
   "Tags": [
-    "combat_card_3"
+    "combat_card_2"
   ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,

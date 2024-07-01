@@ -2,12 +2,12 @@
   "GUID": "e450d4",
   "Name": "Card",
   "Transform": {
-    "posX": 24.6314144,
-    "posY": 2.501671,
-    "posZ": 16.9023113,
-    "rotX": 359.9517,
-    "rotY": 270.1551,
-    "rotZ": 359.860718,
+    "posX": 55.1605072,
+    "posY": 3.177467,
+    "posZ": 11.8940411,
+    "rotX": 0.0277094357,
+    "rotY": 270.424835,
+    "rotZ": 180.003021,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -26,7 +26,7 @@
     "b": 0.713235259
   },
   "Tags": [
-    "combat_card_3"
+    "combat_card_2"
   ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,

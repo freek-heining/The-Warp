@@ -2,12 +2,12 @@
   "GUID": "dc9409",
   "Name": "Card",
   "Transform": {
-    "posX": 24.4895954,
-    "posY": 2.67529845,
-    "posZ": 16.9322834,
-    "rotX": 0.06624242,
-    "rotY": 270.029755,
-    "rotZ": 359.9797,
+    "posX": 55.08565,
+    "posY": 3.04080176,
+    "posZ": 12.0632734,
+    "rotX": 0.03295357,
+    "rotY": 271.223541,
+    "rotZ": 179.992813,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -26,7 +26,7 @@
     "b": 0.713235259
   },
   "Tags": [
-    "combat_card_3"
+    "combat_card_2"
   ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,
