@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp v3.08",
-  "EpochTime": 1719786216,
-  "Date": "7/1/2024 12:23:36 AM",
+  "SaveName": "The Warp v3.09",
+  "EpochTime": 1719823439,
+  "Date": "7/1/2024 10:43:59 AM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
@@ -284,12 +284,16 @@
         "normalized": "multiplier"
       },
       {
-        "displayed": "combat_card_3",
-        "normalized": "combat_card_3"
+        "displayed": "",
+        "normalized": ""
       },
       {
         "displayed": "combat_card_4",
         "normalized": "combat_card_4"
+      },
+      {
+        "displayed": "combat_card_2",
+        "normalized": "combat_card_2"
       }
     ]
   },
@@ -964,7 +968,7 @@
         "z": -17.9999943
       },
       "Rotation": {
-        "x": 0.0168731548,
+        "x": 0.0168731567,
         "y": 180.000122,
         "z": 0.07987779
       }
@@ -976,7 +980,7 @@
         "z": -17.9999943
       },
       "Rotation": {
-        "x": 0.0168528333,
+        "x": 0.0168528352,
         "y": 180.012985,
         "z": 0.07988167
       }
