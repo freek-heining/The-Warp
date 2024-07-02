@@ -156,12 +156,12 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -885,7 +885,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         if alternativeSetup then
             portalObject.setPositionSmooth({16.36, 1.66, -9.80}, false, false)
         else
-            portalObject.setPositionSmooth({19.90, 1.65, -10.58}, false, false)
+            portalObject.setPositionSmooth({20.26, 1.65, -11.48}, false, false)
         end
     else
         connectZoneObject.destruct()

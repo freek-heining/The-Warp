@@ -16,7 +16,7 @@ function FollowButtonClicked(player, option, id)
     else
         following = true
         self.setColorTint(player.color)
-        self.UI.setAttribute("followButton", "color", player.color)
+        self.UI.setAttribute("followButton", "color", clear)
         self.UI.setAttribute("followButton", "text", "Unfollow")
         self.UI.setAttribute("followButton", "fontSize", "37")
         self.UI.setAttribute("followButton", "textColor", "White")
