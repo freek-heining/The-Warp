@@ -2,10 +2,10 @@
   "GUID": "0a96ce",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 40.49991,
+    "posX": 40.4999542,
     "posY": 1.42360139,
-    "posZ": -2.99996328,
-    "rotX": 0.08009615,
+    "posZ": -2.99996352,
+    "rotX": 0.08009186,
     "rotY": 90.0004349,
     "rotZ": 359.9831,
     "scaleX": 0.36,
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.00785255,
       "FresnelStrength": 0.4
     },

@@ -2,12 +2,12 @@
   "GUID": "c2160d",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 56.2518959,
-    "posY": 1.40045893,
-    "posZ": -30.7506714,
-    "rotX": 0.01686908,
-    "rotY": 179.99176,
-    "rotZ": 0.08014141,
+    "posX": 56.2519951,
+    "posY": 1.40045846,
+    "posZ": -30.7507229,
+    "rotX": 0.01687053,
+    "rotY": 179.9903,
+    "rotZ": 0.08015011,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148395151,
-    "g": 0.148395151,
-    "b": 0.148395151
+    "r": 0.148394436,
+    "g": 0.148394436,
+    "b": 0.148394436
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.98167562,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.396895
     },
     "CastShadows": true

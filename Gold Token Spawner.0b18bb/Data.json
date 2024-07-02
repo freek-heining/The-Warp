@@ -49,6 +49,16 @@
     "Convex": true,
     "MaterialIndex": 2,
     "TypeIndex": 7,
+    "CustomShader": {
+      "SpecularColor": {
+        "r": 0.735294163,
+        "g": 0.735294163,
+        "b": 0.735294163
+      },
+      "SpecularIntensity": 0.8,
+      "SpecularSharpness": 5.985603,
+      "FresnelStrength": 0.1966407
+    },
     "CastShadows": true
   },
   "PhysicsMaterial": {

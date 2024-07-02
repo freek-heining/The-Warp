@@ -4,10 +4,10 @@
   "Transform": {
     "posX": 69.74997,
     "posY": 1.3985045,
-    "posZ": 30.75047,
+    "posZ": 30.7505283,
     "rotX": 359.9201,
     "rotY": 269.99762,
-    "rotZ": 0.01691591,
+    "rotZ": 0.0169156455,
     "scaleX": 0.19,
     "scaleY": 0.19,
     "scaleZ": 0.19
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.00785327,
       "FresnelStrength": 0.4
     },

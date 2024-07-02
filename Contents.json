@@ -423,9 +423,6 @@
     "path": "./Mine.be835d"
   },
   {
-    "path": "./Mine.561227"
-  },
-  {
     "path": "./Trade Post.5eb17f"
   },
   {
@@ -486,28 +483,13 @@
     "path": "./Troop Token.fc4d9f"
   },
   {
-    "path": "./Troop Token.4bf6b3"
-  },
-  {
     "path": "./Troop Token.a13622"
-  },
-  {
-    "path": "./Command Center.52191b"
-  },
-  {
-    "path": "./Troop Token.49c176"
   },
   {
     "path": "./Mine.ff8319"
   },
   {
     "path": "./Trade Post.bccf0b"
-  },
-  {
-    "path": "./Energy Plant.e5895b"
-  },
-  {
-    "path": "./Troop Token.2656b0"
   },
   {
     "path": "./Energy Plant.ce6e85"
@@ -729,12 +711,6 @@
     "path": "./Assault Ship.5f82b0"
   },
   {
-    "path": "./Assault Ship.664b79"
-  },
-  {
-    "path": "./Assault Ship.6941b4"
-  },
-  {
     "path": "./Assault Ship.e859d3"
   },
   {
@@ -754,9 +730,6 @@
   },
   {
     "path": "./Sentry Tower.5e1bf2"
-  },
-  {
-    "path": "./Sentry Tower.991560"
   },
   {
     "path": "./Sentry Tower.163d02"
@@ -1050,9 +1023,6 @@
     "path": "./Archive placement zone.e4369c"
   },
   {
-    "path": "./Gold Token Spawner.0b18bb"
-  },
-  {
     "path": "./Energy Cube Spawner.98a3fe"
   },
   {
@@ -1225,5 +1195,35 @@
   },
   {
     "path": "./Follow indicator.bdf00d"
+  },
+  {
+    "path": "./Troop Token.4bf6b3"
+  },
+  {
+    "path": "./Troop Token.49c176"
+  },
+  {
+    "path": "./Energy Plant.e5895b"
+  },
+  {
+    "path": "./Mine.561227"
+  },
+  {
+    "path": "./Troop Token.2656b0"
+  },
+  {
+    "path": "./Command Center.52191b"
+  },
+  {
+    "path": "./Sentry Tower.991560"
+  },
+  {
+    "path": "./Assault Ship.664b79"
+  },
+  {
+    "path": "./Assault Ship.6941b4"
+  },
+  {
+    "path": "./Gold Token Spawner.0b18bb"
   }
 ]

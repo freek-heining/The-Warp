@@ -2,12 +2,12 @@
   "GUID": "f61b2b",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -23.25032,
-    "posY": 1.53028584,
-    "posZ": 33.75002,
-    "rotX": 359.982971,
-    "rotY": 359.9732,
-    "rotZ": 359.919922,
+    "posX": -23.2503529,
+    "posY": 1.530287,
+    "posZ": 33.75001,
+    "rotX": 359.982941,
+    "rotY": 359.969025,
+    "rotZ": 359.919983,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -22,7 +22,7 @@
   },
   "ColorDiffuse": {
     "r": 0.665533662,
-    "g": 0.2068856,
+    "g": 0.206884891,
     "b": 0.8940657
   },
   "LayoutGroupSortIndex": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.98167562,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.396895
     },
     "CastShadows": true

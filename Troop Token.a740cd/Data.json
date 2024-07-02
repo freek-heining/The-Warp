@@ -2,12 +2,12 @@
   "GUID": "a740cd",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 57.7501564,
-    "posY": 1.39660311,
-    "posZ": -36.7500648,
-    "rotX": 0.0168672651,
-    "rotY": 179.999222,
-    "rotZ": 0.08016833,
+    "posX": 57.7502823,
+    "posY": 1.39660335,
+    "posZ": -36.75011,
+    "rotX": 0.0168154147,
+    "rotY": 179.999512,
+    "rotZ": 0.0801023841,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148395151,
-    "g": 0.148395151,
-    "b": 0.148395151
+    "r": 0.148394436,
+    "g": 0.148394436,
+    "b": 0.148394436
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.98167562,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.396895
     },
     "CastShadows": true

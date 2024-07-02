@@ -2,12 +2,12 @@
   "GUID": "4b8524",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -32.25151,
-    "posY": 1.52384186,
-    "posZ": -30.7503815,
-    "rotX": 0.0168232,
-    "rotY": 180.003647,
-    "rotZ": 0.08025048,
+    "posX": -32.2515869,
+    "posY": 1.52384174,
+    "posZ": -30.7504482,
+    "rotX": 0.0168792,
+    "rotY": 180.004761,
+    "rotZ": 0.080144234,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.07061369,
+    "r": 0.07061312,
     "g": 0.733303666,
-    "b": 0.313377351
+    "b": 0.313376576
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.98167562,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.396895
     },
     "CastShadows": true

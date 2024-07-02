@@ -2,12 +2,12 @@
   "GUID": "f2fd2c",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 72.75026,
-    "posY": 1.39101076,
-    "posZ": 36.7506371,
-    "rotX": 0.0168972872,
-    "rotY": 180.0131,
-    "rotZ": 0.07992817,
+    "posX": 72.75029,
+    "posY": 1.39100981,
+    "posZ": 36.7507057,
+    "rotX": 0.016896259,
+    "rotY": 180.014587,
+    "rotZ": 0.07991561,
     "scaleX": 0.46,
     "scaleY": 0.46,
     "scaleZ": 0.46
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 3.040576,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

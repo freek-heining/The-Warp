@@ -2,11 +2,11 @@
   "GUID": "eecdcf",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 66.75079,
-    "posY": 1.40291882,
-    "posZ": 33.7500458,
-    "rotX": 359.9831,
-    "rotY": -0.000411983026,
+    "posX": 66.75089,
+    "posY": 1.40291858,
+    "posZ": 33.75005,
+    "rotX": 359.983124,
+    "rotY": -0.000211531078,
     "rotZ": 359.920135,
     "scaleX": 0.28,
     "scaleY": 0.28,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.97513,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

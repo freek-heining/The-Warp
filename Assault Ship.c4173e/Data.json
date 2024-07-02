@@ -2,11 +2,11 @@
   "GUID": "c4173e",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 40.4999123,
-    "posY": 1.42404294,
-    "posZ": -1.499955,
-    "rotX": 0.08009356,
-    "rotY": 90.00016,
+    "posX": 40.499958,
+    "posY": 1.42404282,
+    "posZ": -1.49995482,
+    "rotX": 0.08009385,
+    "rotY": 90.00015,
     "rotZ": 359.9831,
     "scaleX": 0.36,
     "scaleY": 0.36,
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.00785255,
       "FresnelStrength": 0.4
     },

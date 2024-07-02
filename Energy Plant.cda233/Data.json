@@ -2,11 +2,11 @@
   "GUID": "cda233",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 41.2503777,
+    "posX": 41.2504234,
     "posY": 1.409802,
-    "posZ": -33.75052,
+    "posZ": -33.75061,
     "rotX": 359.9831,
-    "rotY": -0.0028332572,
+    "rotY": -0.002408756,
     "rotZ": 359.9201,
     "scaleX": 0.4,
     "scaleY": 0.4,
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148395151,
-    "g": 0.148395151,
-    "b": 0.148395151
+    "r": 0.148394436,
+    "g": 0.148394436,
+    "b": 0.148394436
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.04057312,
       "FresnelStrength": 0.4
     },

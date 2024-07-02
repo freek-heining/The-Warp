@@ -2,12 +2,12 @@
   "GUID": "ace18b",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 50.2506142,
-    "posY": 1.40781236,
-    "posZ": -27.7504787,
-    "rotX": 0.0168655217,
-    "rotY": 180.009689,
-    "rotZ": 0.0799100548,
+    "posX": 50.25069,
+    "posY": 1.40781224,
+    "posZ": -27.7505379,
+    "rotX": 0.0168672167,
+    "rotY": 180.010941,
+    "rotZ": 0.07991086,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148395151,
-    "g": 0.148395151,
-    "b": 0.148395151
+    "r": 0.148394436,
+    "g": 0.148394436,
+    "b": 0.148394436
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.97513,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

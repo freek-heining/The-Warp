@@ -2,12 +2,12 @@
   "GUID": "dcc228",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -33.75085,
-    "posY": 1.52416551,
-    "posZ": -36.75019,
-    "rotX": 0.016835738,
-    "rotY": 179.995483,
-    "rotZ": 0.0801891461,
+    "posX": -33.750824,
+    "posY": 1.52416563,
+    "posZ": -36.75023,
+    "rotX": 0.0168807972,
+    "rotY": 179.993912,
+    "rotZ": 0.0800801441,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.07061369,
+    "r": 0.07061312,
     "g": 0.733303666,
-    "b": 0.313377351
+    "b": 0.313376576
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.98167562,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.396895
     },
     "CastShadows": true

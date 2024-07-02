@@ -2,12 +2,12 @@
   "GUID": "8952bd",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 72.75072,
-    "posY": 1.38924265,
-    "posZ": 30.750309,
-    "rotX": 0.0169158317,
-    "rotY": 179.993866,
-    "rotZ": 0.07991033,
+    "posX": 72.7508,
+    "posY": 1.38924277,
+    "posZ": 30.7503433,
+    "rotX": 0.01688728,
+    "rotY": 179.9932,
+    "rotZ": 0.07992446,
     "scaleX": 0.46,
     "scaleY": 0.46,
     "scaleZ": 0.46
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 3.040576,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

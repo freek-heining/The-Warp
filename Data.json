@@ -1,11 +1,11 @@
 {
-  "SaveName": "The Warp v3.10",
-  "EpochTime": 1719922420,
-  "Date": "7/2/2024 2:13:40 PM",
+  "SaveName": "The Warp v3.11",
+  "EpochTime": 1719925540,
+  "Date": "7/2/2024 3:05:40 PM",
   "VersionNumber": "v13.2.2",
   "GameMode": "The Warp",
   "GameType": "Game",
-  "GameComplexity": "Low Complexity",
+  "GameComplexity": "Medium Complexity",
   "PlayingTime": [
     0,
     120
@@ -21,7 +21,9 @@
     "Strategy Games",
     "Scripting: Automated",
     "Scripting",
-    "English"
+    "4X",
+    "Area Control",
+    "Conflict"
   ],
   "Gravity": 0.5,
   "PlayArea": 0.5,
@@ -185,13 +187,13 @@
     }
   },
   "Lighting": {
-    "LightIntensity": 0.54,
+    "LightIntensity": 0.634240746,
     "LightColor": {
       "r": 1.0,
       "g": 0.9804,
       "b": 0.8902
     },
-    "AmbientIntensity": 1.3,
+    "AmbientIntensity": 1.39424121,
     "AmbientType": 0,
     "AmbientSkyColor": {
       "r": 0.5,
@@ -210,7 +212,8 @@
     },
     "ReflectionIntensity": 1.0,
     "LutIndex": 0,
-    "LutContribution": 1.0
+    "LutContribution": 1.0,
+    "LutURL": ""
   },
   "Hands": {
     "Enable": true,
@@ -968,7 +971,7 @@
         "z": -17.9999943
       },
       "Rotation": {
-        "x": 0.0168731585,
+        "x": 0.01687318,
         "y": 180.000122,
         "z": 0.07987779
       }
@@ -980,7 +983,7 @@
         "z": -17.9999943
       },
       "Rotation": {
-        "x": 0.0168528371,
+        "x": 0.01685286,
         "y": 180.012985,
         "z": 0.07988167
       }

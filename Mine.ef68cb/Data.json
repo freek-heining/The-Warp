@@ -2,12 +2,12 @@
   "GUID": "ef68cb",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 6.750109,
-    "posY": 1.46669,
-    "posZ": -33.75041,
-    "rotX": 0.0168939754,
-    "rotY": 179.988785,
-    "rotZ": 0.07989839,
+    "posX": 6.7501297,
+    "posY": 1.46669006,
+    "posZ": -33.7504578,
+    "rotX": 0.0168917309,
+    "rotY": 179.9871,
+    "rotZ": 0.07989644,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28
@@ -22,8 +22,8 @@
   },
   "ColorDiffuse": {
     "r": 0.938531756,
-    "g": 0.156181335,
-    "b": 0.156181335
+    "g": 0.15618062,
+    "b": 0.15618062
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.97513,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

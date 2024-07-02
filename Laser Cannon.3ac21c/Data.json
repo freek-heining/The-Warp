@@ -2,12 +2,12 @@
   "GUID": "3ac21c",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -10.5000916,
-    "posY": 1.4993515,
-    "posZ": 10.5000391,
+    "posX": -10.5000992,
+    "posY": 1.49935162,
+    "posZ": 10.5000505,
     "rotX": 359.92,
     "rotY": 270.000458,
-    "rotZ": 0.0168448556,
+    "rotZ": 0.016845759,
     "scaleX": 0.27,
     "scaleY": 0.27,
     "scaleZ": 0.27
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.007853,
       "FresnelStrength": 0.4
     },
