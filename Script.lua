@@ -419,6 +419,19 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local gameBoxGUID = "415c8a"
     local gameBoxObject = getObjectFromGUID(gameBoxGUID)
     gameBoxObject.interactable = false
+
+    -- local manualPdfGUID = "8edea1"
+    -- local strategyPdfGUID = "32af35"
+    -- local missionPdfGUID = "9f20de"
+    -- local lorePdfGUID = "ea7050"
+    -- local manualPdfObject = getObjectFromGUID(manualPdfGUID)
+    -- local strategyPdfObject = getObjectFromGUID(strategyPdfGUID)
+    -- local missionPdfObject = getObjectFromGUID(missionPdfGUID)
+    -- local lorePdfObject = getObjectFromGUID(lorePdfGUID)
+    -- manualPdfObject.interactable = false
+    -- strategyPdfObject.interactable = false
+    -- missionPdfObject.interactable = false
+    -- lorePdfObject.interactable = false
 end
 
 function StartClicked(player) -- Calls most setup functions and handles their timing/order. A lot of functions are 'chained' in other functions. See comments
