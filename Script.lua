@@ -158,7 +158,7 @@ function onload(state)
 
     --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
         MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 

@@ -360,6 +360,7 @@ function BattleCoroutine()
             coroutine.yield(0)
         end
     end
+
     checkIfRolling(allDiceObjects)
 
     --#region UI settings
@@ -501,23 +502,20 @@ function CalculateBattleResults(attackDice, defenseDice)
     end
 end
 
--- Recalculate on die flip or re-roll (combat card ability, track bonus)
+-- Recalculate on die flip or re-roll (combat card ability, track bonus. Can reroll or flip one die multiple times)
 
 -- Id returned from Wait.time()
 local waitId
 local rolTriggered -- Prevents message spam
 local flipTriggered -- Prevents message spam
-local currentRollingDice = {}
 
--- Keeps track of current rerolled dice to prevent roll spam on single die
-local function checkDiceRolled(currentDie)
-    for _, die in ipairs(currentRollingDice) do
-        if die == currentDie then
-            return true
-        end
+-- Check if dice already rolling to prevent roll spam on single die
+local function checkDiceRolling(currentDie)
+    if currentDie.resting then
+        return false
+    else
+        return true
     end
-
-    return false
 end
 
 -- Reacts to player interaction on battle board. (In hotseat mode, this event fires twice sometimes!)
@@ -528,15 +526,14 @@ function onPlayerAction(player, action, targets)
         waitId = nil
     end
 
-     -- Roll: Recalculate on die roll only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
+     -- Roll: Recalculate on die roll only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled & diceRolled = true)
     if action == Player.Action.Randomize and targets[1].type == "Dice" and diceRolled then
         local rolledDie = targets[1]
         
-        if currentRollingDice and checkDiceRolled(rolledDie) then
-            broadcastToAll("Don't roll a die more then once please", "Red")
+        if checkDiceRolling(rolledDie) then
+            broadcastToAll("Don't roll more then once please", "Red")
         else
             broadcastToAll(player.color .. " rolled a die with value '" .. rolledDie.getValue() .. "'. Recalculating result...")
-            table.insert(currentRollingDice, rolledDie)
         end
 
         -- Wait to prevent multiple calculates. Reset process when roll again (with Wait.stop)
@@ -553,7 +550,7 @@ function onPlayerAction(player, action, targets)
         Wait.time(function() rolTriggered = false end, 2)
     end
 
-    -- Flip: Recalculate on die flip only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled)
+    -- Flip: Recalculate on die flip only when all dice are already rolled (attackDiceObjects & defenseDiceObjects are then filled & diceRolled = true)
     if action == Player.Action.FlipOver and targets[1].type == "Dice" and diceRolled then
         local flippedDie = targets[1]
         broadcastToAll(player.color .. " player flipped a die with value '" .. flippedDie.getValue() .. "'. Recalculating result...")
