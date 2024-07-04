@@ -1,6 +1,8 @@
 local following = false
 
+-- Unfollow state
 local function reset()
+    following = false
     self.setColorTint({173/255, 173/255, 173/255})
     self.UI.setAttribute("followButton", "color", "clear")
     self.UI.setAttribute("followButton", "text", "Follow")
@@ -9,11 +11,10 @@ local function reset()
 end
 
 function FollowButtonClicked(player, option, id)
-    if following == true then
-        following = false
+    if following == true then 
         reset()
         broadcastToAll(player.color .. " stops following...", player.color)
-    else
+    else -- Follow state
         following = true
         self.setColorTint(player.color)
         self.UI.setAttribute("followButton", "color", clear)

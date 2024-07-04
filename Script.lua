@@ -156,12 +156,12 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
