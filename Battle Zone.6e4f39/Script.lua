@@ -57,6 +57,7 @@ function TroopCountAttackChange(player, value, id)
     ResetAttackButton()
     diceRolled = false
     self.UI.setValue("troopCountAttackText", numberValue)
+    self.UI.setAttribute("troopCountAttackSlider", "value", value)
 end
 
 function MultiplierAttackChange(player, value, id)
@@ -67,6 +68,7 @@ function MultiplierAttackChange(player, value, id)
     ResetAttackButton()
     diceRolled = false
     self.UI.setValue("multiplierAttackText", numberValue)
+    self.UI.setAttribute("multiplierAttackSlider", "value", value)
 end
 
 function ExtraDiceAttackChange(player, value, id)
@@ -77,6 +79,7 @@ function ExtraDiceAttackChange(player, value, id)
     ResetAttackButton()
     diceRolled = false
     self.UI.setValue("extraDiceAttackText", numberValue)
+    self.UI.setAttribute("extraDiceAttackSlider", "value", value)
 end
 
 function ExtraDieValueAttackChange(player, value, id)
@@ -87,6 +90,7 @@ function ExtraDieValueAttackChange(player, value, id)
     ResetAttackButton()
     diceRolled = false
     self.UI.setValue("extraDieValueAttackText", numberValue)
+    self.UI.setAttribute("extraDieValueAttackSlider", "value", value)
 end
 
 function MultiplyDieAttackChange(player, value, id)
@@ -97,6 +101,7 @@ function MultiplyDieAttackChange(player, value, id)
     ResetAttackButton()
     diceRolled = false
     self.UI.setValue("multiplyDieAttackText", numberValue)
+    self.UI.setAttribute("multiplyDieAttackSlider", "value", value)
 end
 
 function MaximumDieValueAttackChange(player, value, id)
@@ -124,6 +129,7 @@ function TroopCountDefenseChange(player, value, id)
     ResetDefenseButton()
     diceRolled = false
     self.UI.setValue("troopCountDefenseText", numberValue)
+    self.UI.setAttribute("troopCountDefenseSlider", "value", value)
 end
 
 function MultiplierDefenseChange(player, value, id)
@@ -134,6 +140,7 @@ function MultiplierDefenseChange(player, value, id)
     ResetDefenseButton()
     diceRolled = false
     self.UI.setValue("multiplierDefenseText", numberValue)
+    self.UI.setAttribute("multiplierDefenseSlider", "value", value)
 end
 
 function ExtraDiceDefenseChange(player, value, id)
@@ -144,6 +151,7 @@ function ExtraDiceDefenseChange(player, value, id)
     ResetDefenseButton()
     diceRolled = false
     self.UI.setValue("extraDiceDefenseText", numberValue)
+    self.UI.setAttribute("ExtraDiceDefenseSlider", "value", value)
 end
 
 function ExtraDieValueDefenseChange(player, value, id)
@@ -154,6 +162,7 @@ function ExtraDieValueDefenseChange(player, value, id)
     ResetDefenseButton()
     diceRolled = false
     self.UI.setValue("extraDieValueDefenseText", numberValue)
+    self.UI.setAttribute("extraDieValueDefenseSlider", "value", value)
 end
 
 function MultiplyDieDefenseChange(player, value, id)
@@ -164,6 +173,7 @@ function MultiplyDieDefenseChange(player, value, id)
     ResetDefenseButton()
     diceRolled = false
     self.UI.setValue("multiplyDieDefenseText", numberValue)
+    self.UI.setAttribute("multiplyDieDefenseSlider", "value", value)
 end
 
 function MaximumDieValueDefenseChange(player, value, id)
