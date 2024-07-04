@@ -1197,9 +1197,6 @@
     "path": "./Follow indicator.bdf00d"
   },
   {
-    "path": "./Troop Token.4bf6b3"
-  },
-  {
     "path": "./Energy Plant.e5895b"
   },
   {
@@ -1255,5 +1252,8 @@
   },
   {
     "path": "./Troop Token.2656b0"
+  },
+  {
+    "path": "./Troop Token.4bf6b3"
   }
 ]
