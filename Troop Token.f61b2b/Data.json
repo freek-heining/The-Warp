@@ -2,11 +2,11 @@
   "GUID": "f61b2b",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -23.2503548,
-    "posY": 1.530286,
+    "posX": -23.2503567,
+    "posY": 1.53028584,
     "posZ": 33.75001,
     "rotX": 359.982971,
-    "rotY": 359.968719,
+    "rotY": 359.9684,
     "rotZ": 359.919952,
     "scaleX": 0.21,
     "scaleY": 0.21,
@@ -22,7 +22,7 @@
   },
   "ColorDiffuse": {
     "r": 0.665533662,
-    "g": 0.206884831,
+    "g": 0.206884772,
     "b": 0.8940657
   },
   "LayoutGroupSortIndex": 0,

@@ -2,12 +2,12 @@
   "GUID": "2d3cd7",
   "Name": "Custom_Tile_Stack",
   "Transform": {
-    "posX": -51.000412,
+    "posX": -51.0004158,
     "posY": 2.0041666,
     "posZ": -16.49994,
-    "rotX": 0.07991567,
-    "rotY": 90.04238,
-    "rotZ": 179.9832,
+    "rotX": 0.079904,
+    "rotY": 90.0425339,
+    "rotZ": 179.983185,
     "scaleX": 0.95,
     "scaleY": 1.0,
     "scaleZ": 0.95

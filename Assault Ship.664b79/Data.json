@@ -2,18 +2,18 @@
   "GUID": "664b79",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -10.5001144,
+    "posX": -10.5001154,
     "posY": 1.49646688,
-    "posZ": 3.00004673,
+    "posZ": 3.00004721,
     "rotX": 359.9201,
     "rotY": 269.9987,
-    "rotZ": 0.0168146733,
+    "rotZ": 0.0168153569,
     "scaleX": 0.36,
     "scaleY": 0.36,
     "scaleZ": 0.36
   },
   "Nickname": "Assault Ship",
-  "Description": "",
+  "Description": "Increases the attack range by 1.\r\nIncreases line of sight by 1.\r\nSeparate combat multiplier. (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,

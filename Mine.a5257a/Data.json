@@ -2,12 +2,12 @@
   "GUID": "a5257a",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 66.75125,
+    "posX": 66.75127,
     "posY": 1.40115142,
-    "posZ": 27.7504177,
+    "posZ": 27.75042,
     "rotX": 359.983124,
-    "rotY": 0.00218603876,
-    "rotZ": 359.920135,
+    "rotY": 0.00209470838,
+    "rotZ": 359.9201,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28

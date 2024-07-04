@@ -2,18 +2,18 @@
   "GUID": "c43e4c",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -10.5001163,
-    "posY": 1.50023484,
-    "posZ": 13.5000515,
+    "posX": -10.5001173,
+    "posY": 1.50023508,
+    "posZ": 13.5000525,
     "rotX": 359.92,
     "rotY": 270.0017,
-    "rotZ": 0.0168291982,
+    "rotZ": 0.0168352369,
     "scaleX": 0.27,
     "scaleY": 0.27,
     "scaleZ": 0.27
   },
   "Nickname": "Laser Cannon",
-  "Description": "",
+  "Description": "Pay 1 or 2 energy to destroy Troops within a range of 2 Areas (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,

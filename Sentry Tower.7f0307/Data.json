@@ -2,18 +2,18 @@
   "GUID": "7f0307",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 40.4995575,
-    "posY": 1.43837976,
-    "posZ": 9.000204,
+    "posX": 40.49956,
+    "posY": 1.43838,
+    "posZ": 9.000205,
     "rotX": 359.9831,
-    "rotY": 359.991943,
+    "rotY": 359.991638,
     "rotZ": 359.92,
     "scaleX": 0.26,
     "scaleY": 0.26,
     "scaleZ": 0.26
   },
   "Nickname": "Sentry Tower",
-  "Description": "",
+  "Description": "+1 value bonus on all Combat Die rolls. Area cannot be targeted by a Laser Cannon or attacked by an Assault Ship (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,
