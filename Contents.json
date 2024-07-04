@@ -111,7 +111,7 @@
     "path": "./Marker  Cube.56c145"
   },
   {
-    "path": "./Player Screen (black).bd3843"
+    "path": "./Custom_Tile.bd3843"
   },
   {
     "path": "./Player Board (orange).a14be3"
@@ -972,7 +972,7 @@
     "path": "./Archive start deck.ac5ebb"
   },
   {
-    "path": "./Player Screen (black).f5d81b"
+    "path": "./Custom_Tile.f5d81b"
   },
   {
     "path": "./Mission placement zone.743ef0"
@@ -1227,24 +1227,33 @@
     "path": "./Gold Token Spawner.0b18bb"
   },
   {
-    "path": "./Die_6_Rounded.d38b83"
+    "path": "./Custom_Tile.c8c492"
   },
   {
-    "path": "./Die_6_Rounded.46ba1f"
+    "path": "./Custom_Tile.4a41dc"
   },
   {
-    "path": "./Die_6_Rounded.1d1df0"
+    "path": "./Custom_Tile.674c87"
   },
   {
-    "path": "./Die_6_Rounded.e7356a"
+    "path": "./Custom_Tile.7323da"
   },
   {
-    "path": "./Die_6_Rounded.b3a4cc"
+    "path": "./Custom_Tile.40ec8e"
   },
   {
-    "path": "./Die_6_Rounded.cd282b"
+    "path": "./Custom_Tile.4be4f9"
   },
   {
-    "path": "./Die_6_Rounded.2c3784"
+    "path": "./Laser Cannon die.f5d69d"
+  },
+  {
+    "path": "./Laser Cannon die.6c1894"
+  },
+  {
+    "path": "./Laser Cannon die.5b7b23"
+  },
+  {
+    "path": "./Laser Cannon die.ef2126"
   }
 ]

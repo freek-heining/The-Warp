@@ -4,16 +4,16 @@
   "Transform": {
     "posX": 69.74997,
     "posY": 1.39938807,
-    "posZ": 33.75045,
+    "posZ": 33.7504578,
     "rotX": 359.9201,
-    "rotY": 270.0113,
-    "rotZ": 0.0169159286,
+    "rotY": 270.011536,
+    "rotZ": 0.01690601,
     "scaleX": 0.19,
     "scaleY": 0.19,
     "scaleZ": 0.19
   },
   "Nickname": "Trade Post",
-  "Description": "",
+  "Description": "When building a Trade Post the player may perform a Mission Card switch (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,

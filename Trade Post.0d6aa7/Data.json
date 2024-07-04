@@ -2,18 +2,18 @@
   "GUID": "0d6aa7",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 47.2504463,
-    "posY": 1.41264486,
-    "posZ": -27.7504177,
-    "rotX": 0.07988714,
-    "rotY": 90.00223,
+    "posX": 47.2504539,
+    "posY": 1.41264522,
+    "posZ": -27.7504272,
+    "rotX": 0.07988282,
+    "rotY": 90.00228,
     "rotZ": 359.9831,
     "scaleX": 0.19,
     "scaleY": 0.19,
     "scaleZ": 0.19
   },
   "Nickname": "Trade Post",
-  "Description": "",
+  "Description": "When building a Trade Post the player may perform a Mission Card switch (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148394316,
-    "g": 0.148394316,
-    "b": 0.148394316
+    "r": 0.1483942,
+    "g": 0.1483942,
+    "b": 0.1483942
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,

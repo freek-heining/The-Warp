@@ -158,7 +158,7 @@ function onload(state)
 
     UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
         --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
@@ -1788,6 +1788,8 @@ local function setUi2(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio1",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1795,6 +1797,8 @@ local function setUi2(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio2",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1805,6 +1809,10 @@ local function setUi2(object)
         }
     }
     object.UI.setXmlTable(ui)
+
+    -- We need to set value with code, for other players to see the chosen value
+    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
+    object.setLuaScript(cardScript)
 end
   
 local function setUi3(object)
@@ -1828,6 +1836,8 @@ local function setUi3(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio1",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1835,6 +1845,8 @@ local function setUi3(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio2",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1842,6 +1854,8 @@ local function setUi3(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio3",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1852,6 +1866,10 @@ local function setUi3(object)
         }
     }
     object.UI.setXmlTable(ui)
+
+    -- We need to set value with code, for other players to see the chosen value
+    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
+    object.setLuaScript(cardScript)
 end
 
 local function setUi4(object)
@@ -1875,6 +1893,8 @@ local function setUi4(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio1",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1882,6 +1902,8 @@ local function setUi4(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio2",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1889,6 +1911,8 @@ local function setUi4(object)
                         {
                             tag="Toggle",
                             attributes={
+                                id="radio3",
+                                onValueChanged="radioClicked",
                                 toggleWidth="25",
                                 toggleHeight="25",
                             },
@@ -1899,6 +1923,10 @@ local function setUi4(object)
         }
     }
     object.UI.setXmlTable(ui)
+
+    -- We need to set value with code, for other players to see the chosen value
+    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
+    object.setLuaScript(cardScript)    
 end
 
 -- Sets UI radio buttons at spawned combat cards (type 3 & type 4s)
