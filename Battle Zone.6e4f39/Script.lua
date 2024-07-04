@@ -107,6 +107,9 @@ function MaximumDieValueAttackChange(player, value, id)
         NoMaximumDieValueAttack = true
     end
 
+    -- Otherwise not visible to other players
+    self.UI.setAttribute("maximumDieValueAttackToggle", "isOn", value)
+
     ResetAttackButton()
     diceRolled = false
 end
@@ -170,6 +173,10 @@ function MaximumDieValueDefenseChange(player, value, id)
     elseif value == "True" then
         NoMaximumDieValueDefense = true
     end
+
+    -- Otherwise not visible to other players
+    self.UI.setAttribute("maximumDieValueDefenseToggle", "isOn", value)
+
     ResetDefenseButton()
     diceRolled = false
 end

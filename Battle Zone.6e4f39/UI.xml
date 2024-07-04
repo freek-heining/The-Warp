@@ -63,7 +63,7 @@
             <Slider id="multiplyDieAttackSlider" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 20">
-            <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="70" toggleHeight="70"/>
+            <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="80" toggleHeight="80"/>
         </Cell>               
         <Cell padding="0 0 10 30">
             <Button id="attackButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
@@ -136,7 +136,7 @@
             <Slider id="multiplyDieDefenseSlider" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 20">
-            <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="70" toggleHeight="70"/>
+            <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="80" toggleHeight="80"/>
         </Cell>                   
         <Cell padding="0 0 10 30">
             <Button id="defenseButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
