@@ -412,7 +412,7 @@ function CalculateBattleResults(attackDice, defenseDice)
     getDiceValues(attackDice, attackValuesArray, extraDieValueAttack, NoMaximumDieValueAttack)
     getDiceValues(defenseDice, defenseValuesArray, extraDieValueDefense, NoMaximumDieValueDefense)
 
-    -- Multiply dice if 'X2' is enabled
+    -- Multiply X2 logic
     local function multiplyDice (valuesArray, multiplyDie, noMaximumDieValue)
         -- Sorting used when 'No Maximum Die Value' is set
         local function sortLargeToSmall(dice1, dice2)
@@ -463,8 +463,12 @@ function CalculateBattleResults(attackDice, defenseDice)
             end
         end
     end
+
+    -- Multiply dice if 'X2' is enabled
     if multiplyDieAttack > 0 then
         multiplyDice(attackValuesArray, multiplyDieAttack, NoMaximumDieValueAttack)
+    end
+    if multiplyDieDefense > 0 then
         multiplyDice(defenseValuesArray, multiplyDieDefense, NoMaximumDieValueDefense)
     end
 
