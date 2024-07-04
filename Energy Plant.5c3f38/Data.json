@@ -2,11 +2,11 @@
   "GUID": "5c3f38",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -2.2500577,
+    "posX": -2.250054,
     "posY": 1.47044635,
-    "posZ": -33.75035,
+    "posZ": -33.7503967,
     "rotX": 359.9831,
-    "rotY": -0.002896218,
+    "rotY": -0.00247055851,
     "rotZ": 359.920074,
     "scaleX": 0.4,
     "scaleY": 0.4,
@@ -22,8 +22,8 @@
   },
   "ColorDiffuse": {
     "r": 0.938531756,
-    "g": 0.156180382,
-    "b": 0.156180382
+    "g": 0.156179667,
+    "b": 0.156179667
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2508017401738854200/F12C06C0B3C18ED8EEEFA6D8D20CA32B792E3C55/",
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216288709412/2776D4ACC1A665FF9FB738C3C73882A66C4DCE20/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401739098343/43611701F92C1B354679DABE1459C461437B48DC/",

@@ -1200,28 +1200,13 @@
     "path": "./Troop Token.4bf6b3"
   },
   {
-    "path": "./Troop Token.49c176"
-  },
-  {
     "path": "./Energy Plant.e5895b"
-  },
-  {
-    "path": "./Mine.561227"
-  },
-  {
-    "path": "./Troop Token.2656b0"
-  },
-  {
-    "path": "./Command Center.52191b"
   },
   {
     "path": "./Sentry Tower.991560"
   },
   {
     "path": "./Assault Ship.664b79"
-  },
-  {
-    "path": "./Assault Ship.6941b4"
   },
   {
     "path": "./Gold Token Spawner.0b18bb"
@@ -1255,5 +1240,20 @@
   },
   {
     "path": "./Laser Cannon die.ef2126"
+  },
+  {
+    "path": "./Assault Ship.6941b4"
+  },
+  {
+    "path": "./Command Center.52191b"
+  },
+  {
+    "path": "./Mine.561227"
+  },
+  {
+    "path": "./Troop Token.49c176"
+  },
+  {
+    "path": "./Troop Token.2656b0"
   }
 ]
