@@ -71,6 +71,19 @@
     </Row>
 </TableLayout> 
 
+<Panel
+    width="1000"
+    height="300"
+    childAlignment="MiddleRight"
+    padding="1 1 1 1"
+    position="0 0 0"
+    rotation="0 0 90"
+    offsetXY="1650 1000">
+    <Text
+    fontSize="150"
+    color="white">Attacker</Text>
+</Panel>
+
 <!-- Defend -->
 <TableLayout
     useGlobalCellPadding="false"
@@ -143,6 +156,19 @@
         </Cell>
     </Row>
 </TableLayout> 
+
+<Panel
+    width="1000"
+    height="300"
+    childAlignment="MiddleRight"
+    padding="1 1 1 1"
+    position="0 0 0"
+    rotation="0 0 -90"
+    offsetXY="-1650 1000">
+    <Text
+    fontSize="150"
+    color="white">Defender</Text>
+</Panel>
 
 <!-- Battle Section -->
 <TableLayout
