@@ -72,16 +72,18 @@
 </TableLayout> 
 
 <Panel
-    width="1000"
+    width="800"
     height="300"
     childAlignment="MiddleRight"
     padding="1 1 1 1"
     position="0 0 0"
     rotation="0 0 90"
-    offsetXY="1650 1000">
+    offsetXY="1650 950">
     <Text
     fontSize="150"
-    color="white">Attacker</Text>
+    color="#FFFFFF"
+    shadow="#141414"
+    alignment="MiddleRight">Attacker</Text>
 </Panel>
 
 <!-- Defend -->
@@ -158,16 +160,17 @@
 </TableLayout> 
 
 <Panel
-    width="1000"
+    width="800"
     height="300"
-    childAlignment="MiddleRight"
     padding="1 1 1 1"
     position="0 0 0"
     rotation="0 0 -90"
-    offsetXY="-1650 1000">
+    offsetXY="-1650 950">
     <Text
     fontSize="150"
-    color="white">Defender</Text>
+    color="#FFFFFF"
+    shadow="#141414"
+    alignment="MiddleLeft">Defender</Text>
 </Panel>
 
 <!-- Battle Section -->

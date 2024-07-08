@@ -107,6 +107,8 @@ local advancedPioneering = false
 local expansionRaces = false
 
 function AlternativeMapToggled(player, isOn)
+    UI.setAttribute("alternativeMapToggle", "isOn", isOn)
+    
     -- Boolean value from UI Toggle is a string here!
     if isOn == "False" then
         alternativeSetup = false
@@ -117,6 +119,8 @@ function AlternativeMapToggled(player, isOn)
 end
 
 function AdvancedPioneeringToggled(player, isOn)
+    UI.setAttribute("advancedPioneeringToggle", "isOn", isOn)
+
     if isOn == "False" then
         advancedPioneering = false
     elseif isOn == "True" then
@@ -126,6 +130,8 @@ function AdvancedPioneeringToggled(player, isOn)
 end
 
 function ExpansionRacesToggled(player, isOn)
+    UI.setAttribute("expansionRacesToggle", "isOn", isOn)
+
     if isOn == "False" then
         expansionRaces = false
     elseif isOn == "True" then
@@ -160,9 +166,9 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
         --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
@@ -2068,7 +2074,7 @@ end
 function onObjectSpawn(obj)
     local params1 = {
         click_function = "cardClick1",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, -0.65},
         width          = 140,
@@ -2082,7 +2088,7 @@ function onObjectSpawn(obj)
     }
     local params2 = {
         click_function = "cardClick2",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, 0},
         width          = 140,
@@ -2096,7 +2102,7 @@ function onObjectSpawn(obj)
     }
     local params3 = {
         click_function = "cardClick3",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, 0.65},
         width          = 140,
@@ -2110,7 +2116,7 @@ function onObjectSpawn(obj)
     }
     local params4 = {
         click_function = "cardClick4",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, -0.23},
         width          = 140,
@@ -2124,7 +2130,7 @@ function onObjectSpawn(obj)
     }
     local params5 = {
         click_function = "cardClick5",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, 0.27},
         width          = 140,
@@ -2138,7 +2144,7 @@ function onObjectSpawn(obj)
     }
     local params6 = {
         click_function = "cardClick6",
-        function_owner = Global,
+        function_owner = self,
         label          = "←",
         position       = {0.93, 0.4, 0.77},
         width          = 140,
