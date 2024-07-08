@@ -2,15 +2,15 @@
   "GUID": "be23c6",
   "Name": "ScriptingTrigger",
   "Transform": {
-    "posX": 5.64695835,
+    "posX": -3.41792417,
     "posY": 3.00362873,
-    "posZ": -27.58,
+    "posZ": -32.12,
     "rotX": 0.0,
-    "rotY": 3.187271E-05,
+    "rotY": 90.0,
     "rotZ": 0.0,
-    "scaleX": 18.3917046,
-    "scaleY": 3.045866,
-    "scaleZ": 2.59382415
+    "scaleX": 10.5,
+    "scaleY": 3.05,
+    "scaleZ": 5.0
   },
   "Nickname": "Token Scripting Zone Red",
   "Description": "",

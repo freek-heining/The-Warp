@@ -2,12 +2,12 @@
   "GUID": "dcc228",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -33.75082,
+    "posX": -33.7507973,
     "posY": 1.52416539,
-    "posZ": -36.7503052,
-    "rotX": 0.016820075,
-    "rotY": 179.9953,
-    "rotZ": 0.0800993443,
+    "posZ": -36.7503929,
+    "rotX": 0.0168383066,
+    "rotY": 179.994873,
+    "rotZ": 0.08018098,
     "scaleX": 0.21,
     "scaleY": 0.21,
     "scaleZ": 0.21
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.07061226,
+    "r": 0.07061129,
     "g": 0.733303666,
-    "b": 0.313375384
+    "b": 0.313374
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216288710577/1D2E6FDACE937A1F7A947D7CF02FF59118E3C3A5/",
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293573754/82789B91F4B7A4CE36EAEF11D120881B1F16AD05/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744032861/977CC0952CEEE731EA3A1F46ED0AD067598C7101/",

@@ -2,15 +2,15 @@
   "GUID": "535afd",
   "Name": "ScriptingTrigger",
   "Transform": {
-    "posX": 67.86638,
+    "posX": 76.9846,
     "posY": 3.0,
-    "posZ": 27.58,
+    "posZ": 32.1218452,
     "rotX": 0.0,
-    "rotY": 3.187271E-05,
+    "rotY": 90.0,
     "rotZ": 0.0,
-    "scaleX": 18.3917046,
+    "scaleX": 10.5,
     "scaleY": 3.0,
-    "scaleZ": 2.59382415
+    "scaleZ": 5.0
   },
   "Nickname": "Token Scripting Zone Orange",
   "Description": "",

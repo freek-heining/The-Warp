@@ -2,15 +2,15 @@
   "GUID": "df35ef",
   "Name": "ScriptingTrigger",
   "Transform": {
-    "posX": 24.3814583,
+    "posX": 33.4955025,
     "posY": 3.0,
-    "posZ": 27.58,
+    "posZ": 32.12,
     "rotX": 0.0,
-    "rotY": 3.187271E-05,
+    "rotY": 90.0,
     "rotZ": 0.0,
-    "scaleX": 18.3917046,
+    "scaleX": 10.5,
     "scaleY": 3.0,
-    "scaleZ": 2.59
+    "scaleZ": 5.0
   },
   "Nickname": "Token Scripting Zone Blue",
   "Description": "",

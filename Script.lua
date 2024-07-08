@@ -37,11 +37,15 @@ local connectZonePositions = {
     [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} }
 }
 
-local connectZonePositionsB = {
-    [2] = { {3.29, 1.58, 4.98}, {359.92, 269.76, 0.02} },
-    [3] = { {13.51, 1.57, 12.58}, {359.95, 329.84, 359.94} },
-    [4] = { {25.19, 1.55, 7.63}, {0.02, 30.04, 359.92} },
-    [5] = { {26.73, 1.54, -5.03}, {0.08, 90.10, 359.98} }
+local portalBPositions = {
+    [2] = {3.58, 1.68, 1.84},
+    [3] = {10.78, 1.67, 10.62},
+    [4] = {22.10, 1.65, 8.72},
+    [5] = {26.67, 1.64, -1.89}
+}
+
+local connectZonePositionB = {
+    [1] = { {22.37, 1.54, -12.69}, {0.05, 150.02, 0.06} }
 }
 
 -- Players 1-6 (position, rotation)
@@ -156,12 +160,12 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
     
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -450,7 +454,11 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     else
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
 
-        broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
+        if alternativeSetup then
+            broadcastToAll("Starting the B-side game with " .. playerCount .. " players. Please wait while everything is being set up!")
+        else
+            broadcastToAll("Starting the standard game with " .. playerCount .. " players. Please wait while everything is being set up!")
+        end
         
         -- #1: Shuffle ability bag and reward deck
         local abilityTokenBagGUID = "e98136"
@@ -837,7 +845,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
     local function swapBoards()
         -- Swap all tables/positions for the B versions to be used
         playerZonePositions = playerZonePositionsB
-        connectZonePositions = connectZonePositionsB
+        connectZonePositions = connectZonePositionB
 
         -- swap central zone manually
         params = {
@@ -892,11 +900,16 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
     end
 
     if playerCount < 6 then -- Connect Zone and portal are only needed for 2-5 players
-        connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
-        connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
+        if alternativeSetup then -- Just one fixed position for side B!
+            connectZoneObject.setPositionSmooth(connectZonePositions[1][1], false, false)
+            connectZoneObject.setRotationSmooth(connectZonePositions[1][2], false, false)
+        else
+            connectZoneObject.setPositionSmooth(connectZonePositions[playerCount][1], false, false)
+            connectZoneObject.setRotationSmooth(connectZonePositions[playerCount][2], false, false)
+        end
         
         if alternativeSetup then
-            portalObject.setPositionSmooth({16.36, 1.66, -9.80}, false, false)
+            portalObject.setPositionSmooth(portalBPositions[playerCount], false, false)
         else
             portalObject.setPositionSmooth({20.26, 1.65, -11.48}, false, false)
         end
@@ -970,10 +983,10 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
         [2] = vector(-0.003 , 0.108 , 0.672),
         [3] = vector(-0.177 , 0.108 , 0.786),
         [4] = vector(-0.209 , 0.108 , 1.004),
-        [5] = vector(-0.048 , 0.105 , 1.247),
-        [6] = vector(0.2 , 0.120 , 1.003),
-        [7] = vector(0.655 , 0.120 , 0.791),
-        [8] = vector(0.591 , 0.105 , 1.298)
+        [5] = vector(0.655 , 0.120 , 0.791),
+        [6] = vector(-0.048 , 0.105 , 1.247),
+        [7] = vector(0.591 , 0.105 , 1.298),
+        [8] = vector(0.2 , 0.120 , 1.003)
     }
 
     -- Locations when using B-side
@@ -982,10 +995,10 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
         [2] = vector(-0.746 , 0.120 , 0.784),
         [3] = vector(-0.755 , 0.107 , 0.996),
         [4] = vector(-1.753 , 0.111 , 1.039),
-        [5] = vector(-0.621 , 0.121 , 1.251),
-        [6] = vector(-0.373 , 0.106 , 1.007),
-        [7] = vector(0.082 , 0.106 , 0.795),
-        [8] = vector(0.018 , 0.106 , 1.302)
+        [5] = vector(0.082 , 0.106 , 0.795),
+        [6] = vector(-0.621 , 0.121 , 1.251),
+        [7] = vector(0.018 , 0.106 , 1.302),
+        [8] = vector(-0.373 , 0.106 , 1.007)
     }
 
     -- All starting miniatures, filtered per color in indexed order: Troop, Troop, Troop, Troop, Mine, Trade, Command, Plant
@@ -1008,16 +1021,16 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
                 j = j + 1
             elseif object.getName() == "Mine"  then
                 object.rotate({x=0, y=60, z=0})
-                trimmedTable[5] = object
+                trimmedTable[6] = object
             elseif object.getName() == "Trade Post"  then
                 object.rotate({x=0, y=-30, z=0})
-                trimmedTable[6] = object
+                trimmedTable[8] = object
             elseif object.getName() == "Command Center"  then
                 object.rotate({x=0, y=-30, z=0})
-                trimmedTable[7] = object
+                trimmedTable[5] = object
             elseif object.getName() == "Energy Plant"  then
                 object.rotate({x=0, y=-90, z=0})
-                trimmedTable[8] = object
+                trimmedTable[7] = object
             end
         end
 
@@ -1723,7 +1736,7 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
         conquestDeckObject.deal(2, color)
     end
 
-    broadcastToAll("Keep 1 mission of each color, and place the others back facedown on their repective draw pile. Shuffle afterwards.")
+    broadcastToAll("Keep 3 missions of any color, and place the others back facedown on their repective draw pile. Shuffle afterwards.")
 
     ProsperityDeckObject.interactable = true
     progressDeckObject.interactable = true
@@ -1774,7 +1787,7 @@ local function setUi2(object)
             attributes={
                 width="40",
                 height="130",
-                position="-95 -30 -30",
+                position="-95 -30 -200",
                 allowSwitchOff=true,
             },
             children={
@@ -1929,79 +1942,225 @@ local function setUi4(object)
     object.setLuaScript(cardScript)    
 end
 
--- Sets UI radio buttons at spawned combat cards (type 3 & type 4s)
+
+local cardClick1Toggled = false
+function cardClick1(obj, color, alt_click)
+    if cardClick1Toggled then -- off
+        obj.editButton({
+            index=0,
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick1Toggled = false
+    else -- on
+        obj.editButton({
+            index=0,
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick1Toggled = true
+    end
+end
+local cardClick2Toggled = false
+function cardClick2(obj, color, alt_click)
+    if cardClick2Toggled then -- off
+        obj.editButton({
+            index=1, 
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick2Toggled = false
+    else -- on
+        obj.editButton({
+            index=1, 
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick2Toggled = true
+    end
+end
+local cardClick3Toggled = false
+function cardClick3(obj, color, alt_click)
+    if cardClick3Toggled then -- off
+        obj.editButton({
+            index=2, 
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick3Toggled = false
+    else -- on
+        obj.editButton({
+            index=2, 
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick3Toggled = true
+    end
+end
+local cardClick4Toggled = false
+function cardClick4(obj, color, alt_click)
+    if cardClick4Toggled then -- off
+        obj.editButton({
+            index=0,
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick4Toggled = false
+    else -- on
+        obj.editButton({
+            index=0,
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick4Toggled = true
+    end
+end
+local cardClick5Toggled = false
+function cardClick5(obj, color, alt_click)
+    if cardClick5Toggled then -- off
+        obj.editButton({
+            index=1, 
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick5Toggled = false
+    else -- on
+        obj.editButton({
+            index=1, 
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick5Toggled = true
+    end
+end
+local cardClick6Toggled = false
+function cardClick6(obj, color, alt_click)
+    if cardClick6Toggled then -- off
+        obj.editButton({
+            index=2, 
+            color={192/255, 192/255, 192/255},       -- grey
+            hover_color={0/255, 200/255, 47/255},    -- darker green
+            press_color={0/255, 154/255, 37/255},    -- darkest green
+        })
+        cardClick6Toggled = false
+    else -- on
+        obj.editButton({
+            index=2, 
+            color={0/255, 247/255, 58/255},          -- green
+            hover_color={143/255, 143/255, 143/255}, -- darker grey
+            press_color={93/255, 93/255, 93/255},    -- darkest grey
+        })
+        cardClick6Toggled = true
+    end
+end
+
+-- Sets UI radio buttons at spawned combat cards (type 2,3 & 4's)
 function onObjectSpawn(obj)
+    local params1 = {
+        click_function = "cardClick1",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, -0.65},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+    local params2 = {
+        click_function = "cardClick2",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, 0},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+    local params3 = {
+        click_function = "cardClick3",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, 0.65},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+    local params4 = {
+        click_function = "cardClick4",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, -0.23},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+    local params5 = {
+        click_function = "cardClick5",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, 0.27},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+    local params6 = {
+        click_function = "cardClick6",
+        function_owner = Global,
+        label          = "←",
+        position       = {0.93, 0.4, 0.77},
+        width          = 140,
+        height         = 140,
+        font_size      = 120,
+        color          = {192/255, 192/255, 192/255},   -- grey
+        font_color     = {1, 1, 1},                     -- white
+        hover_color    = {0/255, 200/255, 47/255},      -- darker green
+        press_color    = {0/255, 154/255, 37/255},      -- darkest green
+        tooltip        = "Choose this combat option",
+    }
+
     if obj.hasTag("combat_card_2") then
-        setUi2(obj)
+        obj.createButton(params1)
+        obj.createButton(params2)
     elseif obj.hasTag("combat_card_3") then
-        setUi3(obj)
+        obj.createButton(params1)
+        obj.createButton(params2)
+        obj.createButton(params3)
     elseif obj.hasTag("combat_card_4") then
-        setUi4(obj)
+        obj.createButton(params4)
+        obj.createButton(params5)
+        obj.createButton(params6)
     end
 end
-
---#region Secret demo stuff, don't look!
-local counter  = 0
-function DemoClicked(player)
-    if player.host then
-        counter = counter + 1
-    end
-    if counter == 10 then
-        broadcastToAll("Demo mode unlocked!")
-        UI.setAttribute("setupWindow", "active", false) -- Hide the normal UI
-        UI.setAttribute("demoWindow", "active", true) -- Show the demo UI
-        playerCount = 4
-    end
-end
-
-function PlayerCountSelected(player, option, id)
-    local optionValue = string.sub(option, 1, 1)
-    local number = tonumber(optionValue)
-    if number then
-        playerCount = number
-    end
-end
-
-function DemoStartClicked() -- Same as normal but new UI and manual player count selection
-    UI.setAttribute("demoWindow", "active", false) -- Hide the UI
-    
-    broadcastToAll("Starting the game with " .. playerCount .. " players. Please wait while everything is being set up!")
-    
-    -- #1: Shuffle ability bag and reward deck
-    local abilityTokenBagGUID = "e98136"
-    local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
-    abilityTokenBagObject. interactable = true
-    abilityTokenBagObject.shuffle()
-
-    local rewardDeckGUID = "ff7833"
-    local rewardDeckObject = getObjectFromGUID(rewardDeckGUID)
-    rewardDeckObject.interactable = true
-    rewardDeckObject.shuffle()
-
-    -- #2: Assign colors/seats to players automatically (in order of joining the game)
-    SetPlayerColors()
-
-    -- #3: Determine starting player and fix color/turn order
-    Wait.time(function ()
-        DetermineStartingPlayer()
-    end, 2.5)
-
-    -- #4: Restore hand zones to orignal positions
-    MoveHandZones("-", 300)
-    
-    -- #5: Deal Archive cards
-    Wait.time(function ()
-        startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
-    end, 4)
-    
-    -- #6: Deal Mission cards
-    Wait.time(function ()
-        SetMissionCards()
-    end, 9)
-    
-    -- #7: Create the board
-    Wait.time(function ()
-        startLuaCoroutine(Global, "CreateBoardCoroutine")
-    end, 12)
-end
---#endregion

@@ -1239,13 +1239,7 @@
     "path": "./Laser Cannon die.ef2126"
   },
   {
-    "path": "./Assault Ship.6941b4"
-  },
-  {
-    "path": "./Command Center.52191b"
-  },
-  {
-    "path": "./Mine.561227"
+    "path": "./Troop Token.4bf6b3"
   },
   {
     "path": "./Troop Token.49c176"
@@ -1254,6 +1248,12 @@
     "path": "./Troop Token.2656b0"
   },
   {
-    "path": "./Troop Token.4bf6b3"
+    "path": "./Mine.561227"
+  },
+  {
+    "path": "./Command Center.52191b"
+  },
+  {
+    "path": "./Assault Ship.6941b4"
   }
 ]
