@@ -1,10 +1,3 @@
-local battleZoneGUID = "6e4f39"
-local battleZoneObject = getObjectFromGUID(battleZoneGUID)
-local attackerScriptingZoneGUID = "b6dd48"
-local attackerScriptingZoneObject = getObjectFromGUID(attackerScriptingZoneGUID)
-local defenderScriptingZoneGUID = "52ba59"
-local defenderScriptingZoneObject = getObjectFromGUID(defenderScriptingZoneGUID)
-
 local troopCountAttack = 1.0
 local troopCountDefense = 1.0
 local multiplierAttack = 1.0
@@ -25,27 +18,27 @@ local diceRolled = false
 
 -- 8 red dice positions
 local attackDicePositions = {
-    [1] = vector(-39.00, 2.52, -6.75),
-    [2] = vector(-33.00, 2.51, -6.75),
-    [3] = vector(-27.00, 2.50, -6.75),
-    [4] = vector(-39.00, 2.52, -2.55),
-    [5] = vector(-33.00, 2.51, -2.55),
-    [6] = vector(-27.00, 2.50, -2.55),
-    [7] = vector(-36.00, 2.51, -4.65),
-    [8] = vector(-30.00, 2.51, -4.65)
+    [1] = vector(73.50, 2.37, 6.39),
+    [2] = vector(61.50, 2.38, 6.39),
+    [3] = vector(61.50, 2.38, 1.50),
+    [4] = vector(73.50, 2.36, 1.50),
+    [5] = vector(70.50, 2.37, 3.76),
+    [6] = vector(64.50, 2.38, 3.76),
+    [7] = vector(67.50, 2.37, 6.39),
+    [8] = vector(67.50, 2.37, 1.50)
 }
 
 -- 9 black dice positions
 local defenseDicePositions = {
-    [1] = vector(-27.00, 2.51, 6.75),
-    [2] = vector(-33.00, 2.51, 6.75),
-    [3] = vector(-39.00, 2.52, 6.75), 
-    [4] = vector(-27.00, 2.50, 2.55),
-    [5] = vector(-33.00, 2.51, 2.55),
-    [6] = vector(-39.00, 2.52, 2.55),
-    [7] = vector(-30.00, 2.51, 4.65),
-    [8] = vector(-36.00, 2.52, 4.65),
-    [9] = vector(-33.00, 2.51, 4.65)
+    [1] = vector(61.50, 2.38, -6.39),
+    [2] = vector(73.50, 2.36, -6.38),
+    [3] = vector(73.50, 2.36, -1.50),
+    [4] = vector(61.50, 2.38, -1.50),
+    [5] = vector(64.50, 2.37, -4.00),
+    [6] = vector(70.50, 2.37, -4.00),
+    [7] = vector(67.50, 2.37, -6.38),
+    [8] = vector(67.50, 2.37, -1.50),
+    [9] = vector(67.50, 2.37, -4.00)
 }
 
 --#region Attack Side Change Events
@@ -209,9 +202,8 @@ end
 
 -- Attack
 function AttackButtonClicked(player, value, id)
-    local attackObjects = attackerScriptingZoneObject.getObjects()
-    removeOldDice(attackObjects)
-
+    -- Remove old dice and empty table
+    removeOldDice(attackDiceObjectsGlobal)
     attackDiceObjectsGlobal = {}
 
     -- Spawn 1-8 attack/red dice and insert to global table
@@ -259,9 +251,8 @@ end
 
 -- Defend
 function DefenseButtonClicked(player, value, id)
-    local defenseObjects = defenderScriptingZoneObject.getObjects()
-    removeOldDice(defenseObjects)
-
+    -- Remove old dice and empty table
+    removeOldDice(defenseDiceObjectsGlobal)
     defenseDiceObjectsGlobal = {}
 
     -- Spawn 1-9 black/defense dice
