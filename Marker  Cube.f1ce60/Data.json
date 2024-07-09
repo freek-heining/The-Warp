@@ -2,12 +2,12 @@
   "GUID": "f1ce60",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -1.84892941,
-    "posY": 1.56984651,
+    "posX": -1.84892452,
+    "posY": 1.56984639,
     "posZ": -44.84366,
     "rotX": 359.92395,
-    "rotY": 270.08905,
-    "rotZ": 0.0186120141,
+    "rotY": 270.0896,
+    "rotZ": 0.0186132062,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3

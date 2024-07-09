@@ -1,0 +1,10 @@
+<Button 
+    id="archiveButton" 
+    width="200"
+    height="200"
+    offsetXY="-340 0"
+    rotation="0 0 180"
+    fontStyle="Bold" 
+    fontSize="40" 
+    textColor="#09266E" 
+    onClick="ReplenishClicked">Replenish →</Button>

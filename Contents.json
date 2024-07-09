@@ -933,9 +933,6 @@
     "path": "./Custom_Token.b19cd4"
   },
   {
-    "path": "./Archive start deck.ac5ebb"
-  },
-  {
     "path": "./Mission placement zone.743ef0"
   },
   {
@@ -1113,7 +1110,7 @@
     "path": "./Attack Combat Card.ed677f"
   },
   {
-    "path": "./Mission placement zone.4d7fd7"
+    "path": "./Reward discard zone.4d7fd7"
   },
   {
     "path": "./Attack Combat Card.68a8c0"
@@ -1333,5 +1330,26 @@
   },
   {
     "path": "./Gold Token Spawner.262999"
+  },
+  {
+    "path": "./Archive 1 Scripting Zone.a6953a"
+  },
+  {
+    "path": "./Archive 2 Scripting Zone.c138c6"
+  },
+  {
+    "path": "./Archive 3 Scripting Zone.d7b4e8"
+  },
+  {
+    "path": "./Archive 4 Scripting Zone.5b418e"
+  },
+  {
+    "path": "./Archive Deck Scripting Zone.ceb0b5"
+  },
+  {
+    "path": "./Archive Discard Scripting Zone.9198fd"
+  },
+  {
+    "path": "./Deck.97c815"
   }
 ]
