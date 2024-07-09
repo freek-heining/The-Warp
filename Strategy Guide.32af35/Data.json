@@ -2,15 +2,15 @@
   "GUID": "32af35",
   "Name": "Custom_PDF",
   "Transform": {
-    "posX": -73.50005,
-    "posY": 1.57116723,
-    "posZ": -43.5000038,
-    "rotX": 0.0798784643,
-    "rotY": 90.00673,
+    "posX": -72.7502,
+    "posY": 1.56945956,
+    "posZ": -45.7500763,
+    "rotX": 0.079878144,
+    "rotY": 90.0068,
     "rotZ": 359.983124,
-    "scaleX": 3.3,
+    "scaleX": 3.43012166,
     "scaleY": 1.0,
-    "scaleZ": 3.3
+    "scaleZ": 3.43012166
   },
   "Nickname": "Strategy Guide",
   "Description": "",

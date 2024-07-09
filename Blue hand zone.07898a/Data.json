@@ -2,13 +2,13 @@
   "GUID": "07898a",
   "Name": "HandTrigger",
   "Transform": {
-    "posX": 15.0,
+    "posX": 15.2835436,
     "posY": 5.0,
-    "posZ": 57.9973831,
+    "posZ": 63.02,
     "rotX": 0.0,
     "rotY": 180.0,
     "rotZ": 0.0,
-    "scaleX": 35.0,
+    "scaleX": 38.0,
     "scaleY": 7.0,
     "scaleZ": 10.0
   },

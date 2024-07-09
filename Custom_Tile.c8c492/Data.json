@@ -2,18 +2,18 @@
   "GUID": "c8c492",
   "Name": "Custom_Tile",
   "Transform": {
-    "posX": 49.5,
-    "posY": 1.50000048,
-    "posZ": -51.0,
-    "rotX": -4.994932E-06,
-    "rotY": 180.017746,
-    "rotZ": 1.33206379E-06,
-    "scaleX": 2.19213271,
+    "posX": 46.7792053,
+    "posY": 1.40768111,
+    "posZ": -29.2497826,
+    "rotX": 0.0168311428,
+    "rotY": 180.0297,
+    "rotZ": 0.07988504,
+    "scaleX": 2.190204,
     "scaleY": 1.0,
-    "scaleZ": 2.19213271
+    "scaleZ": 2.190204
   },
   "Nickname": "",
-  "Description": "",
+  "Description": "Hold ALT to view player aid",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,

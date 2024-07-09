@@ -42,9 +42,6 @@
     "path": "./Custom_Model.4ee1f2"
   },
   {
-    "path": "./Archive Deck.6b2a67"
-  },
-  {
     "path": "./Reward Deck.ff7833"
   },
   {
@@ -109,9 +106,6 @@
   },
   {
     "path": "./Marker  Cube.56c145"
-  },
-  {
-    "path": "./Custom_Tile.bd3843"
   },
   {
     "path": "./Player Board (orange).a14be3"
@@ -933,36 +927,6 @@
     "path": "./Alien race placement zone.656ba9"
   },
   {
-    "path": "./Alien race placement zone.7dfdb7"
-  },
-  {
-    "path": "./Alien race placement zone.41881e"
-  },
-  {
-    "path": "./Alien race placement zone.c207c2"
-  },
-  {
-    "path": "./Alien race placement zone.ea4eae"
-  },
-  {
-    "path": "./Alien race placement zone.57d762"
-  },
-  {
-    "path": "./Alien race placement zone.e1e3cd"
-  },
-  {
-    "path": "./Alien race placement zone.4c4584"
-  },
-  {
-    "path": "./Alien race placement zone.c20bac"
-  },
-  {
-    "path": "./Alien race placement zone.ac7bde"
-  },
-  {
-    "path": "./Alien race placement zone.395d2b"
-  },
-  {
     "path": "./Custom_Token.70bc1a"
   },
   {
@@ -970,9 +934,6 @@
   },
   {
     "path": "./Archive start deck.ac5ebb"
-  },
-  {
-    "path": "./Custom_Tile.f5d81b"
   },
   {
     "path": "./Mission placement zone.743ef0"
@@ -1050,19 +1011,7 @@
     "path": "./Ability Token 'Bag'.e98136"
   },
   {
-    "path": "./Point counter.e52211"
-  },
-  {
-    "path": "./Point counter.8ab395"
-  },
-  {
     "path": "./Point counter.3c616b"
-  },
-  {
-    "path": "./Point counter.36ab66"
-  },
-  {
-    "path": "./Point counter.0c7920"
   },
   {
     "path": "./Advanced Pioneering Mission deck.c7f175"
@@ -1104,12 +1053,6 @@
     "path": "./Draft Zone Clockwise.1a436f"
   },
   {
-    "path": "./Attacker Scripting Zone.b6dd48"
-  },
-  {
-    "path": "./Defender Scripting Zone.52ba59"
-  },
-  {
     "path": "./Battle Zone.6e4f39"
   },
   {
@@ -1149,16 +1092,16 @@
     "path": "./Strategy Guide.32af35"
   },
   {
-    "path": "./Warp Guardian Deck.0c51b4"
+    "path": "./Demo- Warp Guardian Deck.0c51b4"
   },
   {
-    "path": "./Warp Guardian Advanced Deck.16aac8"
+    "path": "./Demo- Warp Guardian Advanced Deck.16aac8"
   },
   {
-    "path": "./Alien-Exiled Race Deck.77b52f"
+    "path": "./Demo- Alien-Exiled Race Deck.77b52f"
   },
   {
-    "path": "./Alien-Exiled Race Advanced Deck.edee87"
+    "path": "./Demo- Alien-Exiled Race Advanced Deck.edee87"
   },
   {
     "path": "./Game box.415c8a"
@@ -1180,18 +1123,6 @@
   },
   {
     "path": "./Follow indicator.ffb430"
-  },
-  {
-    "path": "./Follow indicator.1a066e"
-  },
-  {
-    "path": "./Follow indicator.82e677"
-  },
-  {
-    "path": "./Follow indicator.dc1846"
-  },
-  {
-    "path": "./Follow indicator.f7013f"
   },
   {
     "path": "./Follow indicator.bdf00d"
@@ -1255,5 +1186,152 @@
   },
   {
     "path": "./Assault Ship.6941b4"
+  },
+  {
+    "path": "./Board shadow.7e77de"
+  },
+  {
+    "path": "./Completed Progress missions.14add9"
+  },
+  {
+    "path": "./Completed Pioneering missions.90cde4"
+  },
+  {
+    "path": "./Completed Conquest missions.470ddd"
+  },
+  {
+    "path": "./Completed Prosperity missions.470aa8"
+  },
+  {
+    "path": "./Completed Pioneering missions.d11665"
+  },
+  {
+    "path": "./Completed Prosperity missions.21dfde"
+  },
+  {
+    "path": "./Completed Conquest missions.8cd70d"
+  },
+  {
+    "path": "./Completed Pioneering missions.cbf023"
+  },
+  {
+    "path": "./Alien race placement zone.384a61"
+  },
+  {
+    "path": "./Alien race placement zone.b3aae6"
+  },
+  {
+    "path": "./Point counter.728ab2"
+  },
+  {
+    "path": "./Follow indicator.c3e09c"
+  },
+  {
+    "path": "./Point counter.9c315f"
+  },
+  {
+    "path": "./Alien race placement zone.8e037b"
+  },
+  {
+    "path": "./Alien race placement zone.f176ea"
+  },
+  {
+    "path": "./Completed Pioneering missions.fb2644"
+  },
+  {
+    "path": "./Completed Progress missions.e7537e"
+  },
+  {
+    "path": "./Completed Conquest missions.e94d25"
+  },
+  {
+    "path": "./Completed Prosperity missions.8e2b8b"
+  },
+  {
+    "path": "./Follow indicator.bd862e"
+  },
+  {
+    "path": "./Alien race placement zone.3007ae"
+  },
+  {
+    "path": "./Alien race placement zone.6c09e6"
+  },
+  {
+    "path": "./Completed Pioneering missions.d67543"
+  },
+  {
+    "path": "./Completed Conquest missions.75f22a"
+  },
+  {
+    "path": "./Completed Prosperity missions.e7853e"
+  },
+  {
+    "path": "./Completed Progress missions.884025"
+  },
+  {
+    "path": "./Point counter.29c8fa"
+  },
+  {
+    "path": "./Completed Prosperity missions.a594c0"
+  },
+  {
+    "path": "./Completed Progress missions.1957e0"
+  },
+  {
+    "path": "./Completed Conquest missions.665def"
+  },
+  {
+    "path": "./Completed Pioneering missions.1516ff"
+  },
+  {
+    "path": "./Alien race placement zone.bc0f8d"
+  },
+  {
+    "path": "./Alien race placement zone.0835c0"
+  },
+  {
+    "path": "./Follow indicator.3f0668"
+  },
+  {
+    "path": "./Point counter.2acb42"
+  },
+  {
+    "path": "./Follow indicator.414eaa"
+  },
+  {
+    "path": "./Alien race placement zone.df7e1f"
+  },
+  {
+    "path": "./Alien race placement zone.6fe106"
+  },
+  {
+    "path": "./Completed Prosperity missions.fc48f6"
+  },
+  {
+    "path": "./Completed Progress missions.deedb3"
+  },
+  {
+    "path": "./Completed Conquest missions.2e257c"
+  },
+  {
+    "path": "./Completed Pioneering missions.0a7fd5"
+  },
+  {
+    "path": "./Archive Deck.7695b8"
+  },
+  {
+    "path": "./Custom_Tile.5c968c"
+  },
+  {
+    "path": "./Gold Token Spawner.91b521"
+  },
+  {
+    "path": "./Energy Cube Spawner.7d2595"
+  },
+  {
+    "path": "./Energy Cube Spawner.572903"
+  },
+  {
+    "path": "./Gold Token Spawner.262999"
   }
 ]

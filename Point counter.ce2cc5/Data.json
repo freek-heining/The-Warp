@@ -2,15 +2,15 @@
   "GUID": "ce2cc5",
   "Name": "Counter",
   "Transform": {
-    "posX": -5.25,
-    "posY": 1.47039807,
-    "posZ": 39.29028,
-    "rotX": 0.0168754924,
-    "rotY": 179.999527,
-    "rotZ": 0.07987702,
-    "scaleX": 1.0,
+    "posX": -5.33999872,
+    "posY": 1.47210467,
+    "posZ": 44.66046,
+    "rotX": 0.016869491,
+    "rotY": 179.999176,
+    "rotZ": 0.07987734,
+    "scaleX": 1.13,
     "scaleY": 1.0,
-    "scaleZ": 1.0
+    "scaleZ": 1.13
   },
   "Nickname": "Point counter",
   "Description": "The players will take turns in clockwise order until a player reaches 9 Mission Points. After finishing the current round, this triggers the Endgame, a final 3 full rounds (1-4 players) or 2 rounds (5-6 players) commencing with the starting player.",

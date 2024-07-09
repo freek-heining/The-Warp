@@ -1,0 +1,80 @@
+{
+  "GUID": "16aac8",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": -62.2502632,
+    "posY": 1.71425712,
+    "posZ": 32.25011,
+    "rotX": 0.0798746049,
+    "rotY": 89.99147,
+    "rotZ": 359.983124,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Demo: Warp Guardian Advanced Deck",
+  "Description": "No in-game purpose. Feel free to browse",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    6800,
+    6801,
+    6802,
+    6803,
+    6804,
+    6805,
+    6806,
+    6807,
+    6808,
+    6809,
+    6810,
+    6811,
+    6812,
+    6813,
+    6814,
+    6815,
+    6816,
+    6817,
+    6818,
+    6819,
+    6820,
+    6821,
+    6822,
+    6823
+  ],
+  "CustomDeck": {
+    "68": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767398821/05E6B67BE966D0B0E54A40A30E5B1124552175AA/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003351/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 7,
+      "NumHeight": 4,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

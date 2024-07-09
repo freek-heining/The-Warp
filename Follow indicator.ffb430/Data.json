@@ -2,15 +2,15 @@
   "GUID": "ffb430",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 59.25,
-    "posY": 1.39368153,
-    "posZ": -32.25,
+    "posX": 57.75004,
+    "posY": 1.389162,
+    "posZ": -40.20002,
     "rotX": 359.983124,
-    "rotY": 1.833812E-05,
-    "rotZ": 359.920074,
-    "scaleX": 6.35,
-    "scaleY": 6.35,
-    "scaleZ": 6.35
+    "rotY": -0.000101136735,
+    "rotZ": 359.9201,
+    "scaleX": 10.0,
+    "scaleY": 5.0,
+    "scaleZ": 10.0
   },
   "Nickname": "Follow indicator",
   "Description": "Click on top to enable/disable. Used for clearity to indicate you're following a player on his/her turn.",

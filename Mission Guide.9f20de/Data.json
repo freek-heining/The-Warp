@@ -2,15 +2,15 @@
   "GUID": "9f20de",
   "Name": "Custom_PDF",
   "Transform": {
-    "posX": -58.50005,
-    "posY": 1.55511451,
-    "posZ": -26.9999962,
-    "rotX": 0.07987656,
-    "rotY": 90.0007858,
+    "posX": -57.750042,
+    "posY": 1.5525229,
+    "posZ": -32.2500534,
+    "rotX": 0.07987664,
+    "rotY": 90.00063,
     "rotZ": 359.983124,
-    "scaleX": 3.3,
+    "scaleX": 3.43012166,
     "scaleY": 1.0,
-    "scaleZ": 3.3
+    "scaleZ": 3.43012166
   },
   "Nickname": "Mission Guide",
   "Description": "",

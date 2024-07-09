@@ -11,61 +11,61 @@ local availablePlayerColors = {
 
 -- 1-6 players (position, rotation)
 local playerZonePositions = {
-    [1] = { {16.48, 1.55, -15.19}, {0.02, 180.05, 0.08} },
-    [2] = { {2.57, 1.58, -8.86}, {359.94, 240.05, 0.05} },
-    [3] = { {1.11, 1.58, 6.34}, {359.92, 299.97, 359.97} },
-    [4] = { {13.51, 1.57, 15.25}, {359.98, 359.81, 359.92} },
-    [5] = { {27.43, 1.55, 8.91}, {0.06, 60.38, 359.95} },
-    [6] = { {28.91, 1.54, -6.31}, {0.08, 119.98, 0.03} }
+    [1] = { {16.48, 1.68, -15.19}, {0.02, 180.05, 0.08} },
+    [2] = { {2.57, 1.68, -8.86}, {359.94, 240.05, 0.05} },
+    [3] = { {1.11, 1.68, 6.34}, {359.92, 299.97, 359.97} },
+    [4] = { {13.51, 1.68, 15.25}, {359.98, 359.81, 359.92} },
+    [5] = { {27.43, 1.68, 8.91}, {0.06, 60.38, 359.95} },
+    [6] = { {28.91, 1.68, -6.31}, {0.08, 119.98, 0.03} }
 }
 
 -- B sides/backside of boards
 local playerZonePositionsB = {
-    [1] = { {13.60, 1.56, -15.24}, {0.02, 179.89, 0.08} },
-    [2] = { {1.12, 1.58, -6.42}, {359.94, 239.81, 0.05} },
-    [3] = { {2.52, 1.58, 8.80}, {359.92, 299.93, 359.97} },
-    [4] = { {16.40, 1.56, 15.17}, {359.98, 359.92, 359.92} },
-    [5] = { {28.89, 1.54, 6.35}, {0.06, 59.86, 359.95} },
-    [6] = { {27.48, 1.54, -8.86}, {0.08, 119.88, 0.03} }
+    [1] = { {13.60, 1.68, -15.24}, {0.02, 179.89, 0.08} },
+    [2] = { {1.12, 1.68, -6.42}, {359.94, 239.81, 0.05} },
+    [3] = { {2.52, 1.68, 8.80}, {359.92, 299.93, 359.97} },
+    [4] = { {16.40, 1.68, 15.17}, {359.98, 359.92, 359.92} },
+    [5] = { {28.89, 1.68, 6.35}, {0.06, 59.86, 359.95} },
+    [6] = { {27.48, 1.68, -8.86}, {0.08, 119.88, 0.03} }
 }
 
 -- 2-5 players (position, rotation)
 local connectZonePositions = {
-    [2] = { {0.37, 1.58, -0.02}, {359.92, 270.21, 0.02} },
-    [3] = { {7.69, 1.57, 12.65}, {359.95, 330.04, 359.94} },
-    [4] = { {22.28, 1.55, 12.64}, {0.02, 29.89, 359.93} },
-    [5] = { {29.60, 1.54, 0.04}, {0.08, 90.08, 359.98} }
+    [2] = { {0.37, 1.68, -0.02}, {359.92, 270.21, 0.02} },
+    [3] = { {7.69, 1.68, 12.65}, {359.95, 330.04, 359.94} },
+    [4] = { {22.28, 1.68, 12.64}, {0.02, 29.89, 359.93} },
+    [5] = { {29.60, 1.68, 0.04}, {0.08, 90.08, 359.98} }
 }
 
 local portalBPositions = {
-    [2] = {3.58, 1.68, 1.84},
-    [3] = {10.78, 1.67, 10.62},
-    [4] = {22.10, 1.65, 8.72},
-    [5] = {26.67, 1.64, -1.89}
+    [2] = {3.58, 1.78, 1.84},
+    [3] = {10.78, 1.78, 10.62},
+    [4] = {22.10, 1.78, 8.72},
+    [5] = {26.67, 1.78, -1.89}
 }
 
 local connectZonePositionB = {
-    [1] = { {22.37, 1.54, -12.69}, {0.05, 150.02, 0.06} }
+    [1] = { {22.37, 1.68, -12.69}, {0.05, 150.02, 0.06} }
 }
 
 -- Players 1-6 (position, rotation)
 local energyZonePositions = {
-    [1] = {30.85, 1.53, -40.81},
-    [2] = {-12.65, 1.59, -40.81},
-    [3] = {-44.27, 1.66, 40.81},
-    [4] = {-0.74, 1.60, 40.81},
-    [5] = {42.68, 1.54, 40.81},
-    [6] = {74.35, 1.46, -40.81}
+    [1] = {30.85, 1.53, -46.12},
+    [2] = {-12.65, 1.59, -46.12},
+    [3] = {-44.27, 1.66, 46.12},
+    [4] = {-0.74, 1.60, 46.12},
+    [5] = {42.68, 1.54, 46.12},
+    [6] = {74.35, 1.46, -46.12}
 }
 
 -- Players 1-6 (position, rotation)
 local goldZonePositions = {
-    [1] = {25.47, 1.58, -40.81},
-    [2] = {-18.03, 1.64, -40.81},
-    [3] = {-38.87, 1.70, 40.81},
-    [4] = {4.61, 1.64, 40.81},
-    [5] = {48.13, 1.58, 40.81},
-    [6] = {68.97, 1.52, -40.81},
+    [1] = {25.47, 1.58, -46.12},
+    [2] = {-18.03, 1.64, -46.12},
+    [3] = {-38.87, 1.70, 46.12},
+    [4] = {4.61, 1.64, 46.12},
+    [5] = {48.13, 1.58, 46.12},
+    [6] = {68.97, 1.52, -46.12},
 }
 
 local draftZonePositionsCW = {
@@ -92,12 +92,12 @@ local draftZonePositionsCCW = {
 
 -- Left and right spot
 local alienRacePlayerZones = {
-    Red = { {21.75, 1.56, -32.25}, {30.75, 1.54, -32.25} },
-    Green = { {-21.75, 1.62, -32.25}, {-12.75, 1.60, -32.25} },
-    Purple = { {-35.25, 1.65, 32.25}, {-44.25, 1.67, 32.25} },
-    Blue = { {8.25, 1.59, 32.25}, {-0.75, 1.61, 32.25} },
-    Orange = { {51.75, 1.53, 32.25}, {42.75, 1.55, 32.25} },
-    Brown = { {65.25, 1.49, -32.25}, {74.25, 1.48, -32.25} }
+    Red = { {22.50, 1.67, -37.50}, {31.78, 1.67, -37.50} },
+    Green = { {-21.00, 1.67, -37.50}, {-11.73, 1.67, -37.50} },
+    Purple = { {-36.00, 1.67, 37.50}, {-45.29, 1.67, 37.50} },
+    Blue = { {7.50, 1.67, 37.50}, {-1.78, 1.67, 37.50} },
+    Orange = { {51.00, 1.67, 37.50}, {41.72, 1.67, 37.50} },
+    Brown = { {66.01, 1.67, -37.50}, {75.28, 1.67, -37.50} }
 }
 --#endregion
 
@@ -167,11 +167,11 @@ function onload(state)
     end
 
     --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
-    
+
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -276,7 +276,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         draftZoneCounterClockwiseObject.interactable = false
     end
 
-    local archiveDeckGUID = "6b2a67"
+    local archiveDeckGUID = "7695b8"
     local startCardDeckGUID = "ac5ebb"
     if not setupDone then
         local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
@@ -305,16 +305,16 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
 
     local alienShadowRedLGUID = "3d9c76"
     local alienShadowRedRGUID = "656ba9"
-    local alienShadowGreenLGUID = "c207c2"
-    local alienShadowGreenRGUID = "ea4eae"
-    local alienShadowPurpleLGUID = "57d762"
-    local alienShadowPurpleRGUID = "e1e3cd"
-    local alienShadowBlueLGUID = "4c4584"
-    local alienShadowBlueRGUID = "c20bac"
-    local alienShadowOrangeLGUID = "ac7bde"
-    local alienShadowOrangeRGUID = "395d2b"
-    local alienShadowBrownLGUID = "7dfdb7"
-    local alienShadowBrownRGUID = "41881e"
+    local alienShadowGreenLGUID = "8e037b"
+    local alienShadowGreenRGUID = "f176ea"
+    local alienShadowPurpleLGUID = "bc0f8d"
+    local alienShadowPurpleRGUID = "0835c0"
+    local alienShadowBlueLGUID = "3007ae"
+    local alienShadowBlueRGUID = "6c09e6"
+    local alienShadowOrangeLGUID = "df7e1f"
+    local alienShadowOrangeRGUID = "6fe106"
+    local alienShadowBrownLGUID = "384a61"
+    local alienShadowBrownRGUID = "b3aae6"
     local alienShadowRedLObject = getObjectFromGUID(alienShadowRedLGUID)
     local alienShadowRedRObject = getObjectFromGUID(alienShadowRedRGUID)
     local alienShadowGreenLObject = getObjectFromGUID(alienShadowGreenLGUID)
@@ -340,12 +340,89 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     alienShadowBrownLObject.interactable = false
     alienShadowBrownRObject.interactable = false
 
+    local progressCompletedShadowRedGUID = "14add9"
+    local prosperityCompletedShadowRedGUID = "470aa8"
+    local conquestCompletedShadowRedGUID = "470ddd"
+    local pioneeringCompletedShadowRedGUID = "90cde4"
+    local progressCompletedShadowGreenGUID = "e7537e"
+    local prosperityCompletedShadowGreenGUID = "8e2b8b"
+    local conquestCompletedShadowGreenGUID = "e94d25"
+    local pioneeringCompletedShadowGreenGUID = "fb2644"
+    local progressCompletedShadowPurpleGUID = "1957e0"
+    local prosperityCompletedShadowPurpleGUID = "a594c0"
+    local conquestCompletedShadowPurpleGUID = "665def"
+    local pioneeringCompletedShadowPurpleGUID = "1516ff"
+    local progressCompletedShadowBlueGUID = "884025"
+    local prosperityCompletedShadowBlueGUID = "e7853e"
+    local conquestCompletedShadowBlueGUID = "75f22a"
+    local pioneeringCompletedShadowBlueGUID = "d67543"
+    local progressCompletedShadowOrangeGUID = "deedb3"
+    local prosperityCompletedShadowOrangeGUID = "fc48f6"
+    local conquestCompletedShadowOrangeGUID = "2e257c"
+    local pioneeringCompletedShadowOrangeGUID = "0a7fd5"
+    local progressCompletedShadowBrownGUID = "d11665"
+    local prosperityCompletedShadowBrownGUID = "21dfde"
+    local conquestCompletedShadowBrownGUID = "8cd70d"
+    local pioneeringCompletedShadowBrownGUID = "cbf023"
+    local progressCompletedShadowRedObject = getObjectFromGUID(progressCompletedShadowRedGUID)
+    local prosperityCompletedShadowRedObject = getObjectFromGUID(prosperityCompletedShadowRedGUID)
+    local conquestCompletedShadowRedObject = getObjectFromGUID(conquestCompletedShadowRedGUID)
+    local pioneeringCompletedShadowRedObject = getObjectFromGUID(pioneeringCompletedShadowRedGUID)
+    local progressCompletedShadowGreenObject = getObjectFromGUID(progressCompletedShadowGreenGUID)
+    local prosperityCompletedShadowGreenObject = getObjectFromGUID(prosperityCompletedShadowGreenGUID)
+    local conquestCompletedShadowGreenObject = getObjectFromGUID(conquestCompletedShadowGreenGUID)
+    local pioneeringCompletedShadowGreenObject = getObjectFromGUID(pioneeringCompletedShadowGreenGUID)
+    local progressCompletedShadowPurpleObject = getObjectFromGUID(progressCompletedShadowPurpleGUID)
+    local prosperityCompletedShadowPurpleObject = getObjectFromGUID(prosperityCompletedShadowPurpleGUID)
+    local conquestCompletedShadowPurpleObject = getObjectFromGUID(conquestCompletedShadowPurpleGUID)
+    local pioneeringCompletedShadowPurpleObject = getObjectFromGUID(pioneeringCompletedShadowPurpleGUID)
+    local progressCompletedShadowBlueObject = getObjectFromGUID(progressCompletedShadowBlueGUID)
+    local prosperityCompletedShadowBlueObject = getObjectFromGUID(prosperityCompletedShadowBlueGUID)
+    local conquestCompletedShadowBlueObject = getObjectFromGUID(conquestCompletedShadowBlueGUID)
+    local pioneeringCompletedShadowBlueObject = getObjectFromGUID(pioneeringCompletedShadowBlueGUID)
+    local progressCompletedShadowOrangeObject = getObjectFromGUID(progressCompletedShadowOrangeGUID)
+    local prosperityCompletedShadowOrangeObject = getObjectFromGUID(prosperityCompletedShadowOrangeGUID)
+    local conquestCompletedShadowOrangeObject = getObjectFromGUID(conquestCompletedShadowOrangeGUID)
+    local pioneeringCompletedShadowOrangeObject = getObjectFromGUID(pioneeringCompletedShadowOrangeGUID)
+    local progressCompletedShadowBrownObject = getObjectFromGUID(progressCompletedShadowBrownGUID)
+    local prosperityCompletedShadowBrownObject = getObjectFromGUID(prosperityCompletedShadowBrownGUID)
+    local conquestCompletedShadowBrownObject = getObjectFromGUID(conquestCompletedShadowBrownGUID)
+    local pioneeringCompletedShadowBrownObject = getObjectFromGUID(pioneeringCompletedShadowBrownGUID)
+    progressCompletedShadowRedObject.interactable = false
+    prosperityCompletedShadowRedObject.interactable = false
+    conquestCompletedShadowRedObject.interactable = false
+    pioneeringCompletedShadowRedObject.interactable = false
+    progressCompletedShadowGreenObject.interactable = false
+    prosperityCompletedShadowGreenObject.interactable = false
+    conquestCompletedShadowGreenObject.interactable = false
+    pioneeringCompletedShadowGreenObject.interactable = false
+    progressCompletedShadowPurpleObject.interactable = false
+    prosperityCompletedShadowPurpleObject.interactable = false
+    conquestCompletedShadowPurpleObject.interactable = false
+    pioneeringCompletedShadowPurpleObject.interactable = false
+    progressCompletedShadowBlueObject.interactable = false
+    prosperityCompletedShadowBlueObject.interactable = false
+    conquestCompletedShadowBlueObject.interactable = false
+    pioneeringCompletedShadowBlueObject.interactable = false
+    progressCompletedShadowOrangeObject.interactable = false
+    prosperityCompletedShadowOrangeObject.interactable = false
+    conquestCompletedShadowOrangeObject.interactable = false
+    pioneeringCompletedShadowOrangeObject.interactable = false
+    progressCompletedShadowBrownObject.interactable = false
+    prosperityCompletedShadowBrownObject.interactable = false
+    conquestCompletedShadowBrownObject.interactable = false
+    pioneeringCompletedShadowBrownObject.interactable = false
+
     local guardianShadowGUID = "70bc1a"
     local exiledShadowGUID = "b19cd4"
     local guardianShadowObject = getObjectFromGUID(guardianShadowGUID)
     local exiledShadowObject = getObjectFromGUID(exiledShadowGUID)
     guardianShadowObject.interactable = false
     exiledShadowObject.interactable = false
+
+    local boardShadowGUID = "7e77de"
+    local boardShadowObject = getObjectFromGUID(boardShadowGUID)
+    boardShadowObject.interactable = false
 
     local combatCardAttack1ShadowGUID = "ed677f"
     local combatCardAttack2ShadowGUID = "68a8c0"
@@ -429,19 +506,6 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     local gameBoxGUID = "415c8a"
     local gameBoxObject = getObjectFromGUID(gameBoxGUID)
     gameBoxObject.interactable = false
-
-    -- local manualPdfGUID = "8edea1"
-    -- local strategyPdfGUID = "32af35"
-    -- local missionPdfGUID = "9f20de"
-    -- local lorePdfGUID = "ea7050"
-    -- local manualPdfObject = getObjectFromGUID(manualPdfGUID)
-    -- local strategyPdfObject = getObjectFromGUID(strategyPdfGUID)
-    -- local missionPdfObject = getObjectFromGUID(missionPdfGUID)
-    -- local lorePdfObject = getObjectFromGUID(lorePdfGUID)
-    -- manualPdfObject.interactable = false
-    -- strategyPdfObject.interactable = false
-    -- missionPdfObject.interactable = false
-    -- lorePdfObject.interactable = false
 end
 
 function StartClicked(player) -- Calls most setup functions and handles their timing/order. A lot of functions are 'chained' in other functions. See comments
@@ -573,7 +637,7 @@ function MoveHandZones(operation, moveValue) -- Move the hand zones back and for
 end
 
 function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
-    local archiveDeckGUID = "6b2a67"
+    local archiveDeckGUID = "7695b8"
     local startCardDeckGUID = "ac5ebb"
 
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
@@ -594,28 +658,28 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
 
     -- #1
     archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = 6.00},
+        position = {-24.00, 1.63, 0.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
     -- #2
     archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = 0.00},
+        position = {-24.00, 1.63, 6.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
     -- #3
     archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = -6.00},
+        position = {-24.00, 1.63, 12.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
     -- #4
     archiveDeckObject.takeObject({
-        position = {x = 55.5, y = 1.67, z = -12.00},
+        position = {-24.00, 1.63, 18.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
@@ -665,7 +729,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- Progress mission
     progressDeckObject.shuffle()
     progressDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 21.75},
+        position = {-33.00, 1.65, -21.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
@@ -674,7 +738,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- Prosperity mission
     ProsperityDeckObject.shuffle()
     ProsperityDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 15.75},
+        position = {-33.00, 1.65, -15.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
         end
@@ -683,7 +747,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- Conquest mission
     conquestDeckObject.shuffle()
     conquestDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 9.75},
+        position = {-33.00, 1.65, -9.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
@@ -692,14 +756,14 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
     -- #1 Overlord
     pioneeringDeckObject.takeObject({
-        position = {x = 66.75, y = 1.67, z = 2.25},
+        position = {-37.50, 1.65, -3.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
     -- #2 Infinite Riches
     pioneeringDeckObject.takeObject({
-        position = {x = 66.75, y = 1.67, z = -3.75},
+        position = {-37.50, 1.65, 3.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
@@ -707,7 +771,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- #3 Ascension (advanced) OR Expansion
     if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -9.75},
+            position = {-37.50, 1.65, 9.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.destruct() end)
             end
@@ -718,7 +782,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
                 if cardTag == "ascension" then
                     advancedPioneeringDeckObject.takeObject({
                         index = cardTable.index,
-                        position = {x = 66.75, y = 1.67, z = -9.75},
+                        position = {-37.50, 1.65, 9.00},
                         callback_function = function(spawnedObject)
                             Wait.frames(function() spawnedObject.flip() end)
                         end
@@ -729,7 +793,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         end
     else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -9.75},
+            position = {-37.50, 1.65, 9.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
@@ -737,14 +801,14 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     end
     -- #4 Master Trader
     pioneeringDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = 2.25},
+        position = {-33.00, 1.65, -3.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
     })
     -- #5 Civilization)
     pioneeringDeckObject.takeObject({
-        position = {x = 62.25, y = 1.67, z = -3.75},
+        position = {-33.00, 1.65, 3.00},
         callback_function = function(spawnedObject)
             Wait.frames(function() spawnedObject.flip() end)
         end
@@ -752,7 +816,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     -- #6 King of Average (advanced) OR Empire
     if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -9.75},
+            position = {-33.00, 1.65, 9.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.destruct() end)
             end
@@ -763,7 +827,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
                 if cardTag == "king" then
                     advancedPioneeringDeckObject.takeObject({
                         index = cardTable.index,
-                        position = {x = 62.25, y = 1.67, z = -9.75},
+                        position = {-33.00, 1.65, 9.00},
                         callback_function = function(spawnedObject)
                             Wait.frames(function() spawnedObject.flip() end)
                         end
@@ -774,7 +838,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         end
     else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -9.75},
+            position = {-33.00, 1.65, 9.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
@@ -786,21 +850,21 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         advancedPioneeringDeckObject.shuffle()
         -- #7
         advancedPioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -15.75},
+            position = {-37.50, 1.65, 15.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
         })
         -- #8
         advancedPioneeringDeckObject.takeObject({
-            position = {x = 66.75, y = 1.67, z = -21.75},
+            position = {-33.00, 1.65, 15.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
         })
         -- #9
         advancedPioneeringDeckObject.takeObject({
-            position = {x = 62.25, y = 1.67, z = -15.75},
+            position = {-33.00, 1.65, 21.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
@@ -810,8 +874,10 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
             -- Destroy remaining card(s)
             local objects = pioneeringScriptingZoneObject.getObjects()
             for _, object in pairs(objects) do
-                object.destruct()
-            end     
+                if object.type == "Card" then
+                    object.destruct()
+                end
+            end
         end, 1)
 
     else
@@ -917,7 +983,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         if alternativeSetup then
             portalObject.setPositionSmooth(portalBPositions[playerCount], false, false)
         else
-            portalObject.setPositionSmooth({20.26, 1.65, -11.48}, false, false)
+            portalObject.setPositionSmooth({20.26, 1.78, -11.48}, false, false)
         end
     else
         connectZoneObject.destruct()
@@ -1311,7 +1377,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
 
     -- Left Exile
     alienPlayDeckObject.takeObject({
-        position = {x = -51.41, y = 1.67, z = 5.25},
+        position = {-49.16, 1.66, 4.50},
         callback_function = function(spawnedObject)
             Wait.time(function() spawnedObject.flip() end, 1)
             Wait.time(function() spawnedObject.setLock(true) end, 3)
@@ -1320,7 +1386,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
     
     -- Right Exile
     alienPlayDeckObject.takeObject({
-        position = {x = -51.41, y = 1.67, z = 12.75},
+        position = {-49.16, 1.67, 12.00},
         callback_function = function(spawnedObject)
             Wait.time(function() spawnedObject.flip() end, 1)
             Wait.time(function() spawnedObject.setLock(true) end, 3)
@@ -1336,11 +1402,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                 spawnedObject.locked = true
                 spawnedObject.createButton({
                     click_function = "DraftZoneCounterClockwiseClicked",
-                    width = 800,
+                    width = 1000,
                     height = 300,
                     position = {0,0,1.9},
                     color = turnOrderTable[playerCount],
-                    label = "Choose",
+                    label = turnOrderTable[playerCount] .. " choose",
                     font_size = 140,
                     font_color = "White",
                     tooltip = "Press to choose this Alien race & pass turn to the player on your right"
@@ -1355,11 +1421,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                 spawnedObject.locked = true
                 spawnedObject.createButton({
                     click_function = "DraftZoneClockwiseClicked",
-                    width = 800,
+                    width = 1000,
                     height = 300,
                     position = {0,0,1.9},
                     color = turnOrderTable[1],
-                    label = "Choose",
+                    label = turnOrderTable[1] .. " choose",
                     font_size = 140,
                     font_color = "White",
                     tooltip = "Press to choose this Alien Race & pass turn to the player on your left"
@@ -1636,7 +1702,7 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
             broadcastToAll("'" .. chosenGuardianName .. "' is chosen to be the Warp Guardian.")
 
             obj.removeButton(0)
-            obj.setPositionSmooth({-51.41, 1.66, -9.00}, false, false) -- Move to Guardian spot on table
+            obj.setPositionSmooth({-49.16, 1.66, -11.25}, false, false) -- Move to Guardian spot on table
 
             -- Destroy remaining cards (after 3 seconds)
             Wait.time(function ()
@@ -1665,11 +1731,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                     end
                 end
             
-                -- Take corresponding guardian from deck to place over the chosen alien card
+                -- Take corresponding guardian from deck to place over the chosen alien card. (y=1.80 /higher)
                 if guardianGUID then
                     guardianPlayDeckObject.takeObject({
                         guid = guardianGUID,
-                        position = {-51.41, 1.80, -9.00},
+                        position = {-49.16, 1.80, -11.25},
                         callback_function = function(chosenGuardian)
                             Wait.time(function ()
                                 chosenGuardian.setLock(true) -- Lock guardian after 2 seconds
@@ -1783,169 +1849,6 @@ function onPlayerAction(player, action, targets)
         flippedObject.tooltip = true
         broadcastToAll(player.color .. " player flipped the exile token: " .. "'" .. flippedObject.getName() .. "'.")
     end
-end
-
-
-local function setUi2(object)
-    local ui = {
-        {
-            tag="ToggleGroup",
-            attributes={
-                width="40",
-                height="130",
-                position="-95 -30 -200",
-                allowSwitchOff=true,
-            },
-            children={
-                {
-                    tag="VerticalLayout",
-                    attributes={
-                        childAlignment="MiddleCenter",
-                        spacing="0",
-                    },
-                    children={
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio1",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio2",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                    }
-                }
-            }
-        }
-    }
-    object.UI.setXmlTable(ui)
-
-    -- We need to set value with code, for other players to see the chosen value
-    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
-    object.setLuaScript(cardScript)
-end
-  
-local function setUi3(object)
-    local ui = {
-        {
-            tag="ToggleGroup",
-            attributes={
-                width="40",
-                height="150",
-                position="-95 2 -30",
-                allowSwitchOff=true,
-            },
-            children={
-                {
-                    tag="VerticalLayout",
-                    attributes={
-                        childAlignment="MiddleCenter",
-                        spacing="38",
-                    },
-                    children={
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio1",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio2",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio3",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                    }
-                }
-            }
-        }
-    }
-    object.UI.setXmlTable(ui)
-
-    -- We need to set value with code, for other players to see the chosen value
-    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
-    object.setLuaScript(cardScript)
-end
-
-local function setUi4(object)
-    local ui = {
-        {
-            tag="ToggleGroup",
-            attributes={
-                width="40",
-                height="150",
-                position="-95 28 -30",
-                allowSwitchOff=true,
-            },
-            children={
-                {
-                    tag="VerticalLayout",
-                    attributes={
-                        childAlignment="MiddleCenter",
-                        spacing="1",
-                    },
-                    children={
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio1",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio2",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                        {
-                            tag="Toggle",
-                            attributes={
-                                id="radio3",
-                                onValueChanged="radioClicked",
-                                toggleWidth="25",
-                                toggleHeight="25",
-                            },
-                        },
-                    }
-                }
-            }
-        }
-    }
-    object.UI.setXmlTable(ui)
-
-    -- We need to set value with code, for other players to see the chosen value
-    local cardScript = "function radioClicked(player, value, id) self.UI.setAttribute(id, \"isOn\", value) end"
-    object.setLuaScript(cardScript)    
 end
 
 
