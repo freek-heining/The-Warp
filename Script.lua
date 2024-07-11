@@ -1640,7 +1640,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                     startLuaCoroutine(Global, "GrabMatchingGuardianCounterclockwiseCoroutine")
 
                 elseif object.type == "Card" then -- Change all buttons color to next player in line's color
-                    object.editButton({index=0, color=turnOrderTable[counterClockwiseCounter]}) 
+                    object.editButton({
+                        index=0, 
+                        color=turnOrderTable[counterClockwiseCounter],
+                        label=turnOrderTable[counterClockwiseCounter] .. " choose",
+                    })
                 end
             end
             
@@ -1702,7 +1706,11 @@ function DealAliensCoroutine() -- Handles the alien/guardian drafting. Also call
                     startLuaCoroutine(Global, "GrabMatchingGuardianClockwiseCoroutine")
 
                 elseif object.type == "Card" then -- Change all buttons color to next player in line's color
-                    object.editButton({index=0, color=turnOrderTable[clockwiseCounter]})
+                    object.editButton({
+                        index=0, 
+                        color=turnOrderTable[clockwiseCounter],
+                        label=turnOrderTable[clockwiseCounter] .. " choose",
+                    })
                 end
             end
 
