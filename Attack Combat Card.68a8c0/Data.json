@@ -2,11 +2,11 @@
   "GUID": "68a8c0",
   "Name": "Custom_Token",
   "Transform": {
-    "posX": 63.0000572,
+    "posX": 63.0000877,
     "posY": 1.4494226,
-    "posZ": 19.4999943,
+    "posZ": 19.5000172,
     "rotX": 359.983124,
-    "rotY": 0.004437332,
+    "rotY": 0.00425495254,
     "rotZ": 359.920135,
     "scaleX": 1.53204679,
     "scaleY": 1.0,
@@ -51,5 +51,19 @@
       "StandUp": false,
       "Stackable": false
     }
-  }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": -7.07348E-05,
+        "y": 0.0476325825,
+        "z": 1.91101371E-05
+      },
+      "Rotation": {
+        "x": -8.01444548E-06,
+        "y": 0.0002490994,
+        "z": 180.0
+      }
+    }
+  ]
 }

@@ -1,72 +1,33 @@
 [
   {
-    "path": "./Elite....cdfe3c"
-  },
-  {
-    "path": "./Build....1f7418"
-  },
-  {
-    "path": "./Pincer....e84b39"
-  },
-  {
-    "path": "./Maneuver....bab2ad"
-  },
-  {
-    "path": "./Enforce....6060ad"
-  },
-  {
-    "path": "./Enforce....91c6dd"
-  },
-  {
-    "path": "./Build....74ceed"
-  },
-  {
-    "path": "./Build....93c2e6"
-  },
-  {
-    "path": "./Build....b8e8cd"
-  },
-  {
-    "path": "./Build....5acd45"
-  },
-  {
-    "path": "./Build....2a9f59"
-  },
-  {
-    "path": "./Ambush....aa9e3d"
-  },
-  {
-    "path": "./Build....6f0b15"
-  },
-  {
-    "path": "./Upgrade....1b19ce"
-  },
-  {
-    "path": "./Deceive....71b5d1"
-  },
-  {
-    "path": "./Upgrade....207ac2"
-  },
-  {
-    "path": "./Upgrade....194396"
+    "path": "./Build....59b46f"
   },
   {
     "path": "./Build....67e478"
   },
   {
-    "path": "./Upgrade....98f7d6"
+    "path": "./Upgrade....cc84c3"
+  },
+  {
+    "path": "./Build....9000e6"
+  },
+  {
+    "path": "./Build....c87940"
   },
   {
     "path": "./Reinforce....899ffa"
   },
   {
-    "path": "./Maneuver....49a95e"
+    "path": "./Maneuver....bab2ad"
   },
   {
-    "path": "./Build....cd7dda"
+    "path": "./Elite....b02682"
   },
   {
-    "path": "./Upgrade....67fb74"
+    "path": "./Build....a47929"
+  },
+  {
+    "path": "./Pincer....e84b39"
   },
   {
     "path": "./Upgrade....21644d"
@@ -75,108 +36,147 @@
     "path": "./Build....994731"
   },
   {
-    "path": "./Jetpack....dc9409"
-  },
-  {
-    "path": "./Upgrade....93d85d"
-  },
-  {
-    "path": "./Upgrade....cc84c3"
-  },
-  {
-    "path": "./Build....175bc3"
-  },
-  {
-    "path": "./Upgrade....9dc65a"
-  },
-  {
-    "path": "./Ambush....c90220"
-  },
-  {
-    "path": "./Enforce....e9e19b"
-  },
-  {
-    "path": "./Jetpack....238c5a"
-  },
-  {
-    "path": "./Build....68e80e"
-  },
-  {
-    "path": "./Defect....fd707e"
-  },
-  {
-    "path": "./Build....ac3cfe"
-  },
-  {
-    "path": "./Maneuver....21acae"
-  },
-  {
-    "path": "./Build....8c5951"
-  },
-  {
-    "path": "./Upgrade....f8d784"
-  },
-  {
-    "path": "./Build....9000e6"
-  },
-  {
-    "path": "./Deceive....39c500"
-  },
-  {
-    "path": "./Pincer....0d7ac1"
-  },
-  {
-    "path": "./Build....c87940"
-  },
-  {
-    "path": "./Build....a47929"
-  },
-  {
-    "path": "./Build....6cd773"
-  },
-  {
-    "path": "./Build....59b46f"
-  },
-  {
-    "path": "./Elite....b02682"
-  },
-  {
-    "path": "./Upgrade....132fff"
+    "path": "./Build....876f4e"
   },
   {
     "path": "./Upgrade....d5e01e"
   },
   {
-    "path": "./Upgrade....04fd1e"
+    "path": "./Build....e7c6d2"
   },
   {
     "path": "./Upgrade....66f1e1"
   },
   {
-    "path": "./Reinforce....954c65"
+    "path": "./Upgrade....98f7d6"
   },
   {
-    "path": "./Build....876f4e"
+    "path": "./Maneuver....21acae"
   },
   {
     "path": "./Defect....936c79"
   },
   {
-    "path": "./Build....e7c6d2"
+    "path": "./Build....5aac85"
   },
   {
-    "path": "./Build....5aac85"
+    "path": "./Enforce....6060ad"
+  },
+  {
+    "path": "./Elite....cdfe3c"
+  },
+  {
+    "path": "./Jetpack....238c5a"
+  },
+  {
+    "path": "./Upgrade....f8d784"
+  },
+  {
+    "path": "./Maneuver....49a95e"
+  },
+  {
+    "path": "./Build....ac3cfe"
+  },
+  {
+    "path": "./Build....b8e8cd"
   },
   {
     "path": "./Build....e4dd50"
   },
   {
+    "path": "./Build....2a9f59"
+  },
+  {
+    "path": "./Build....175bc3"
+  },
+  {
+    "path": "./Upgrade....132fff"
+  },
+  {
+    "path": "./Build....cd7dda"
+  },
+  {
     "path": "./Reinforce....e450d4"
+  },
+  {
+    "path": "./Upgrade....9dc65a"
   },
   {
     "path": "./Upgrade....17efa3"
   },
   {
+    "path": "./Enforce....91c6dd"
+  },
+  {
+    "path": "./Build....6f0b15"
+  },
+  {
+    "path": "./Upgrade....207ac2"
+  },
+  {
+    "path": "./Upgrade....1b19ce"
+  },
+  {
+    "path": "./Upgrade....04fd1e"
+  },
+  {
+    "path": "./Deceive....71b5d1"
+  },
+  {
+    "path": "./Ambush....c90220"
+  },
+  {
+    "path": "./Deceive....39c500"
+  },
+  {
+    "path": "./Jetpack....dc9409"
+  },
+  {
+    "path": "./Pincer....0d7ac1"
+  },
+  {
+    "path": "./Upgrade....194396"
+  },
+  {
+    "path": "./Upgrade....93d85d"
+  },
+  {
+    "path": "./Build....6cd773"
+  },
+  {
+    "path": "./Build....93c2e6"
+  },
+  {
+    "path": "./Upgrade....67fb74"
+  },
+  {
+    "path": "./Build....5acd45"
+  },
+  {
     "path": "./Upgrade....9cccdd"
+  },
+  {
+    "path": "./Build....8c5951"
+  },
+  {
+    "path": "./Enforce....e9e19b"
+  },
+  {
+    "path": "./Build....68e80e"
+  },
+  {
+    "path": "./Ambush....aa9e3d"
+  },
+  {
+    "path": "./Build....74ceed"
+  },
+  {
+    "path": "./Defect....fd707e"
+  },
+  {
+    "path": "./Reinforce....954c65"
+  },
+  {
+    "path": "./Build....1f7418"
   }
 ]

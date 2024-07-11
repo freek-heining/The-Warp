@@ -2,12 +2,12 @@
   "GUID": "72aa70",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -1.8503865,
+    "posX": -1.85038626,
     "posY": 1.56877184,
     "posZ": -48.1522331,
     "rotX": 359.923981,
-    "rotY": 270.016785,
-    "rotZ": 0.0187076572,
+    "rotY": 270.0168,
+    "rotZ": 0.01870919,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3
