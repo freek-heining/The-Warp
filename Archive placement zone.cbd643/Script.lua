@@ -16,6 +16,50 @@ local archiveScripting3ZoneObject = getObjectFromGUID(archiveScripting3ZoneGUID)
 local archiveScripting4ZoneGUID = "5b418e"
 local archiveScripting4ZoneObject = getObjectFromGUID(archiveScripting4ZoneGUID)
 
+function SetButton(buttonState)
+    self.UI.setAttribute("replenishButton", "interactable", buttonState)
+    if buttonState then
+        self.UI.setAttribute("replenishButton", "textColor", "#FFFFFF")
+    else
+        self.UI.setAttribute("replenishButton", "textColor", "#292929")
+    end
+end
+
+-- Load lastCardObject/archiveDeckObject
+function onLoad(state)
+    -- JSON decode our saved state
+    local decodedState = JSON.decode(state)
+    log(decodedState)
+
+    if decodedState then
+        lastCardObject = getObjectFromGUID(decodedState.guids.lastCardObject)
+        archiveDeckObject = getObjectFromGUID(decodedState.guids.archiveDeckObject)
+    end
+end
+
+-- Save lastCardObject/archiveDeckObject in case of reloading or rewinding.
+function onSave()
+    local state
+
+    if lastCardObject ~= nil then
+        state = {
+            guids = {
+                lastCardObject = lastCardObject.guid,
+                archiveDeckObject = nill
+            }
+        }
+    elseif archiveDeckObject ~= nil then
+        state = {
+            guids = {
+                lastCardObject = nil,
+                archiveDeckObject = archiveDeckObject.guid
+            }
+        }
+    end
+
+    return JSON.encode(state)
+end
+
 -- Check if card or deck present in scripting zone = true
 local function checkCardsPresent(scriptingZone)
     for _, object in pairs(scriptingZone.getObjects()) do
@@ -364,7 +408,8 @@ end
 -- Starts ReplenishSpotsCoroutine initially
 function ReplenishClicked()
     -- Prevents button spam
-    self.UI.setAttribute("replenishButton", "interactable", false) 
+    self.UI.setAttribute("replenishButton", "interactable", false)
+    self.UI.setAttribute("replenishButton", "textColor", "#292929")
     Wait.time(function ()
         self.UI.setAttribute("replenishButton", "interactable", true)
         self.UI.setAttribute("replenishButton", "textColor", "#FFFFFF")

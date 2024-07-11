@@ -153,7 +153,6 @@ function onload(state)
 
     -- JSON decode our saved state
     local decodedState = JSON.decode(state)
-    log(decodedState)
 
     if decodedState then
         playerCount = decodedState.variables.playerCount
@@ -166,12 +165,12 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
 
-    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if not setupDone then
-        --MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
+        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
     else
         UI.setAttribute("setupWindow", "active", false)
     end
@@ -187,10 +186,17 @@ function onSave()
             turnOrderTable = turnOrderTable
         }
     }
+
     return JSON.encode(state)
 end
 
-function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false
+function SetInteractableFalse() -- Initially sets a whole bunch of objects to interactable = false. setupDone for reloading issues.
+    local archivePlacementZoneGUID = "cbd643"
+    if not setupDone then
+        local archivePlacementZoneObject = getObjectFromGUID(archivePlacementZoneGUID)
+        archivePlacementZoneObject.call("SetButton", false)
+    end
+
     local abilityTokenBagGUID = "e98136"
     if not setupDone then
         local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
@@ -277,7 +283,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     end
 
     local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "ac5ebb"
+    local startCardDeckGUID = "97c815"
     if not setupDone then
         local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
         local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
@@ -486,8 +492,8 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     missionShadow5Object.interactable = false
     missionShadow6Object.interactable = false
 
-    if not setupDone then
     -- Advanced Pioneering shadows
+    if not setupDone then
         local missionShadow7GUID = "83ab9a"
         local missionShadow8GUID = "a73c21"
         local missionShadow9GUID = "d6524d"
@@ -638,16 +644,26 @@ end
 
 function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
     local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "ac5ebb"
-
+    local startCardDeckGUID = "97c815"
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
-    -- Deal 1 start card to each player
+    -- Deal 1 start card to each player and remove the remaining
     for i = 1, playerCount do
         startCardDeckObject.deal(1, turnOrderTable[i])
     end
-    startCardDeckObject.destruct()
+
+    for _ = 1, 20 do
+        coroutine.yield(0)
+    end
+
+    local archiveDiscardScriptingZoneGUID = "9198fd"
+    local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
+    for _, object in pairs(archiveDiscardScriptingZoneObject.getObjects()) do
+        if object.type == "Card" or object.type == "Deck" then
+            object.destruct()
+        end
+    end
 
     for _ = 1, 100 do
         coroutine.yield(0)
@@ -705,6 +721,11 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
     end
 
     archiveDeckObject.interactable = true
+
+    -- Re-enable replenish button
+    local archivePlacementZoneGUID = "cbd643"
+    local archivePlacementZoneObject = getObjectFromGUID(archivePlacementZoneGUID)
+    archivePlacementZoneObject.call("SetButton", true)
 
     return 1
 end
