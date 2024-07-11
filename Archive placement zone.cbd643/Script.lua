@@ -29,9 +29,38 @@ local function checkCardsPresent(scriptingZone)
     return false
 end
 
- -- Check if Archive deck is empty and discard pile has cards. If so, recreate new deck from discard pile
- local function checkDeckEmptyAndRecreate()
-    if not checkCardsPresent(archiveDeckScriptingZoneObject) and checkCardsPresent(archiveDiscardScriptingZoneObject) then
+-- Check if Archive deck is empty and discard pile has cards. If so, recreate new deck from discard pile.
+-- We filter our card and deck types from other retrieved objects!
+local waitId
+local function checkDeckEmptyAndRecreate()
+    -- Check for last card from deck and set it, or re-set deck object to be sure.
+    if checkCardsPresent(archiveDeckScriptingZoneObject) then
+        for _, object in pairs(archiveDeckScriptingZoneObject.getObjects()) do
+            -- 1 card on deck, card(s) on discard
+            if object.type == "Card" and checkCardsPresent(archiveDiscardScriptingZoneObject) then
+                -- Set last card of deck to use
+                lastCardObject = object
+                archiveDeckObject = nil
+            -- 1 card on deck, 0 cards on discard
+            elseif object.type == "Card" and not checkCardsPresent(archiveDiscardScriptingZoneObject) then
+                -- Prevents message spam
+                if waitId then
+                    Wait.stop(waitId)
+                    waitId = nil
+                end
+                waitId = Wait.time(function()broadcastToAll("Not enough Archive cards found on discard and/or deck spot! Please place all Archive cards on the correct spots and try again...", "Red") end, 0.4)
+                -- Set last card of deck to use
+                lastCardObject = object
+                archiveDeckObject = nil
+            -- Deck present
+            elseif object.type == "Deck" then
+                -- Set new deck object
+                archiveDeckObject = object
+                lastCardObject = nil
+            end
+        end
+    -- Empty deck spot and card(s) on discard pile. Should always be a deck on discard.
+    elseif not checkCardsPresent(archiveDeckScriptingZoneObject) and checkCardsPresent(archiveDiscardScriptingZoneObject) then
         for _, object in pairs(archiveDiscardScriptingZoneObject.getObjects()) do
             -- Only 1 card in discard, should not happen when deck is empty
             if object.type == "Card" then
@@ -42,8 +71,8 @@ end
                 return true
             -- Discard deck is present
             elseif object.type == "Deck" then
-                object.flip()
                 object.shuffle()
+                object.flip()
                 object.setPositionSmooth({-24.00, 1.92, -10.50}, false, false)
                 
                 -- Set new deck object
@@ -54,7 +83,12 @@ end
         end
     -- Empty discard and deck spots. This should never happen unless of wrong player behavior
     elseif not checkCardsPresent(archiveDeckScriptingZoneObject) and not checkCardsPresent(archiveDiscardScriptingZoneObject) then
-        broadcastToAll("No Archive cards found on discard and deck spot! Please place all Archive cards on the correct spots and try again...", "Red")
+        -- Prevents message spam
+        if waitId then
+            Wait.stop(waitId)
+            waitId = nil
+        end
+        waitId = Wait.time(function() broadcastToAll("Not enough Archive cards found on discard and/or deck spot! Please place all Archive cards on the correct spots and try again...", "Red") end, 0.)
     end
 
     return false
@@ -136,7 +170,7 @@ function ResetArchiveCoroutine()
     end
 
     if archiveDeckObject ~= nil then
-        for _ = 1, 250 do
+        for _ = 1, 200 do
             coroutine.yield(0)
         end
 
@@ -204,37 +238,17 @@ local function checkAllSameType()
     end
 end
 
--- Check for last card from deck and set it. Or re-set deck object to be sure. We filter our card and deck types from other retrieved objects!
-local function setDeckOrLastCard()
-    for _, object in pairs(archiveDeckScriptingZoneObject.getObjects()) do
-        if object.type == "Card" then
-            -- Set last card of deck to use
-            log("set card")
-            lastCardObject = object
-            archiveDeckObject = nil
-        elseif object.type == "Deck" then
-            -- Set new deck object
-            log("set deck")
-            archiveDeckObject = object
-            lastCardObject = nil
-        end
-    end
-end
-
 -- Checks all 4 spots if empty and refills them. Then after delay, check if all are same type with checkAllSameType(), only when replenished
 function ReplenishSpotsCoroutine()
     local replenished = false
 
-    -- #1 Check if empty and deck to draw from. If so, replenish and recreate if needed.
+    -- #1 Check if empty and deck to draw from, or last card. If empty, replenish and recreate if needed. 
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 250 do
+        for _ = 1, 280 do
             coroutine.yield(0)
         end
     end
-
-    -- Check for last card from deck each spot. (Deck stops existing then)
-    setDeckOrLastCard()
 
     if not checkCardsPresent(archiveScripting1ZoneObject) then
         if archiveDeckObject ~= nil then
@@ -245,7 +259,9 @@ function ReplenishSpotsCoroutine()
             replenished = true
         elseif lastCardObject ~= nil then
             lastCardObject.setPosition({-24.00, 3.00, 0.00})
-            Wait.frames(function() lastCardObject.flip() end, 10)
+            for _ = 1, 10 do coroutine.yield(0) end
+            lastCardObject.flip()
+            lastCardObject = nil
             replenished = true
         end
 
@@ -254,16 +270,13 @@ function ReplenishSpotsCoroutine()
         end
     end
 
-    -- #2 Check if empty and deck to draw from. If so, replenish and recreate if needed.
+    -- #2
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 250 do
+        for _ = 1, 280 do
             coroutine.yield(0)
         end
     end
-
-    -- Check for last card from deck each spot. (Deck stops existing then)
-    setDeckOrLastCard()
 
     if not checkCardsPresent(archiveScripting2ZoneObject) then
         if archiveDeckObject ~= nil then
@@ -274,7 +287,9 @@ function ReplenishSpotsCoroutine()
             replenished = true
         elseif lastCardObject ~= nil then
             lastCardObject.setPosition({-24.00, 1.63, 6.00})
-            Wait.frames(function() lastCardObject.flip() end, 10)
+            for _ = 1, 10 do coroutine.yield(0) end
+            lastCardObject.flip()
+            lastCardObject = nil
             replenished = true
         end
 
@@ -283,16 +298,13 @@ function ReplenishSpotsCoroutine()
         end
     end
 
-    -- #3 Check if empty and deck to draw from. If so, replenish and recreate if needed.
+    -- #3
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 250 do
+        for _ = 1, 280 do
             coroutine.yield(0)
         end
     end
-
-    -- Check for last card from deck each spot. (Deck stops existing then)
-    setDeckOrLastCard()
 
     if not checkCardsPresent(archiveScripting3ZoneObject) then
         if archiveDeckObject ~= nil then
@@ -303,7 +315,9 @@ function ReplenishSpotsCoroutine()
             replenished = true
         elseif lastCardObject ~= nil then
             lastCardObject.setPosition({-24.00, 1.63, 12.00})
-            Wait.frames(function() lastCardObject.flip() end, 10)
+            for _ = 1, 10 do coroutine.yield(0) end
+            lastCardObject.flip()
+            lastCardObject = nil
             replenished = true
         end
 
@@ -312,16 +326,13 @@ function ReplenishSpotsCoroutine()
         end
     end
 
-    -- #4 Check if empty and deck to draw from. If so, replenish and recreate if needed.
+    -- #4
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 250 do
+        for _ = 1, 280 do
             coroutine.yield(0)
         end
     end
-
-    -- Check for last card from deck each spot. (Deck stops existing then)
-    setDeckOrLastCard()
 
     if not checkCardsPresent(archiveScripting4ZoneObject) then
         if archiveDeckObject ~= nil then
@@ -332,7 +343,9 @@ function ReplenishSpotsCoroutine()
             replenished = true
         elseif lastCardObject ~= nil then
             lastCardObject.setPosition({-24.00, 1.63, 18.00})
-            Wait.frames(function() lastCardObject.flip() end, 10)
+            for _ = 1, 10 do coroutine.yield(0) end
+            lastCardObject.flip()
+            lastCardObject = nil
             replenished = true
         end
     end
@@ -350,6 +363,13 @@ end
 
 -- Starts ReplenishSpotsCoroutine initially
 function ReplenishClicked()
+    -- Prevents button spam
+    self.UI.setAttribute("replenishButton", "interactable", false) 
+    Wait.time(function ()
+        self.UI.setAttribute("replenishButton", "interactable", true)
+        self.UI.setAttribute("replenishButton", "textColor", "#FFFFFF")
+    end, 4)
+
     startLuaCoroutine(self, "ReplenishSpotsCoroutine")
 end
 
