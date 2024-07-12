@@ -91,7 +91,7 @@
     useGlobalCellPadding="false"
     width="1860"
     height="330"
-    cellBackgroundColor = "white"
+    cellBackgroundColor = "clear"
     position="0 0 0"
     rotation="0 0 -90"
     cellSpacing="30"

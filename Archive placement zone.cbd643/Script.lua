@@ -80,12 +80,12 @@ local function checkDeckEmptyAndRecreate()
     -- Check for last card from deck and set it, or re-set deck object to be sure.
     if checkCardsPresent(archiveDeckScriptingZoneObject) then
         for _, object in pairs(archiveDeckScriptingZoneObject.getObjects()) do
-            -- 1 card on deck, card(s) on discard
+            -- 1 card on deck, card(s) on discard. Set lastCard object.
             if object.type == "Card" and checkCardsPresent(archiveDiscardScriptingZoneObject) then
                 -- Set last card of deck to use
                 lastCardObject = object
                 archiveDeckObject = nil
-            -- 1 card on deck, 0 cards on discard
+            -- 1 card on deck, 0 cards on discard. Set lastCard object.
             elseif object.type == "Card" and not checkCardsPresent(archiveDiscardScriptingZoneObject) then
                 -- Prevents message spam
                 if waitId then
@@ -96,7 +96,7 @@ local function checkDeckEmptyAndRecreate()
                 -- Set last card of deck to use
                 lastCardObject = object
                 archiveDeckObject = nil
-            -- Deck present
+            -- Archive deck present. Set archiveDeckObject.
             elseif object.type == "Deck" then
                 -- Set new deck object
                 archiveDeckObject = object
@@ -112,6 +112,10 @@ local function checkDeckEmptyAndRecreate()
                 object.flip()
                 object.setPositionSmooth({-24.00, 1.92, -10.50}, false, false)
                 
+                -- Set last card of deck to use
+                lastCardObject = object
+                archiveDeckObject = nil
+
                 return true
             -- Discard deck is present
             elseif object.type == "Deck" then
@@ -121,6 +125,7 @@ local function checkDeckEmptyAndRecreate()
                 
                 -- Set new deck object
                 archiveDeckObject = object
+                lastCardObject = nil
                 
                 return true
             end
@@ -418,32 +423,39 @@ function ReplenishClicked()
     startLuaCoroutine(self, "ReplenishSpotsCoroutine")
 end
 
--- Automates Archive discarding and makes them all face-up
+local moveWaitId
+local flipWaitId
+-- Automates Archive discarding and makes them all tidy face-up and straight
 function onObjectEnterZone(zone, object)
     if zone.guid == "9198fd" and (object.type == "Card" or object.type == "Deck") then
         local objectPosition = object.getPosition()
         local objectYPosition = tonumber(objectPosition.y)
+        local objectRotation = object.getRotation()
 
         -- Only activate when dragging/holding cards from hand
-        if objectYPosition > 2.2 and object.type == "Card" then
-            MoveWaitId = Wait.time(function ()
-                object.setPositionSmooth({-24.00, 3.00, -19.50}, false, false)
-            end, 0.4)
+        if objectYPosition > 2.2 and object.type == "Card" or object.type == "Deck" then
+            moveWaitId = Wait.time(function ()
+                object.setPositionSmooth({-24.00, 3.00, -19.50}, false, true)
+                object.setRotationSmooth({x = objectRotation.x, y = 90, z = objectRotation.z}, false, true)
+            end, 0.8)
         end
 
-        if object.is_face_down then
-            Wait.time(function ()
+        if object.is_face_down and (object.type == "Card" or object.type == "Deck") then
+            flipWaitId = Wait.time(function ()
                 object.flip()
-            end, 1)
+            end, 1.5)
         end
     end
 end
 
--- Stops the scheduled motion when manually drawing card from discard. Or we can't draw anymore if we wanted.
+-- Stops the scheduled motion or flip when manually drawing card from discard. Or we can't draw anymore if we wanted.
 function onObjectLeaveZone(zone, object)
-    if zone.guid == "9198fd" and object.type == "Card" then
-        if MoveWaitId then
-            Wait.stop(MoveWaitId)
+    if zone.guid == "9198fd" and (object.type == "Card" or object.type == "Deck") then
+        if moveWaitId ~= nil then
+            Wait.stop(moveWaitId)
+        end
+        if flipWaitId ~= nil then
+            Wait.stop(flipWaitId)
         end
     end
 end

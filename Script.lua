@@ -648,21 +648,19 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
-    -- Deal 1 start card to each player and remove the remaining
-    for i = 1, playerCount do
-        startCardDeckObject.deal(1, turnOrderTable[i])
-    end
+    -- Move away scripting zone temporarily, or it will interfere with dealing cards
+    local archiveDiscardScriptingZoneGUID = "9198fd"
+    local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
+    local zonePosition = archiveDiscardScriptingZoneObject.getPosition()
+    archiveDiscardScriptingZoneObject.setPosition({zonePosition.x, zonePosition.y + 100, zonePosition.z})
 
     for _ = 1, 20 do
         coroutine.yield(0)
     end
 
-    local archiveDiscardScriptingZoneGUID = "9198fd"
-    local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
-    for _, object in pairs(archiveDiscardScriptingZoneObject.getObjects()) do
-        if object.type == "Card" or object.type == "Deck" then
-            object.destruct()
-        end
+    -- Deal 1 start card to each player 
+    for i = 1, playerCount do
+        startCardDeckObject.deal(1, turnOrderTable[i])
     end
 
     for _ = 1, 100 do
@@ -717,6 +715,23 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
             for _ = 1, 100 do
                 coroutine.yield(0)
             end
+        end
+    end
+
+    -- Move back scripting zone.
+    zonePosition = archiveDiscardScriptingZoneObject.getPosition()
+    archiveDiscardScriptingZoneObject.setPosition({zonePosition.x, zonePosition.y - 100, zonePosition.z})
+
+    for _ = 1, 20 do
+        coroutine.yield(0)
+    end
+
+    -- Remove remaining start cards
+    local archiveDiscardScriptingZoneGUID = "9198fd"
+    local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
+    for _, object in pairs(archiveDiscardScriptingZoneObject.getObjects()) do
+        if object.type == "Card" or object.type == "Deck" then
+            object.destruct()
         end
     end
 
@@ -1825,6 +1840,16 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
     local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
     local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
 
+    -- Move away scripting zone temporarily, or it will interfere with dealing cards
+    local archiveDiscardScriptingZoneGUID = "9198fd"
+    local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
+    local zonePosition = archiveDiscardScriptingZoneObject.getPosition()
+    archiveDiscardScriptingZoneObject.setPosition({zonePosition.x, zonePosition.y + 100, zonePosition.z})
+
+    for _ = 1, 20 do
+        coroutine.yield(0)
+    end
+
     for _, color in pairs(turnOrderTable) do
         progressDeckObject.deal(2, color)
         for _ = 1, 60 do
@@ -1835,6 +1860,9 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
             coroutine.yield(0)
         end
         conquestDeckObject.deal(2, color)
+        for _ = 1, 60 do
+            coroutine.yield(0)
+        end
     end
 
     broadcastToAll("Keep 3 missions of any color, and place the others back facedown on their repective draw pile. Shuffle afterwards.")
@@ -1842,6 +1870,10 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
     ProsperityDeckObject.interactable = true
     progressDeckObject.interactable = true
     conquestDeckObject.interactable = true
+
+    -- Move back scripting zone.
+    zonePosition = archiveDiscardScriptingZoneObject.getPosition()
+    archiveDiscardScriptingZoneObject.setPosition({zonePosition.x, zonePosition.y - 100, zonePosition.z})
 
     return 1
 end
