@@ -106,7 +106,7 @@
         </Cell>
         <Cell>
             <Image preserveAspect="true" image="Terrashift_Icon" width="10"/>
-            <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">11</Text>
+            <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
         </Cell>
         <Cell>
             <Image preserveAspect="true" image="Extra_Die_Icon"/>
@@ -136,7 +136,7 @@
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (9 guardian) + 1 ability + (1x +2 card) = 12 -->
-            <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="11" wholeNumbers="true"/>
+            <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (6 guardian) + 1 ability + (1x +2 card) = 9 -->

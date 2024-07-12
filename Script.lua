@@ -527,6 +527,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         broadcastToAll("Only the host can start the game!", "Red")
     elseif playerCount < 2 then
         broadcastToAll("Need 2 players minimum to start!", "Red")
+    -- Start the game
     else
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI
 
@@ -536,6 +537,29 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
             broadcastToAll("Starting the standard game with " .. playerCount .. " players. Please wait while everything is being set up!")
         end
         
+        -- Move decks to the right 6 units and remove shadows, if not using advancedPioneering
+        if not advancedPioneering then
+            -- Destroy unused mission shadows and cards/deck
+            local progressDeckGUID = "935e48"
+            local ProsperityDeckGUID = "5771e2"
+            local conquestDeckGUID = "f4ccdd"
+            local advancedPioneeringDeckGUID = "c7f175"
+            local progressDeckObject = getObjectFromGUID(progressDeckGUID)
+            local ProsperityDeckObject = getObjectFromGUID(ProsperityDeckGUID)
+            local conquestDeckObject = getObjectFromGUID(conquestDeckGUID)
+            local advancedPioneeringDeckObject = getObjectFromGUID(advancedPioneeringDeckGUID)
+            
+            advancedPioneeringDeckObject.destruct()
+            destroyObject(getObjectFromGUID("f04256"))
+            destroyObject(getObjectFromGUID("743ef0"))
+            destroyObject(getObjectFromGUID("a73c21"))
+            
+            -- Move decks
+            progressDeckObject.setPositionSmooth({-37.50, 1.65, -15.00}, false, false)
+            ProsperityDeckObject.setPositionSmooth({-37.50, 1.65, -9.00}, false, false)
+            conquestDeckObject.setPositionSmooth({-37.50, 1.65, -3.00}, false, false)
+        end
+
         -- #1: Shuffle ability bag and reward deck
         local abilityTokenBagGUID = "e98136"
         local abilityTokenBagObject = getObjectFromGUID(abilityTokenBagGUID)
@@ -761,49 +785,96 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     local pioneeringScriptingZoneGUID = "f54485"
     local pioneeringScriptingZoneObject = getObjectFromGUID(pioneeringScriptingZoneGUID)
 
-    -- Deal 3 mission cards open to table
+    -- Deal 3 mission cards open to table. When not advanced, all spots shift 1 to the right (6 units)
     -- Progress mission
     progressDeckObject.shuffle()
-    progressDeckObject.takeObject({
-        position = {-33.00, 1.65, -21.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        progressDeckObject.takeObject({
+            position = {-33.00, 1.65, -21.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        progressDeckObject.takeObject({
+            position = {-33.00, 1.65, -15.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
 
     -- Prosperity mission
     ProsperityDeckObject.shuffle()
-    ProsperityDeckObject.takeObject({
-        position = {-33.00, 1.65, -15.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
-        end
-    })
+    if advancedPioneering then
+        ProsperityDeckObject.takeObject({
+            position = {-33.00, 1.65, -15.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
+            end
+        })
+    else
+        ProsperityDeckObject.takeObject({
+            position = {-33.00, 1.65, -9.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
+            end
+        })
+    end
 
     -- Conquest mission
     conquestDeckObject.shuffle()
-    conquestDeckObject.takeObject({
-        position = {-33.00, 1.65, -9.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        conquestDeckObject.takeObject({
+            position = {-33.00, 1.65, -9.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        conquestDeckObject.takeObject({
+            position = {-33.00, 1.65, -3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
 
     -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
     -- #1 Overlord
-    pioneeringDeckObject.takeObject({
-        position = {-37.50, 1.65, -3.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        pioneeringDeckObject.takeObject({
+            position = {-37.50, 1.65, -3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        pioneeringDeckObject.takeObject({
+            position = {-37.50, 1.65, 3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+
     -- #2 Infinite Riches
-    pioneeringDeckObject.takeObject({
-        position = {-37.50, 1.65, 3.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        pioneeringDeckObject.takeObject({
+            position = {-37.50, 1.65, 3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        pioneeringDeckObject.takeObject({
+            position = {-37.50, 1.65, 9.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+
     -- #3 Ascension (advanced) OR Expansion
     if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
@@ -829,26 +900,47 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         end
     else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 9.00},
+            position = {-37.50, 1.65, 15.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
         })
     end
+
     -- #4 Master Trader
-    pioneeringDeckObject.takeObject({
-        position = {-33.00, 1.65, -3.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        pioneeringDeckObject.takeObject({
+            position = {-33.00, 1.65, -3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        pioneeringDeckObject.takeObject({
+            position = {-33.00, 1.65, 3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+
     -- #5 Civilization)
-    pioneeringDeckObject.takeObject({
-        position = {-33.00, 1.65, 3.00},
-        callback_function = function(spawnedObject)
-            Wait.frames(function() spawnedObject.flip() end)
-        end
-    })
+    if advancedPioneering then
+        pioneeringDeckObject.takeObject({
+            position = {-33.00, 1.65, 3.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    else
+        pioneeringDeckObject.takeObject({
+            position = {-33.00, 1.65, 9.00},
+            callback_function = function(spawnedObject)
+                Wait.frames(function() spawnedObject.flip() end)
+            end
+        })
+    end
+
     -- #6 King of Average (advanced) OR Empire
     if advancedPioneering then -- destroy the default card
         pioneeringDeckObject.takeObject({
@@ -874,7 +966,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         end
     else -- If not using advancedPioneering
         pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 9.00},
+            position = {-33.00, 1.65, 15.00},
             callback_function = function(spawnedObject)
                 Wait.frames(function() spawnedObject.flip() end)
             end
@@ -915,13 +1007,6 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
                 end
             end
         end, 1)
-
-    else
-        -- Destroy unused mission shadows and cards
-        advancedPioneeringDeckObject.destruct()
-        destroyObject(getObjectFromGUID("83ab9a"))
-        destroyObject(getObjectFromGUID("a73c21"))
-        destroyObject(getObjectFromGUID("d6524d"))
     end
 end
 
