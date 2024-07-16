@@ -2,18 +2,18 @@
   "GUID": "8778dd",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -57.7503281,
-    "posY": 1.57802045,
-    "posZ": 36.7500877,
-    "rotX": 359.9201,
-    "rotY": 270.002747,
-    "rotZ": 0.0168585647,
+    "posX": 68.2255859,
+    "posY": 1.40394258,
+    "posZ": 42.0003738,
+    "rotX": 359.920135,
+    "rotY": 269.967529,
+    "rotZ": 0.0169933084,
     "scaleX": 0.19,
     "scaleY": 0.19,
     "scaleZ": 0.19
   },
   "Nickname": "Trade Post",
-  "Description": "",
+  "Description": "When building a Trade Post the player may perform a Mission Card switch (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.979577363,
-    "g": 0.6524219,
-    "b": 0.1261622
+    "r": 1.0,
+    "g": 0.562454343,
+    "b": 0.038154304
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744032159/32636BBAC9497845E5C0BB5DEC32C990CE4B46C2/",
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293442092/B3A9C5A5090FE6344EFF8CD4DB7EA8538080F409/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744032392/3A9BFC78AF48FF8047654E3CA809DB2765CC6378/",
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.00785327,
       "FresnelStrength": 0.4
     },

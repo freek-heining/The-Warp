@@ -1,0 +1,69 @@
+{
+  "GUID": "884025",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 15.4625177,
+    "posY": 1.51856613,
+    "posZ": 29.2500286,
+    "rotX": 359.983124,
+    "rotY": -3.666531E-05,
+    "rotZ": 359.920135,
+    "scaleX": 1.10007524,
+    "scaleY": 1.0,
+    "scaleZ": 1.10007524
+  },
+  "Nickname": "Completed Progress missions",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2538423216314567434/54DF6D9349EC8241AC9BB56C5FF25345E9F3CAB7/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 7.66770754E-05,
+        "y": 0.04750721,
+        "z": -1.44534433E-05
+      },
+      "Rotation": {
+        "x": -1.63251082E-06,
+        "y": -1.89683833E-05,
+        "z": 180.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "GUID": "0f60a2",
+  "Name": "Card",
+  "Transform": {
+    "posX": -64.16182,
+    "posY": 1.78274012,
+    "posZ": -13.8311014,
+    "rotX": 0.0803109258,
+    "rotY": 90.00131,
+    "rotZ": 359.981934,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Sol'ca Mercenaries",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 4008,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "40": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003916/AA02614DCE7778010E66F30A0D7D6D0C97859EA9/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071362003351/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 6,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

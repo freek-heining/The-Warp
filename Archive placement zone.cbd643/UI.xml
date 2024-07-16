@@ -1,0 +1,13 @@
+<Button 
+    id="replenishButton" 
+    width="250"
+    height="180"
+    offsetXY="-346 0"
+    rotation="0 0 180"
+    fontStyle="Bold" 
+    fontSize="44" 
+    shadow="#262626d1"
+    shadowDistance="5 -5"
+    color="#04A141"
+    textColor="#FFFFFF" 
+    onClick="ReplenishClicked">Replenish Archive →</Button>

@@ -1,0 +1,63 @@
+{
+  "GUID": "9b6946",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 0.0,
+    "posY": 1.56,
+    "posZ": 0.0,
+    "rotX": 0.0,
+    "rotY": 0.0,
+    "rotZ": 0.0,
+    "scaleX": 4.46,
+    "scaleY": 1.0,
+    "scaleZ": 4.46
+  },
+  "Nickname": "Central Zone",
+  "Description": "Can you defeat the Warp guardian at the center?",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508015499661418496/2FCC8001CB56360366334727AEEA4EFAEA12292D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.197519377,
+      "MergeDistancePixels": 5.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.0258522145,
+        "y": 0.07667215,
+        "z": -0.925654
+      }
+    }
+  ]
+}

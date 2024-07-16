@@ -1,0 +1,10 @@
+<Text 
+    color="White"
+    fontSize="170"
+    fontStyle="Bold"
+    shadow="Black"
+    shadowDistance="5 -5"
+    width="2000"
+    height="1000"
+    rotation="0 0 180"
+    position="0 -1100 0">Counterclockwise Draft</Text>

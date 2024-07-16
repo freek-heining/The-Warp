@@ -1,0 +1,54 @@
+{
+  "GUID": "dea9dd",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 9.101748,
+    "posY": 1.56482053,
+    "posZ": -13.5834827,
+    "rotX": 0.054754246,
+    "rotY": 149.805878,
+    "rotZ": 0.0605538972,
+    "scaleX": 4.85,
+    "scaleY": 1.0,
+    "scaleZ": 4.85
+  },
+  "Nickname": "Player Zone",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508015499664032829/9BC0E2DF490F7399F5CB9EA352144CC8A66A209A/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1999997,
+      "MergeDistancePixels": 5.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  }
+}

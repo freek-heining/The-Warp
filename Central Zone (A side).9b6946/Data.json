@@ -1,0 +1,176 @@
+{
+  "GUID": "9b6946",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 15.0,
+    "posY": 1.66,
+    "posZ": 0.0038073007,
+    "rotX": 359.945557,
+    "rotY": 330.081757,
+    "rotZ": 359.939178,
+    "scaleX": 4.59498024,
+    "scaleY": 1.0,
+    "scaleZ": 4.59498024
+  },
+  "Nickname": "Central Zone (A side)",
+  "Description": "Can you defeat the Warp guardian at the center?",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508015499661418496/2FCC8001CB56360366334727AEEA4EFAEA12292D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.197519377,
+      "MergeDistancePixels": 5.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.0239260439,
+        "y": 0.09875965,
+        "z": -0.9124854
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.7703696,
+        "y": 0.09875965,
+        "z": -0.4744304
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.7828706,
+        "y": 0.09875965,
+        "z": 0.4543694
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.00451125856,
+        "y": 0.09875965,
+        "z": 0.888180852
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.7769844,
+        "y": 0.09875965,
+        "z": 0.4576991
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.7751464,
+        "y": 0.09875965,
+        "z": -0.473218
+      },
+      "Tags": [
+        "multiplier"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.26961422,
+        "y": 0.0987598,
+        "z": -1.32125676
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.292691,
+        "y": 0.09875966,
+        "z": -0.391099423
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.25378454,
+        "y": 0.0987596661,
+        "z": 0.3955905
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.29919255,
+        "y": 0.09875974,
+        "z": -0.373469025
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.26279533,
+        "y": 0.09875965,
+        "z": 0.37014538
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.259760469,
+        "y": 0.09875949,
+        "z": 1.31250572
+      },
+      "Tags": [
+        "exile_closed"
+      ]
+    }
+  ]
+}

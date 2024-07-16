@@ -2,18 +2,18 @@
   "GUID": "135040",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 47.2500038,
-    "posY": 1.419947,
-    "posZ": 14.25002,
-    "rotX": 359.983124,
-    "rotY": -0.000328720984,
-    "rotZ": 359.919952,
+    "posX": 42.00001,
+    "posY": 1.41997766,
+    "posZ": -10.5000572,
+    "rotX": 0.0799626,
+    "rotY": 89.99306,
+    "rotZ": 359.983154,
     "scaleX": 0.27,
     "scaleY": 0.27,
     "scaleZ": 0.27
   },
   "Nickname": "Laser Cannon",
-  "Description": "",
+  "Description": "Pay 1 or 2 energy to destroy Troops within a range of 2 Areas (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.84959954,
-    "g": 0.84959954,
-    "b": 0.84959954
+    "r": 0.8156863,
+    "g": 0.8156863,
+    "b": 0.8156863
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744029084/2D0DC049FE9B841D2CA5033A0A80835B4FC56B48/",
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293572367/9A12632F7638771C067FEA281CE034C20BF56EFA/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744029331/E38E7994E6398F713AB12AC40874B69466A0D28B/",
@@ -53,7 +53,7 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
+      "SpecularIntensity": 0.5,
       "SpecularSharpness": 3.007853,
       "FresnelStrength": 0.4
     },

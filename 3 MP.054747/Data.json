@@ -1,0 +1,70 @@
+{
+  "GUID": "054747",
+  "Name": "Custom_Tile_Stack",
+  "Transform": {
+    "posX": -51.7498055,
+    "posY": 2.00543165,
+    "posZ": -15.7511158,
+    "rotX": 0.07989554,
+    "rotY": 90.02808,
+    "rotZ": 179.983185,
+    "scaleX": 0.95,
+    "scaleY": 1.0,
+    "scaleZ": 0.95
+  },
+  "Nickname": "3 MP",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "MaterialIndex": -1,
+  "MeshIndex": -1,
+  "Number": 4,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767117037/74312BFC3A1B4ADB9D65F8B007A528491029B01D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.101832591,
+      "Stackable": true,
+      "Stretch": true
+    }
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.1,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "GUID": "445eb7",
+  "Name": "Custom_Model_Bag",
+  "Transform": {
+    "posX": -51.7500839,
+    "posY": 1.55131125,
+    "posZ": -3.749998,
+    "rotX": 359.920135,
+    "rotY": 269.998962,
+    "rotZ": 0.0168797076,
+    "scaleX": 1.3,
+    "scaleY": 1.3,
+    "scaleZ": 1.3
+  },
+  "Nickname": "Exiled Token 'Bag'",
+  "Description": "22x yellow, 22x green\n(6x '1 Exile', 24x '2 Exiles', 14x '3 Exiles')",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "MaterialIndex": -1,
+  "MeshIndex": -1,
+  "CustomMesh": {
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2500136812466739348/F895D136E9E0AF664E3B88E25FBEE49F6E8A5DBC/",
+    "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/2500136812466767333/6EF15DC4112DA889224DD2A330BACD8A3C9A8396/",
+    "NormalURL": "",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 3,
+    "TypeIndex": 6,
+    "CustomShader": {
+      "SpecularColor": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0
+      },
+      "SpecularIntensity": 0.0,
+      "SpecularSharpness": 2.0,
+      "FresnelStrength": 0.0
+    },
+    "CastShadows": true
+  },
+  "Bag": {
+    "Order": 0
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

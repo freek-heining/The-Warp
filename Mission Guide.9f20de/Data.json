@@ -1,0 +1,48 @@
+{
+  "GUID": "9f20de",
+  "Name": "Custom_PDF",
+  "Transform": {
+    "posX": -57.750042,
+    "posY": 1.5525229,
+    "posZ": -32.2500534,
+    "rotX": 0.07987665,
+    "rotY": 90.00063,
+    "rotZ": 359.983124,
+    "scaleX": 3.43012166,
+    "scaleY": 1.0,
+    "scaleZ": 3.43012166
+  },
+  "Nickname": "Mission Guide",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomPDF": {
+    "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2487756459259423192/BC54426BE8D071D31A01B58852C178B6B036ADE1/",
+    "PDFPassword": "",
+    "PDFPage": 0,
+    "PDFPageOffset": 0
+  }
+}

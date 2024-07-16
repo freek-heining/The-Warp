@@ -1,0 +1,69 @@
+{
+  "GUID": "2e257c",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 46.900238,
+    "posY": 1.47473848,
+    "posZ": 29.2500057,
+    "rotX": 359.983124,
+    "rotY": -0.0006912813,
+    "rotZ": 359.920135,
+    "scaleX": 1.10007524,
+    "scaleY": 1.0,
+    "scaleZ": 1.10007524
+  },
+  "Nickname": "Completed Conquest missions",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2538423216314566717/9AB4CC7FA0FE57E9AE43D86B72CF342D1A4EB0E1/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 7.421985E-05,
+        "y": 0.0489902981,
+        "z": -1.65764977E-05
+      },
+      "Rotation": {
+        "x": 3.91870032E-07,
+        "y": -4.703936E-05,
+        "z": 180.0
+      }
+    }
+  ]
+}

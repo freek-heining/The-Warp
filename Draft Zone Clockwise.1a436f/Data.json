@@ -1,0 +1,146 @@
+{
+  "GUID": "1a436f",
+  "Name": "Custom_Board",
+  "Transform": {
+    "posX": -300.0,
+    "posY": 15.0,
+    "posZ": 41.25,
+    "rotX": 0.0798661038,
+    "rotY": 90.01928,
+    "rotZ": 359.983154,
+    "scaleX": 1.66,
+    "scaleY": 1.0,
+    "scaleZ": 1.66
+  },
+  "Nickname": "Draft Zone Clockwise",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.223723561,
+    "g": 0.223723561,
+    "b": 0.223723561
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2483250226665602482/C8C6B06BEECEB4AAACCF32B4105F5A291C0E07C8/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 1.49925041
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 6.31498241,
+        "y": 0.5944616,
+        "z": -4.91438055
+      },
+      "Rotation": {
+        "x": 2.033322E-06,
+        "y": 359.975769,
+        "z": -2.0837997E-05
+      }
+    },
+    {
+      "Position": {
+        "x": 2.09600663,
+        "y": 0.592315555,
+        "z": -4.91705656
+      },
+      "Rotation": {
+        "x": 1.85517229E-06,
+        "y": 359.9772,
+        "z": 4.43859426E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -2.12296915,
+        "y": 0.5912281,
+        "z": -4.91971636
+      },
+      "Rotation": {
+        "x": 1.8151984E-06,
+        "y": 359.977173,
+        "z": 4.48862056E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -6.341953,
+        "y": 0.5906051,
+        "z": -4.922381
+      },
+      "Rotation": {
+        "x": 1.37464735E-06,
+        "y": 359.978119,
+        "z": 3.17137324E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -6.344273,
+        "y": 0.5967734,
+        "z": 3.3656857
+      },
+      "Rotation": {
+        "x": -4.148453E-06,
+        "y": 359.978973,
+        "z": 1.98511771E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -2.12530017,
+        "y": 0.5945125,
+        "z": 3.36835742
+      },
+      "Rotation": {
+        "x": -1.39496278E-05,
+        "y": 359.977173,
+        "z": 4.521778E-06
+      }
+    },
+    {
+      "Position": {
+        "x": 2.09367633,
+        "y": 0.5917882,
+        "z": 3.37102914
+      },
+      "Rotation": {
+        "x": -1.606576E-06,
+        "y": 359.9771,
+        "z": 4.6027003E-06
+      }
+    },
+    {
+      "Position": {
+        "x": 6.312652,
+        "y": 0.5913307,
+        "z": 3.37369657
+      },
+      "Rotation": {
+        "x": -1.21018957E-05,
+        "y": 359.976318,
+        "z": 5.68217638E-06
+      }
+    }
+  ]
+}

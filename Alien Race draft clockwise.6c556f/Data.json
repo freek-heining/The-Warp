@@ -1,0 +1,69 @@
+{
+  "GUID": "6c556f",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": -38.2500458,
+    "posY": 1.590797,
+    "posZ": 20.2500153,
+    "rotX": 0.07988241,
+    "rotY": 90.02084,
+    "rotZ": 359.983154,
+    "scaleX": 2.7,
+    "scaleY": 1.0,
+    "scaleZ": 2.7
+  },
+  "Nickname": "Alien Race draft clockwise",
+  "Description": "Choose 1 and pass to next player in clockwise order",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.745098054
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2504641605471441596/73115D5EE675034DED04426CFEB4C2B8E86284BE/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 5.725868E-05,
+        "y": 0.051884532,
+        "z": -0.151841983
+      },
+      "Rotation": {
+        "x": 2.04444888E-08,
+        "y": 359.978729,
+        "z": 2.33787659E-06
+      }
+    }
+  ]
+}

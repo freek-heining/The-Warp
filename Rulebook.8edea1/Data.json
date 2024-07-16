@@ -1,0 +1,48 @@
+{
+  "GUID": "8edea1",
+  "Name": "Custom_PDF",
+  "Transform": {
+    "posX": -72.75002,
+    "posY": 1.57343447,
+    "posZ": -32.2500267,
+    "rotX": 0.07988448,
+    "rotY": 90.02782,
+    "rotZ": 359.983154,
+    "scaleX": 3.43012166,
+    "scaleY": 1.0,
+    "scaleZ": 3.43012166
+  },
+  "Nickname": "Rulebook",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomPDF": {
+    "PDFUrl": "http://cloud-3.steamusercontent.com/ugc/2487756459259370851/EC7A513BE9AF3AC97B3A20A6196FCF717DD39EDC/",
+    "PDFPassword": "",
+    "PDFPage": 0,
+    "PDFPageOffset": 0
+  }
+}

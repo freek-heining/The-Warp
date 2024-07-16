@@ -2,12 +2,12 @@
   "GUID": "561227",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 26.2498112,
-    "posY": 1.45938158,
-    "posZ": 33.75005,
-    "rotX": 359.9831,
-    "rotY": 0.00060405425,
-    "rotZ": 359.920135,
+    "posX": -15.7783909,
+    "posY": 1.51863623,
+    "posZ": 35.99997,
+    "rotX": 359.983154,
+    "rotY": 0.0218267329,
+    "rotZ": 359.9201,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28
@@ -22,7 +22,7 @@
   },
   "ColorDiffuse": {
     "r": 0.665533662,
-    "g": 0.206892341,
+    "g": 0.206878334,
     "b": 0.8940657
   },
   "LayoutGroupSortIndex": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744029593/D1935F9A91D957687D7AE8C43C6FC6B8671B878F/",
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293572833/74C5780C9F656B8DE756CF4F8C81B2ADB345ABB2/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744030481/E0E2C72D942BE1288C1C39D852AEC765FEED57B3/",
@@ -53,8 +53,8 @@
         "g": 1.0,
         "b": 1.0
       },
-      "SpecularIntensity": 0.3,
-      "SpecularSharpness": 2.97513,
+      "SpecularIntensity": 0.5,
+      "SpecularSharpness": 3.0,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

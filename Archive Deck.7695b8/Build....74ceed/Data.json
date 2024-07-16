@@ -1,0 +1,65 @@
+{
+  "GUID": "74ceed",
+  "Name": "Card",
+  "Transform": {
+    "posX": -2.81663537,
+    "posY": 2.57250237,
+    "posZ": 11.26205,
+    "rotX": 359.708221,
+    "rotY": 89.8041458,
+    "rotZ": 180.151474,
+    "scaleX": 2.3,
+    "scaleY": 1.0,
+    "scaleZ": 2.3
+  },
+  "Nickname": "Build...",
+  "Description": "(1) Trade Post: Pay 1/1.\n(2) Command Center: Pay 2/2.\n(3) Energy Plant: Pay 2/1.",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "Tags": [
+    "build"
+  ],
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 6035,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "60": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2504641605494588059/B625D93CC8316AA06BB9C8E7C6A88F1E4964C869/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071357273900/214BF231F5F603512510F25F222DB358AEC4A6B4/",
+      "NumWidth": 10,
+      "NumHeight": 7,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  },
+  "CustomUIAssets": [
+    {
+      "Type": 0,
+      "Name": "Warp_Background",
+      "URL": "http://cloud-3.steamusercontent.com/ugc/2504640969828813907/9E61FE58AA6A3B9981AA04FA3DCB7B3DF836C45B/"
+    }
+  ]
+}

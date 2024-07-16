@@ -1,0 +1,54 @@
+{
+  "GUID": "9b6946",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 0.000328786671,
+    "posY": 1.558181,
+    "posZ": -6.52661547E-05,
+    "rotX": 359.983124,
+    "rotY": 7.49104765E-06,
+    "rotZ": 359.920135,
+    "scaleX": 3.0,
+    "scaleY": 1.0,
+    "scaleZ": 3.0
+  },
+  "Nickname": "Central Board",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508015499661418496/2FCC8001CB56360366334727AEEA4EFAEA12292D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.153344274,
+      "MergeDistancePixels": 10.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  }
+}

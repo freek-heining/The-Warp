@@ -1,0 +1,207 @@
+<!-- Attack -->
+<TableLayout
+    useGlobalCellPadding="false"
+    width="1860"
+    height="330"
+    cellBackgroundColor = "clear"
+    position="0 0 0"
+    rotation="0 0 90"
+    cellSpacing="30"
+    columnWidths="0 0 0 0 0 220 0"
+    offsetXY="1090 0">
+
+    <!-- Attack data -->
+    <Row>
+        <Cell>
+            <Image preserveAspect="true" image="Troop_Icon"/>
+            <Text id="troopCountAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Terrashift_Icon"/>
+            <Text id="multiplierAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Extra_Die_Icon"/>
+            <Text id="extraDiceAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Die_Value_Icon"/>
+            <Text id="extraDieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Multiply_Die_Icon"/>
+            <Text id="multiplyDieAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>     
+        <Cell>
+            <Text id="maximumDieValueAttackText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
+        </Cell>                   
+        <Cell>
+            <Image preserveAspect="true" image="Checkmark_Icon"/>
+        </Cell>
+    </Row>
+
+    <!-- Attack inputs (also accounts for attacking the Warp Guardian with 2 combat cards, so different max values then defense's inputs) -->
+    <Row>
+        <Cell padding="0 0 10 30">
+            <!-- Max 4 on 1 area = 4 -->
+            <Slider id="troopCountAttackSlider" onValueChanged="TroopCountAttackChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max 4 + (2x +2 card) = 8 -->
+            <Slider id="multiplierAttackSlider" onValueChanged="MultiplierAttackChange" minValue="1" maxValue="8" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max (2x +2 card) = 4 -->
+            <Slider id="extraDiceAttackSlider" onValueChanged="ExtraDiceAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max (2x +3 card) + 1 sentry + 1 track bonus = 8 -->
+            <Slider id="extraDieValueAttackSlider" onValueChanged="ExtraDieValueAttackChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max (2x +2 card) = 4 -->
+            <Slider id="multiplyDieAttackSlider" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="0 0 0 20">
+            <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="80" toggleHeight="80"/>
+        </Cell>               
+        <Cell padding="0 0 10 30">
+            <Button id="attackButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
+        </Cell>
+    </Row>
+</TableLayout> 
+
+<Panel
+    width="800"
+    height="300"
+    childAlignment="MiddleRight"
+    padding="1 1 1 1"
+    position="0 0 0"
+    rotation="0 0 90"
+    offsetXY="1650 950">
+    <Text
+    fontSize="150"
+    color="#FFFFFF"
+    shadow="#141414"
+    alignment="MiddleRight">Attacker</Text>
+</Panel>
+
+<!-- Defend -->
+<TableLayout
+    useGlobalCellPadding="false"
+    width="1860"
+    height="330"
+    cellBackgroundColor = "clear"
+    position="0 0 0"
+    rotation="0 0 -90"
+    cellSpacing="30"
+    columnWidths="0 260 0 0 0 220 0"
+    offsetXY="-1090 0">
+
+    <!-- Defense data -->
+    <Row>
+        <Cell>
+            <Image preserveAspect="true" image="Troop_Icon"/>
+            <Text id="troopCountDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Terrashift_Icon" width="10"/>
+            <Text id="multiplierDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">1</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Extra_Die_Icon"/>
+            <Text id="extraDiceDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Die_Value_Icon"/>
+            <Text id="extraDieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell>
+        <Cell>
+            <Image preserveAspect="true" image="Multiply_Die_Icon"/>
+            <Text id="multiplyDieDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">0</Text>
+        </Cell> 
+        <Cell>
+            <Text id="maximumDieValueDefenseText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="42">No Maximum Dice Value</Text>
+        </Cell>                 
+        <Cell>
+            <Image preserveAspect="true" image="Checkmark_Icon"/>
+        </Cell>
+    </Row>
+
+    <!-- Defense inputs (also accounts for defending Warp Guardian, so different max values then attack's inputs) -->
+    <Row>
+        <Cell padding="0 0 10 30">
+            <!-- Max 4 on 1 area = 4 -->
+            <Slider id="troopCountDefenseSlider" onValueChanged="TroopCountDefenseChange" minValue="0" maxValue="4" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max (9 guardian) + 1 ability + (1x +2 card) = 12 -->
+            <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="1" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max (6 guardian) + 1 ability + (1x +2 card) = 9 -->
+            <Slider id="ExtraDiceDefenseSlider" onValueChanged="ExtraDiceDefenseChange" minValue="0" maxValue="9" value="0" wholeNumbers="true"/>
+        </Cell>
+        <Cell padding="0 0 10 30">
+            <!-- Max + 3 ability + (1x +3 card) + 1 sentry + 1 track bonus = 8 -->
+            <Slider id="extraDieValueDefenseSlider" onValueChanged="ExtraDieValueDefenseChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="0 0 10 30">
+            <!-- Max (1x +2 card) + 1 ability = 3 -->
+            <Slider id="multiplyDieDefenseSlider" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+        </Cell>   
+        <Cell padding="0 0 0 20">
+            <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="80" toggleHeight="80"/>
+        </Cell>                   
+        <Cell padding="0 0 10 30">
+            <Button id="defenseButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
+        </Cell>
+    </Row>
+</TableLayout> 
+
+<Panel
+    width="800"
+    height="300"
+    padding="1 1 1 1"
+    position="0 0 0"
+    rotation="0 0 -90"
+    offsetXY="-1650 950">
+    <Text
+    fontSize="150"
+    color="#FFFFFF"
+    shadow="#141414"
+    alignment="MiddleLeft">Defender</Text>
+</Panel>
+
+<!-- Battle Section -->
+<TableLayout
+    cellPadding="10 10 10 10"
+    cellBackgroundColor = ""
+    width="1400"
+    height="400"
+    position="0 1130 0"
+    rotation="0 0 180">
+    <!-- Row 1 -->
+    <Row>
+        <Cell>
+            <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Attack Combat Power:</Text>
+        </Cell>
+        <Cell/>
+        <Cell>
+            <Text fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="60">Defense Combat Power:</Text>
+        </Cell>
+    </Row>
+    <!-- Row 2 -->
+    <Row>
+        <Cell id="attackResultCell" dontUseTableCellBackground="true">
+            <Text id="attackResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
+        </Cell>
+        <Cell>
+            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" interactable="false" onClick="BattleButtonClicked">Battle!</Button>
+        </Cell>
+        <Cell id="defenseResultCell" dontUseTableCellBackground="true">
+            <Text id="defenseResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
+        </Cell>
+    </Row>
+</TableLayout>
+ 

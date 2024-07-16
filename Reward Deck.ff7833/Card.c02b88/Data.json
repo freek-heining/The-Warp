@@ -1,0 +1,43 @@
+{
+  "GUID": "c02b88",
+  "Name": "Card",
+  "Transform": {
+    "posX": 7.999906,
+    "posY": 1.65811455,
+    "posZ": -22.00001,
+    "rotX": 0.0168819148,
+    "rotY": 179.993469,
+    "rotZ": 180.07988,
+    "scaleX": 1.5,
+    "scaleY": 1.0,
+    "scaleZ": 1.5
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "Hands": true,
+  "CardID": 5423,
+  "SidewaysCard": false
+}

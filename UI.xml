@@ -1,0 +1,82 @@
+<Panel 
+    id="setupWindow"
+    color="#FFFFFFCC"
+    width="700"
+    height="700">
+
+    <Image 
+        image="The_Warp_Boxart"
+        preserveAspect="true"/>
+
+    <VerticalLayout
+        childForceExpandWidth="false"
+        childForceExpandHeight="false"
+        childAlignment="MiddleLeft"
+        width="640"
+        padding="0 0 60 0"
+        spacing="10">
+
+        <Text
+            alignment="MiddleLeft"
+            fontStyle="Bold"
+            preferredWidth="300"
+            preferredHeight="50"
+            color="#FFFFFF"
+            shadow="#141414"
+            fontSize="31">Pre-game Setup</Text>
+
+        <Toggle
+            id="alternativeMapToggle"
+            textShadow="#141414"
+            fontSize="16"
+            onValueChanged="AlternativeMapToggled"
+            textColor="#FFFFFF">Alternative map setup (side B)</Toggle>
+        <Toggle
+            id="advancedPioneeringToggle"
+            textShadow="#141414"
+            fontSize="16"
+            onValueChanged="AdvancedPioneeringToggled"
+            textColor="#FFFFFF">Advanced Pioneering cards</Toggle>            
+        <Toggle
+            id="expansionRacesToggle"
+            textShadow="#141414"    
+            fontSize="16"
+            onValueChanged="ExpansionRacesToggled"
+            textColor="#FFFFFF">Expansion races</Toggle>
+
+        <Text
+            alignment="MiddleLeft"
+            fontStyle="Bold"
+            preferredWidth="180"
+            preferredHeight="200"
+            color="#FFFFFF"
+            shadow="#141414"
+            fontSize="13">This mod for 2-6 players will assign player colors and determine the starting player automatically. 
+            
+            It's advised for the host to disable the permission 'Change Color' in options.
+            
+            Wait until every player joined the lobby before pressing start.</Text>
+            
+        <Button 
+            id="startButton"
+            fontStyle="Bold"
+            fontSize="16"
+            textColor="#09266E"
+            tooltip="Only the host can start the game. Wait until every player joined the game before starting!"
+            preferredWidth="100"
+            preferredHeight="40"
+            onClick="StartClicked">Start</Button>
+     </VerticalLayout> 
+
+     <Panel
+        width="200"
+        height="20"
+        rectAlignment="LowerCenter">
+        <Text 
+            color="#FFFFFF"
+            onClick="DemoClicked"
+            fontSize="14"
+            fontStyle="Bold"
+            shadow="#141414">Mod created by: Freich</Text>
+     </Panel>
+ </Panel>

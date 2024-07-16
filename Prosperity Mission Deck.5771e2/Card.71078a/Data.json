@@ -1,0 +1,55 @@
+{
+  "GUID": "71078a",
+  "Name": "Card",
+  "Transform": {
+    "posX": 66.4892,
+    "posY": 2.57924438,
+    "posZ": 16.143507,
+    "rotX": 359.904938,
+    "rotY": 270.14743,
+    "rotZ": 180.019135,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 4704,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "47": {
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361512147/71509EB7923887BCAA86D54A92A75E1BB820F2E4/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361511728/3286C7E070A13B5120EF110BE5F57AE63D9EA416/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}
