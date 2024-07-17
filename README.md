@@ -1,4 +1,4 @@
-[The Warp](https://boardgamegeek.com/boardgame/282775/the-warp) is a fast-paced 4X board game for 1 to 4 players (5-6 with a separate expansion, solo mode only in physical release). After 5 years of cataclysms and revolts, you take command of one of the remaining colonies on the forsaken planet Yortar. You can choose 2 of the 16 unique asymmetrical alien races and lead your colony along the path of prosperity, progress and/or conquest. You might even conquer the abandoned warp gate and find out who was behind the events that lead to the global catastrophe. On your journey you will face rival colonies, the unstable wastelands and exiled races with shifting allegiances.
+[The Warp](https://boardgamegeek.com/boardgame/282775/the-warp) is a fast-paced 4X board game for 1 to 4 players (5-6 with a separate expansion, solo mode only in physical release). After 5 years of cataclysms and revolts, you take command of one of the remaining colonies on the forsaken planet Yortar. You can choose 2 of the 16 unique asymmetrical alien races and lead your colony along the path of prosperity, progress and/or conquest. You might even conquer the abandoned warp gate and find out who was behind the events that lead to the global catastrophe. On your journey you will face rival colonies, the unstable wastelands and exiled races with shifting allegiances.  
 The game features 66 possible missions objectives during play, allowing players to choose their own playstyle. The core mechanisms incorporate area control, card/resource management and euro engine building. Next to a dynamic dice system, the combat system features bluffing and bribing mechanisms.
 
 This Tabletop Simulator mod for 2-6 players is fully scripted for an easy setup, much faster play and lot's of Quality of Life improvements.
@@ -19,7 +19,7 @@ Some of it's features are:
 
 I hope you'll enjoy the game and maybe I'll see you online some time!
 You can easily find other players to play with or host games yourself on the TTSClub Discord community:
-[TTSClub](discord.me/ttsclub)
+[TTSClub](https://discord.me/ttsclub)
 (That's where I play most of my TTS games).
 
 Please let me know in the comments what you think, and don't forgot to rate in the Workshop!
