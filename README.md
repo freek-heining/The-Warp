@@ -15,6 +15,7 @@ Some of it's features are:
 - Camera presets for easier navigation.
 - Beautiful 3d miniatures.
 
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3287676514)
 [Rulebook PDF](https://boardgamegeek.com/filepage/206209/the-warp-rulebook)
 
 I hope you'll enjoy the game and maybe I'll see you online some time!
