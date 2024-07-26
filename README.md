@@ -19,6 +19,9 @@ Some of it's features are:
 
 [Rulebook PDF](https://boardgamegeek.com/filepage/206209/the-warp-rulebook)
 
+This mod needs *at least 2 players* in the lobby to be able to start.  
+To start the game on your own, use *Hotseat Mode*!
+
 I hope you'll enjoy the game and maybe I'll see you online some time!
 You can easily find other players to play with or host games yourself on the TTSClub Discord community:
 [TTSClub](https://discord.me/ttsclub)
