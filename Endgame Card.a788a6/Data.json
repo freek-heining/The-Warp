@@ -2,11 +2,11 @@
   "GUID": "a788a6",
   "Name": "CardCustom",
   "Transform": {
-    "posX": -72.8462753,
+    "posX": -72.84628,
     "posY": 1.60302532,
-    "posZ": 21.5836639,
-    "rotX": 0.07987167,
-    "rotY": 89.9818039,
+    "posZ": 21.5836678,
+    "rotX": 0.0798714161,
+    "rotY": 89.9817352,
     "rotZ": 359.9831,
     "scaleX": 1.61,
     "scaleY": 1.0,
@@ -43,8 +43,8 @@
   "SidewaysCard": false,
   "CustomDeck": {
     "57": {
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2500136812469147835/1AC6956C50C8EEFEB23CC6F43B050BFCB65D53CE/",
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2500136812469148296/BFBF352239EA759CBDEE0E3B84D198DCD4E417F7/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136812469147835/1AC6956C50C8EEFEB23CC6F43B050BFCB65D53CE/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136812469148296/BFBF352239EA759CBDEE0E3B84D198DCD4E417F7/",
       "NumWidth": 1,
       "NumHeight": 1,
       "BackIsHidden": true,
@@ -60,7 +60,7 @@
         "z": 0.8167762
       },
       "Rotation": {
-        "x": 0.00660065934,
+        "x": 0.00660066,
         "y": 179.915024,
         "z": 0.08488113
       }

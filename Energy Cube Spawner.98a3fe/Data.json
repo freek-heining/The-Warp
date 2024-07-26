@@ -5,7 +5,7 @@
     "posX": -16.50001,
     "posY": 1.50009525,
     "posZ": -15.0000076,
-    "rotX": 0.0168921277,
+    "rotX": 0.0168921314,
     "rotY": 179.999817,
     "rotZ": 0.0799354,
     "scaleX": 4.3,
@@ -22,7 +22,7 @@
   },
   "ColorDiffuse": {
     "r": 0.0,
-    "g": 0.27057004,
+    "g": 0.27056998,
     "b": 1.0,
     "a": 0.9822691
   },
@@ -43,7 +43,7 @@
   "MaterialIndex": -1,
   "MeshIndex": -1,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "",

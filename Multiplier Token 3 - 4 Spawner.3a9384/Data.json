@@ -42,8 +42,8 @@
   "MaterialIndex": -1,
   "MeshIndex": -1,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2500136736363316539/6475490F4E58315A77E414046BC63E9EABE549CA/",
-    "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/2500136736363374543/4EE0A6DC296A61FA31E9C72408D2913E557C10F5/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136736363316539/6475490F4E58315A77E414046BC63E9EABE549CA/",
+    "DiffuseURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136736363374543/4EE0A6DC296A61FA31E9C72408D2913E557C10F5/",
     "NormalURL": "",
     "ColliderURL": "",
     "Convex": true,

@@ -2,12 +2,12 @@
   "GUID": "ace18b",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 45.7767944,
-    "posY": 1.41162014,
-    "posZ": -36.0002136,
-    "rotX": 0.0168709178,
-    "rotY": 180.007767,
-    "rotZ": 0.079888925,
+    "posX": 45.7768021,
+    "posY": 1.4116199,
+    "posZ": -36.0002174,
+    "rotX": 0.0168677066,
+    "rotY": 180.008087,
+    "rotZ": 0.07989752,
     "scaleX": 0.28,
     "scaleY": 0.28,
     "scaleZ": 0.28
@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.148387879,
-    "g": 0.148387879,
-    "b": 0.148387879
+    "r": 0.14838782,
+    "g": 0.14838782,
+    "b": 0.14838782
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,10 +40,10 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293572833/74C5780C9F656B8DE756CF4F8C81B2ADB345ABB2/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216293572833/74C5780C9F656B8DE756CF4F8C81B2ADB345ABB2/",
     "DiffuseURL": "",
     "NormalURL": "",
-    "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401744030481/E0E2C72D942BE1288C1C39D852AEC765FEED57B3/",
+    "ColliderURL": "https://steamusercontent-a.akamaihd.net/ugc/2508017401744030481/E0E2C72D942BE1288C1C39D852AEC765FEED57B3/",
     "Convex": true,
     "MaterialIndex": 0,
     "TypeIndex": 1,

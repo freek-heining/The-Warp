@@ -2,11 +2,11 @@
   "GUID": "edee87",
   "Name": "DeckCustom",
   "Transform": {
-    "posX": -62.2512321,
+    "posX": -62.2512436,
     "posY": 1.71867549,
-    "posZ": 47.25041,
-    "rotX": 0.07987199,
-    "rotY": 89.9845352,
+    "posZ": 47.250412,
+    "rotX": 0.0798720941,
+    "rotY": 89.98448,
     "rotZ": 359.9831,
     "scaleX": 3.2,
     "scaleY": 1.0,
@@ -68,8 +68,8 @@
   ],
   "CustomDeck": {
     "66": {
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767392781/A3869A64E97CF5F1CBF31BB08DA084A1BC1E2D22/",
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767394471/E1F99CFDBB5A8C13D6D796FA22ADD080AA87A081/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767392781/A3869A64E97CF5F1CBF31BB08DA084A1BC1E2D22/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767394471/E1F99CFDBB5A8C13D6D796FA22ADD080AA87A081/",
       "NumWidth": 7,
       "NumHeight": 4,
       "BackIsHidden": true,

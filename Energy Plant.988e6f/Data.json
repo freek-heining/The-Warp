@@ -4,10 +4,10 @@
   "Transform": {
     "posX": 65.22503,
     "posY": 1.397801,
-    "posZ": 38.9990463,
-    "rotX": 0.0167563166,
-    "rotY": 180.10321,
-    "rotZ": 0.0799407437,
+    "posZ": 38.9990578,
+    "rotX": 0.016757736,
+    "rotY": 180.103012,
+    "rotZ": 0.0799408257,
     "scaleX": 0.4,
     "scaleY": 0.4,
     "scaleZ": 0.4
@@ -40,10 +40,10 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/2538423216293572013/F33822FE0D0C64EA1B77043DE1A18FFD8DA955BB/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216293572013/F33822FE0D0C64EA1B77043DE1A18FFD8DA955BB/",
     "DiffuseURL": "",
     "NormalURL": "",
-    "ColliderURL": "http://cloud-3.steamusercontent.com/ugc/2508017401739098343/43611701F92C1B354679DABE1459C461437B48DC/",
+    "ColliderURL": "https://steamusercontent-a.akamaihd.net/ugc/2508017401739098343/43611701F92C1B354679DABE1459C461437B48DC/",
     "Convex": true,
     "MaterialIndex": 0,
     "TypeIndex": 1,

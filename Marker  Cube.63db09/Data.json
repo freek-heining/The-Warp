@@ -2,12 +2,12 @@
   "GUID": "63db09",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -28.709589,
-    "posY": 2.2857666,
-    "posZ": 53.0519867,
-    "rotX": 0.09681343,
-    "rotY": 89.9909058,
-    "rotZ": 179.90387,
+    "posX": -28.7095718,
+    "posY": 2.286072,
+    "posZ": 53.05212,
+    "rotX": 0.09696731,
+    "rotY": 89.99099,
+    "rotZ": 179.916153,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "",

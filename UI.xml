@@ -62,7 +62,7 @@
             fontStyle="Bold"
             fontSize="16"
             textColor="#09266E"
-            tooltip="Only the host can start the game. Wait until every player joined the game before starting!"
+            tooltip="Only the host can start the game. Wait until every player joined the lobby before pressing start! (Use TTS Hotseat Mode to start on your own)"
             preferredWidth="100"
             preferredHeight="40"
             onClick="StartClicked">Start</Button>

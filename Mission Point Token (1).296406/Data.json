@@ -5,7 +5,7 @@
     "posX": -53.2502174,
     "posY": 2.10022664,
     "posZ": -18.7500248,
-    "rotX": 0.079924345,
+    "rotX": 0.07992435,
     "rotY": 90.00802,
     "rotZ": 179.98317,
     "scaleX": 0.95,
@@ -43,7 +43,7 @@
   "MeshIndex": -1,
   "Number": 5,
   "CustomImage": {
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767116864/23C5FB6EB6B12A22299D51C4404C004D73B9CA88/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767116864/23C5FB6EB6B12A22299D51C4404C004D73B9CA88/",
     "ImageSecondaryURL": "",
     "ImageScalar": 1.0,
     "WidthScale": 0.0,

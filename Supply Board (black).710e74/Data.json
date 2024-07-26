@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomImage": {
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2508016228644592129/BA48DE7B0AC63ED4971440C01B35DECDCB74EB31/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2508016228644592129/BA48DE7B0AC63ED4971440C01B35DECDCB74EB31/",
     "ImageSecondaryURL": "",
     "ImageScalar": 1.0,
     "WidthScale": 0.0,
@@ -71,7 +71,7 @@
         "z": 0.873573
       },
       "Rotation": {
-        "x": 5.51865931E-08,
+        "x": 5.51866E-08,
         "y": 359.974762,
         "z": 180.000015
       }

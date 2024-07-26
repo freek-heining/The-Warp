@@ -2,12 +2,12 @@
   "GUID": "bfb475",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": -1.84754312,
+    "posX": -1.84754217,
     "posY": 1.56822109,
     "posZ": -49.83305,
     "rotX": 359.923981,
-    "rotY": 270.006775,
-    "rotZ": 0.0187232,
+    "rotY": 270.0069,
+    "rotZ": 0.018719675,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "",

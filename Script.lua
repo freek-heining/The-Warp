@@ -526,7 +526,7 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
     if not player.host then
         broadcastToAll("Only the host can start the game!", "Red")
     elseif playerCount < 2 then
-        broadcastToAll("Need 2 players minimum to start!", "Red")
+        broadcastToAll("Need 2 players minimum to start! (Use TTS Hotseat Mode to start on your own)", "Red")
     -- Start the game
     else
         UI.setAttribute("setupWindow", "active", false) -- Hide the UI

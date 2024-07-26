@@ -21,9 +21,9 @@
     "z": 0.0
   },
   "ColorDiffuse": {
-    "r": 0.107241549,
-    "g": 0.107241549,
-    "b": 0.107241549
+    "r": 0.107241519,
+    "g": 0.107241519,
+    "b": 0.107241519
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomImage": {
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2483250866893645752/CFE3EE087C8902FEFC255EA4CD4C5052227D267A/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2483250866893645752/CFE3EE087C8902FEFC255EA4CD4C5052227D267A/",
     "ImageSecondaryURL": "",
     "ImageScalar": 1.0,
     "WidthScale": 1.0
@@ -49,32 +49,32 @@
     {
       "Type": 0,
       "Name": "Checkmark_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934506406/E09C8A78BEBEEE9441BAD37BD20EEF6C1FDACD0F/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308934506406/E09C8A78BEBEEE9441BAD37BD20EEF6C1FDACD0F/"
     },
     {
       "Type": 0,
       "Name": "Troop_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934498952/EEADA792DBB513CCA04AFABB434F418438169C72/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308934498952/EEADA792DBB513CCA04AFABB434F418438169C72/"
     },
     {
       "Type": 0,
       "Name": "Terrashift_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308934497909/2279B5DFFB01065D477E6838917C9328FCAE02EB/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308934497909/2279B5DFFB01065D477E6838917C9328FCAE02EB/"
     },
     {
       "Type": 0,
       "Name": "Multiply_Die_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935291419/55D26322389BD3109A828CCC658D5FC316E5E2F9/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308935291419/55D26322389BD3109A828CCC658D5FC316E5E2F9/"
     },
     {
       "Type": 0,
       "Name": "Extra_Die_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935075465/82960F71E9C08508F550E31200552082858128AC/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308935075465/82960F71E9C08508F550E31200552082858128AC/"
     },
     {
       "Type": 0,
       "Name": "Die_Value_Icon",
-      "URL": "http://cloud-3.steamusercontent.com/ugc/2484377308935074488/CD1398779F66EBB05F9DA4CCB52CDB232E0B8FC5/"
+      "URL": "https://steamusercontent-a.akamaihd.net/ugc/2484377308935074488/CD1398779F66EBB05F9DA4CCB52CDB232E0B8FC5/"
     }
   ]
 }

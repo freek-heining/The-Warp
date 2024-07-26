@@ -43,8 +43,8 @@
   "SidewaysCard": false,
   "CustomDeck": {
     "49": {
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2461851071361506353/CB59E63A2D4364F87FB2570E1E1F8496EC7760AB/",
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2451718604767149053/A451C30FEFEA0996AA34E7D7704E4CDA1C37B2A8/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2461851071361506353/CB59E63A2D4364F87FB2570E1E1F8496EC7760AB/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767149053/A451C30FEFEA0996AA34E7D7704E4CDA1C37B2A8/",
       "NumWidth": 5,
       "NumHeight": 5,
       "BackIsHidden": true,

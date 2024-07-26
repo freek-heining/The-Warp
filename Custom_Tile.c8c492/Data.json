@@ -5,7 +5,7 @@
     "posX": 46.7792053,
     "posY": 1.40768111,
     "posZ": -29.2497826,
-    "rotX": 0.0168312248,
+    "rotX": 0.0168312322,
     "rotY": 180.0297,
     "rotZ": 0.07988504,
     "scaleX": 2.190204,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomImage": {
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/5848561406503914576/955D4D692FAE625BAC3A9F634DAF8EEF9132D4A2/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406503914576/955D4D692FAE625BAC3A9F634DAF8EEF9132D4A2/",
     "ImageSecondaryURL": "",
     "ImageScalar": 1.0,
     "WidthScale": 0.0,
