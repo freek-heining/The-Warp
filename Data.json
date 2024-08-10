@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp - Boardgame v1.1",
-  "EpochTime": 1721992885,
-  "Date": "7/26/2024 1:21:25 PM",
+  "SaveName": "The Warp - Boardgame v1.2",
+  "EpochTime": 1723318441,
+  "Date": "8/10/2024 9:34:01 PM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
@@ -328,7 +328,7 @@
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": "Black"
+    "TurnColor": ""
   },
   "CameraStates": [
     null,
