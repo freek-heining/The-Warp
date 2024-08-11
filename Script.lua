@@ -291,6 +291,11 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         archiveDeckObject.interactable = false
     end
 
+    -- Unlocked at end of setup
+    local endgameCardGUID = "a788a6"
+    local endgameCardObject = getObjectFromGUID(endgameCardGUID)
+    endgameCardObject.interactable = false
+
     local progressDeckGUID = "935e48"
     local ProsperityDeckGUID = "5771e2"
     local conquestDeckGUID = "f4ccdd"
@@ -1042,7 +1047,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
 
         -- swap central zone manually
         params = {
-            image = "http://cloud-3.steamusercontent.com/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
+            image = "https://steamusercontent-a.akamaihd.net/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
             thickness = 0.2,
             merge_distance = 5,
             stackable = false,
@@ -1959,6 +1964,11 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
     -- Move back scripting zone.
     zonePosition = archiveDiscardScriptingZoneObject.getPosition()
     archiveDiscardScriptingZoneObject.setPosition({zonePosition.x, zonePosition.y - 100, zonePosition.z})
+
+    -- Unlock endgame Card
+    local endgameCardGUID = "a788a6"
+    local endgameCardObject = getObjectFromGUID(endgameCardGUID)
+    endgameCardObject.interactable = true
 
     return 1
 end
