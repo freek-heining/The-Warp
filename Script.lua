@@ -142,8 +142,9 @@ end
 --#endregion
 
 local playerCount = 0 -- Important variable. Used in lots of functions
-local startPlayerNumber = 0 -- Used in: DetermineStartingPlayer() & DealResourcesCoroutine()
-local turnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc. ( DetermineStartingPlayer() )
+local startPlayerNumber = 0 -- Used in: DetermineStartingPlayer()
+local startPlayerIndex = 0 -- Used in: DetermineStartingPlayer() & DealResourcesCoroutine()
+local turnOrderTable = {} -- Stores the colors in playing order, for Turns.order, dealing archive cards and resources etc.
 local setupDone = false -- Set to true at the end of setup (when alien drafting is finished)
 
 function onload(state)
@@ -635,28 +636,30 @@ function SetPlayerColors() -- Sets random player colors according to availablePl
     end
 end
 
-function DetermineStartingPlayer() -- Determines starting player and custom color/turn order
+function DetermineStartingPlayer() -- Determines starting player (player number & index) and sets custom color/turn order
     local playerTable = Player.getPlayers()
 
     startPlayerNumber = math.random(playerCount) -- Global integer from 1 -> playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
     local startPlayerColor = playerTable[startPlayerNumber].color -- Color of starting player
-    
+
     log("startPlayerNumber: " .. startPlayerNumber)
 
     broadcastToAll("-" .. startPlayerColor .. "- is the starting player!", startPlayerColor)
-    
+
     local colorIndex
 
-    -- We grab the index/key in availablePlayerColors table, matching with the startPlayerColor. We use this as the starting point for turn order.
+    -- We grab the index/key from availablePlayerColors table, matching with the startPlayerColor. 
+    -- We use this (startPlayerIndex/colorIndex) as the starting point for turn order and fixed postions in tables.
     for index, color in ipairs(availablePlayerColors) do
         if color == startPlayerColor then
             colorIndex = index
+            startPlayerIndex  = index
         end
     end
 
     for i = 1, playerCount do -- Fills the table with colors in player order for this game
         turnOrderTable[i] = availablePlayerColors[colorIndex]
-        
+
         colorIndex = colorIndex + 1
 
         if  colorIndex > playerCount then -- If last color was reached, reset to use remaining colors from beginning of table
@@ -1324,7 +1327,9 @@ function DealResourcesCoroutine() -- Deals starting gold/energy to players accor
     local energySpawnerObject = getObjectFromGUID(energySpawnerGUID)
     local goldSpawnerObject = getObjectFromGUID(goldSpawnerGUID)
 
-    local playerColorIndex = startPlayerNumber -- Start with number/color of starting player, then continue clockwise from there 
+    -- Start with the index of starting player, then continue clockwise from there. 
+    -- The index corresponds with the fixed table positions in: goldZonePositions, energyZonePositions, availablePlayerColors
+    local playerColorIndex = startPlayerIndex
 
     broadcastToAll("Almost done setting up...")
 
