@@ -2128,7 +2128,7 @@ function cardClick6(obj, color, alt_click)
     end
 end
 
--- Sets UI radio buttons at spawned combat cards (type 2,3 & 4's)
+-- Creates Classic UI buttons at spawned combat cards options (type 2,3 & 4's)
 function onObjectSpawn(obj)
     local params1 = {
         click_function = "cardClick1",
