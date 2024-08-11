@@ -169,9 +169,7 @@ function onload(state)
 
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
-    if not setupDone then
-        MoveHandZones("+", 300) -- DISABLE when developing or SAVING board! Move away temporary so nobody selects color manually. 
-    else
+    if setupDone then
         UI.setAttribute("setupWindow", "active", false)
     end
 end
@@ -576,28 +574,25 @@ function StartClicked(player) -- Calls most setup functions and handles their ti
         rewardDeckObject.interactable = true
         rewardDeckObject.shuffle()
 
-        -- #2: Assign colors/seats to players automatically (in order of joining the game)
+        -- #2: Assign colors/seats to players automatically (random)
         SetPlayerColors()
 
         -- #3: Determine starting player and fix color/turn order
         Wait.time(function ()
             DetermineStartingPlayer()
         end, 2.5)
-
-        -- #4: Restore hand zones to orignal positions
-        MoveHandZones("-", 300)
         
-        -- #5: Deal Archive cards
+        -- #4: Deal Archive cards
         Wait.time(function ()
             startLuaCoroutine(Global, "DealArchiveCardsCoroutine")
         end, 4)
         
-        -- #6: Deal Mission cards
+        -- #5: Deal Mission cards
         Wait.time(function ()
             SetMissionCards()
         end, 9)
         
-        -- #7: Create the board
+        -- #6: Create the board
         Wait.time(function ()
             startLuaCoroutine(Global, "CreateBoardCoroutine")
         end, 12)
@@ -613,21 +608,53 @@ function SetPlayerCount() -- Sets player count each time when start is pressed
     log("playerCount: " .. playerCount)
 end
 
-function SetPlayerColors() -- Sets player colors according to fixed positions in table
+function SetPlayerColors() -- Sets random player colors according to availablePlayerColors table and playerCount
+    local colorNumberPool = {}
+
+    -- First we clear all (possible) colors to grey/spectator, because override color doesn't work
     for i, player in ipairs(Player.getPlayers()) do
-        player.changeColor(availablePlayerColors[i])
+        player.changeColor("Grey")
+    end
+
+    -- Insert a number in pool for each present player
+    for i = 1, playerCount do
+        table.insert(colorNumberPool, i)
+    end
+
+    for i, player in ipairs(Player.getPlayers()) do
+        -- Create random index number from remaining table length.
+        local randomIndexNumber = math.random(#colorNumberPool)
+
+        -- Grab entry from table with randomIndexNumber and remove that entry.
+        local randomColorNumber = colorNumberPool[randomIndexNumber]
+        table.remove(colorNumberPool, randomIndexNumber)
+
+        -- Give current player in loop the random color/seat/position at table
+        local randomColor =  availablePlayerColors[randomColorNumber]
+        player.changeColor(availablePlayerColors[randomColorNumber])
     end
 end
 
-function DetermineStartingPlayer() -- Determines starting player and color/turn order
-    startPlayerNumber = math.random(playerCount) -- Integer from 1 - playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
-    local startPlayerColor = availablePlayerColors[startPlayerNumber] -- Fixed color matching player numbers/seats
+function DetermineStartingPlayer() -- Determines starting player and custom color/turn order
+    local playerTable = Player.getPlayers()
+
+    startPlayerNumber = math.random(playerCount) -- Global integer from 1 -> playerCount. Red = 1, Green = 2, Purple = 3, Blue = 4, Orange = 5, Brown = 6
+    local startPlayerColor = playerTable[startPlayerNumber].color -- Color of starting player
     
+    log("startPlayerNumber: " .. startPlayerNumber)
+
     broadcastToAll("-" .. startPlayerColor .. "- is the starting player!", startPlayerColor)
     
-    local colorIndex = startPlayerNumber -- Start with color/number of starting player, then continue clockwise from there 
+    local colorIndex
 
-    for i = 1, playerCount do -- Fills the array with colors in player order for this game
+    -- We grab the index/key in availablePlayerColors table, matching with the startPlayerColor. We use this as the starting point for turn order.
+    for index, color in ipairs(availablePlayerColors) do
+        if color == startPlayerColor then
+            colorIndex = index
+        end
+    end
+
+    for i = 1, playerCount do -- Fills the table with colors in player order for this game
         turnOrderTable[i] = availablePlayerColors[colorIndex]
         
         colorIndex = colorIndex + 1
@@ -641,34 +668,6 @@ function DetermineStartingPlayer() -- Determines starting player and color/turn 
     Turns.type = 2 -- 2 = custom.
     Turns.order = turnOrderTable
     Turns.turn_color = startPlayerColor
-end
-
-function MoveHandZones(operation, moveValue) -- Move the hand zones back and forth
-    -- Stores the moving away and back to original operations
-    local operations = {
-        ["+"] = function(oldValue, moveValue) return oldValue + moveValue end,
-        ["-"] = function (oldValue, moveValue) return oldValue - moveValue end
-    }
-
-    local RedHandZone = getObjectFromGUID("3feb12")
-    local GreenHandZone = getObjectFromGUID("832b57")
-    local PurpleHandZone = getObjectFromGUID("783920")
-    local BlueHandZone = getObjectFromGUID("07898a")
-    local OrangeHandZone = getObjectFromGUID("7261c8")
-    local BrownHandZone = getObjectFromGUID("cc2c47")
-    
-    local redPos = RedHandZone.getPosition()
-    RedHandZone.setPosition({operations[operation](redPos.x, moveValue), operations[operation](redPos.y, moveValue), operations[operation](redPos.z, moveValue)})
-    local greenPos = GreenHandZone.getPosition()
-    GreenHandZone.setPosition({operations[operation](greenPos.x, moveValue), operations[operation](greenPos.y, moveValue), operations[operation](greenPos.z, moveValue)})
-    local purplePos = PurpleHandZone.getPosition()
-    PurpleHandZone.setPosition({operations[operation](purplePos.x, moveValue), operations[operation](purplePos.y, moveValue), operations[operation](purplePos.z, moveValue)})
-    local bluePos = BlueHandZone.getPosition()
-    BlueHandZone.setPosition({operations[operation](bluePos.x, moveValue), operations[operation](bluePos.y, moveValue), operations[operation](bluePos.z, moveValue)})
-    local orangePos = OrangeHandZone.getPosition()
-    OrangeHandZone.setPosition({operations[operation](orangePos.x, moveValue), operations[operation](orangePos.y, moveValue), operations[operation](orangePos.z, moveValue)})
-    local brownPos = BrownHandZone.getPosition()
-    BrownHandZone.setPosition({operations[operation](brownPos.x, moveValue), operations[operation](brownPos.y, moveValue), operations[operation](brownPos.z, moveValue)})
 end
 
 function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
