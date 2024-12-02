@@ -71,6 +71,7 @@
     </Row>
 </TableLayout> 
 
+<!-- Attacker area text -->
 <Panel
     width="800"
     height="300"
@@ -159,6 +160,33 @@
     </Row>
 </TableLayout> 
 
+<!-- Hide buttons attacker & defender -->
+<Button 
+    id="hiddenZoneAttackerButton" 
+    width="300"
+    height="130"
+    fontStyle="Bold" 
+    fontSize="40" 
+    textColor="#09266E" 
+    interactable="true" 
+    position="1700 -1000 -65"
+    rotation="0 0 90"
+    onClick="HiddenZoneAttackerButtonClicked">Hide
+</Button> 
+<Button 
+    id="hiddenZoneDefenderButton" 
+    width="300"
+    height="130"
+    fontStyle="Bold" 
+    fontSize="40" 
+    textColor="#09266E" 
+    interactable="true" 
+    position="-1700 -1000 -65"
+    rotation="0 0 -90"
+    onClick="HiddenZoneDefenderButtonClicked">Hide
+</Button> 
+
+<!-- Defender area text -->
 <Panel
     width="800"
     height="300"

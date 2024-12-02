@@ -25,6 +25,6 @@ function FollowButtonClicked(player, option, id)
     end
 end
 
-function onPlayerTurn()
+function onPlayerTurn() -- Called at the start of a player's turn. Turns must be enabled.
     reset()
 end

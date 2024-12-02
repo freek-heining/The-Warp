@@ -74,7 +74,6 @@
         rectAlignment="LowerCenter">
         <Text 
             color="#FFFFFF"
-            onClick="DemoClicked"
             fontSize="14"
             fontStyle="Bold"
             shadow="#141414">Mod created by: Freich</Text>

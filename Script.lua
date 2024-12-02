@@ -1,144 +1,144 @@
 --#region DataTables
--- Fixed colors in clockwise order
-local availablePlayerColors = {
-    [1] = "Red",
-    [2] = "Green",
-    [3] = "Purple",
-    [4] = "Blue",
-    [5] = "Orange",
-    [6] = "Brown"
-}
+    -- Fixed colors in clockwise order
+    local availablePlayerColors = {
+        [1] = "Red",
+        [2] = "Green",
+        [3] = "Purple",
+        [4] = "Blue",
+        [5] = "Orange",
+        [6] = "Brown"
+    }
 
--- 1-6 players (position, rotation)
-local playerZonePositions = {
-    [1] = { {16.48, 1.68, -15.19}, {0.02, 180.05, 0.08} },
-    [2] = { {2.57, 1.68, -8.86}, {359.94, 240.05, 0.05} },
-    [3] = { {1.11, 1.68, 6.34}, {359.92, 299.97, 359.97} },
-    [4] = { {13.51, 1.68, 15.25}, {359.98, 359.81, 359.92} },
-    [5] = { {27.43, 1.68, 8.91}, {0.06, 60.38, 359.95} },
-    [6] = { {28.91, 1.68, -6.31}, {0.08, 119.98, 0.03} }
-}
+    -- 1-6 players (position, rotation)
+    local playerZonePositions = {
+        [1] = { {16.48, 1.68, -15.19}, {0.02, 180.05, 0.08} },
+        [2] = { {2.57, 1.68, -8.86}, {359.94, 240.05, 0.05} },
+        [3] = { {1.11, 1.68, 6.34}, {359.92, 299.97, 359.97} },
+        [4] = { {13.51, 1.68, 15.25}, {359.98, 359.81, 359.92} },
+        [5] = { {27.43, 1.68, 8.91}, {0.06, 60.38, 359.95} },
+        [6] = { {28.91, 1.68, -6.31}, {0.08, 119.98, 0.03} }
+    }
 
--- B sides/backside of boards
-local playerZonePositionsB = {
-    [1] = { {13.60, 1.68, -15.24}, {0.02, 179.89, 0.08} },
-    [2] = { {1.12, 1.68, -6.42}, {359.94, 239.81, 0.05} },
-    [3] = { {2.52, 1.68, 8.80}, {359.92, 299.93, 359.97} },
-    [4] = { {16.40, 1.68, 15.17}, {359.98, 359.92, 359.92} },
-    [5] = { {28.89, 1.68, 6.35}, {0.06, 59.86, 359.95} },
-    [6] = { {27.48, 1.68, -8.86}, {0.08, 119.88, 0.03} }
-}
+    -- B sides/backside of boards
+    local playerZonePositionsB = {
+        [1] = { {13.60, 1.68, -15.24}, {0.02, 179.89, 0.08} },
+        [2] = { {1.12, 1.68, -6.42}, {359.94, 239.81, 0.05} },
+        [3] = { {2.52, 1.68, 8.80}, {359.92, 299.93, 359.97} },
+        [4] = { {16.40, 1.68, 15.17}, {359.98, 359.92, 359.92} },
+        [5] = { {28.89, 1.68, 6.35}, {0.06, 59.86, 359.95} },
+        [6] = { {27.48, 1.68, -8.86}, {0.08, 119.88, 0.03} }
+    }
 
--- 2-5 players (position, rotation)
-local connectZonePositions = {
-    [2] = { {0.37, 1.68, -0.02}, {359.92, 270.21, 0.02} },
-    [3] = { {7.69, 1.68, 12.65}, {359.95, 330.04, 359.94} },
-    [4] = { {22.28, 1.68, 12.64}, {0.02, 29.89, 359.93} },
-    [5] = { {29.60, 1.68, 0.04}, {0.08, 90.08, 359.98} }
-}
+    -- 2-5 players (position, rotation)
+    local connectZonePositions = {
+        [2] = { {0.37, 1.68, -0.02}, {359.92, 270.21, 0.02} },
+        [3] = { {7.69, 1.68, 12.65}, {359.95, 330.04, 359.94} },
+        [4] = { {22.28, 1.68, 12.64}, {0.02, 29.89, 359.93} },
+        [5] = { {29.60, 1.68, 0.04}, {0.08, 90.08, 359.98} }
+    }
 
-local portalBPositions = {
-    [2] = {3.58, 1.78, 1.84},
-    [3] = {10.78, 1.78, 10.62},
-    [4] = {22.10, 1.78, 8.72},
-    [5] = {26.67, 1.78, -1.89}
-}
+    local portalBPositions = {
+        [2] = {3.58, 1.78, 1.84},
+        [3] = {10.78, 1.78, 10.62},
+        [4] = {22.10, 1.78, 8.72},
+        [5] = {26.67, 1.78, -1.89}
+    }
 
-local connectZonePositionB = {
-    [1] = { {22.37, 1.68, -12.69}, {0.05, 150.02, 0.06} }
-}
+    local connectZonePositionB = {
+        [1] = { {22.37, 1.68, -12.69}, {0.05, 150.02, 0.06} }
+    }
 
--- Players 1-6 (position, rotation)
-local energyZonePositions = {
-    [1] = {30.85, 1.53, -46.12},
-    [2] = {-12.65, 1.59, -46.12},
-    [3] = {-44.27, 1.66, 46.12},
-    [4] = {-0.74, 1.60, 46.12},
-    [5] = {42.68, 1.54, 46.12},
-    [6] = {74.35, 1.46, -46.12}
-}
+    -- Players 1-6 (position, rotation)
+    local energyZonePositions = {
+        [1] = {30.85, 1.53, -46.12},
+        [2] = {-12.65, 1.59, -46.12},
+        [3] = {-44.27, 1.66, 46.12},
+        [4] = {-0.74, 1.60, 46.12},
+        [5] = {42.68, 1.54, 46.12},
+        [6] = {74.35, 1.46, -46.12}
+    }
 
--- Players 1-6 (position, rotation)
-local goldZonePositions = {
-    [1] = {25.47, 1.58, -46.12},
-    [2] = {-18.03, 1.64, -46.12},
-    [3] = {-38.87, 1.70, 46.12},
-    [4] = {4.61, 1.64, 46.12},
-    [5] = {48.13, 1.58, 46.12},
-    [6] = {68.97, 1.52, -46.12},
-}
+    -- Players 1-6 (position, rotation)
+    local goldZonePositions = {
+        [1] = {25.47, 1.58, -46.12},
+        [2] = {-18.03, 1.64, -46.12},
+        [3] = {-38.87, 1.70, 46.12},
+        [4] = {4.61, 1.64, 46.12},
+        [5] = {48.13, 1.58, 46.12},
+        [6] = {68.97, 1.52, -46.12},
+    }
 
-local draftZonePositionsCW = {
-    [1] = {-73.41, 15.61, 25.54},
-    [2] = {-73.42, 15.62, 36.04},
-    [3] = {-73.42, 15.62, 46.54},
-    [4] = {-73.42, 15.62, 57.04},
-    [5] = {-59.66, 15.59, 25.54},
-    [6] = {-59.66, 15.60, 36.04},
-    [7] = {-59.66, 15.60, 46.54},
-    [8] = {-59.66, 15.60, 57.04}
-}
+    local draftZonePositionsCW = {
+        [1] = {-73.41, 15.61, 25.54},
+        [2] = {-73.42, 15.62, 36.04},
+        [3] = {-73.42, 15.62, 46.54},
+        [4] = {-73.42, 15.62, 57.04},
+        [5] = {-59.66, 15.59, 25.54},
+        [6] = {-59.66, 15.60, 36.04},
+        [7] = {-59.66, 15.60, 46.54},
+        [8] = {-59.66, 15.60, 57.04}
+    }
 
-local draftZonePositionsCCW = {
-    [1] = {-73.41, 15.61, -56.96},
-    [2] = {-73.41, 15.62, -46.46},
-    [3] = {-73.41, 15.62, -35.96},
-    [4] = {-73.41, 15.62, -25.46},
-    [5] = {-59.66, 15.59, -56.96},
-    [6] = {-59.66, 15.60, -46.46},
-    [7] = {-59.66, 15.60, -35.96},
-    [8] = {-59.66, 15.60, -25.46}
-}
+    local draftZonePositionsCCW = {
+        [1] = {-73.41, 15.61, -56.96},
+        [2] = {-73.41, 15.62, -46.46},
+        [3] = {-73.41, 15.62, -35.96},
+        [4] = {-73.41, 15.62, -25.46},
+        [5] = {-59.66, 15.59, -56.96},
+        [6] = {-59.66, 15.60, -46.46},
+        [7] = {-59.66, 15.60, -35.96},
+        [8] = {-59.66, 15.60, -25.46}
+    }
 
--- Left and right spot
-local alienRacePlayerZones = {
-    Red = { {22.50, 1.67, -37.50}, {31.78, 1.67, -37.50} },
-    Green = { {-21.00, 1.67, -37.50}, {-11.73, 1.67, -37.50} },
-    Purple = { {-36.00, 1.67, 37.50}, {-45.29, 1.67, 37.50} },
-    Blue = { {7.50, 1.67, 37.50}, {-1.78, 1.67, 37.50} },
-    Orange = { {51.00, 1.67, 37.50}, {41.72, 1.67, 37.50} },
-    Brown = { {66.01, 1.67, -37.50}, {75.28, 1.67, -37.50} }
-}
+    -- Left and right spot
+    local alienRacePlayerZones = {
+        Red = { {22.50, 1.67, -37.50}, {31.78, 1.67, -37.50} },
+        Green = { {-21.00, 1.67, -37.50}, {-11.73, 1.67, -37.50} },
+        Purple = { {-36.00, 1.67, 37.50}, {-45.29, 1.67, 37.50} },
+        Blue = { {7.50, 1.67, 37.50}, {-1.78, 1.67, 37.50} },
+        Orange = { {51.00, 1.67, 37.50}, {41.72, 1.67, 37.50} },
+        Brown = { {66.01, 1.67, -37.50}, {75.28, 1.67, -37.50} }
+    }
 --#endregion
 
 --#region StartScreenOptions
-local alternativeSetup = false
-local advancedPioneering = false
-local expansionRaces = false
+    local alternativeSetup = false
+    local advancedPioneering = false
+    local expansionRaces = false
 
-function AlternativeMapToggled(player, isOn)
-    UI.setAttribute("alternativeMapToggle", "isOn", isOn)
-    
-    -- Boolean value from UI Toggle is a string here!
-    if isOn == "False" then
-        alternativeSetup = false
-    elseif isOn == "True" then
-        alternativeSetup = true
+    function AlternativeMapToggled(player, isOn)
+        UI.setAttribute("alternativeMapToggle", "isOn", isOn)
+        
+        -- Boolean value from UI Toggle is a string here!
+        if isOn == "False" then
+            alternativeSetup = false
+        elseif isOn == "True" then
+            alternativeSetup = true
+        end
+        log("alternativeSetup: " .. tostring(alternativeSetup))
     end
-    log("alternativeSetup: " .. tostring(alternativeSetup))
-end
 
-function AdvancedPioneeringToggled(player, isOn)
-    UI.setAttribute("advancedPioneeringToggle", "isOn", isOn)
+    function AdvancedPioneeringToggled(player, isOn)
+        UI.setAttribute("advancedPioneeringToggle", "isOn", isOn)
 
-    if isOn == "False" then
-        advancedPioneering = false
-    elseif isOn == "True" then
-        advancedPioneering = true
+        if isOn == "False" then
+            advancedPioneering = false
+        elseif isOn == "True" then
+            advancedPioneering = true
+        end
+        log("advancedPioneering: " .. tostring(advancedPioneering))
     end
-    log("advancedPioneering: " .. tostring(advancedPioneering))
-end
 
-function ExpansionRacesToggled(player, isOn)
-    UI.setAttribute("expansionRacesToggle", "isOn", isOn)
+    function ExpansionRacesToggled(player, isOn)
+        UI.setAttribute("expansionRacesToggle", "isOn", isOn)
 
-    if isOn == "False" then
-        expansionRaces = false
-    elseif isOn == "True" then
-        expansionRaces = true
+        if isOn == "False" then
+            expansionRaces = false
+        elseif isOn == "True" then
+            expansionRaces = true
+        end
+        log("expansionRaces: " .. tostring(expansionRaces))
     end
-    log("expansionRaces: " .. tostring(expansionRaces))
-end
 --#endregion
 
 local playerCount = 0 -- Important variable. Used in lots of functions
@@ -166,7 +166,7 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
 
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 

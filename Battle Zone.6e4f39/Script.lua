@@ -614,3 +614,67 @@ function onObjectNumberTyped(object, player_color, number)
 
     return true
 end
+
+-- Hidden zone attacker spawn
+local attackerHiding = false
+local attackZoneObject
+function HiddenZoneAttackerButtonClicked(player)
+    if attackerHiding then
+        attackerHiding = false
+        destroyObject(attackZoneObject)
+    else
+        attackerHiding = true
+        attackZoneObject = spawnObjectData({
+            data = {
+                Name = "FogOfWarTrigger",
+                Transform = {
+                    posX = 67.51,
+                    posY = 2.69,
+                    posZ = 19.49,
+                    rotX = 0,
+                    rotY = 0,
+                    rotZ = 0,
+                    scaleX = 15,
+                    scaleY = 3,
+                    scaleZ = 8
+                },
+                FogColor = player.color,
+                Locked = true,
+                Nickname = "Attacker Hidden Zone",
+                Description = "Use to secretly choose your combat card option. Removed when attack is set!"
+            }
+        })
+    end
+end
+
+-- Hide zone defender spawn
+local defenderHiding = false
+local defendZoneObject
+function HiddenZoneDefenderButtonClicked(player)
+    if defenderHiding then
+        defenderHiding = false
+        destroyObject(defendZoneObject)
+    else
+        defenderHiding = true
+        defendZoneObject = spawnObjectData({
+            data = {
+                Name = "FogOfWarTrigger",
+                Transform = {
+                    posX = 67.51,
+                    posY = 2.69,
+                    posZ = -19.49,
+                    rotX = 0,
+                    rotY = 0,
+                    rotZ = 0,
+                    scaleX = 6,
+                    scaleY = 3,
+                    scaleZ = 8
+                },
+                FogColor = player.color,
+                Locked = true,
+                Nickname = "Defender Hidden Zone",
+                Description = "Use to secretly choose your combat card option. Removed when defense is set!"
+            }
+        })
+    end
+end
