@@ -42,147 +42,245 @@ local defenseDicePositions = {
 }
 
 --#region Attack Side Change Events
-function TroopCountAttackChange(player, value, id)
-    local numberValue = tonumber(value) -- Convert from string to number
-    if numberValue then
-        troopCountAttack = numberValue
-    end
-    ResetAttackButton()
-    diceRolled = false
-    self.UI.setValue("troopCountAttackText", numberValue)
-    self.UI.setAttribute("troopCountAttackSlider", "value", value)
-end
-
-function MultiplierAttackChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        multiplierAttack = numberValue
-    end
-    ResetAttackButton()
-    diceRolled = false
-    self.UI.setValue("multiplierAttackText", numberValue)
-    self.UI.setAttribute("multiplierAttackSlider", "value", value)
-end
-
-function ExtraDiceAttackChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        extraDiceAttack = numberValue
-    end
-    ResetAttackButton()
-    diceRolled = false
-    self.UI.setValue("extraDiceAttackText", numberValue)
-    self.UI.setAttribute("extraDiceAttackSlider", "value", value)
-end
-
-function ExtraDieValueAttackChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        extraDieValueAttack = numberValue
-    end
-    ResetAttackButton()
-    diceRolled = false
-    self.UI.setValue("extraDieValueAttackText", numberValue)
-    self.UI.setAttribute("extraDieValueAttackSlider", "value", value)
-end
-
-function MultiplyDieAttackChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        multiplyDieAttack = numberValue
-    end
-    ResetAttackButton()
-    diceRolled = false
-    self.UI.setValue("multiplyDieAttackText", numberValue)
-    self.UI.setAttribute("multiplyDieAttackSlider", "value", value)
-end
-
-function MaximumDieValueAttackChange(player, value, id)
-    -- Boolean value from UI Toggle is a string here!
-    if value == "False" then
-        NoMaximumDieValueAttack = false
-    elseif value == "True" then
-        NoMaximumDieValueAttack = true
+    function TroopCountAttackChange(player, value, id)
+        local numberValue = tonumber(value) -- Convert from string to number
+        if numberValue then
+            troopCountAttack = numberValue
+        end
+        ResetAttackButtons()
+        diceRolled = false
+        self.UI.setValue("troopCountAttackText", numberValue)
+        self.UI.setAttribute("troopCountAttackSlider", "value", value)
     end
 
-    -- Otherwise not visible to other players
-    self.UI.setAttribute("maximumDieValueAttackToggle", "isOn", value)
+    function MultiplierAttackChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            multiplierAttack = numberValue
+        end
+        ResetAttackButtons()
+        diceRolled = false
+        self.UI.setValue("multiplierAttackText", numberValue)
+        self.UI.setAttribute("multiplierAttackSlider", "value", value)
+    end
 
-    ResetAttackButton()
-    diceRolled = false
-end
+    function ExtraDiceAttackChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            extraDiceAttack = numberValue
+        end
+        ResetAttackButtons()
+        diceRolled = false
+        self.UI.setValue("extraDiceAttackText", numberValue)
+        self.UI.setAttribute("extraDiceAttackSlider", "value", value)
+    end
+
+    function ExtraDieValueAttackChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            extraDieValueAttack = numberValue
+        end
+        ResetAttackButtons()
+        diceRolled = false
+        self.UI.setValue("extraDieValueAttackText", numberValue)
+        self.UI.setAttribute("extraDieValueAttackSlider", "value", value)
+    end
+
+    function MultiplyDieAttackChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            multiplyDieAttack = numberValue
+        end
+        ResetAttackButtons()
+        diceRolled = false
+        self.UI.setValue("multiplyDieAttackText", numberValue)
+        self.UI.setAttribute("multiplyDieAttackSlider", "value", value)
+    end
+
+    function MaximumDieValueAttackChange(player, value, id)
+        -- Boolean value from UI Toggle is a string here!
+        if value == "False" then
+            NoMaximumDieValueAttack = false
+        elseif value == "True" then
+            NoMaximumDieValueAttack = true
+        end
+
+        -- Otherwise not visible to other players
+        self.UI.setAttribute("maximumDieValueAttackToggle", "isOn", value)
+
+        ResetAttackButtons()
+        diceRolled = false
+    end
 --#endregion
 
 --#region Defense Side Change Events
-function TroopCountDefenseChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        troopCountDefense = numberValue
-    end
-    ResetDefenseButton()
-    diceRolled = false
-    self.UI.setValue("troopCountDefenseText", numberValue)
-    self.UI.setAttribute("troopCountDefenseSlider", "value", value)
-end
-
-function MultiplierDefenseChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        multiplierDefense = numberValue
-    end
-    ResetDefenseButton()
-    diceRolled = false
-    self.UI.setValue("multiplierDefenseText", numberValue)
-    self.UI.setAttribute("multiplierDefenseSlider", "value", value)
-end
-
-function ExtraDiceDefenseChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        extraDiceDefense = numberValue
-    end
-    ResetDefenseButton()
-    diceRolled = false
-    self.UI.setValue("extraDiceDefenseText", numberValue)
-    self.UI.setAttribute("ExtraDiceDefenseSlider", "value", value)
-end
-
-function ExtraDieValueDefenseChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        extraDieValueDefense = numberValue
-    end
-    ResetDefenseButton()
-    diceRolled = false
-    self.UI.setValue("extraDieValueDefenseText", numberValue)
-    self.UI.setAttribute("extraDieValueDefenseSlider", "value", value)
-end
-
-function MultiplyDieDefenseChange(player, value, id)
-    local numberValue = tonumber(value)
-    if numberValue then
-        multiplyDieDefense = numberValue
-    end
-    ResetDefenseButton()
-    diceRolled = false
-    self.UI.setValue("multiplyDieDefenseText", numberValue)
-    self.UI.setAttribute("multiplyDieDefenseSlider", "value", value)
-end
-
-function MaximumDieValueDefenseChange(player, value, id)
-    -- Boolean value from UI Toggle is a string here!
-    if value == "False" then
-        NoMaximumDieValueDefense = false
-    elseif value == "True" then
-        NoMaximumDieValueDefense = true
+    function TroopCountDefenseChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            troopCountDefense = numberValue
+        end
+        ResetDefenseButtons()
+        diceRolled = false
+        self.UI.setValue("troopCountDefenseText", numberValue)
+        self.UI.setAttribute("troopCountDefenseSlider", "value", value)
     end
 
-    -- Otherwise not visible to other players
-    self.UI.setAttribute("maximumDieValueDefenseToggle", "isOn", value)
+    function MultiplierDefenseChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            multiplierDefense = numberValue
+        end
+        ResetDefenseButtons()
+        diceRolled = false
+        self.UI.setValue("multiplierDefenseText", numberValue)
+        self.UI.setAttribute("multiplierDefenseSlider", "value", value)
+    end
 
-    ResetDefenseButton()
-    diceRolled = false
-end
+    function ExtraDiceDefenseChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            extraDiceDefense = numberValue
+        end
+        ResetDefenseButtons()
+        diceRolled = false
+        self.UI.setValue("extraDiceDefenseText", numberValue)
+        self.UI.setAttribute("ExtraDiceDefenseSlider", "value", value)
+    end
+
+    function ExtraDieValueDefenseChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            extraDieValueDefense = numberValue
+        end
+        ResetDefenseButtons()
+        diceRolled = false
+        self.UI.setValue("extraDieValueDefenseText", numberValue)
+        self.UI.setAttribute("extraDieValueDefenseSlider", "value", value)
+    end
+
+    function MultiplyDieDefenseChange(player, value, id)
+        local numberValue = tonumber(value)
+        if numberValue then
+            multiplyDieDefense = numberValue
+        end
+        ResetDefenseButtons()
+        diceRolled = false
+        self.UI.setValue("multiplyDieDefenseText", numberValue)
+        self.UI.setAttribute("multiplyDieDefenseSlider", "value", value)
+    end
+
+    function MaximumDieValueDefenseChange(player, value, id)
+        -- Boolean value from UI Toggle is a string here!
+        if value == "False" then
+            NoMaximumDieValueDefense = false
+        elseif value == "True" then
+            NoMaximumDieValueDefense = true
+        end
+
+        -- Otherwise not visible to other players
+        self.UI.setAttribute("maximumDieValueDefenseToggle", "isOn", value)
+
+        ResetDefenseButtons()
+        diceRolled = false
+    end
+--#endregion
+
+--#region Hidden Zones Attack & Defense
+    -- Hidden zone attacker spawn
+    local attackerHiding = false
+    local attackZoneObject
+    
+    local function unhideAttacker()
+        attackerHiding = false
+        destroyObject(attackZoneObject)
+        self.UI.setAttribute("hiddenZoneAttackerButton", "text", "Hide")
+        self.UI.setAttribute("hiddenZoneAttackerButton", "color", "White")
+        self.UI.setAttribute("hiddenZoneAttackerButton", "textColor", "#09266E")
+    end
+
+    function HiddenZoneAttackerButtonClicked(player)
+        if attackerHiding then
+            unhideAttacker()
+        else
+            attackerHiding = true
+            self.UI.setAttribute("hiddenZoneAttackerButton", "text", "Unhide")
+            self.UI.setAttribute("hiddenZoneAttackerButton", "color", player.color)
+            self.UI.setAttribute("hiddenZoneAttackerButton", "textColor", "White")
+            attackZoneObject = spawnObjectData({
+                data = {
+                    Name = "FogOfWarTrigger",
+                    Transform = {
+                        posX = 67.51,
+                        posY = 2.69,
+                        posZ = 19.49,
+                        rotX = 0,
+                        rotY = 0,
+                        rotZ = 0,
+                        scaleX = 15,
+                        scaleY = 3,
+                        scaleZ = 8
+                    },
+                    FogColor = player.color,
+                    Locked = true,
+                    Nickname = "Attacker Hidden Zone",
+                    Description = "Use to secretly choose your combat card option. Removed when attack is set!"
+                }
+            })
+        end
+    end
+
+    -- Hidden zone defender spawn
+    local defenderHiding = false
+    local defendZoneObject
+
+    local function unhideDefender()
+        defenderHiding = false
+        destroyObject(defendZoneObject)
+        self.UI.setAttribute("hiddenZoneDefenderButton", "text", "Hide")
+        self.UI.setAttribute("hiddenZoneDefenderButton", "color", "White")
+        self.UI.setAttribute("hiddenZoneDefenderButton", "textColor", "#09266E")
+    end
+
+    function HiddenZoneDefenderButtonClicked(player)
+        if defenderHiding then
+            unhideDefender()
+        else
+            defenderHiding = true
+            self.UI.setAttribute("hiddenZoneDefenderButton", "text", "Unhide")
+            self.UI.setAttribute("hiddenZoneDefenderButton", "color", player.color)
+            self.UI.setAttribute("hiddenZoneDefenderButton", "textColor", "White")
+            defendZoneObject = spawnObjectData({
+                data = {
+                    Name = "FogOfWarTrigger",
+                    Transform = {
+                        posX = 67.51,
+                        posY = 2.69,
+                        posZ = -19.49,
+                        rotX = 0,
+                        rotY = 0,
+                        rotZ = 0,
+                        scaleX = 6,
+                        scaleY = 3,
+                        scaleZ = 8
+                    },
+                    FogColor = player.color,
+                    Locked = true,
+                    Nickname = "Defender Hidden Zone",
+                    Description = "Use to secretly choose your combat card option. Removed when defense is set!"
+                }
+            })
+        end
+    end
+
+    -- Remove hiding zones
+    function onPlayerTurn() -- Called at the start of a player's turn. Turns must be enabled.
+        if attackerHiding then
+            unhideAttacker()
+        end
+        if defenderHiding  then
+            unhideDefender()
+        end
+    end
 --#endregion
 
 -- Global tables needed/used when 'CalculateBattleResults' called from outside of 'BattleCoroutine'
@@ -235,18 +333,29 @@ function AttackButtonClicked(player, value, id)
 
     attackSet = true
 
+    -- Removes hidden zone and prevents creating it during battle
+    if attackerHiding then
+        unhideAttacker()
+    end
+    self.UI.setAttribute("hiddenZoneAttackerButton", "interactable", false)
+
     if attackSet and defenseSet then
         self.UI.setAttribute("battleButton", "interactable", true)
         self.UI.setAttribute("battleButton", "textColor", "#09266E")
     end
 end
 
-function ResetAttackButton()
+function ResetAttackButtons()
     attackSet = false
     self.UI.setAttribute("attackButton", "interactable", true)
     self.UI.setAttribute("attackButton", "color", "White")
     self.UI.setAttribute("attackButton", "textColor", "#09266E")
     self.UI.setAttribute("battleButton", "interactable", false)
+    
+    self.UI.setAttribute("hiddenZoneAttackerButton", "interactable", true)
+    if attackerHiding then -- textColor somehow becomes default/black when setting interactable to true. This will overwrite it.
+        self.UI.setAttribute("hiddenZoneAttackerButton", "textColor", "White")
+    end
 end
 
 -- Defend
@@ -284,18 +393,29 @@ function DefenseButtonClicked(player, value, id)
 
     defenseSet = true
 
+    -- Removes hidden zone and prevents creating it during battle
+    if defenderHiding then
+        unhideDefender()
+    end
+    self.UI.setAttribute("hiddenZoneDefenderButton", "interactable", false)
+
     if attackSet and defenseSet then
         self.UI.setAttribute("battleButton", "interactable", true)
         self.UI.setAttribute("battleButton", "textColor", "#09266E")
     end
 end
 
-function ResetDefenseButton()
+function ResetDefenseButtons()
     defenseSet = false
     self.UI.setAttribute("defenseButton", "interactable", true)
     self.UI.setAttribute("defenseButton", "color", "White")
     self.UI.setAttribute("defenseButton", "textColor", "#09266E")
     self.UI.setAttribute("battleButton", "interactable", false)
+
+    self.UI.setAttribute("hiddenZoneDefenderButton", "interactable", true)
+    if defenderHiding then -- textColor somehow becomes default/black when setting interactable to true. This will overwrite it.
+        self.UI.setAttribute("hiddenZoneDefenderButton", "textColor", "White")
+    end
 end
 
 local function setInteractableFalse(element)
@@ -615,66 +735,3 @@ function onObjectNumberTyped(object, player_color, number)
     return true
 end
 
--- Hidden zone attacker spawn
-local attackerHiding = false
-local attackZoneObject
-function HiddenZoneAttackerButtonClicked(player)
-    if attackerHiding then
-        attackerHiding = false
-        destroyObject(attackZoneObject)
-    else
-        attackerHiding = true
-        attackZoneObject = spawnObjectData({
-            data = {
-                Name = "FogOfWarTrigger",
-                Transform = {
-                    posX = 67.51,
-                    posY = 2.69,
-                    posZ = 19.49,
-                    rotX = 0,
-                    rotY = 0,
-                    rotZ = 0,
-                    scaleX = 15,
-                    scaleY = 3,
-                    scaleZ = 8
-                },
-                FogColor = player.color,
-                Locked = true,
-                Nickname = "Attacker Hidden Zone",
-                Description = "Use to secretly choose your combat card option. Removed when attack is set!"
-            }
-        })
-    end
-end
-
--- Hide zone defender spawn
-local defenderHiding = false
-local defendZoneObject
-function HiddenZoneDefenderButtonClicked(player)
-    if defenderHiding then
-        defenderHiding = false
-        destroyObject(defendZoneObject)
-    else
-        defenderHiding = true
-        defendZoneObject = spawnObjectData({
-            data = {
-                Name = "FogOfWarTrigger",
-                Transform = {
-                    posX = 67.51,
-                    posY = 2.69,
-                    posZ = -19.49,
-                    rotX = 0,
-                    rotY = 0,
-                    rotZ = 0,
-                    scaleX = 6,
-                    scaleY = 3,
-                    scaleZ = 8
-                },
-                FogColor = player.color,
-                Locked = true,
-                Nickname = "Defender Hidden Zone",
-                Description = "Use to secretly choose your combat card option. Removed when defense is set!"
-            }
-        })
-    end
-end

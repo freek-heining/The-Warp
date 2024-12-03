@@ -1,19 +1,19 @@
 {
-  "GUID": "a5257a",
+  "GUID": "179e99",
   "Name": "Custom_Model",
   "Transform": {
-    "posX": 71.22448,
-    "posY": 1.39734447,
-    "posZ": 35.9996,
-    "rotX": 359.983124,
-    "rotY": 0.002326835,
-    "rotZ": 359.920135,
-    "scaleX": 0.28,
-    "scaleY": 0.28,
-    "scaleZ": 0.28
+    "posX": 52.3635445,
+    "posY": 1.40235615,
+    "posZ": -21.81858,
+    "rotX": 0.07988937,
+    "rotY": 90.0022354,
+    "rotZ": 359.9832,
+    "scaleX": 0.645,
+    "scaleY": 0.645,
+    "scaleZ": 0.645
   },
-  "Nickname": "Mine",
-  "Description": "",
+  "Nickname": "Laser Cannon",
+  "Description": "Pay 1 or 2 energy to destroy Troops within a range of 2 Areas (see p12).",
   "GMNotes": "",
   "AltLookAngle": {
     "x": 0.0,
@@ -22,8 +22,8 @@
   },
   "ColorDiffuse": {
     "r": 1.0,
-    "g": 0.562454343,
-    "b": 0.038154304
+    "g": 0.0,
+    "b": 0.0
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
@@ -40,10 +40,10 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216293572833/74C5780C9F656B8DE756CF4F8C81B2ADB345ABB2/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216293572367/9A12632F7638771C067FEA281CE034C20BF56EFA/",
     "DiffuseURL": "",
     "NormalURL": "",
-    "ColliderURL": "https://steamusercontent-a.akamaihd.net/ugc/2508017401744030481/E0E2C72D942BE1288C1C39D852AEC765FEED57B3/",
+    "ColliderURL": "https://steamusercontent-a.akamaihd.net/ugc/2508017401744029331/E38E7994E6398F713AB12AC40874B69466A0D28B/",
     "Convex": true,
     "MaterialIndex": 0,
     "TypeIndex": 1,
@@ -54,7 +54,7 @@
         "b": 1.0
       },
       "SpecularIntensity": 0.5,
-      "SpecularSharpness": 3.0,
+      "SpecularSharpness": 3.007853,
       "FresnelStrength": 0.4
     },
     "CastShadows": true

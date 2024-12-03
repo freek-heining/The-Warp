@@ -1,7 +1,7 @@
 {
-  "SaveName": "The Warp - Boardgame v1.6",
-  "EpochTime": 1733134831,
-  "Date": "12/2/2024 11:20:31 AM",
+  "SaveName": "The Warp - Boardgame v1.7",
+  "EpochTime": 1733173293,
+  "Date": "12/2/2024 10:01:33 PM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
@@ -175,7 +175,7 @@
   },
   "Grid": {
     "Type": 0,
-    "Lines": true,
+    "Lines": false,
     "Color": {
       "r": 1.0,
       "g": 1.0,
@@ -185,13 +185,13 @@
     "ThickLines": false,
     "Snapping": false,
     "Offset": false,
-    "BothSnapping": true,
+    "BothSnapping": false,
     "xSize": 1.5,
     "ySize": 1.5,
     "PosOffset": {
-      "x": 1.12900543,
+      "x": 1.129005,
       "y": 1.0,
-      "z": -0.191467285
+      "z": -0.1914673
     }
   },
   "Lighting": {
@@ -328,7 +328,7 @@
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": "Purple"
+    "TurnColor": "Red"
   },
   "CameraStates": [
     null,
@@ -717,7 +717,7 @@
         "z": -14.9999828
       },
       "Rotation": {
-        "x": 0.079880096,
+        "x": 0.0798801,
         "y": 89.9960251,
         "z": 179.983124
       }

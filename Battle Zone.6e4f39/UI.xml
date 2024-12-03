@@ -163,25 +163,23 @@
 <!-- Hide buttons attacker & defender -->
 <Button 
     id="hiddenZoneAttackerButton" 
-    width="300"
-    height="130"
+    width="260"
+    height="120"
     fontStyle="Bold" 
-    fontSize="40" 
+    fontSize="45" 
     textColor="#09266E" 
-    interactable="true" 
-    position="1700 -1000 -65"
+    position="1750 -850 -65"
     rotation="0 0 90"
     onClick="HiddenZoneAttackerButtonClicked">Hide
 </Button> 
 <Button 
     id="hiddenZoneDefenderButton" 
-    width="300"
-    height="130"
+    width="260"
+    height="120"
     fontStyle="Bold" 
-    fontSize="40" 
+    fontSize="45" 
     textColor="#09266E" 
-    interactable="true" 
-    position="-1700 -1000 -65"
+    position="-1750 -450 -65"
     rotation="0 0 -90"
     onClick="HiddenZoneDefenderButtonClicked">Hide
 </Button> 
