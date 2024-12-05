@@ -1,0 +1,75 @@
+<HorizontalLayout
+width="1500"
+height="350"
+spacing="60"
+padding="40 0 70 70"
+color="rgba(0,0,0,0.7)"
+childAlignment="MiddleCenter"
+position="380 0 0"
+rotation="0 0 90"
+offsetXY="0 0"
+childForceExpandWidth="true"
+childForceExpandHeight="true"
+>   
+    <ToggleGroup
+    id="numberOfShotsToggleGroup" 
+    onValueChanged="NumberOfShotsChange"
+    >
+        <VerticalLayout
+        height="300"
+        >
+            <Toggle
+            id="oneShotToggle"
+            onValueChanged="OneShotToggleChange"
+            verticalOverflow="overflow" 
+            fontSize="60" 
+            fontStyle="Bold" 
+            textColor="#FFFFFF" 
+            shadow="#141414" 
+            toggleWidth="120" 
+            toggleHeight="120">
+            1 shot
+            </Toggle>
+            <Toggle 
+            id="twoShotsToggle"
+            onValueChanged="TwoShotsToggleChange"
+            verticalOverflow="overflow" 
+            fontSize="60" 
+            fontStyle="Bold" 
+            textColor="#FFFFFF" 
+            shadow="#141414" 
+            toggleWidth="120" 
+            toggleHeight="120"
+            >2 shots
+            </Toggle>
+        </VerticalLayout>
+    </ToggleGroup>    
+
+    <Button 
+    id="laserOneFireButton" 
+    height="200"
+    fontStyle="Bold" 
+    fontSize="60" 
+    color="White"
+    textColor="#09266E" 
+    onClick="LaserOneFireButtonClicked"
+    >Fire!
+    </Button>  
+    
+    <VerticalLayout>
+        <Text
+        color="#FFFFFF" 
+        alignment="MiddleCenter"
+        fontStyle="Bold" 
+        fontSize="60"
+        >Result:
+        </Text>     
+        <Text
+        id="laserResult"
+        alignment="MiddleCenter"
+        fontStyle="Bold" 
+        fontSize="60"
+        >
+        </Text>     
+    </VerticalLayout>
+</HorizontalLayout>

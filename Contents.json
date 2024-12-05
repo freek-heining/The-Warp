@@ -1155,18 +1155,6 @@
     "path": "./Custom_Tile.4be4f9"
   },
   {
-    "path": "./Laser Cannon die.f5d69d"
-  },
-  {
-    "path": "./Laser Cannon die.6c1894"
-  },
-  {
-    "path": "./Laser Cannon die.5b7b23"
-  },
-  {
-    "path": "./Laser Cannon die.ef2126"
-  },
-  {
     "path": "./Troop Token.4bf6b3"
   },
   {
@@ -1353,6 +1341,9 @@
     "path": "./Deck.97c815"
   },
   {
-    "path": "./Laser Cannon.179e99"
+    "path": "./Laser Cannon Resolver.179e99"
+  },
+  {
+    "path": "./Laser Cannon Resolver.4710f6"
   }
 ]

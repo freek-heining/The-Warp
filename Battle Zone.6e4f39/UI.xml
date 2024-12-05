@@ -82,6 +82,7 @@
     offsetXY="1650 950">
     <Text
     fontSize="150"
+    fontStyle="Bold" 
     color="#FFFFFF"
     shadow="#141414"
     alignment="MiddleRight">Attacker</Text>
@@ -194,6 +195,7 @@
     offsetXY="-1650 950">
     <Text
     fontSize="150"
+    fontStyle="Bold" 
     color="#FFFFFF"
     shadow="#141414"
     alignment="MiddleLeft">Defender</Text>
@@ -219,7 +221,8 @@
     </Row>
     <!-- Row 2 -->
     <Row>
-        <Cell id="attackResultCell" dontUseTableCellBackground="true">
+        <!-- dontUseTableCellBackground: If set to true, then this cell will ignore the tables' cellBackgroundImage and values, allowing you to override those values for this cell.-->
+        <Cell id="attackResultCell" dontUseTableCellBackground="true"> 
             <Text id="attackResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
         </Cell>
         <Cell>
