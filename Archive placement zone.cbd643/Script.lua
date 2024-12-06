@@ -143,7 +143,7 @@ local function checkDeckEmptyAndRecreate()
     return false
 end
 
- -- Reset Archive because 4 of the same type. Check all 4 open piles + 1 discard pike for cards, and move them to deck location. Then shuffle and deal again.
+ -- Reset Archive because 4 of the same type. Check all 4 open piles + 1 discard pile for cards, and move them to deck location. Then shuffle and deal again.
 function ResetArchiveCoroutine()
     -- Make sure there is an Archive deck
     if checkDeckEmptyAndRecreate() then
@@ -294,7 +294,7 @@ function ReplenishSpotsCoroutine()
     -- #1 Check if empty and deck to draw from, or last card. If empty, replenish and recreate if needed. 
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 280 do
+        for _ = 1, 220 do
             coroutine.yield(0)
         end
     end
@@ -322,7 +322,7 @@ function ReplenishSpotsCoroutine()
     -- #2
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 280 do
+        for _ = 1, 220 do
             coroutine.yield(0)
         end
     end
@@ -350,7 +350,7 @@ function ReplenishSpotsCoroutine()
     -- #3
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 280 do
+        for _ = 1, 220 do
             coroutine.yield(0)
         end
     end
@@ -378,7 +378,7 @@ function ReplenishSpotsCoroutine()
     -- #4
     if checkDeckEmptyAndRecreate() then
         -- Wait for new deck to settle
-        for _ = 1, 280 do
+        for _ = 1, 220 do
             coroutine.yield(0)
         end
     end
@@ -401,7 +401,7 @@ function ReplenishSpotsCoroutine()
 
     -- If replenished spot(s), wait for new cards to settle, then check if all are of the same type.
     if replenished then
-        for _ = 1, 200 do
+        for _ = 1, 170 do
             coroutine.yield(0)
         end
         checkAllSameType()
@@ -418,7 +418,7 @@ function ReplenishClicked()
     Wait.time(function ()
         self.UI.setAttribute("replenishButton", "interactable", true)
         self.UI.setAttribute("replenishButton", "textColor", "#FFFFFF")
-    end, 4)
+    end, 4.5)
 
     startLuaCoroutine(self, "ReplenishSpotsCoroutine")
 end

@@ -70,3 +70,8 @@ function LaserOneFireButtonClicked(player, value, id)
         end
     end, 1.5)
 end
+
+-- Remove result
+function onPlayerTurn() -- Called at the start of a player's turn. Turns must be enabled.
+    self.UI.setAttribute("laserResult", "text", "test")
+end

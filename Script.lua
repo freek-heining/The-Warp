@@ -166,9 +166,9 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
 
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if setupDone then
         UI.setAttribute("setupWindow", "active", false)
@@ -847,50 +847,59 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         })
     end
 
-    -- Pioneering mission cards #1-6 (Dealt from left to right, per row. The deck is in the correct order)
+    -- Pioneering mission cards #1-6 (Dealt from left to right, per row. A deck consists of tables for each card!)
     -- #1 Overlord
-    if advancedPioneering then
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, -3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
+    for _, cardTable in ipairs(pioneeringDeckObject.getObjects()) do
+        for _, cardTag in ipairs(cardTable.tags) do
+            if cardTag == "overlord" and advancedPioneering then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-37.50, 1.65, -3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
+            elseif cardTag == "overlord" then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-37.50, 1.65, 3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
             end
-        })
-    else
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
+        end
     end
 
     -- #2 Infinite Riches
-    if advancedPioneering then
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
+    for _, cardTable in ipairs(pioneeringDeckObject.getObjects()) do
+        for _, cardTag in ipairs(cardTable.tags) do
+            if cardTag == "infinite" and advancedPioneering then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-37.50, 1.65, 3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
+            elseif cardTag == "infinite" then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-37.50, 1.65, 9.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
             end
-        })
-    else
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 9.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
+        end
     end
 
     -- #3 Ascension (advanced) OR Expansion
-    if advancedPioneering then -- destroy the default card
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 9.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.destruct() end)
-            end
-        })
-        -- Get the advanced card
+    if advancedPioneering then
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
             for _, cardTag in ipairs(cardTable.tags) do
                 if cardTag == "ascension" then
@@ -901,62 +910,79 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
                             Wait.frames(function() spawnedObject.flip() end)
                         end
                     })
-                    break
+                    break -- Stop iterating
                 end
             end
         end
-    else -- If not using advancedPioneering
-        pioneeringDeckObject.takeObject({
-            position = {-37.50, 1.65, 15.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
+    else
+        for _, cardTable in ipairs(pioneeringDeckObject.getObjects()) do
+            for _, cardTag in ipairs(cardTable.tags) do
+                if cardTag == "expansion" then
+                    pioneeringDeckObject.takeObject({
+                        index = cardTable.index,
+                        position = {-37.50, 1.65, 15.00},
+                        callback_function = function(spawnedObject)
+                            Wait.frames(function() spawnedObject.flip() end)
+                        end
+                    })
+                    break -- Stop iterating
+                end
             end
-        })
+        end
     end
 
     -- #4 Master Trader
-    if advancedPioneering then
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, -3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
+    for _, cardTable in ipairs(pioneeringDeckObject.getObjects()) do
+        for _, cardTag in ipairs(cardTable.tags) do
+            if cardTag == "master" and advancedPioneering then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-33.00, 1.65, -3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
+            elseif cardTag == "master" then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-33.00, 1.65, 3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
             end
-        })
-    else
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
+        end
     end
 
     -- #5 Civilization)
-    if advancedPioneering then
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 3.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
+    for _, cardTable in ipairs(pioneeringDeckObject.getObjects()) do
+        for _, cardTag in ipairs(cardTable.tags) do
+            if cardTag == "civilization" and advancedPioneering then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-33.00, 1.65, 3.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
+            elseif cardTag == "civilization" then
+                pioneeringDeckObject.takeObject({
+                    index = cardTable.index,
+                    position = {-33.00, 1.65, 9.00},
+                    callback_function = function(spawnedObject)
+                        Wait.frames(function() spawnedObject.flip() end)
+                    end
+                })
+                break -- Stop iterating
             end
-        })
-    else
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 9.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
+        end
     end
 
-    -- #6 King of Average (advanced) OR Empire
-    if advancedPioneering then -- destroy the default card
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 9.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.destruct() end)
-            end
-        })
-        -- Get the advanced card
+    -- #6 King of Average (advanced) OR Empire 
+    if advancedPioneering then
         for _, cardTable in ipairs(advancedPioneeringDeckObject.getObjects()) do
             for _, cardTag in ipairs(cardTable.tags) do
                 if cardTag == "king" then
@@ -967,17 +993,19 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
                             Wait.frames(function() spawnedObject.flip() end)
                         end
                     })
-                    break
+                    break -- Stop iterating
                 end
             end
         end
-    else -- If not using advancedPioneering
-        pioneeringDeckObject.takeObject({
-            position = {-33.00, 1.65, 15.00},
-            callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end)
-            end
-        })
+    -- Empire is always the last card without advanced Pioneering. So we use object.remainder to get the last card.
+    else
+        local lastCardObject = pioneeringDeckObject.remainder
+
+        lastCardObject.setPositionSmooth({-33.00, 1.65, 15.00}, false, false)
+        
+        Wait.time(function ()
+            lastCardObject.flip()
+        end, 1)
     end
 
     -- Advanced Pioneering random mission cards #7-9
@@ -1006,10 +1034,10 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         })
 
         Wait.time(function ()
-            -- Destroy remaining card(s)
+            -- Destroy remaining card and deck
             local objects = pioneeringScriptingZoneObject.getObjects()
             for _, object in pairs(objects) do
-                if object.type == "Card" then
+                if object.type == "Card" or object.type == "Deck" then
                     object.destruct()
                 end
             end

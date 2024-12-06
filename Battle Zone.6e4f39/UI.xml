@@ -44,29 +44,29 @@
     <Row>
         <Cell padding="0 0 10 30">
             <!-- Max 4 on 1 area = 4 -->
-            <Slider id="troopCountAttackSlider" onValueChanged="TroopCountAttackChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
+            <Slider id="troopCountAttackSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="TroopCountAttackChange" minValue="1" maxValue="4" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max 4 + (2x +2 card) = 8 -->
-            <Slider id="multiplierAttackSlider" onValueChanged="MultiplierAttackChange" minValue="1" maxValue="8" value="1" wholeNumbers="true"/>
+            <Slider id="multiplierAttackSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MultiplierAttackChange" minValue="1" maxValue="8" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (2x +2 card) = 4 -->
-            <Slider id="extraDiceAttackSlider" onValueChanged="ExtraDiceAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
+            <Slider id="extraDiceAttackSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="ExtraDiceAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (2x +3 card) + 1 sentry + 1 track bonus = 8 -->
-            <Slider id="extraDieValueAttackSlider" onValueChanged="ExtraDieValueAttackChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
+            <Slider id="extraDieValueAttackSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="ExtraDieValueAttackChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (2x +2 card) = 4 -->
-            <Slider id="multiplyDieAttackSlider" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
+            <Slider id="multiplyDieAttackSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MultiplyDieAttackChange" minValue="0" maxValue="4" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 20">
-            <Toggle id="maximumDieValueAttackToggle" onValueChanged="MaximumDieValueAttackChange" toggleWidth="80" toggleHeight="80"/>
+            <Toggle id="maximumDieValueAttackToggle" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MaximumDieValueAttackChange" toggleWidth="80" toggleHeight="80"/>
         </Cell>               
         <Cell padding="0 0 10 30">
-            <Button id="attackButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="AttackButtonClicked">Set Attack</Button>
+            <Button id="attackButton" fontStyle="Bold" fontSize="42" textColor="#09266E" shadow="#262626b3" shadowDistance="5 -5" onClick="AttackButtonClicked">Set Attack</Button>
         </Cell>
     </Row>
 </TableLayout> 
@@ -134,29 +134,29 @@
     <Row>
         <Cell padding="0 0 10 30">
             <!-- Max 4 on 1 area = 4 -->
-            <Slider id="troopCountDefenseSlider" onValueChanged="TroopCountDefenseChange" minValue="0" maxValue="4" value="1" wholeNumbers="true"/>
+            <Slider id="troopCountDefenseSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="TroopCountDefenseChange" minValue="0" maxValue="4" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (9 guardian) + 1 ability + (1x +2 card) = 12 -->
-            <Slider id="multiplierDefenseSlider" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="1" wholeNumbers="true"/>
+            <Slider id="multiplierDefenseSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MultiplierDefenseChange" minValue="1" maxValue="12" value="1" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max (6 guardian) + 1 ability + (1x +2 card) = 9 -->
-            <Slider id="ExtraDiceDefenseSlider" onValueChanged="ExtraDiceDefenseChange" minValue="0" maxValue="9" value="0" wholeNumbers="true"/>
+            <Slider id="ExtraDiceDefenseSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="ExtraDiceDefenseChange" minValue="0" maxValue="9" value="0" wholeNumbers="true"/>
         </Cell>
         <Cell padding="0 0 10 30">
             <!-- Max + 3 ability + (1x +3 card) + 1 sentry + 1 track bonus = 8 -->
-            <Slider id="extraDieValueDefenseSlider" onValueChanged="ExtraDieValueDefenseChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
+            <Slider id="extraDieValueDefenseSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="ExtraDieValueDefenseChange" minValue="0" maxValue="8" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 10 30">
             <!-- Max (1x +2 card) + 1 ability = 3 -->
-            <Slider id="multiplyDieDefenseSlider" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
+            <Slider id="multiplyDieDefenseSlider" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MultiplyDieDefenseChange" minValue="0" maxValue="3" value="0" wholeNumbers="true"/>
         </Cell>   
         <Cell padding="0 0 0 20">
-            <Toggle id="maximumDieValueDefenseToggle" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="80" toggleHeight="80"/>
+            <Toggle id="maximumDieValueDefenseToggle" shadow="#262626b3" shadowDistance="5 -5" onValueChanged="MaximumDieValueDefenseChange" toggleWidth="80" toggleHeight="80"/>
         </Cell>                   
         <Cell padding="0 0 10 30">
-            <Button id="defenseButton" fontStyle="Bold" fontSize="42" textColor="#09266E" onClick="DefenseButtonClicked">Set Defense</Button>
+            <Button id="defenseButton" fontStyle="Bold" fontSize="42" textColor="#09266E" shadow="#262626b3" shadowDistance="5 -5" onClick="DefenseButtonClicked">Set Defense</Button>
         </Cell>
     </Row>
 </TableLayout> 
@@ -168,8 +168,10 @@
     height="120"
     fontStyle="Bold" 
     fontSize="45" 
-    textColor="#09266E" 
-    position="1750 -850 -65"
+    textColor="#09266E"
+    shadow="#262626b3"
+    shadowDistance="5 -5" 
+    position="1750 -850 0"
     rotation="0 0 90"
     onClick="HiddenZoneAttackerButtonClicked">Hide
 </Button> 
@@ -180,7 +182,9 @@
     fontStyle="Bold" 
     fontSize="45" 
     textColor="#09266E" 
-    position="-1750 -450 -65"
+    shadow="#262626b3"
+    shadowDistance="5 -5"     
+    position="-1750 -450 0"
     rotation="0 0 -90"
     onClick="HiddenZoneDefenderButtonClicked">Hide
 </Button> 
@@ -226,7 +230,7 @@
             <Text id="attackResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
         </Cell>
         <Cell>
-            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" interactable="false" onClick="BattleButtonClicked">Battle!</Button>
+            <Button id="battleButton" fontStyle="Bold" fontSize="60" textColor="#09266E" shadow="#262626b3" shadowDistance="5 -5" interactable="false" onClick="BattleButtonClicked">Battle!</Button>
         </Cell>
         <Cell id="defenseResultCell" dontUseTableCellBackground="true">
             <Text id="defenseResultText" fontStyle="Bold" color="#FFFFFF" shadow="#141414" fontSize="80">00</Text>
