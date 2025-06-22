@@ -1,0 +1,46 @@
+{
+  "GUID": "3dbb68",
+  "Name": "Card",
+  "Transform": {
+    "posX": -23.9999638,
+    "posY": 1.92164934,
+    "posZ": -10.5000076,
+    "rotX": 0.0798785,
+    "rotY": 90.00364,
+    "rotZ": 179.983139,
+    "scaleX": 2.3,
+    "scaleY": 1.0,
+    "scaleZ": 2.3
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "Tags": [
+    "combat_card_2"
+  ],
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "Hands": true,
+  "CardID": 7213,
+  "SidewaysCard": false
+}

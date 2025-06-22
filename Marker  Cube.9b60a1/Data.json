@@ -7,7 +7,7 @@
     "posZ": -49.5789833,
     "rotX": 359.924,
     "rotY": 269.988068,
-    "rotZ": 0.0187452529,
+    "rotZ": 0.0187452566,
     "scaleX": 1.3,
     "scaleY": 1.3,
     "scaleZ": 1.3
@@ -27,7 +27,7 @@
   },
   "LayoutGroupSortIndex": 0,
   "Value": 0,
-  "Locked": false,
+  "Locked": true,
   "Grid": true,
   "Snap": true,
   "IgnoreFoW": false,
@@ -40,7 +40,7 @@
   "HideWhenFaceDown": false,
   "Hands": false,
   "CustomMesh": {
-    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506895386/8A64171173BC106B7274F36BC475E29137CC8A8F/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/17129976106761357908/F1D01448294C99438DAD56FF0972D9057B505480/",
     "DiffuseURL": "",
     "NormalURL": "",
     "ColliderURL": "",

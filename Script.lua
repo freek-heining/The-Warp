@@ -166,9 +166,9 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
+    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
 
-    SetInteractableFalse() -- Initially set lots of components to interactable = false 
+    --SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
     if setupDone then
         UI.setAttribute("setupWindow", "active", false)
