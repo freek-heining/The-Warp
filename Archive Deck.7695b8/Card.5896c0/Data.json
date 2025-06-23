@@ -2,12 +2,12 @@
   "GUID": "5896c0",
   "Name": "Card",
   "Transform": {
-    "posX": -23.9999638,
-    "posY": 1.92164934,
-    "posZ": -10.5000076,
-    "rotX": 0.0798785,
-    "rotY": 90.00364,
-    "rotZ": 179.983139,
+    "posX": -48.42095,
+    "posY": 3.17894173,
+    "posZ": 7.54981852,
+    "rotX": 359.9465,
+    "rotY": 89.42695,
+    "rotZ": 0.150540382,
     "scaleX": 2.3,
     "scaleY": 1.0,
     "scaleZ": 2.3
@@ -26,6 +26,7 @@
     "b": 0.713235259
   },
   "Tags": [
+    "combat",
     "combat_card_2"
   ],
   "LayoutGroupSortIndex": 0,
@@ -40,7 +41,19 @@
   "Sticky": true,
   "Tooltip": true,
   "GridProjection": false,
+  "HideWhenFaceDown": true,
   "Hands": true,
   "CardID": 7252,
-  "SidewaysCard": false
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "72": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/16055199312983151087/901295F7A0FABBBDC44008B62FE8BF813207785D/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/11853979925270754794/1B4B49DBF134BC22432ECE03E57EEC4C60F000AA/",
+      "NumWidth": 10,
+      "NumHeight": 7,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
 }

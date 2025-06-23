@@ -2,11 +2,14 @@
     id="setupWindow"
     color="#FFFFFFCC"
     width="700"
-    height="700">
+    height="700"
+    >
 
     <Image 
         image="The_Warp_Boxart"
-        preserveAspect="true"/>
+        preserveAspect="true"
+        raycastTarget="true"
+    />
 
     <VerticalLayout
         childForceExpandWidth="false"

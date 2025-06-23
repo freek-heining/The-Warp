@@ -2,7 +2,8 @@
     "Lua.diagnostics.globals": [
         "startClick",
         "onload",
-        "log"
+        "log",
+        "onSave"
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"

@@ -2,12 +2,12 @@
   "GUID": "4064e6",
   "Name": "Card",
   "Transform": {
-    "posX": -45.00003,
-    "posY": 1.60024285,
-    "posZ": 21.0000114,
-    "rotX": 0.07987838,
-    "rotY": 89.9948349,
-    "rotZ": 179.983124,
+    "posX": -39.5801926,
+    "posY": 2.54896283,
+    "posZ": 20.766346,
+    "rotX": 359.922729,
+    "rotY": 89.73903,
+    "rotZ": 179.982925,
     "scaleX": 1.15,
     "scaleY": 1.0,
     "scaleZ": 1.15
@@ -25,9 +25,12 @@
     "g": 0.713235259,
     "b": 0.713235259
   },
+  "Tags": [
+    "civilization"
+  ],
   "LayoutGroupSortIndex": 0,
   "Value": 0,
-  "Locked": true,
+  "Locked": false,
   "Grid": true,
   "Snap": true,
   "IgnoreFoW": false,
@@ -37,7 +40,19 @@
   "Sticky": true,
   "Tooltip": true,
   "GridProjection": false,
+  "HideWhenFaceDown": true,
   "Hands": true,
   "CardID": 8501,
-  "SidewaysCard": false
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "85": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/16956819153773733221/70E5BF71F8EF1A4780D22F2A62E3B38413FD7F65/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/16955507758813697229/1012CC5E527EE7D712FF762B24D188687263FDF8/",
+      "NumWidth": 3,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
 }

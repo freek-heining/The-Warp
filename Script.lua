@@ -282,7 +282,7 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
     end
 
     local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "97c815"
+    local startCardDeckGUID = "1f1a56"
     if not setupDone then
         local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
         local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
@@ -675,7 +675,7 @@ end
 
 function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
     local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "97c815"
+    local startCardDeckGUID = "1f1a56"
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
@@ -817,14 +817,14 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
         ProsperityDeckObject.takeObject({
             position = {-33.00, 1.65, -15.00},
             callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
+                Wait.frames(function() spawnedObject.flip() end)
             end
         })
     else
         ProsperityDeckObject.takeObject({
             position = {-33.00, 1.65, -9.00},
             callback_function = function(spawnedObject)
-                Wait.frames(function() spawnedObject.flip() end) -- * Optional, defaults to `1`. *
+                Wait.frames(function() spawnedObject.flip() end)
             end
         })
     end
@@ -1001,7 +1001,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     else
         local lastCardObject = pioneeringDeckObject.remainder
 
-        lastCardObject.setPositionSmooth({-33.00, 1.65, 15.00}, false, false)
+        lastCardObject.setPositionSmooth({-33.00, 1.65, 15.00}, false, false) -- ERROR
         
         Wait.time(function ()
             lastCardObject.flip()
