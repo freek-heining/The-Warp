@@ -2,7 +2,7 @@ local archiveDiscardScriptingZoneGUID = "9198fd"
 local archiveDiscardScriptingZoneObject = getObjectFromGUID(archiveDiscardScriptingZoneGUID)
 
 local lastCardObject = nil
-local archiveDeckGUID = "7695b8"
+local archiveDeckGUID = "e7f49f"
 local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 local archiveDeckScriptingZoneGUID = "ceb0b5"
 local archiveDeckScriptingZoneObject = getObjectFromGUID(archiveDeckScriptingZoneGUID)

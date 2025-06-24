@@ -1,0 +1,55 @@
+{
+  "GUID": "f4240a",
+  "Name": "Card",
+  "Transform": {
+    "posX": -49.26397,
+    "posY": 2.67506051,
+    "posZ": -10.9073172,
+    "rotX": 0.08014343,
+    "rotY": 90.02055,
+    "rotZ": 359.984,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Nurec Designers",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 11212,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "112": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/18443052734913984776/684D6D8CCF3889E1B97E2829921AB72B5A0CEC5B/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/10590515839484837995/FD8A4C79A8541B4810D0D3BA0910D2BD26CCD44B/",
+      "NumWidth": 6,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GUID": "b13e38",
+  "Name": "Card",
+  "Transform": {
+    "posX": -45.37099,
+    "posY": 2.18880153,
+    "posZ": 8.808528,
+    "rotX": 0.0794751942,
+    "rotY": 89.97462,
+    "rotZ": 359.981476,
+    "scaleX": 2.3,
+    "scaleY": 1.0,
+    "scaleZ": 2.3
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "Tags": [
+    "combat",
+    "combat_card_4"
+  ],
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": true,
+  "CardID": 10450,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "104": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/14300652747258395077/AE866661B135C5FC753BD79382B43984B4615CC1/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/16331870986552884125/3776C874566BD0F8B9553058EEA59CBCCAF17BC7/",
+      "NumWidth": 10,
+      "NumHeight": 7,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

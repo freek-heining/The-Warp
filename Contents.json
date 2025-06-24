@@ -1248,9 +1248,6 @@
     "path": "./Completed Pioneering missions.0a7fd5"
   },
   {
-    "path": "./Archive Deck.7695b8"
-  },
-  {
     "path": "./Gold Token Spawner.91b521"
   },
   {
@@ -1287,51 +1284,6 @@
     "path": "./Laser Cannon Resolver.4710f6"
   },
   {
-    "path": "./Supply Board (red).f7dc7d"
-  },
-  {
-    "path": "./Supply Board (purple.c442ed"
-  },
-  {
-    "path": "./Supply Board (orange).40c126"
-  },
-  {
-    "path": "./Supply Board (green).a82968"
-  },
-  {
-    "path": "./Supply Board (blue).ec989f"
-  },
-  {
-    "path": "./Player Board (black).a7afb6"
-  },
-  {
-    "path": "./Supply Board (black).710e74"
-  },
-  {
-    "path": "./Player Board (blue).7ef26f"
-  },
-  {
-    "path": "./Player Board (green).f83437"
-  },
-  {
-    "path": "./Player Board (orange).a14be3"
-  },
-  {
-    "path": "./Player Board (purple).64cf6d"
-  },
-  {
-    "path": "./Player Board (red).697694"
-  },
-  {
-    "path": "./Card.3cd852"
-  },
-  {
-    "path": "./Custom_Tile.5c968c"
-  },
-  {
-    "path": "./Custom_Tile.c8c492"
-  },
-  {
     "path": "./Custom_Tile.4a41dc"
   },
   {
@@ -1347,6 +1299,51 @@
     "path": "./Custom_Tile.40ec8e"
   },
   {
-    "path": "./Deck.1f1a56"
+    "path": "./Custom_Tile.c8c492"
+  },
+  {
+    "path": "./Custom_Tile.5c968c"
+  },
+  {
+    "path": "./Player Board (red).697694"
+  },
+  {
+    "path": "./Player Board (purple).64cf6d"
+  },
+  {
+    "path": "./Player Board (orange).a14be3"
+  },
+  {
+    "path": "./Player Board (green).f83437"
+  },
+  {
+    "path": "./Player Board (blue).7ef26f"
+  },
+  {
+    "path": "./Player Board (black).a7afb6"
+  },
+  {
+    "path": "./Supply Board (red).f7dc7d"
+  },
+  {
+    "path": "./Supply Board (purple.c442ed"
+  },
+  {
+    "path": "./Supply Board (orange).40c126"
+  },
+  {
+    "path": "./Supply Board (green).a82968"
+  },
+  {
+    "path": "./Supply Board (blue).ec989f"
+  },
+  {
+    "path": "./Supply Board (black).710e74"
+  },
+  {
+    "path": "./Archive Start Deck.a28e80"
+  },
+  {
+    "path": "./Archive Deck.e7f49f"
   }
 ]

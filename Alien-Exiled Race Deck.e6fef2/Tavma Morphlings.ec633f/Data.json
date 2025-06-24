@@ -1,0 +1,55 @@
+{
+  "GUID": "ec633f",
+  "Name": "Card",
+  "Transform": {
+    "posX": -52.2212868,
+    "posY": 2.666365,
+    "posZ": 37.459938,
+    "rotX": 0.07904303,
+    "rotY": 90.00687,
+    "rotZ": 359.982483,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Tavma Morphlings",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": true,
+  "CardID": 9110,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "91": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/16928982173363141655/491031C129191A59EDC577C7F70B58F40371F6EF/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/16503309906513791723/10C7C21F9B276DEEF3B5DC3EA83F36023583ED50/",
+      "NumWidth": 6,
+      "NumHeight": 3,
+      "BackIsHidden": true,
+      "UniqueBack": true,
+      "Type": 0
+    }
+  }
+}

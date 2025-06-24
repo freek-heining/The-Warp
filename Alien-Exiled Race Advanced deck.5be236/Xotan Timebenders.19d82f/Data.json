@@ -1,0 +1,55 @@
+{
+  "GUID": "19d82f",
+  "Name": "Card",
+  "Transform": {
+    "posX": -50.1550751,
+    "posY": 2.886833,
+    "posZ": 35.972908,
+    "rotX": 0.07885677,
+    "rotY": 90.08492,
+    "rotZ": 359.9856,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Xotan Timebenders",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": true,
+  "CardID": 9213,
+  "SidewaysCard": false,
+  "CustomDeck": {
+    "92": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/12623777526125195757/1F58F9937768F04726C459A4B2E5F87354F30EE8/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/11561696015980294875/96255B82BB724EC1F7E572FC65FCE4E3F61D51FA/",
+      "NumWidth": 7,
+      "NumHeight": 4,
+      "BackIsHidden": true,
+      "UniqueBack": true,
+      "Type": 0
+    }
+  }
+}

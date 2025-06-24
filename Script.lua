@@ -281,8 +281,8 @@ function SetInteractableFalse() -- Initially sets a whole bunch of objects to in
         draftZoneCounterClockwiseObject.interactable = false
     end
 
-    local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "1f1a56"
+    local archiveDeckGUID = "e7f49f"
+    local startCardDeckGUID = "a28e80"
     if not setupDone then
         local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
         local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
@@ -674,8 +674,8 @@ function DetermineStartingPlayer() -- Determines starting player (player number 
 end
 
 function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archive cards to each player
-    local archiveDeckGUID = "7695b8"
-    local startCardDeckGUID = "1f1a56"
+    local archiveDeckGUID = "e7f49f"
+    local startCardDeckGUID = "a28e80"
     local startCardDeckObject = getObjectFromGUID(startCardDeckGUID)
     local archiveDeckObject = getObjectFromGUID(archiveDeckGUID)
 
@@ -694,7 +694,7 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
         startCardDeckObject.deal(1, turnOrderTable[i])
     end
 
-    for _ = 1, 100 do
+    for _ = 1, 70 do
         coroutine.yield(0)
     end
 
@@ -730,7 +730,7 @@ function DealArchiveCardsCoroutine() -- Deals starting card and 4/5 random archi
         end
     })
 
-    for _ = 1, 100 do
+    for _ = 1, 70 do
         coroutine.yield(0)
     end
 
@@ -1045,7 +1045,7 @@ function SetMissionCards() -- Lay down 3 random missions and the default or adva
     end
 end
 
-local playerZoneObjects = {} -- Stores all used player zones for DealPlayerTokensCoroutine(), filled in CreateBoardCoroutine() (Global var because we cannot pass parameters to a coroutine function).
+local playerZoneObjects = {} -- Stores all used player zones for DealPlayerTokensCoroutine(), filled in CreateBoardCoroutine()
 
 function CreateBoardCoroutine() -- Create game board dynamically. Also calls DealExileTokens() and DealPlayerTokensCoroutine() when finished
     local portalGUID = "9aecf3"
@@ -1076,7 +1076,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         connectZonePositions = connectZonePositionB
 
         -- swap central zone manually
-        params = {
+        local params = {
             image = "https://steamusercontent-a.akamaihd.net/ugc/2508016228644603765/BB45181317EA04A5823CF4EB33944313E5C74D82/",
             thickness = 0.2,
             merge_distance = 5,
@@ -1096,7 +1096,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         playerZoneBObject.setRotationSmooth(playerZonePositions[1][2], false, false)
 
         -- Wait X frames after moving new board
-        for _ = 1, 130 do
+        for _ = 1, 100 do
             coroutine.yield(0)
         end
     end
@@ -1122,7 +1122,7 @@ function CreateBoardCoroutine() -- Create game board dynamically. Also calls Dea
         playerZone.interactable = false
         
         -- Wait X frames between placing boards
-        for _ = 1, 110 do
+        for _ = 1, 100 do
             coroutine.yield(0)
         end
     end
@@ -1305,7 +1305,7 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
     local blackTokenObjects = blackScriptingZoneObject.getObjects()
     insertRotateToTable(blackTokenObjects)
 
-    for _ = 1, 70, 1 do
+    for _ = 1, 40, 1 do
         coroutine.yield(0)
     end
 
@@ -1323,19 +1323,19 @@ function DealPlayerTokensCoroutine() -- Deals all starting tokens to players. Al
             end
 
             if alternativeSetup then
-                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsB[j]), false, false) -- Set 8 tokens j on current player i's player zone
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsB[j]), false, true) -- Set 8 tokens j on current player i's player zone
             else
-                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsA[j]), false, false) -- Set 8 tokens j on current player i's player zone
+                object.setPositionSmooth(playerZoneObjects[i].positionToWorld(playerTokenLocationsA[j]), false, true) -- Set 8 tokens j on current player i's player zone
             end
 
             -- Wait between tokens
-            for _ = 1, 15 do
+            for _ = 1, 5 do
                 coroutine.yield(0)
             end
         end
         
         -- Wait between players
-        for _ = 1, 70, 1 do
+        for _ = 1, 40, 1 do
             coroutine.yield(0)
         end
     end
@@ -1363,97 +1363,44 @@ function DealResourcesCoroutine() -- Deals starting gold/energy to players accor
 
     -- Gold/Energy amounts:
     -- Player 1: 4/4, Player 2: 5/4, Player 3: 5/5, Player 4: 5/5, Player 5: 6/5, Player 6: 6/6
+    local function dealResourcesToPlayer(goldAmount, EnergyAmount)
+        for _ = 1, goldAmount do
+            goldSpawnerObject.takeObject({
+                position = goldZonePositions[playerColorIndex]
+            })
+            for _ = 1, 5 do
+                coroutine.yield(0)
+            end
+        end
+        for _ = 1, EnergyAmount do
+            energySpawnerObject.takeObject({
+                position = energyZonePositions[playerColorIndex]
+            })
+            for _ = 1, 5 do
+                coroutine.yield(0)
+            end
+        end
+    end
+
+    local goldAmount
+    local EnergyAmount
+
     for i = 1, playerCount do
         -- Player 1
         if i == 1 then
-            for _ = 1, 4 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 4 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
+            dealResourcesToPlayer(4, 4)
         -- Player 2
         elseif i == 2 then
-            for _ = 1, 5 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 4 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
+            dealResourcesToPlayer(5, 4)
         -- Player 3 & 4
-        elseif i == 3 or i ==4 then
-            for _ = 1, 5 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 5 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
+        elseif (i == 3) or (i == 4) then
+            dealResourcesToPlayer(5, 5)
         -- Player 5
         elseif i == 5 then
-            for _ = 1, 6 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 5 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
+            dealResourcesToPlayer(6, 5)
         -- Player 6
         elseif i == 6 then
-            for _ = 1, 6 do
-                goldSpawnerObject.takeObject({
-                    position = goldZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
-            for _ = 1, 6 do
-                energySpawnerObject.takeObject({
-                    position = energyZonePositions[playerColorIndex]
-                })
-                for _ = 1, 15 do
-                    coroutine.yield(0)
-                end
-            end
+            dealResourcesToPlayer(6, 6)
         end
 
         playerColorIndex = playerColorIndex + 1
@@ -1464,7 +1411,7 @@ function DealResourcesCoroutine() -- Deals starting gold/energy to players accor
         end
 
         -- Wait X frames between players
-        for _ = 1, 60 do
+        for _ = 1, 20 do
             coroutine.yield(0)
         end
     end
@@ -2009,7 +1956,7 @@ end
 local exileTokensTable = {}
 
 -- Gets all exile tokens on board and put in exileTokensTable. Called in DealExileTokens()
-function CollectExileTokens() 
+function CollectExileTokens()
     local boardScriptingZoneGUID = "8a89e0"
     local boardScriptingZoneObject = getObjectFromGUID(boardScriptingZoneGUID)
 

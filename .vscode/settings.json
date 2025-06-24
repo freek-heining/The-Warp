@@ -3,7 +3,8 @@
         "startClick",
         "onload",
         "log",
-        "onSave"
+        "onSave",
+        "onPlayerAction"
     ],
     "Lua.diagnostics.disable": [
         "undefined-global"
