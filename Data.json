@@ -1,14 +1,14 @@
 {
   "SaveName": "The Warp - Boardgame v2.5",
-  "EpochTime": 1750763149,
-  "Date": "6/24/2025 1:05:49 PM",
+  "EpochTime": 1750766354,
+  "Date": "6/24/2025 1:59:14 PM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
-  "GameComplexity": "Low Complexity",
+  "GameComplexity": "Medium Complexity",
   "PlayingTime": [
-    0,
-    120
+    90,
+    180
   ],
   "PlayerCounts": [
     0,
@@ -20,8 +20,13 @@
     "Wargames",
     "Strategy Games",
     "Thematic Games",
+    "Card Games",
     "Scripting: Automated",
     "Scripting",
+    "Figurines",
+    "Components",
+    "Cards",
+    "User Interfaces",
     "4X",
     "Area Control",
     "Conflict",
@@ -31,12 +36,8 @@
     "Bribing",
     "Bluffing",
     "Resource Management",
-    "Card Games",
-    "Figurines",
-    "Components",
-    "Cards",
-    "User Interfaces",
-    "Combat"
+    "Combat",
+    "English"
   ],
   "Gravity": 0.5,
   "PlayArea": 0.5,
@@ -333,7 +334,7 @@
     "SkipEmpty": false,
     "DisableInteractions": false,
     "PassTurns": true,
-    "TurnColor": "Black"
+    "TurnColor": ""
   },
   "CameraStates": [
     null,
@@ -722,7 +723,7 @@
         "z": -14.9999828
       },
       "Rotation": {
-        "x": 0.07988032,
+        "x": 0.07988033,
         "y": 89.9960251,
         "z": 179.983124
       }
