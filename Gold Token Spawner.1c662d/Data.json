@@ -1,0 +1,67 @@
+{
+  "GUID": "1c662d",
+  "Name": "Custom_Model_Infinite_Bag",
+  "Transform": {
+    "posX": 46.50003,
+    "posY": 1.56717086,
+    "posZ": 14.9999676,
+    "rotX": 359.9454,
+    "rotY": 329.9988,
+    "rotZ": 359.93924,
+    "scaleX": 2.0,
+    "scaleY": 2.0,
+    "scaleZ": 2.0
+  },
+  "Nickname": "Gold Token Spawner",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "MaterialIndex": -1,
+  "MeshIndex": -1,
+  "CustomMesh": {
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506943338/E206A878B439FB7BF6785366D9D5337B18AB9EAB/",
+    "DiffuseURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506944531/E27A829F579ADBF9A14B02707C171DACEA18AC0B/",
+    "NormalURL": "https://steamusercontent-a.akamaihd.net/ugc/5848561406506944935/3A8D7AA3F5D27B5D4F0547563F0F39E918FD28C7/",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 2,
+    "TypeIndex": 7,
+    "CastShadows": true
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 2.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

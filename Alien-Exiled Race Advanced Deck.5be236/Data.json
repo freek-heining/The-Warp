@@ -1,0 +1,80 @@
+{
+  "GUID": "5be236",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": -62.2601929,
+    "posY": 1.70852959,
+    "posZ": 12.7520857,
+    "rotX": 0.07986915,
+    "rotY": 89.974556,
+    "rotZ": 359.9831,
+    "scaleX": 3.2,
+    "scaleY": 1.0,
+    "scaleZ": 3.2
+  },
+  "Nickname": "Alien/Exiled Race Advanced Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    9220,
+    9222,
+    9221,
+    9223,
+    9218,
+    9216,
+    9219,
+    9217,
+    9212,
+    9214,
+    9215,
+    9213,
+    9210,
+    9209,
+    9211,
+    9208,
+    9206,
+    9205,
+    9207,
+    9204,
+    9203,
+    9202,
+    9200,
+    9201
+  ],
+  "CustomDeck": {
+    "92": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/12623777526125195757/1F58F9937768F04726C459A4B2E5F87354F30EE8/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/11561696015980294875/96255B82BB724EC1F7E572FC65FCE4E3F61D51FA/",
+      "NumWidth": 7,
+      "NumHeight": 4,
+      "BackIsHidden": true,
+      "UniqueBack": true,
+      "Type": 0
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "GUID": "15072a",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": 46.33422,
+    "posY": 1.74143946,
+    "posZ": -2.81328321,
+    "rotX": 2.380553E-05,
+    "rotY": -0.00117137749,
+    "rotZ": -7.794263E-06,
+    "scaleX": 0.9,
+    "scaleY": 1.0,
+    "scaleZ": 0.9
+  },
+  "Nickname": "Multiplier Token 1 / 2",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "Tags": [
+    "multiplier"
+  ],
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767102812/BF0BC4857B5C298D7D04D5B59060EC128584541C/",
+    "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767102951/E716BBBD509FB1050ADF2270C4DD1200FE676EE4/",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 2,
+      "Thickness": 0.1,
+      "Stackable": false,
+      "Stretch": true
+    }
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

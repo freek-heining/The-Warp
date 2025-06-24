@@ -1,0 +1,104 @@
+{
+  "GUID": "a82968",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": -18.1000118,
+    "posY": 1.49273133,
+    "posZ": -47.58191,
+    "rotX": 0.0168501977,
+    "rotY": 180.0155,
+    "rotZ": 0.07988086,
+    "scaleX": 4.1,
+    "scaleY": 1.0,
+    "scaleZ": 4.1
+  },
+  "Nickname": "Supply Board (green)",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/12437165671076313888/3AC860A80556C643C8990189FF0F51C20461EFF8/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": false,
+      "Stretch": true
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 1.48193777,
+        "y": 0.197162956,
+        "z": 0.874003947
+      },
+      "Rotation": {
+        "x": 5.10417863E-07,
+        "y": 359.974762,
+        "z": 180.000015
+      }
+    },
+    {
+      "Position": {
+        "x": 0.490668654,
+        "y": 0.195087343,
+        "z": 0.873573
+      },
+      "Rotation": {
+        "x": 5.51868347E-08,
+        "y": 359.974762,
+        "z": 180.000015
+      }
+    },
+    {
+      "Position": {
+        "x": -0.4974101,
+        "y": 0.194858372,
+        "z": 0.873146
+      },
+      "Rotation": {
+        "x": -7.98847E-08,
+        "y": 359.974762,
+        "z": 180.000015
+      }
+    },
+    {
+      "Position": {
+        "x": -1.48708892,
+        "y": 0.197691187,
+        "z": 0.872725666
+      },
+      "Rotation": {
+        "x": -1.33245564E-07,
+        "y": 359.974762,
+        "z": 180.000015
+      }
+    }
+  ]
+}

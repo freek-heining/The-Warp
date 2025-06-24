@@ -1,0 +1,69 @@
+{
+  "GUID": "1be9a4",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": -24.0000343,
+    "posY": 1.55922592,
+    "posZ": -19.4999943,
+    "rotX": 0.07987761,
+    "rotY": 90.00561,
+    "rotZ": 359.983124,
+    "scaleX": 1.53204679,
+    "scaleY": 1.0,
+    "scaleZ": 1.53204679
+  },
+  "Nickname": "Archive placement zone",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2504641605493134582/3E6F19197BFAFB9FEA3212A9D13552429AC6B525/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 6.001809E-06,
+        "y": 0.0506616,
+        "z": 6.103946E-05
+      },
+      "Rotation": {
+        "x": -3.46815966E-07,
+        "y": -0.00115161273,
+        "z": 180.0
+      }
+    }
+  ]
+}

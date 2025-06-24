@@ -1,0 +1,67 @@
+{
+  "GUID": "d4e022",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": -47.1276321,
+    "posY": 1.85443509,
+    "posZ": -2.32649136,
+    "rotX": 0.0798796341,
+    "rotY": 90.00002,
+    "rotZ": 359.983124,
+    "scaleX": 0.952965,
+    "scaleY": 1.0,
+    "scaleZ": 0.952965
+  },
+  "Nickname": "Die reroll",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2461851071362064712/FB0B5F7BDD80D5F7DDF63354A2EC546D985D4617/",
+    "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2461851071362059554/6D2E1AF555342DD8F43B4FCF4DC7B16097C8846B/",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": true,
+      "Stretch": true
+    }
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

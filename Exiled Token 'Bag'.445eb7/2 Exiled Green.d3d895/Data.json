@@ -1,0 +1,54 @@
+{
+  "GUID": "d3d895",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": -63.9031448,
+    "posY": 2.22234559,
+    "posZ": -2.9833715,
+    "rotX": 359.508545,
+    "rotY": 89.96452,
+    "rotZ": 357.40918,
+    "scaleX": 0.95,
+    "scaleY": 1.0,
+    "scaleZ": 0.95
+  },
+  "Nickname": "2 Exiled Green",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767107722/B4A5CEEB02212C5BFC1EA6C548F452E4F9D6F52A/",
+    "ImageSecondaryURL": "https://steamusercontent-a.akamaihd.net/ugc/2451718604767108215/B1AE5FBE00D4ABD0323776DB002ABA87A398874D/",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": false,
+      "Stretch": true
+    }
+  }
+}

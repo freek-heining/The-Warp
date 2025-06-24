@@ -1,0 +1,141 @@
+{
+  "GUID": "70bc1a",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": -48.750042,
+    "posY": 1.59615946,
+    "posZ": -11.2499952,
+    "rotX": 0.0798839,
+    "rotY": 90.0207,
+    "rotZ": 359.983154,
+    "scaleX": 2.7,
+    "scaleY": 1.0,
+    "scaleZ": 2.7
+  },
+  "Nickname": "",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2504641605467514627/3C3263EC135581AACC036F54911480C874914E2D/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 5.725868E-05,
+        "y": 0.051884532,
+        "z": -0.151841983
+      },
+      "Rotation": {
+        "x": 2.044449E-08,
+        "y": 359.978729,
+        "z": 2.33787819E-06
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7263317,
+        "y": 0.0497458279,
+        "z": 1.18953955
+      },
+      "Rotation": {
+        "x": 0.00345144118,
+        "y": 359.978516,
+        "z": 0.00317182927
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7260286,
+        "y": 0.0506643876,
+        "z": 0.383731633
+      },
+      "Rotation": {
+        "x": 0.000975839444,
+        "y": 359.978546,
+        "z": 0.000139176263
+      }
+    },
+    {
+      "Position": {
+        "x": -0.7257289,
+        "y": 0.0502032563,
+        "z": -0.412756532
+      },
+      "Rotation": {
+        "x": 0.000387198845,
+        "y": 359.978577,
+        "z": 8.450789E-05
+      }
+    },
+    {
+      "Position": {
+        "x": 0.7371861,
+        "y": 0.0503571071,
+        "z": -0.412214577
+      },
+      "Rotation": {
+        "x": 3.80696952E-06,
+        "y": 359.9749,
+        "z": 7.64311E-06
+      }
+    },
+    {
+      "Position": {
+        "x": 0.7368875,
+        "y": 0.050323762,
+        "z": 0.384273767
+      },
+      "Rotation": {
+        "x": 3.75245281E-06,
+        "y": 359.978424,
+        "z": 2.75072E-06
+      }
+    },
+    {
+      "Position": {
+        "x": 0.7365854,
+        "y": 0.0506765768,
+        "z": 1.19008255
+      },
+      "Rotation": {
+        "x": 3.779172E-06,
+        "y": 359.978546,
+        "z": 2.59396688E-06
+      }
+    }
+  ]
+}

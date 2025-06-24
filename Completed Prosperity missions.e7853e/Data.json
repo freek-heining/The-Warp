@@ -1,0 +1,69 @@
+{
+  "GUID": "e7853e",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 9.462516,
+    "posY": 1.52693069,
+    "posZ": 29.2500362,
+    "rotX": 359.983124,
+    "rotY": -8.962884E-05,
+    "rotZ": 359.920135,
+    "scaleX": 1.10007524,
+    "scaleY": 1.0,
+    "scaleZ": 1.10007524
+  },
+  "Nickname": "Completed Prosperity missions",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216314611381/00875ADA610741E577F023B3E3D10B83232EB95E/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 7.59073E-05,
+        "y": 0.0503218658,
+        "z": -1.69382165E-05
+      },
+      "Rotation": {
+        "x": 3.25167179E-07,
+        "y": 2.056136E-05,
+        "z": 180.0
+      }
+    }
+  ]
+}

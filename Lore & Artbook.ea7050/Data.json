@@ -1,0 +1,48 @@
+{
+  "GUID": "ea7050",
+  "Name": "Custom_PDF",
+  "Transform": {
+    "posX": -57.7500458,
+    "posY": 1.54854763,
+    "posZ": -45.7500763,
+    "rotX": 0.07987673,
+    "rotY": 89.99994,
+    "rotZ": 359.983124,
+    "scaleX": 3.43012166,
+    "scaleY": 1.0,
+    "scaleZ": 3.43012166
+  },
+  "Nickname": "Lore & Artbook",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomPDF": {
+    "PDFUrl": "https://steamusercontent-a.akamaihd.net/ugc/2487756459259423882/891E471AEA667D8666A543866C66B59F919764C0/",
+    "PDFPassword": "",
+    "PDFPage": 0,
+    "PDFPageOffset": 0
+  }
+}

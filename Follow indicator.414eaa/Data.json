@@ -1,0 +1,65 @@
+{
+  "GUID": "414eaa",
+  "Name": "Custom_Model",
+  "Transform": {
+    "posX": 59.25005,
+    "posY": 1.41069245,
+    "posZ": 40.0200157,
+    "rotX": 0.016877912,
+    "rotY": 180.0,
+    "rotZ": 0.07988998,
+    "scaleX": 10.0,
+    "scaleY": 5.0,
+    "scaleZ": 10.0
+  },
+  "Nickname": "Follow indicator",
+  "Description": "Click on top to enable/disable. Used for clearity to indicate you're following a player on his/her turn.",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.6784314,
+    "g": 0.6784314,
+    "b": 0.6784314
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomMesh": {
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/17129976106761357908/F1D01448294C99438DAD56FF0972D9057B505480/",
+    "DiffuseURL": "",
+    "NormalURL": "",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 2,
+    "TypeIndex": 0,
+    "CastShadows": true
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 2.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}

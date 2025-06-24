@@ -1,0 +1,77 @@
+{
+  "GUID": "935e48",
+  "Name": "DeckCustom",
+  "Transform": {
+    "posX": -37.5002823,
+    "posY": 1.64963031,
+    "posZ": -21.0003166,
+    "rotX": 0.07989045,
+    "rotY": 90.03005,
+    "rotZ": 179.983185,
+    "scaleX": 1.15,
+    "scaleY": 1.0,
+    "scaleZ": 1.15
+  },
+  "Nickname": "Progress Mission Deck",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 0.713235259,
+    "g": 0.713235259,
+    "b": 0.713235259
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": true,
+  "Hands": false,
+  "SidewaysCard": false,
+  "DeckIDs": [
+    10800,
+    10801,
+    10802,
+    10803,
+    10804,
+    10805,
+    10806,
+    10807,
+    10808,
+    10809,
+    10810,
+    10811,
+    10812,
+    10813,
+    10814,
+    10815,
+    10816,
+    10817,
+    10818,
+    10819,
+    10820
+  ],
+  "CustomDeck": {
+    "108": {
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/10181405432115216662/4BB2C8353AB06F457569C4F6BDCA854A08D2F85C/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/14921340915397738779/8D3F3B5CAE1A31D194AE2EC8AA1B4BEF1C0DD93C/",
+      "NumWidth": 5,
+      "NumHeight": 5,
+      "BackIsHidden": true,
+      "UniqueBack": false,
+      "Type": 0
+    }
+  }
+}

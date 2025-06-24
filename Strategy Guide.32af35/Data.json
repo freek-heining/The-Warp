@@ -1,0 +1,48 @@
+{
+  "GUID": "32af35",
+  "Name": "Custom_PDF",
+  "Transform": {
+    "posX": -72.7502,
+    "posY": 1.56945956,
+    "posZ": -45.7500763,
+    "rotX": 0.079878144,
+    "rotY": 90.0068,
+    "rotZ": 359.983124,
+    "scaleX": 3.43012166,
+    "scaleY": 1.0,
+    "scaleZ": 3.43012166
+  },
+  "Nickname": "Strategy Guide",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomPDF": {
+    "PDFUrl": "https://steamusercontent-a.akamaihd.net/ugc/2487756459259424391/E71C2F63B3733C42B62E3F17E42CAD2FBAD31EC5/",
+    "PDFPassword": "",
+    "PDFPage": 0,
+    "PDFPageOffset": 0
+  }
+}

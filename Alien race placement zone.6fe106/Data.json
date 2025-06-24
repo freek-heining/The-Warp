@@ -1,0 +1,69 @@
+{
+  "GUID": "6fe106",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 41.7200165,
+    "posY": 1.4843899,
+    "posZ": 37.4998665,
+    "rotX": 359.983063,
+    "rotY": 359.963165,
+    "rotZ": 359.920135,
+    "scaleX": 2.11692119,
+    "scaleY": 1.0,
+    "scaleZ": 2.11692119
+  },
+  "Nickname": "Alien race placement zone",
+  "Description": "Place your chosen race here",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.745098054
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2504641605470555852/2350CFD225272AB40EBD9A2CAE4A31C9E0264756/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 4.59914736E-05,
+        "y": 0.049313806,
+        "z": -1.40655557E-05
+      },
+      "Rotation": {
+        "x": -2.97807082E-06,
+        "y": 0.000117418269,
+        "z": 2.93481634E-07
+      }
+    }
+  ]
+}

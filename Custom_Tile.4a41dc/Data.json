@@ -1,0 +1,54 @@
+{
+  "GUID": "4a41dc",
+  "Name": "Custom_Tile",
+  "Transform": {
+    "posX": 3.27362442,
+    "posY": 1.46833241,
+    "posZ": -29.2500134,
+    "rotX": 0.0168722291,
+    "rotY": 179.998947,
+    "rotZ": 0.07987594,
+    "scaleX": 2.19213271,
+    "scaleY": 1.0,
+    "scaleZ": 2.19213271
+  },
+  "Nickname": "",
+  "Description": "Hold ALT to view player aid",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/16212704013883706138/4109B3EA3D9A51F1E0FF8BE9A7BF355B19A44DED/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomTile": {
+      "Type": 0,
+      "Thickness": 0.1,
+      "Stackable": false,
+      "Stretch": true
+    }
+  }
+}

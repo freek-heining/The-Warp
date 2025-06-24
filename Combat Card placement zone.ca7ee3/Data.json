@@ -1,0 +1,69 @@
+{
+  "GUID": "ca7ee3",
+  "Name": "Custom_Token",
+  "Transform": {
+    "posX": 67.5000839,
+    "posY": 1.43166482,
+    "posZ": -19.5000286,
+    "rotX": 0.0168658458,
+    "rotY": 180.003983,
+    "rotZ": 0.0798820257,
+    "scaleX": 1.53204679,
+    "scaleY": 1.0,
+    "scaleZ": 1.53204679
+  },
+  "Nickname": "Combat Card placement zone",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.7058824
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "CustomImage": {
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2538423216263923618/6AF50A6CC409C73027BFF74F1BA135403A8A0153/",
+    "ImageSecondaryURL": "",
+    "ImageScalar": 1.0,
+    "WidthScale": 0.0,
+    "CustomToken": {
+      "Thickness": 0.1,
+      "MergeDistancePixels": 15.0,
+      "StandUp": false,
+      "Stackable": false
+    }
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 8.8456065E-05,
+        "y": 0.0479503535,
+        "z": -2.414955E-05
+      },
+      "Rotation": {
+        "x": 9.173257E-08,
+        "y": 0.000434865273,
+        "z": 180.0
+      }
+    }
+  ]
+}

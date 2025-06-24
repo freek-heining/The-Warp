@@ -1,0 +1,67 @@
+{
+  "GUID": "3a9384",
+  "Name": "Custom_Model_Infinite_Bag",
+  "Transform": {
+    "posX": -16.5000553,
+    "posY": 1.50532126,
+    "posZ": 9.000027,
+    "rotX": 0.07988145,
+    "rotY": 90.00048,
+    "rotZ": 359.983124,
+    "scaleX": 2.59999871,
+    "scaleY": 2.59999871,
+    "scaleZ": 2.59999871
+  },
+  "Nickname": "Multiplier Token 3 / 4 Spawner",
+  "Description": "Spawns double sided 3 / 4 multiplier tokens",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": true,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "MaterialIndex": -1,
+  "MeshIndex": -1,
+  "CustomMesh": {
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136736363316539/6475490F4E58315A77E414046BC63E9EABE549CA/",
+    "DiffuseURL": "https://steamusercontent-a.akamaihd.net/ugc/2500136736363374543/4EE0A6DC296A61FA31E9C72408D2913E557C10F5/",
+    "NormalURL": "",
+    "ColliderURL": "",
+    "Convex": true,
+    "MaterialIndex": 1,
+    "TypeIndex": 7,
+    "CastShadows": true
+  },
+  "PhysicsMaterial": {
+    "StaticFriction": 1.0,
+    "DynamicFriction": 0.7,
+    "Bounciness": 0.0,
+    "FrictionCombine": 0,
+    "BounceCombine": 0
+  },
+  "Rigidbody": {
+    "Mass": 1.0,
+    "Drag": 5.0,
+    "AngularDrag": 5.0,
+    "UseGravity": true
+  }
+}
