@@ -1,7 +1,7 @@
 {
   "SaveName": "The Warp - Boardgame v2.5",
-  "EpochTime": 1750762480,
-  "Date": "6/24/2025 12:54:40 PM",
+  "EpochTime": 1750763149,
+  "Date": "6/24/2025 1:05:49 PM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
@@ -722,7 +722,7 @@
         "z": -14.9999828
       },
       "Rotation": {
-        "x": 0.0798803046,
+        "x": 0.07988032,
         "y": 89.9960251,
         "z": 179.983124
       }
