@@ -1,1 +1,0 @@
-{"variables":{"playerCount":0,"setupDone":false,"startPlayerNumber":0,"turnOrderTable":[]}}
