@@ -166,7 +166,7 @@ function onload(state)
         turnOrderTable = decodedState.variables.turnOrderTable
     end
 
-    UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
+    --UI.setAttribute("setupWindow", "active", false) -- ENABLE when developing, to disable menu
 
     SetInteractableFalse() -- Initially set lots of components to interactable = false 
 
@@ -1921,15 +1921,15 @@ function DealMissionCardsCoroutine() -- Deals 2 missions of each color to the pl
 
     for _, color in pairs(turnOrderTable) do
         progressDeckObject.deal(2, color)
-        for _ = 1, 60 do
+        for _ = 1, 30 do
             coroutine.yield(0)
         end
         ProsperityDeckObject.deal(2, color)
-        for _ = 1, 60 do
+        for _ = 1, 30 do
             coroutine.yield(0)
         end
         conquestDeckObject.deal(2, color)
-        for _ = 1, 60 do
+        for _ = 1, 30 do
             coroutine.yield(0)
         end
     end

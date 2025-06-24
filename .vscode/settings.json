@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "UI",
+        "onload",
+        "log",
+        "onSave",
+        "JSON",
+        "getObjectFromGUID",
+        "broadcastToAll"
+    ]
+}
