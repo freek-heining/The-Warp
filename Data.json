@@ -1,7 +1,7 @@
 {
   "SaveName": "The Warp - Boardgame v2.5",
-  "EpochTime": 1750766354,
-  "Date": "6/24/2025 1:59:14 PM",
+  "EpochTime": 1750766424,
+  "Date": "6/24/2025 2:00:24 PM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
@@ -11,7 +11,7 @@
     180
   ],
   "PlayerCounts": [
-    0,
+    2,
     6
   ],
   "Tags": [
@@ -27,6 +27,7 @@
     "Components",
     "Cards",
     "User Interfaces",
+    "English",
     "4X",
     "Area Control",
     "Conflict",
@@ -36,8 +37,7 @@
     "Bribing",
     "Bluffing",
     "Resource Management",
-    "Combat",
-    "English"
+    "Combat"
   ],
   "Gravity": 0.5,
   "PlayArea": 0.5,
@@ -723,7 +723,7 @@
         "z": -14.9999828
       },
       "Rotation": {
-        "x": 0.07988033,
+        "x": 0.0798803344,
         "y": 89.9960251,
         "z": 179.983124
       }
