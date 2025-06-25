@@ -1,7 +1,7 @@
 {
   "SaveName": "The Warp - Boardgame v2.5",
-  "EpochTime": 1750766424,
-  "Date": "6/24/2025 2:00:24 PM",
+  "EpochTime": 1750832573,
+  "Date": "6/25/2025 8:22:53 AM",
   "VersionNumber": "v13.3",
   "GameMode": "The Warp - Boardgame",
   "GameType": "Game",
@@ -191,7 +191,7 @@
     "ThickLines": false,
     "Snapping": false,
     "Offset": false,
-    "BothSnapping": true,
+    "BothSnapping": false,
     "xSize": 1.5,
     "ySize": 1.5,
     "PosOffset": {
@@ -723,7 +723,7 @@
         "z": -14.9999828
       },
       "Rotation": {
-        "x": 0.0798803344,
+        "x": 0.07988034,
         "y": 89.9960251,
         "z": 179.983124
       }
